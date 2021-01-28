@@ -30,12 +30,21 @@ devtools::install_github("vidonne/unhcrthemes")
 ``` r
 library(unhcrthemes)
 library(ggplot2)
-# install.packages("extrafont")
-library(extrafont)
 
-# Import system font to R, to be done once
-# extrafont::font_import()
-extrafont::loadfonts(device="postscript")
+# install.packages('showtext', dependencies = TRUE)
+library(showtext)
+
+# Check the current search path for fonts
+allfontpath <- font_paths()    
+
+# List available font files in the search path
+allfont <- font_files()
+
+# syntax: font_add(family = "<family_name>", regular = "/path/to/font/file")
+font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
+
+# automatically use showtexts for new devices
+showtext_auto()
 ```
 
 ### Base ggplot2 theme
@@ -50,4 +59,4 @@ ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
   theme_unhcr()
 ```
 
-<img src="man/figures/README-plot-theme-1.png" width="100%" />
+<img src="man/figures/README-plot-theme-1.svg" width="100%" />

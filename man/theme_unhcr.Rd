@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_unhcr.R
 \name{theme_unhcr}
 \alias{theme_unhcr}
-\title{UNHCR [ggplot2] theme following brand recommandations}
+\title{UNHCR [ggplot2] theme following brand recommendations}
 \usage{
 theme_unhcr(
   base_family = "Lato",
@@ -33,20 +33,28 @@ theme_unhcr(
 \item{ticks}{Turn on and off tick marks}
 }
 \description{
-UNHCR [ggplot2] theme following brand recommandations
+\code{theme_unhcr} provides a basic \bold{UNHCR} theme
+to use in \bold{ggplot2} commands.
 }
 \examples{
-\donttest{
+\dontrun{
 library(ggplot2)
+library(showtext)
+
+font_add("Lato", regular = "Lato-Regular.ttf", bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
+showtext_auto()
 
 # Simple scatterplot example
 
 ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
   geom_point() +
-  labs(x="Petal length", y="Petal width",
-       title = "Iris data ggplot2 scatterplot example",
-       subtitle= "Just a simple plot to show the basic style of theme_unhcr",
-       caption = "Data from datasets::iris") +
+  labs(
+    x = "Petal length", y = "Petal width",
+    title = "Iris data ggplot2 scatterplot example",
+    subtitle = "Just a simple plot to show the basic style of theme_unhcr",
+    caption = "Data from datasets::iris"
+  ) +
   theme_unhcr()
 }
+
 }
