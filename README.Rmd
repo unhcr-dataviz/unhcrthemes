@@ -39,6 +39,13 @@ devtools::install_github("vidonne/unhcrthemes")
 ```{r loading, message=FALSE, warning=FALSE, error=FALSE}
 library(unhcrthemes)
 library(ggplot2)
+# install.packages("extrafont")
+library(extrafont)
+
+# Import system font to R, to be done once
+# extrafont::font_import()
+extrafont::loadfonts(device="postscript")
+
 ```
 
 ### Base ggplot2 theme

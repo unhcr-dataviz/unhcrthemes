@@ -30,6 +30,12 @@ devtools::install_github("vidonne/unhcrthemes")
 ``` r
 library(unhcrthemes)
 library(ggplot2)
+# install.packages("extrafont")
+library(extrafont)
+
+# Import system font to R, to be done once
+# extrafont::font_import()
+extrafont::loadfonts(device="postscript")
 ```
 
 ### Base ggplot2 theme
@@ -42,62 +48,6 @@ ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
       subtitle= "Just a simple plot to show the basic style of theme_unhcr",
       caption = "Data from datasets::iris") +
   theme_unhcr()
-#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-#> found in Windows font database
-
-#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-#> found in Windows font database
-
-#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-#> found in Windows font database
-
-#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-#> found in Windows font database
-
-#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not
-#> found in Windows font database
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-#> Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
-#> font family not found in Windows font database
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-#> family not found in Windows font database
 ```
 
 <img src="man/figures/README-plot-theme-1.png" width="100%" />
