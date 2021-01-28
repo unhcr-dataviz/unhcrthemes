@@ -32,14 +32,11 @@ theme_unhcr(
 
 \item{ticks}{Turn on and off tick marks}
 }
-\value{
-
-}
 \description{
 UNHCR [ggplot2] theme following brand recommandations
 }
 \examples{
-\dontrun{
+\donttest{
 library(ggplot2)
 
 # Simple scatterplot example
