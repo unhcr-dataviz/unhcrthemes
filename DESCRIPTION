@@ -12,6 +12,7 @@ LazyData: true
 RoxygenNote: 7.1.1
 Imports: 
     ggplot2,
-    showtext
+    showtext,
+    pagedown
 URL: https://github.com/vidonne/unhcrthemes
 BugReports: https://github.com/vidonne/unhcrthemes/issues

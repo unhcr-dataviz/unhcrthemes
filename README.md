@@ -4,6 +4,8 @@
 # unhcrthemes
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
 <!-- badges: end -->
 
 The goal of unhcrthemes is to provide a collection of template, palettes
