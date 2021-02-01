@@ -62,7 +62,7 @@
     vertical-align: top;
     border-top: 0.5px solid var(--unhcr-blue);
   }
-  background-image: url(img/header-ruler-left.svg);
+  background-image: url(header-ruler-left.svg);
   background-position: 15mm 15mm;
   background-size: 180mm;
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@
     vertical-align: top;
     border-top: 0.5px solid var(--unhcr-blue);
   }
-  background-image: url(img/header-ruler-right.svg);
+  background-image: url(header-ruler-right.svg);
   background-position: 15mm 15mm;
   background-size: 180mm;
   background-repeat: no-repeat;
@@ -108,7 +108,7 @@
 @page :first {
   margin: 30mm 10mm 10mm 10mm;
   @top-left {
-    content: url("img/unhcr_logo_firstpage.svg");
+    content: url("unhcr-logo.svg");
     width: 62.5mm;
     margin-top: 14mm;
   }
@@ -169,7 +169,7 @@
     vertical-align: top;
     border-top: 0.5px solid var(--unhcr-blue);
   }
-  background-image: url(img/header-ruler-left.svg);
+  background-image: url(header-ruler-left.svg);
   background-position: 15mm 15mm;
   background-size: 180mm;
   background-repeat: no-repeat;
@@ -204,7 +204,7 @@
     vertical-align: top;
     border-top: 0.5px solid var(--unhcr-blue);
   }
-  background-image: url(img/header-ruler-right.svg);
+  background-image: url(header-ruler-right.svg);
   background-position: 15mm 15mm;
   background-size: 180mm;
   background-repeat: no-repeat;

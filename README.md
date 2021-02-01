@@ -43,10 +43,10 @@ allfontpath <- font_paths()
 allfont <- font_files()
 
 # syntax: font_add(family = "<family_name>", regular = "/path/to/font/file")
-font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
+font.add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
 
 # automatically use showtexts for new devices
-showtext_auto()
+showtext::showtext_auto()
 ```
 
 ### Base ggplot2 theme

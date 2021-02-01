@@ -39,7 +39,7 @@
 theme_unhcr <- function(base_family = "Lato",
                         base_size = 10.5,
                         legend_position = "top",
-                        plot_margin = ggplot2::margin(30, 30, 30, 30),
+                        plot_margin = ggplot2::margin(15, 15, 15, 15),
                         grid = TRUE,
                         axis_title = TRUE,
                         axis = FALSE,
