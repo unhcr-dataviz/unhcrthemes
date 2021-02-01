@@ -12,8 +12,7 @@
 #' @param axis Turn on and off axis. Use "X" or "Y" to have only the correspondent active
 #' @param ticks Turn on and off tick marks
 #'
-#' @import ggplot2
-#' @importFrom showtext showtext.auto
+#' @import ggplot2 showtext utils
 #' @export
 #'
 #' @examples

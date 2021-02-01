@@ -59,4 +59,4 @@ ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
   theme_unhcr()
 ```
 
-<img src="man/figures/README-plot-theme-1.svg" width="100%" />
+![](man/figures/README-plot-theme-1.png)<!-- -->
