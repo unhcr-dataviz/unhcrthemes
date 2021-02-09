@@ -36,13 +36,14 @@ style in your statistical products and data stories:
     -   **WIP** Continuous color palette
 3.  Different `rmarkdown` template to quick-start report, presentation
     or dashboard:
-    -   UNHCR Generic Report. Paginated report built on the top of
-        `pagedown`.
+    -   UNHCR Generic Report, paginated report built on the top of
+        `pagedown`
     -   **TOADD** Analysis Repository contribution
     -   **TOADD** Word with UNHCR style
     -   **TOADD** Powerpoint with UNHCR style
     -   **TOADD** `HTML` scrollable report
     -   **WIP** `Xaringan` presentation
+    -   **TODO** `flexdashboard`
 
 ## Usage
 
