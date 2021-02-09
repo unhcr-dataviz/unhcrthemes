@@ -4,8 +4,7 @@ Title: UNHCR Branding for R
 Version: 0.1.0
 Authors@R:
     person("Cedric", "Vidonne", email = "cedric@vidonne.me", role = c("aut", "cre"))
-Description: A collection of template, palettes and themes for plots, documents, and slides
- based on UNHCR branding.
+Description: A set of `rmarkdown` templates, color palettes and themes for plots based on UNHCR brand book.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

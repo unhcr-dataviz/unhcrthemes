@@ -37,7 +37,7 @@
 #' }
 #'
 theme_unhcr <- function(base_family = "Lato",
-                        base_size = 10.5,
+                        base_size = 11.5,
                         legend_position = "top",
                         plot_margin = ggplot2::margin(15, 15, 15, 15),
                         grid = TRUE,
