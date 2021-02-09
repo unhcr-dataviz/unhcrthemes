@@ -46,7 +46,7 @@ style in your statistical products and data stories:
 
 ## Usage
 
-First make sure to have all your fonts - and specifically Lato -
+First make sure to have all your fonts - and specifically **Lato** -
 registered with R
 
 ``` r
@@ -69,9 +69,11 @@ font.add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic =
 showtext::showtext_auto()
 ```
 
-> This package is part of `unhcrverse`, a set of packages to ease the
-> production of statistical evidence and data stories. You can install
-> them all with the following:
+### unhcrverse
+
+This package is part of `unhcrverse`, a set of packages to ease the
+production of statistical evidence and data stories. You can install
+them all with the following:
 
 ``` r
 ## Use UNHCR Open data  - https://unhcr.github.io/unhcrdatapackage/docs/
