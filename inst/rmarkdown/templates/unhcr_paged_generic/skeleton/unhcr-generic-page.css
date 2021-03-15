@@ -128,9 +128,6 @@
 }
 
 /* Front cover */
-.front-cover {
-  break-after: recto;
-}
 
 /* Front page or title page */
 .front-page {
@@ -231,11 +228,14 @@
 
 /* page breaks; aka CSS fragmentation */
 .level1 {
-  break-before: page;
   page: chapter;
+}
+.main .level1 {
+  break-before: page;
 }
 .front-matter-container .level1 {
   page: frontmatter;
+  break-before: page;
 }
 .section > h1, .section > h2, .section > h3, .section > h4, .section > h5, .section > h6 {
   break-after: avoid;
