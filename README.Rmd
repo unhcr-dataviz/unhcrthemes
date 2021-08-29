@@ -25,7 +25,7 @@ The `unhcrthemes` package provide a set of `rmarkdown` templates, color palettes
 
 This package is not on yet on CRAN and to install it, you will need the `remotes` package.
 
-``` r
+```{r, eval = FALSE}
 # install.packages("remotes")
 remotes::install_github("vidonne/unhcrthemes")
 ```
@@ -39,14 +39,6 @@ A package with all necessary elements to quickly implement UNHCR Brand style in 
     - **WIP** Discrete palette with either fixed or dynamically extended number of shades
     - **WIP** Continuous diverging color palette
     - **WIP** Continuous color palette
-3. Different `rmarkdown` template to quick-start report, presentation or dashboard:
-    - UNHCR Generic Report, paginated report built on the top of `pagedown`
-    - **TOADD** Analysis Repository contribution
-    - **TOADD** Word with UNHCR style
-    - **TOADD** Powerpoint with UNHCR style
-    - **TOADD** `HTML` scrollable report
-    - **WIP** `Xaringan` presentation
-    - **TODO** `flexdashboard`
 
 ## Usage
 
@@ -60,23 +52,52 @@ library(ggplot2)
 library(showtext)
 
 # Check the current search path for fonts
-allfontpath <- font_paths()    
-
-# List available font files in the search path
-allfont <- font_files()
+allfontpath <- font_paths()
 
 # syntax: font_add(family = "<family_name>", regular = "/path/to/font/file")
-font.add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
+font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
 
 # automatically use showtexts for new devices
 showtext::showtext_auto()
+```
+
+### UNHCR color palette
+
+```{r palette}
+display_unhcr_all()
+```
+
+### Base ggplot2 theme
+
+```{r plot-theme}
+library(ggplot2)
+ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point() +
+  labs(x = "Petal length", y="Petal width",
+      title = "Iris data ggplot2 scatterplot example",
+      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
+      caption = "Data from datasets::iris") +
+  theme_unhcr()
+```
+
+### Base ggplot2 theme + color scale
+
+```{r plot-theme-color}
+ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species)) +
+  scale_color_unhcr_d(palette = "pal_main_c") +
+  labs(x = "Petal length", y="Petal width",
+      title = "Iris data ggplot2 scatterplot example",
+      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
+      caption = "Data from datasets::iris") +
+  theme_unhcr()
 ```
 
 ### unhcrverse
 
 This package is part of `unhcrverse`, a set of packages to ease the production of statistical evidence and data stories. You can install them all with the following:
 
-```{r unhcrverse, eval=FALSE, include=TRUE}
+```{r unhcrverse, eval = FALSE, include=TRUE}
 ## Use UNHCR Open data  - https://unhcr.github.io/unhcrdatapackage/docs/
 remotes::install_github('unhcr/unhcrdatapackage')
 
@@ -92,16 +113,3 @@ remotes::install_github('unhcr/koboloadeR')
 ## Use UNHCR graphical template- https://unhcr-web.github.io/unhcRstyle/docs/
 remotes::install_github('unhcr-web/unhcRstyle')
 ```
-
-### Base ggplot2 theme
-
-```{r plot-theme}
-ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
-  geom_point() +
-  labs(x="Petal length", y="Petal width",
-      title = "Iris data ggplot2 scatterplot example",
-      subtitle= "Just a simple plot to show the basic style of theme_unhcr",
-      caption = "Data from datasets::iris") +
-  theme_unhcr()
-```
-

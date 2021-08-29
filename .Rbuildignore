@@ -2,4 +2,6 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^README\.html$
 ^\.github$
+^\./inst/gen_color_data.R
