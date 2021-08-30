@@ -34,16 +34,6 @@ style in your statistical products and data stories:
         extended number of shades
     -   **WIP** Continuous diverging color palette
     -   **WIP** Continuous color palette
-3.  Different `rmarkdown` template to quick-start report, presentation
-    or dashboard:
-    -   UNHCR Generic Report, paginated report built on the top of
-        `pagedown`
-    -   **TOADD** Analysis Repository contribution
-    -   **TOADD** Word with UNHCR style
-    -   **TOADD** Powerpoint with UNHCR style
-    -   **TOADD** `HTML` scrollable report
-    -   **WIP** `Xaringan` presentation
-    -   **TODO** `flexdashboard`
 
 ## Usage
 
@@ -58,17 +48,52 @@ library(ggplot2)
 library(showtext)
 
 # Check the current search path for fonts
-allfontpath <- font_paths()    
-
-# List available font files in the search path
-allfont <- font_files()
+allfontpath <- font_paths()
 
 # syntax: font_add(family = "<family_name>", regular = "/path/to/font/file")
-font.add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
+font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
 
 # automatically use showtexts for new devices
 showtext::showtext_auto()
 ```
+
+### UNHCR color palette
+
+``` r
+display_unhcr_all()
+```
+
+![](man/figures/README-palette-1.png)<!-- -->
+
+### Base ggplot2 theme
+
+``` r
+library(ggplot2)
+ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point() +
+  labs(x = "Petal length", y="Petal width",
+      title = "Iris data ggplot2 scatterplot example",
+      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
+      caption = "Data from datasets::iris") +
+  theme_unhcr()
+```
+
+![](man/figures/README-plot-theme-1.png)<!-- -->
+
+### Base ggplot2 theme + color scale
+
+``` r
+ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species)) +
+  scale_color_unhcr_d(palette = "pal_main_c") +
+  labs(x = "Petal length", y="Petal width",
+      title = "Iris data ggplot2 scatterplot example",
+      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
+      caption = "Data from datasets::iris") +
+  theme_unhcr()
+```
+
+![](man/figures/README-plot-theme-color-1.png)<!-- -->
 
 ### unhcrverse
 
@@ -92,17 +117,3 @@ remotes::install_github('unhcr/koboloadeR')
 ## Use UNHCR graphical template- https://unhcr-web.github.io/unhcRstyle/docs/
 remotes::install_github('unhcr-web/unhcRstyle')
 ```
-
-### Base ggplot2 theme
-
-``` r
-ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
-  geom_point() +
-  labs(x="Petal length", y="Petal width",
-      title = "Iris data ggplot2 scatterplot example",
-      subtitle= "Just a simple plot to show the basic style of theme_unhcr",
-      caption = "Data from datasets::iris") +
-  theme_unhcr()
-```
-
-![](man/figures/README-plot-theme-1.png)<!-- -->
