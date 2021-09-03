@@ -25,8 +25,9 @@
 #' @rdname unhcr_scale
 #' @export
 #'
-scale_color_unhcr_c <- function(..., type = "seq",
-                                palette = 1, direction = 1,
+scale_color_unhcr_c <- function(..., type = "sequential",
+                                palette = 1,
+                                direction = 1,
                                 na.value = "#E9E9E9", guide = "colourbar") {
   continuous_scale("colour",
                    "unhcr_continuous",
@@ -40,7 +41,7 @@ scale_color_unhcr_c <- function(..., type = "seq",
 
 #' @rdname unhcr_scale
 #' @export
-scale_color_unhcr_d <- function(..., type = "qual",
+scale_color_unhcr_d <- function(..., type = "qualitative",
                                 palette = 1, direction = 1,
                                 na.value = "#E9E9E9") {
   discrete_scale("colour",
@@ -78,7 +79,7 @@ scale_fill_unhcr_c <- function(..., type = "sequential",
 
 #' @rdname unhcr_scale
 #' @export
-scale_fill_unhcr_d = function(..., type = "qualitative",
+scale_fill_unhcr_d <- function(..., type = "qualitative",
                               palette = 1, direction = 1,
                               na.value	= "#E9E9E9") {
   discrete_scale("fill",
@@ -91,7 +92,8 @@ scale_fill_unhcr_d = function(..., type = "qualitative",
 }
 
 #' @noRd
-unhcr_pal_scale <- function(type = "qualitative", palette = 1, direction = 1) {
+unhcr_pal_scale <- function(type = "qualitative",
+                            palette = 1, direction = 1) {
   pal <- unhcr_pal_name(palette, type)
 
   function(n) {
@@ -101,9 +103,9 @@ unhcr_pal_scale <- function(type = "qualitative", palette = 1, direction = 1) {
     # return a k-color palette and give a warning. This warning is useful, so
     # don't suppress it.
     if (n < 3) {
-      pal = suppressWarnings(unhcr_pal(n, pal))
+      pal <- suppressWarnings(unhcr_pal(n, pal))
     } else {
-      pal = unhcr_pal(n, pal)
+      pal <- unhcr_pal(n, pal)
     }
     # In both cases ensure we have n items
     pal = pal[seq_len(n)]
@@ -119,13 +121,13 @@ unhcr_pal_scale <- function(type = "qualitative", palette = 1, direction = 1) {
 #' @noRd
 unhcr_pal_name <- function(palette, type) {
   if (is.character(palette)) {
-    if (!palette %in% unhcrthemes::unhcrcolors$name) {
+    if (!palette %in% unhcrcolors$name) {
       warning("Unknown palette ", palette)
       palette = "pal_blue_s"
     }
     return(palette)
   }
 
-  type <- match.arg(type, unique(unhcrthemes::unhcrcolors$type))
-  unhcrthemes::unhcrcolors$name[unhcrthemes::unhcrcolors$type == type][palette]
+  type <- match.arg(type, unique(unhcrcolors$type))
+  unhcrcolors$name[unhcrcolors$type == type][palette]
 }

@@ -20,8 +20,8 @@ A character vector
 Creates a color palette from UNHCR branding
 }
 \examples{
-unhcr_pal(3, "pal_main_c")
-unhcr_pal(3, "pal_blue_s")
-unhcr_pal(5, "pal_yellow_s")
-unhcr_pal(12, "pal_red_s")
+unhcr_pal(3, "pal_main_qual")
+unhcr_pal(3, "pal_blue_seq")
+unhcr_pal(5, "pal_yellow_seq")
+unhcr_pal(12, "pal_red_seq")
 }

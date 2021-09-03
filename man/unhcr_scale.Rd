@@ -11,7 +11,7 @@
 \usage{
 scale_color_unhcr_c(
   ...,
-  type = "seq",
+  type = "sequential",
   palette = 1,
   direction = 1,
   na.value = "#E9E9E9",
@@ -20,7 +20,7 @@ scale_color_unhcr_c(
 
 scale_color_unhcr_d(
   ...,
-  type = "qual",
+  type = "qualitative",
   palette = 1,
   direction = 1,
   na.value = "#E9E9E9"
@@ -28,7 +28,7 @@ scale_color_unhcr_d(
 
 scale_colour_unhcr_c(
   ...,
-  type = "seq",
+  type = "sequential",
   palette = 1,
   direction = 1,
   na.value = "#E9E9E9",
@@ -37,7 +37,7 @@ scale_colour_unhcr_c(
 
 scale_colour_unhcr_d(
   ...,
-  type = "qual",
+  type = "qualitative",
   palette = 1,
   direction = 1,
   na.value = "#E9E9E9"
