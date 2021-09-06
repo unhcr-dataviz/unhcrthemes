@@ -12,7 +12,7 @@ display_unhcr_all(n = NULL, type = "all")
 \item{type}{Type of the palette, can be "sequential", "diverging", "qualitative" or "all"}
 }
 \description{
-Displays a set of the color palettes from UNHCRcolor
+Displays a set of the color palettes from UNHCR color
 }
 \examples{
 library(unhcrthemes)

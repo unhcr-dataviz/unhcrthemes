@@ -9,34 +9,34 @@
 #' @return A character vector
 #'
 #' @examples
-#' unhcr_pal(3, "pal_main_c")
-#' unhcr_pal(3, "pal_blue_s")
-#' unhcr_pal(5, "pal_yellow_s")
-#' unhcr_pal(12, "pal_red_s")
+#' unhcr_pal(3, "pal_main_qual")
+#' unhcr_pal(3, "pal_blue_seq")
+#' unhcr_pal(5, "pal_yellow_seq")
+#' unhcr_pal(12, "pal_red_seq")
 #' @export
-unhcr_pal = function(n = NULL, name, ...){
-  if (!(name %in% unhcrthemes::unhcrcolors$name)){
+unhcr_pal <- function(n = NULL, name, ...){
+  if (!(name %in% unhcrcolors$name)){
     stop(paste(name,"is not a valid palette name\n"),
          call. = FALSE)
   }
-  selected_metadata <- unhcrthemes::unhcrcolors[unhcrthemes::unhcrcolors$name == name, ]
+  selected_metadata <- unhcrcolors[unhcrcolors$name == name, ]
   min_n <- selected_metadata$min_n
   max_n <- selected_metadata$max_n
   type <- selected_metadata$type
-  if(is.null(n)) {
+  if (is.null(n)) {
     n <- max_n
   }
   proper_n <- n
-  if(proper_n > max_n) {
+  if (proper_n > max_n) {
     proper_n <- max_n
   }
-  if(!(n %in% min_n:max_n) && type == "qualitative") {
+  if (!(n %in% min_n:max_n) && type == "qualitative") {
     warning(paste("Number of colors (n) in the", name,
                   "palette should be between", min_n, "and", max_n,
                   "\n"), call. = FALSE)
     n <- proper_n
   }
-  if(!(n >= min_n)) {
+  if (!(n >= min_n)) {
     warning(paste("Number of colors (n) in the", name,
                   "palette should be between", min_n, "and",
                   max_n, "\n"), call. = FALSE)
@@ -44,9 +44,9 @@ unhcr_pal = function(n = NULL, name, ...){
     n <- min_n
   }
   coln <- paste0("n", proper_n)
-  colors <- unhcrthemes::unhcrcolors[unhcrthemes::unhcrcolors$name == name, ][[coln]][[1]]
+  colors <- unhcrcolors[unhcrcolors$name == name, ][[coln]][[1]]
   if (n > 2) {
     colors <- grDevices::colorRampPalette(colors, ...)(n = n)
   }
-  return(colors)
+  colors
 }
