@@ -12,7 +12,8 @@ theme_unhcr(
   rel_tiny = 7/9,
   rel_large = 12/9,
   grid = TRUE,
-  axis = "x"
+  axis = "x",
+  ticks = FALSE
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ theme_unhcr(
 \item{grid}{Turn on and off the grids. "X" or "Y" for major and "x" or "y" for minor}
 
 \item{axis}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
+
+\item{ticks}{Turn on and off ticks. Use "X" or "Y" to have only the correspondent active}
 }
 \value{
 The theme style

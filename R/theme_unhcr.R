@@ -11,6 +11,7 @@
 #' @param rel_large Relative size of large text (e.g., title)
 #' @param grid Turn on and off the grids. "X" or "Y" for major and "x" or "y" for minor
 #' @param axis Turn on and off axis. Use "X" or "Y" to have only the correspondent active
+#' @param ticks Turn on and off ticks. Use "X" or "Y" to have only the correspondent active
 #'
 #' @return The theme style
 #' @import ggplot2
@@ -28,11 +29,11 @@
 
 theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
                             rel_small = 8 / 9, rel_tiny = 7 / 9, rel_large = 12 / 9,
-                            grid = TRUE, axis = "x") {
-  # TODO Ticks
+                            grid = TRUE, axis = "x", ticks = FALSE) {
   # TODO Plot left aligned legend
   # TODO Blue line on top
-  # TODO Horizontal above axis Y-axis title
+  # TODO Horizontal Y-axis title above axis
+
   # margin
   half_line <- font_size / 2
 
@@ -162,6 +163,30 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ret <- ret + ggplot2::theme(axis.title.y.right = ggplot2::element_text(angle = -90, margin = ggplot2::margin(
     l = rel_small * font_size / 4
   ), vjust = 0))
+
+  # ticks
+  if (inherits(ticks, "character") | ticks == TRUE) {
+    ret <- ret + ggplot2::theme(axis.ticks.length = grid::unit(half_line / 2, "pt"))
+    ret <- ret + ggplot2::theme(axis.ticks = ggplot2::element_line(color = dark_grey, size = line_size / 2))
+    if (inherits(ticks, "character")) {
+      ticks <- tolower(ticks)
+      if (regexpr("x", ticks)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_line(color = dark_grey, size = line_size / 2))
+      }
+      if (regexpr("y", ticks)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_line(color = dark_grey, size = line_size / 2))
+      }
+    } else {
+      ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_line(color = dark_grey, size = line_size / 2))
+      ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_line(color = dark_grey, size = line_size / 2))
+    }
+  } else {
+    ret <- ret + ggplot2::theme(axis.ticks = element_blank())
+  }
 
   # strip
   ret <- ret + ggplot2::theme(strip.text = ggplot2::element_text(
