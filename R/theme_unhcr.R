@@ -232,6 +232,9 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ret
 }
 
+#' @importFrom ggplot2 ggplot_add
+#' @noRd
+#' @export
 ggplot_add.conditional_theme <- function(object, plot, object_name) {
   # TODO Find a way to get margin based on font_size from the main theme.
   if (!is.null(plot$labels$tag)) {
@@ -258,4 +261,3 @@ update_geom_font_defaults <- function(family = "Lato", face = "plain", size = 3.
   ggplot2::update_geom_defaults("text", list(family = family, face = face, size = size, color = color))
   ggplot2::update_geom_defaults("label", list(family = family, face = face, size = size, color = color))
 }
-
