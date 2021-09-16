@@ -27,7 +27,7 @@
 #' theme_unhcr()
 #' }
 
-theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
+theme_unhcr <- function(font_size = 8, font_family = "Lato", line_size = .5,
                             rel_small = 8 / 9, rel_tiny = 7 / 9, rel_large = 12 / 9,
                             grid = TRUE, axis = "x", ticks = FALSE) {
   # TODO Plot left aligned legend
