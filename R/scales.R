@@ -89,7 +89,7 @@ scale_fill_unhcr_c <- function(..., type = "sequential",
                                guide = "colourbar") {
 
   pal <- unhcr_pal_scale(type = type,
-                         type = palette,
+                         palette = palette,
                          direction = direction)(256)
 
   continuous_scale("fill",
