@@ -124,7 +124,7 @@ scale_fill_unhcr_d <- function(..., type = "qualitative",
 
 #' @noRd
 unhcr_pal_scale <- function(type = "qualitative",
-                            nmax = FALSE, order = FALSE,
+                            nmax = NULL, order = NULL,
                             palette = 1, direction = 1) {
   pal <- unhcr_pal_name(palette, type)
 
@@ -165,7 +165,7 @@ unhcr_pal_name <- function(palette, type) {
   if (is.character(palette)) {
     if (!palette %in% unhcrcolors$name) {
       warning("Unknown palette ", palette)
-      palette = "pal_blue_s"
+      palette = "pal_blue_seq"
     }
     return(palette)
   }
