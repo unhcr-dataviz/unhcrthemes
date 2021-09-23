@@ -155,7 +155,8 @@ unhcr_pal_scale <- function(type = "qualitative",
 
     if (direction == -1)
       pal = rev(pal)
-    pal
+
+    unname(pal)
   }
 }
 
@@ -169,7 +170,6 @@ unhcr_pal_name <- function(palette, type) {
     }
     return(palette)
   }
-
   type <- match.arg(type, unique(unhcrcolors$type))
   unhcrcolors$name[unhcrcolors$type == type][palette]
 }
