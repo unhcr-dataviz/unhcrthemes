@@ -7,7 +7,7 @@
 \alias{scale_colour_unhcr_d}
 \alias{scale_fill_unhcr_c}
 \alias{scale_fill_unhcr_d}
-\title{UNHCR color scales}
+\title{UNHCR ggplot2 color scales}
 \usage{
 scale_color_unhcr_c(
   ...,
@@ -23,6 +23,8 @@ scale_color_unhcr_d(
   type = "qualitative",
   palette = 1,
   direction = 1,
+  nmax = NULL,
+  order = NULL,
   na.value = "#E9E9E9"
 )
 
@@ -40,6 +42,8 @@ scale_colour_unhcr_d(
   type = "qualitative",
   palette = 1,
   direction = 1,
+  nmax = NULL,
+  order = NULL,
   na.value = "#E9E9E9"
 )
 
@@ -57,6 +61,8 @@ scale_fill_unhcr_d(
   type = "qualitative",
   palette = 1,
   direction = 1,
+  nmax = NULL,
+  order = NULL,
   na.value = "#E9E9E9"
 )
 }
@@ -70,16 +76,20 @@ scale_fill_unhcr_d(
 index into the list of palettes of appropriate `type`}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default,
-colors are as output by [unhcr_pal()]. If -1, the
-order of colors is reversed}
+colors are as output by [unhcr_pal()]. If -1, the order of colors is reversed}
 
 \item{na.value}{Missing values will be replaced with this value.}
 
 \item{guide}{A function used to create a guide or its name. See
 \code{\link[ggplot2:guides]{guides()}} for more information.}
+
+\item{nmax}{Maximum number of different colors the palette should contain. If not provided, is calculated automatically
+from the data.}
+
+\item{order}{Numeric vector listing the order in which the colors should be used. Default is \code{1:nmax}.}
 }
 \description{
-UNHCR color scales
+UNHCR ggplot2 color scales
 }
 \examples{
 library(ggplot2)
