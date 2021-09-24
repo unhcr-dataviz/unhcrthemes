@@ -70,7 +70,7 @@ display_unhcr_all <- function(n = NULL, type = "all") {
 #' @importFrom graphics image
 #'
 #' @examples
-#' display_unhcr_pal(3, "pal_main_qual")
+#' display_unhcr_pal(3, "pal_unhcr")
 #'
 #' @export
 display_unhcr_pal <- function(n = NULL, name){

@@ -85,7 +85,7 @@ ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
 ``` r
 ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
   geom_point(aes(color = Species)) +
-  scale_color_unhcr_d(palette = "pal_main_qual") +
+  scale_color_unhcr_d(palette = "pal_unhcr") +
   labs(x = "Petal length", y="Petal width",
       title = "Iris data ggplot2 scatterplot example",
       subtitle = "Just a simple plot to show the basic style of theme_unhcr",

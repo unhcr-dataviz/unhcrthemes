@@ -15,6 +15,6 @@ display_unhcr_pal(n = NULL, name)
 Displays a color palette from UNHCR brand color
 }
 \examples{
-display_unhcr_pal(3, "pal_main_qual")
+display_unhcr_pal(3, "pal_unhcr")
 
 }

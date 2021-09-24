@@ -166,7 +166,7 @@ unhcr_pal_name <- function(palette, type) {
   if (is.character(palette)) {
     if (!palette %in% unhcrcolors$name) {
       warning("Unknown palette ", palette)
-      palette = "pal_blue_seq"
+      palette = "pal_blue"
     }
     return(palette)
   }
