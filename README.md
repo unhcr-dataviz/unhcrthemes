@@ -8,15 +8,17 @@
 [![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
 <!-- badges: end -->
 
-The `unhcrthemes` package provide a set of `rmarkdown` templates, color
-palettes and themes for plots based on UNHCR brand book. The goal of
-this package is to ease and speed up the creation of reproducible
-reports and charts, while promoting the UNHCR visual identity.
+The **unhcrthemes** package provides a theme and a set of colour
+palettes for plots based on [UNHCR Data Visualization
+Guidelines](https://www.unhcr.org/brand). The goal of this package is to
+ease and speed up the creation of charts, while promoting the UNHCR
+visual identity with a predefined ggplot theme, as well as a set of
+colour palettes and scales.
 
 ## Installation
 
 This package is not on yet on CRAN and to install it, you will need the
-`remotes` package.
+remotes package.
 
 ``` r
 # install.packages("remotes")
@@ -95,25 +97,33 @@ ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
 
 ![](man/figures/README-plot-theme-color-1.png)<!-- -->
 
-### unhcrverse
+## UNHCR packages
 
-This package is part of `unhcrverse`, a set of packages to ease the
-production of statistical evidence and data stories. You can install
-them all with the following:
+unhcrthemes is part of **unhcrverse**, a set of packages to ease the
+production of statistical evidence and data stories.
+
+-   [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
+    for R Markdown
+-   [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
+    Use UNHCR Open data
+-   [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
+    internal data source
+-   [HighFrequencyChecks](https://github.com/unhcr/HighFrequencyChecks/):
+    Perform High Frequency Check
+-   [koboloadeR](https://github.com/unhcr/koboloadeR/): Process data
+    crunching for survey dataset
+
+You can install them all with the following:
 
 ``` r
-## Use UNHCR Open data  - https://unhcr.github.io/unhcrdatapackage/docs/
+## unhcrdown
+remotes::install_github("vidonne/unhcrdown")
+## unhcrdatapackage
 remotes::install_github('unhcr/unhcrdatapackage')
-
-## API to connect to internal data source - https://unhcr-web.github.io/hcrdata/docs/
+## hcrdata
 remotes::install_github('unhcr-web/hcrdata')
-
-## Perform High Frequency Check https://unhcr.github.io/HighFrequencyChecks/docs/
+## HighFrequencyChecks
 remotes::install_github('unhcr/HighFrequencyChecks')
-
-## Process data crunching for survey dataset - https://unhcr.github.io/koboloadeR/docs/
+## koboloadeR
 remotes::install_github('unhcr/koboloadeR')
-
-## Use UNHCR graphical template- https://unhcr-web.github.io/unhcRstyle/docs/
-remotes::install_github('unhcr-web/unhcRstyle')
 ```

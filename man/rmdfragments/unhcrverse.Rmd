@@ -1,0 +1,24 @@
+## UNHCR packages
+
+unhcrthemes is part of **unhcrverse**, a set of packages to ease the production of statistical evidence and data stories.
+
+* [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates for R Markdown
+* [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage): Use UNHCR Open data
+* [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to internal data source
+* [HighFrequencyChecks](https://github.com/unhcr/HighFrequencyChecks/): Perform High Frequency Check
+* [koboloadeR](https://github.com/unhcr/koboloadeR/): Process data crunching for survey dataset
+
+You can install them all with the following:
+
+```{r unhcrverse, eval = FALSE, include=TRUE}
+## unhcrdown
+remotes::install_github("vidonne/unhcrdown")
+## unhcrdatapackage
+remotes::install_github('unhcr/unhcrdatapackage')
+## hcrdata
+remotes::install_github('unhcr-web/hcrdata')
+## HighFrequencyChecks
+remotes::install_github('unhcr/HighFrequencyChecks')
+## koboloadeR
+remotes::install_github('unhcr/koboloadeR')
+```
