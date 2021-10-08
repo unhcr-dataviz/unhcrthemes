@@ -13,7 +13,8 @@ theme_unhcr(
   rel_large = 12/9,
   grid = TRUE,
   axis = "x",
-  ticks = FALSE
+  ticks = FALSE,
+  legend_title = FALSE
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ theme_unhcr(
 \item{axis}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
 
 \item{ticks}{Turn on and off ticks. Use "X" or "Y" to have only the correspondent active}
+
+\item{legend_title}{Turn on and off title of the legend, default FALSE.}
 }
 \value{
 The theme style

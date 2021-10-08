@@ -12,6 +12,7 @@
 #' @param grid Turn on and off the grids. "X" or "Y" for major and "x" or "y" for minor
 #' @param axis Turn on and off axis. Use "X" or "Y" to have only the correspondent active
 #' @param ticks Turn on and off ticks. Use "X" or "Y" to have only the correspondent active
+#' @param legend_title Turn on and off title of the legend, default FALSE.
 #'
 #' @return The theme style
 #' @import ggplot2
@@ -29,7 +30,7 @@
 
 theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
                             rel_small = 8 / 9, rel_tiny = 7 / 9, rel_large = 12 / 9,
-                            grid = TRUE, axis = "x", ticks = FALSE) {
+                            grid = TRUE, axis = "x", ticks = FALSE, legend_title = FALSE) {
   # TODO Plot left aligned legend
   # TODO Blue line on top
   # TODO Horizontal Y-axis title above axis
@@ -64,15 +65,20 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ret <- ret + ggplot2::theme(legend.spacing = grid::unit(font_size, "pt"))
   ret <- ret + ggplot2::theme(legend.margin = ggplot2::margin(0, 0, 0, 0))
   ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.key.size = grid::unit(1.1 * font_size, "pt"))
-  ret <- ret + ggplot2::theme(legend.text = ggplot2::element_text(size = rel(rel_small)))
-  ret <- ret + ggplot2::theme(legend.title = ggplot2::element_text(hjust = 0))
+  ret <- ret + ggplot2::theme(legend.key.size = grid::unit(1.2 * font_size, "pt"))
+  ret <- ret + ggplot2::theme(legend.text = ggplot2::element_text(color = dark_grey, size = rel(rel_small)))
   ret <- ret + ggplot2::theme(legend.position = "top")
   ret <- ret + ggplot2::theme(legend.direction = "horizontal")
-  ret <- ret + ggplot2::theme(legend.justification = 0.5)
+  ret <- ret + ggplot2::theme(legend.justification = 0)
   ret <- ret + ggplot2::theme(legend.box.margin = ggplot2::margin(0, 0, 0, 0))
   ret <- ret + ggplot2::theme(legend.box.background = ggplot2::element_blank())
   ret <- ret + ggplot2::theme(legend.box.spacing = grid::unit(font_size, "pt"))
+  if (!legend_title) {
+    ret <- ret + theme(legend.title = element_blank())
+  } else {
+    ret <- ret + ggplot2::theme(legend.title = ggplot2::element_text(size = rel(rel_small), color = dark_grey,
+                                                                     hjust = 0))
+  }
 
   # grid
   if (inherits(grid, "character") | grid == TRUE) {
@@ -198,12 +204,12 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ret <- ret + ggplot2::theme(plot.title = ggplot2::element_text(
     size = rel(rel_large), color = "black", face = "bold",
     hjust = 0, vjust = 1,
-    margin = ggplot2::margin(b = half_line),
+    margin = ggplot2::margin(b = font_size),
   ))
   ret <- ret + ggplot2::theme(plot.subtitle = ggplot2::element_text(
     size = font_size, color = dark_grey, face = "plain",
     hjust = 0, vjust = 1,
-    margin = ggplot2::margin(b = half_line)
+    margin = ggplot2::margin(t = -half_line, b = font_size * rel_large)
   ))
   ret <- ret + ggplot2::theme(plot.title.position = "plot")
 
@@ -224,7 +230,7 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
 
   # plot
   ret <- ret + ggplot2::theme(plot.background = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(plot.margin = ggplot2::margin(half_line, half_line, half_line, half_line))
+  ret <- ret + ggplot2::theme(plot.margin = ggplot2::margin(font_size, font_size, font_size, font_size))
 
   # class for condition on tag
   class(ret) <- c("conditional_theme", class(ret))
