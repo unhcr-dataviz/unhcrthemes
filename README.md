@@ -63,6 +63,8 @@ following code to make it accessible in R.
 ``` r
 # install.packages('showtext', dependencies = TRUE)
 library(showtext)
+#> Loading required package: sysfonts
+#> Loading required package: showtextdb
 
 # Check the current search path for fonts
 allfontpath <- font_paths()
@@ -91,10 +93,10 @@ ggplot(data = mtcars, mapping = aes(factor(cyl))) +
        y = "Count", title = "Bar chart example",
        subtitle = "Simple plot to showcase theme_unhcr default style",
        caption = "Data from mtcars") +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(font_size = 16, grid = "Y")
 ```
 
-![](man/figures/README-plot-theme-1.png)<!-- -->
+<img src="man/figures/README-plot-theme-1.png" width="672" />
 
 ### UNHCR color palette
 
@@ -105,7 +107,7 @@ or **scales** (color/fill).
 display_unhcr_all()
 ```
 
-![](man/figures/README-palette-1.png)<!-- -->
+<img src="man/figures/README-palette-1.png" width="672" />
 
 ### Base theme and color scale
 
@@ -117,10 +119,10 @@ ggplot(data = mtcars, mapping = aes(factor(cyl))) +
        y = "Count", title = "Bar chart example with UNHCR colors",
        subtitle = "Simple plot to showcase theme_unhcr default style",
        caption = "Data from mtcars") +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(font_size = 16, grid = "Y")
 ```
 
-![](man/figures/README-plot-theme-fill-1.png)<!-- -->
+<img src="man/figures/README-plot-theme-fill-1.png" width="672" />
 
 ``` r
 ggplot(mtcars, aes(mpg, wt)) +
@@ -130,10 +132,10 @@ ggplot(mtcars, aes(mpg, wt)) +
        y = "Count", title = "Scatter plot example with UNHCR colors",
        subtitle = "Simple plot to showcase theme_unhcr default style",
        caption = "Data from mtcars") +
-  theme_unhcr(axis = FALSE)
+  theme_unhcr(font_size = 16, axis = FALSE)
 ```
 
-![](man/figures/README-plot-theme-color-1.png)<!-- -->
+<img src="man/figures/README-plot-theme-color-1.png" width="672" />
 
 ## UNHCR packages
 
