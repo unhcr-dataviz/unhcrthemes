@@ -173,5 +173,5 @@ remotes::install_github('unhcr/koboloadeR')
 -   License: MIT
 -   Please note that this project is released with a [Contributor Code
     of
-    Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+    Conduct](https://github.com/vidonne/unhcrthemes/blob/master/CODE_OF_CONDUCT.md).
     By contributing to this project, you agree to abide by its terms.
