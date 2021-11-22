@@ -1,19 +1,24 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
+<!-- badges: end -->
 
 # unhcrthemes
 
-<!-- badges: start -->
-
-[![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
-<!-- badges: end -->
-
-The **unhcrthemes** package provides a theme and a set of colour
-palettes for plots based on [UNHCR Data Visualization
-Guidelines](https://www.unhcr.org/brand). The goal of this package is to
-ease and speed up the creation of charts, while promoting the UNHCR
-visual identity with a predefined ggplot theme, as well as a set of
-colour palettes and scales.
+The **unhcrthemes** package provides a `ggplot` theme and a set of
+colour palettes for making charts and graphics based on [UNHCR Data
+Visualization
+Guidelines](https://www.unhcr.org/brand/wp-content/uploads/sites/89/2021/11/UNHCR_Data_Visualization_Guidelines.pdf).
+The goal of this package is to ease and speed up the creation of charts,
+while promoting the UNHCR visual identity with a predefined `ggplot`
+theme, as well as a set of colour palettes and scales.
 
 ## Installation
 
@@ -21,31 +26,41 @@ This package is not on yet on CRAN and to install it, you will need the
 remotes package.
 
 ``` r
-# install.packages("remotes")
+install.packages("remotes")
 remotes::install_github("vidonne/unhcrthemes")
 ```
 
 ## Content
 
-A package with all necessary elements to quickly implement UNHCR Brand
-style in your statistical products and data stories:
+A package with all necessary elements to quickly implement [UNHCR Brand
+style](https://www.unhcr.org/brand/how-we-look/) in your statistical
+products and data stories:
 
 1.  Adjusted `ggplot2` theme
 2.  A series of color palette for:
-    -   **WIP** Discrete palette with either fixed or dynamically
-        extended number of shades
-    -   **WIP** Continuous diverging color palette
-    -   **WIP** Continuous color palette
+    -   A **categorical palette** for UNHCR main data visualization
+        colors
+    -   A **categorical palette** for people of concern to UNHCR
+        categories
+    -   A **categorical palette** for geographical regional divisions of
+        UNHCR
+    -   Six **sequential color palettes** for all the main data
+        visualization colors
+    -   Two recommended **diverging color palette**
 
-## Usage
+## Fonts
 
-First make sure to have all your fonts - and specifically **Lato** -
-registered with R
+UNHCR uses **Lato** as its main font for publications and data
+visualizations. **Arial** can also be used as a fallback option if it is
+not possible to install **Lato** on your computer.
+
+**Lato** needs to be installed on your computer and registered with R.
+Install [Lato](https://fonts.google.com/specimen/Lato), then run the
+following code to make it accessible in R.
+
+**TO REVIEW**
 
 ``` r
-library(unhcrthemes)
-library(ggplot2)
-
 # install.packages('showtext', dependencies = TRUE)
 library(showtext)
 
@@ -59,7 +74,32 @@ font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic =
 showtext::showtext_auto()
 ```
 
+## Usage
+
+``` r
+library(ggplot2) # or library(tidyverse)
+library(unhcrthemes)
+```
+
+### Base ggplot2 theme
+
+``` r
+ggplot(data = mtcars, mapping = aes(factor(cyl))) +
+  geom_bar() + 
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  labs(x = "Number of Cylinders",
+       y = "Count", title = "Bar chart example",
+       subtitle = "Simple plot to showcase theme_unhcr default style",
+       caption = "Data from mtcars") +
+  theme_unhcr(grid = "Y")
+```
+
+![](man/figures/README-plot-theme-1.png)<!-- -->
+
 ### UNHCR color palette
+
+All recommended data visualization colors are accessible as **palettes**
+or **scales** (color/fill).
 
 ``` r
 display_unhcr_all()
@@ -67,32 +107,30 @@ display_unhcr_all()
 
 ![](man/figures/README-palette-1.png)<!-- -->
 
-### Base ggplot2 theme
+### Base theme and color scale
 
 ``` r
-library(ggplot2)
-ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
-  geom_point() +
-  labs(x = "Petal length", y="Petal width",
-      title = "Iris data ggplot2 scatterplot example",
-      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
-      caption = "Data from datasets::iris") +
-  theme_unhcr()
+ggplot(data = mtcars, mapping = aes(factor(cyl))) +
+  geom_bar(fill = unhcr_pal(n=1, name = "pal_unhcr")) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  labs(x = "Number of Cylinders",
+       y = "Count", title = "Bar chart example with UNHCR colors",
+       subtitle = "Simple plot to showcase theme_unhcr default style",
+       caption = "Data from mtcars") +
+  theme_unhcr(grid = "Y")
 ```
 
-![](man/figures/README-plot-theme-1.png)<!-- -->
-
-### Base ggplot2 theme + color scale
+![](man/figures/README-plot-theme-fill-1.png)<!-- -->
 
 ``` r
-ggplot(datasets::iris, aes(x = Petal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species)) +
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point(aes(color=factor(gear))) +
   scale_color_unhcr_d(palette = "pal_unhcr") +
-  labs(x = "Petal length", y="Petal width",
-      title = "Iris data ggplot2 scatterplot example",
-      subtitle = "Just a simple plot to show the basic style of theme_unhcr",
-      caption = "Data from datasets::iris") +
-  theme_unhcr()
+  labs(x = "Number of Cylinders",
+       y = "Count", title = "Scatter plot example with UNHCR colors",
+       subtitle = "Simple plot to showcase theme_unhcr default style",
+       caption = "Data from mtcars") +
+  theme_unhcr(axis = FALSE)
 ```
 
 ![](man/figures/README-plot-theme-color-1.png)<!-- -->
@@ -127,3 +165,13 @@ remotes::install_github('unhcr/HighFrequencyChecks')
 ## koboloadeR
 remotes::install_github('unhcr/koboloadeR')
 ```
+
+## Meta
+
+-   Please [report any issues or
+    bugs](https://github.com/vidonne/unhcrthemes/issues).
+-   License: MIT
+-   Please note that this project is released with a [Contributor Code
+    of
+    Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+    By contributing to this project, you agree to abide by its terms.
