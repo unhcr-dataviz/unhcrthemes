@@ -54,28 +54,6 @@ UNHCR uses **Lato** as its main font for publications and data
 visualizations. **Arial** can also be used as a fallback option if it is
 not possible to install **Lato** on your computer.
 
-**Lato** needs to be installed on your computer and registered with R.
-Install [Lato](https://fonts.google.com/specimen/Lato), then run the
-following code to make it accessible in R.
-
-**TO REVIEW**
-
-``` r
-# install.packages('showtext', dependencies = TRUE)
-library(showtext)
-#> Loading required package: sysfonts
-#> Loading required package: showtextdb
-
-# Check the current search path for fonts
-allfontpath <- font_paths()
-
-# syntax: font_add(family = "<family_name>", regular = "/path/to/font/file")
-font_add("Lato", regular = "Lato-Regular.ttf",  bold = "Lato-Bold.ttf", italic = "Lato-Italic.ttf")
-
-# automatically use showtexts for new devices
-showtext::showtext_auto()
-```
-
 ## Usage
 
 ``` r
@@ -86,8 +64,8 @@ library(unhcrthemes)
 ### Base ggplot2 theme
 
 ``` r
-ggplot(data = mtcars, mapping = aes(factor(cyl))) +
-  geom_bar() + 
+ggplot(data = mtcars, aes(factor(cyl))) +
+  geom_bar() +
   scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
   labs(x = "Number of Cylinders",
        y = "Count", title = "Bar chart example",
@@ -112,8 +90,8 @@ display_unhcr_all()
 ### Base theme and color scale
 
 ``` r
-ggplot(data = mtcars, mapping = aes(factor(cyl))) +
-  geom_bar(fill = unhcr_pal(n=1, name = "pal_unhcr")) +
+ggplot(data = mtcars, aes(factor(cyl))) +
+  geom_bar(fill = unhcr_pal(n = 1, name = "pal_unhcr")) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
   labs(x = "Number of Cylinders",
        y = "Count", title = "Bar chart example with UNHCR colors",
@@ -126,7 +104,7 @@ ggplot(data = mtcars, mapping = aes(factor(cyl))) +
 
 ``` r
 ggplot(mtcars, aes(mpg, wt)) +
-  geom_point(aes(color=factor(gear))) +
+  geom_point(aes(color = factor(gear))) +
   scale_color_unhcr_d(palette = "pal_unhcr") +
   labs(x = "Number of Cylinders",
        y = "Count", title = "Scatter plot example with UNHCR colors",
