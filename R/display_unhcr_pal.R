@@ -40,20 +40,20 @@ display_unhcr_all <- function(n = NULL, type = "all") {
   ylim <- c(0, n_colors)
   oldpar <- par(mgp = c(2, 0.25, 0))
   on.exit(par(oldpar))
-  max_my_n <- max(my_n) + 0.2 * max(my_n)
-  plot(1, 1, xlim = c(0, max_my_n), ylim = ylim,
+  max_my_n <- max(my_n)
+  plot(1, 1, xlim = c(-1.5, max_my_n), ylim = ylim,
        type = "n", axes = FALSE, bty = "n", xlab = "", ylab = "")
 
   for(i in seq_len(n_colors)) {
     one_color <- unhcr_pal(n = my_n[i],
                            name = selected_metadata$name[i])
-    rect(xleft = 0:(my_n[i] - 1) + 0.2,
+    rect(xleft = 0:(my_n[i] - 1),
          ybottom = i - 1,
-         xright = 1:my_n[i] + 0.2,
-         ytop = i-0.2,
+         xright = 1:my_n[i],
+         ytop = i - 0.2,
          col = one_color,
          border = "light grey")
-    text(0.2, i - 0.6,
+    text(-0.1, i - 0.6,
          labels = selected_metadata$name[i],
          xpd = TRUE,
          adj = 1)
