@@ -16,7 +16,7 @@
 #' @export
 unhcr_pal <- function(n = NULL, name, ...){
   if (!(name %in% unhcrcolors$name)){
-    stop(paste(name,"is not a valid palette name\n"),
+    stop(paste(name, "is not a valid palette name\n"),
          call. = FALSE)
   }
   selected_metadata <- unhcrcolors[unhcrcolors$name == name, ]
@@ -34,13 +34,12 @@ unhcr_pal <- function(n = NULL, name, ...){
     warning(paste("Number of colors (n) in the", name,
                   "palette should be between", min_n, "and", max_n,
                   "\n"), call. = FALSE)
-    n <- proper_n
   }
-  if (!(n >= min_n)) {
+  if (n < min_n) {
     warning(paste("Number of colors (n) in the", name,
                   "palette should be between", min_n, "and",
                   max_n, "\n"), call. = FALSE)
-    proper_n = min_n
+    proper_n <- min_n
     n <- min_n
   }
   coln <- paste0("n", proper_n)
