@@ -233,20 +233,23 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ret <- ret + ggplot2::theme(plot.margin = ggplot2::margin(font_size, font_size, font_size, font_size))
 
   # class for condition on tag
-  class(ret) <- c("conditional_theme", class(ret))
-
+  class(ret) <- c("conditional_unhcr_theme", class(ret))
+  attr(ret, "font_size") <- font_size
   ret
 }
 
-#' @importFrom ggplot2 ggplot_add
+#' @importFrom ggplot2 ggplot_add element_text margin
 #' @noRd
 #' @export
-ggplot_add.conditional_theme <- function(object, plot, object_name) {
+ggplot_add.conditional_unhcr_theme <- function(object, plot, object_name) {
   # TODO Find a way to get margin based on font_size from the main theme.
+  # It's called twice to have the font_size (fixed it after)
+  plot$theme <- ggplot2:::add_theme(plot$theme, object, object_name)
+  font_size <- plot$theme$text$size
   if (!is.null(plot$labels$tag)) {
-    object <- object + ggplot2::theme(plot.title = ggplot2::element_text(
-      margin = ggplot2::margin(t = 9 * 1.5, b = 4.5)
-    ))
+    object <- object +
+      ggplot2::theme(plot.title = ggplot2::element_text(
+        margin = ggplot2::margin(t = font_size * 1.5, b = font_size)))
   }
   plot$theme <- ggplot2:::add_theme(plot$theme, object, object_name)
   plot
