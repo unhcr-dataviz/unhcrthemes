@@ -245,7 +245,7 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
 #' @export
 ggplot_add.conditional_unhcr_theme <- function(object, plot, object_name) {
   # TODO Find a way to get margin based on font_size from the main theme.
-  # It's called twice to have the font_size
+  # It's called twice to have the font_size (fixed it after)
   plot$theme <- ggplot2:::add_theme(plot$theme, object, object_name)
   font_size <- plot$theme$text$size
   rel_large <- attr(plot$theme, "rel_large")
