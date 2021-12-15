@@ -3,6 +3,9 @@
 #' \code{theme_unhcr} provides a basic \bold{UNHCR} theme
 #' to use in \bold{ggplot2} commands.
 #'
+#'
+#' @rdname theme_unhcr
+#'
 #' @param font_size Base font size
 #' @param font_family Base font family, default "Lato"
 #' @param line_size Base line size for axis. Gridlines are line_size/2
@@ -27,7 +30,6 @@
 #' geom_point() +
 #' theme_unhcr()
 #' }
-
 theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
                             rel_small = 8 / 9, rel_tiny = 7 / 9, rel_large = 12 / 9,
                             grid = TRUE, axis = "x", ticks = FALSE, legend_title = FALSE) {
@@ -244,14 +246,14 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
 ggplot_add.conditional_unhcr_theme <- function(object, plot, object_name) {
   # TODO Find a way to get margin based on font_size from the main theme.
   # It's called twice to have the font_size (fixed it after)
-  plot$theme <- ggplot2:::add_theme(plot$theme, object, object_name)
+  plot <- add_gg_theme(plot, object)
   font_size <- plot$theme$text$size
   if (!is.null(plot$labels$tag)) {
     object <- object +
       ggplot2::theme(plot.title = ggplot2::element_text(
         margin = ggplot2::margin(t = font_size * 1.5, b = font_size)))
+    plot <- add_gg_theme(plot, object)
   }
-  plot$theme <- ggplot2:::add_theme(plot$theme, object, object_name)
   plot
 }
 
