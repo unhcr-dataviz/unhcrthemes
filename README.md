@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" height="140" /></a>
+
 <!-- badges: start -->
 
 [![Project Status: WIP – Initial development is in progress, but there
@@ -10,7 +13,7 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
-# unhcrthemes
+## Overview
 
 The **unhcrthemes** package provides a `ggplot` theme and a set of
 colour palettes for making charts and graphics based on [UNHCR Data
@@ -146,12 +149,15 @@ remotes::install_github('unhcr/HighFrequencyChecks')
 remotes::install_github('unhcr/koboloadeR')
 ```
 
-## Meta
+## Getting help
 
--   Please [report any issues or
-    bugs](https://github.com/vidonne/unhcrthemes/issues).
--   License: MIT
--   Please note that this project is released with a [Contributor Code
-    of
-    Conduct](https://github.com/vidonne/unhcrthemes/blob/master/CODE_OF_CONDUCT.md).
-    By contributing to this project, you agree to abide by its terms.
+Please report any issues or bugs on
+[GitHub](https://github.com/vidonne/unhcrthemes/issues), try to include
+a minimal reproducible example to help us understand.
+
+## Code of Conduct
+
+Please note that the mynewpack project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
