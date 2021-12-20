@@ -63,9 +63,7 @@ ggplot(df1) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 9,
-              font_family = "Lato",
-              grid = "Y")
+  theme_unhcr(grid = "Y")
 ```
 
 ## Column chart with data label
@@ -85,9 +83,7 @@ ggplot(df1) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 9,
-              font_family = "Lato",
-              grid = FALSE,
+  theme_unhcr(grid = FALSE,
               axis = "X") +
   theme(axis.text.y = element_blank())
 ```
@@ -120,9 +116,7 @@ df2 |>
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1)),
                      breaks = pretty_breaks()) +
-  theme_unhcr(font_size = 9,
-              font_family = "Lato",
-              grid = "X",
+  theme_unhcr(grid = "X",
               axis = "y")
 ```
 
@@ -146,9 +140,7 @@ df2 |>
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 9,
-              font_family = "Lato",
-              grid = FALSE,
+  theme_unhcr(grid = FALSE,
               axis = "Y") +
   theme(axis.text.x = element_blank())
 ```
@@ -156,7 +148,7 @@ df2 |>
 
 ## Grouped column chart
 
-```{r bar2, fig.width = 5.5, fig.height = 3}
+```{r bar2, fig.width = 5.5, fig.height = 3.5}
 df3 <- tribble(
   ~year,~EHAGL,~RBSA,~RBWCA,
   "2017",7,4,3,
@@ -184,7 +176,7 @@ df3 |>
 
 ## Grouped column chart with data label
 
-```{r bar2_alt, fig.width = 5.5, fig.height = 3}
+```{r bar2_alt, fig.width = 5.5, fig.height = 3.5}
 df3 |>
   pivot_longer(cols = -year) |>
   ggplot() +
@@ -298,8 +290,7 @@ df5 |>
        x = "",
        y = "",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
-  theme_unhcr(font_size = 9,
-              grid = "Y",
+  theme_unhcr(grid = "Y",
               axis = "X")
 ```
 
@@ -325,8 +316,7 @@ df5 |>
        x = "",
        y = "",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
-  theme_unhcr(font_size = 9,
-              grid = FALSE,
+  theme_unhcr(grid = FALSE,
               axis = "X") +
   theme(axis.text.y = element_blank())
 ```
@@ -359,8 +349,7 @@ df6 |>
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   scale_fill_unhcr_d(palette = "pal_unhcr",
                      nmax = 10, order = c(3, 1, 9)) +
-  theme_unhcr(font_size = 9,
-              grid = "X",
+  theme_unhcr(grid = "X",
               axis = "y")
 ```
 
@@ -389,8 +378,7 @@ ggplot() +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   scale_fill_unhcr_d(palette = "pal_unhcr",
                      nmax = 10, order = c(3, 1, 9)) +
-  theme_unhcr(font_size = 9,
-              grid = FALSE,
+  theme_unhcr(grid = FALSE,
               axis = "y") +
   theme(axis.text.x = element_blank())
 ```
@@ -426,8 +414,7 @@ df7 |>
        x = "",
        y = "",
        caption = "Source: UNHCR\n© UNHCR, The UN Refugee Agency") +
-  theme_unhcr(font_size = 9,
-              grid = "Y",
+  theme_unhcr(grid = "Y",
               axis = "X")
 ```
 
@@ -468,8 +455,7 @@ Source: UNHCR Refugee Data Finder
   scale_x_continuous(expand = expansion(c(0.1, 0.1))) +
   scale_fill_manual(values = setNames(unhcr_pal(n = 3, "pal_unhcr")[c(2, 1)],
                                       c("Male", "Female"))) +
-  theme_unhcr(font_size = 9,
-              grid = FALSE,
+  theme_unhcr(grid = FALSE,
               axis = FALSE) +
   theme(axis.text.x = element_blank(),
         axis.title.x = element_blank(),
@@ -478,7 +464,7 @@ Source: UNHCR Refugee Data Finder
 
 ## Line chart
 
-```{r line, fig.width = 5.5, fig.height = 3}
+```{r line, fig.width = 5.5, fig.height = 3.5}
 df9 <- tribble(
 ~Year,~Refugees,~IDPs,
 1990,17.4,0,
@@ -528,15 +514,14 @@ df9 |>
   scale_color_unhcr_d(palette = "pal_unhcr",
                       nmax = 10, order = c(5, 1)) +
   coord_cartesian(clip = "off") +
-  theme_unhcr(font_size = 9,
-              grid = "Y") +
+  theme_unhcr(grid = "Y") +
   theme(legend.position = "none",
         axis.title.y = element_blank())
 ```
 
 ## Area chart
 
-```{r area, fig.width = 5.5, fig.height = 3}
+```{r area, fig.width = 5.5, fig.height = 3.5}
 df10 <- tribble(
 ~Month,~Unearmarked,~`Softly earmarked`,~Earmarked,~`Tightly earmarked`,
 "Jan",15.1,0.6,1.6,19.2,
@@ -567,13 +552,13 @@ df10 |>
                date_labels = "%b",
                expand = expansion(c(0, 0))) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 9,
-              grid = "Y")
+  theme_unhcr(grid = "Y") +
+  theme(axis.title.x = element_blank())
 ```
 
 ## Combined column and line chart
 
-```{r line2, fig.width = 5.5, fig.height = 3}
+```{r line2, fig.width = 5.5, fig.height = 3.5}
 df11 <- tribble(
 ~Year,~`Displaced population`,~`Proportion displaced`,
 2007,42.69,6.38964,
@@ -609,8 +594,7 @@ ggplot(data = df11) +
                      sec.axis = sec_axis(~ . / 10,
                                          breaks = pretty_breaks(),
                                          name = "Proportion displaced (number displaced per 1,000)")) +
-  theme_unhcr(font_size = 9,
-              grid = "Y") +
+  theme_unhcr(grid = "Y") +
   theme(axis.title.x = element_blank())
 ```
 
@@ -644,8 +628,7 @@ df13 |>
        caption = "Note: figures do not add up to 100 per cent du to rounding
 Source: UNHCR Refugee Data Finder
 © UNHCR, The UN Refugee Agency") +
-  theme_unhcr(font_size = 9,
-              axis = FALSE,
+  theme_unhcr(axis = FALSE,
               grid = FALSE)
 ```
 

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" height="140" /></a>
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="120" /></a>
 
 <!-- badges: start -->
 
@@ -61,7 +61,23 @@ not possible to install **Lato** on your computer.
 
 ``` r
 library(tidyverse)
+#> ── Attaching packages ──────── tidyverse 1.3.1 ──
+#> ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
+#> ✔ tibble  3.1.6     ✔ dplyr   1.0.7
+#> ✔ tidyr   1.1.4     ✔ stringr 1.4.0
+#> ✔ readr   2.1.1     ✔ forcats 0.5.1
+#> ── Conflicts ─────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
 library(scales)
+#> 
+#> Attaching package: 'scales'
+#> The following object is masked from 'package:purrr':
+#> 
+#>     discard
+#> The following object is masked from 'package:readr':
+#> 
+#>     col_factor
 library(unhcrthemes)
 library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ```
@@ -77,10 +93,10 @@ pop_total <- demographics |>
 
 
 glimpse(pop_total)
-#> Rows: 11
+#> Rows: 10
 #> Columns: 2
-#> $ year <dbl> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 20…
-#> $ idp  <dbl> 14.69780, 15.47338, 17.67037, 23.92555, 32.27462, …
+#> $ year <chr> "2010", "2011", "2012", "2013", "2014", "2015", "2…
+#> $ idp  <dbl> 14.39780, 15.17338, 17.67037, 23.92555, 32.27462, …
 ```
 
 ``` r
@@ -92,7 +108,6 @@ ggplot(pop_total) +
        x = "",
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
-  scale_x_continuous(breaks = pretty_breaks()) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(font_size = 12,
               font_family = "Lato",
@@ -124,7 +139,6 @@ ggplot(pop_total) +
        x = "",
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
-  scale_x_continuous(breaks = pretty_breaks()) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(font_size = 12,
               font_family = "Lato",
@@ -145,9 +159,9 @@ pop_total_sex <- demographics |>
 #> `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
 
 glimpse(pop_total_sex)
-#> Rows: 22
+#> Rows: 20
 #> Columns: 3
-#> $ year <dbl> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 20…
+#> $ year <chr> "2010", "2010", "2011", "2011", "2012", "2012", "2…
 #> $ sex  <chr> "female", "male", "female", "male", "female", "mal…
 #> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …
 ```
@@ -158,7 +172,6 @@ ggplot(pop_total_sex) +
            width = 0.8,
            position = position_dodge(width = 0.9)) +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
-  scale_x_continuous(breaks = pretty_breaks()) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
        subtitle = "Number of people (in million)",
