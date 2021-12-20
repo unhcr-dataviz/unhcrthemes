@@ -58,12 +58,12 @@ ggplot(df1) +
            fill = unhcr_pal(n = 1, "pal_blue"),
            width = 0.8) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       subtitle = "Number of people (in million)",
-       x = "",
-       y = "",
+       y = "Number of people (in million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(grid = "Y",
+              axis = "x",
+              axis_title = "y")
 ```
 
 ## Column chart with data label
@@ -78,14 +78,13 @@ ggplot(df1) +
             vjust = -1,
             size = 3) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       subtitle = "Number of people (million)",
-       x = "",
-       y = "",
+       y = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(grid = FALSE,
-              axis = "X") +
-  theme(axis.text.y = element_blank())
+              axis = "x",
+              axis_text = "x",
+              axis_title = "y")
 ```
 
 ## Bar chart
@@ -115,7 +114,7 @@ df2 |>
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1)),
-                     breaks = pretty_breaks()) +
+                     breaks = pretty_breaks(n = 7)) +
   theme_unhcr(grid = "X",
               axis = "y")
 ```
@@ -135,14 +134,13 @@ df2 |>
             hjust = -0.5,
             size = 3) +
   labs(title = "People displaced across borders by country of origin | 2020",
-       subtitle = "Number of people (million)",
-       x = "",
-       y = "",
+       y = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(grid = FALSE,
-              axis = "Y") +
-  theme(axis.text.x = element_blank())
+              axis = "y",
+              axis_text = "y",
+              axis_title = "y")
 ```
 
 
@@ -165,13 +163,12 @@ df3 |>
            width = 0.6) +
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 3, order = c(2, 3, 1)) +
   labs(title = "IDPs of concern to UNHCR in Africa region | 2017-2020",
-       x = "",
-       y = "",
+       y = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.2)),
                      breaks = pretty_breaks()) +
-  theme_unhcr(font_size = 9, grid = "Y") +
-  theme(axis.title.y = element_blank())
+  theme_unhcr(grid = "Y",
+              axis_title = "y")
 ```
 
 ## Grouped column chart with data label
@@ -189,16 +186,14 @@ df3 |>
             size = 3) +
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 3, order = c(2, 3, 1)) +
   labs(title = "IDPs of concern to UNHCR in Africa region | 2017-2020",
-       subtitle = "Number of people (million)",
-       x = "",
-       y = "",
+       y = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.2)),
                      breaks = pretty_breaks()) +
   theme_unhcr(grid = FALSE,
-              axis = "X") +
-  theme(axis.text.y = element_blank(),
-        axis.title.y = element_blank())
+              axis = "x",
+              axis_text = "x",
+              axis_title = "y")
 ```
 
 ## Grouped bar chart
@@ -224,13 +219,11 @@ df4 |>
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   labs(title = "Individual asylum applications registered by region | 2019-2020",
        x = "Number of people (thousand)",
-       y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
-  theme_unhcr(font_size = 9,
-              grid = "X",
-              axis = "y") +
-  theme(axis.title.y = element_blank())
+  theme_unhcr(grid = "X",
+              axis = "y",
+              axis_title = "x")
 ```
 
 ## Grouped bar chart with data label
@@ -251,15 +244,13 @@ df4 |>
             size = 3) +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   labs(title = "Individual asylum applications registered by region | 2019-2020",
-       subtitle = "Number of people (thousand)",
-       x = "",
-       y = "",
+       y = "Number of people (thousand)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
-  theme_unhcr(font_size = 9,
-              grid = FALSE,
-              axis = "y") +
-  theme(axis.title.y = element_blank())
+  theme_unhcr(grid = FALSE,
+              axis = "y",
+              axis_title = "y",
+              axis_text = "y")
 ```
 
 ## Stacked column chart
@@ -287,11 +278,11 @@ df5 |>
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 2, order = 2:1) +
   scale_y_continuous(expand = expansion(c(0, 0.25))) +
   labs(title = "Resettlement by UNHCR and others | 2010-2020",
-       x = "",
-       y = "",
+       y = "Number of people (thousand)",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   theme_unhcr(grid = "Y",
-              axis = "X")
+              axis = "x",
+              axis_title = "y")
 ```
 
 ## Stacked column chart with data label
@@ -312,13 +303,12 @@ df5 |>
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 2, order = 2:1) +
   scale_y_continuous(expand = expansion(c(0, 0.25))) +
   labs(title = "Resettlement by UNHCR and others | 2010-2020",
-       subtitle = "Number of people (thousand)",
-       x = "",
-       y = "",
+       y = "Number of people (thousand)",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   theme_unhcr(grid = FALSE,
-              axis = "X") +
-  theme(axis.text.y = element_blank())
+              axis = "x",
+              axis_text = "x",
+              axis_title = "y")
 ```
 
 ## Stacked bar chart
@@ -344,13 +334,13 @@ df6 |>
            width = 0.7) +
   labs(title = "People displaced across borders by country of origin | 2020",
        x = "Number of people (million)",
-       y = "",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   scale_fill_unhcr_d(palette = "pal_unhcr",
                      nmax = 10, order = c(3, 1, 9)) +
   theme_unhcr(grid = "X",
-              axis = "y")
+              axis = "y",
+              axis_title = "x")
 ```
 
 ## Stacked bar chart with data label
@@ -371,16 +361,16 @@ ggplot() +
             color = "#FFFFFF",
             size = 3) +
   labs(title = "People displaced across borders by country of origin | 2020",
-       subtitle = "Number of people (million)",
-       x = "",
-       y = "",
+       y =  "Number of people (million)",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   scale_fill_unhcr_d(palette = "pal_unhcr",
                      nmax = 10, order = c(3, 1, 9)) +
   theme_unhcr(grid = FALSE,
-              axis = "y") +
-  theme(axis.text.x = element_blank())
+              axis = "y",
+              axis_text = "y",
+              axis_title = "y",
+              legend = TRUE)
 ```
 
 ## 100% stacked column chart
@@ -411,11 +401,10 @@ df7 |>
   scale_y_continuous(expand = expansion(c(0, 0.01)),
                      labels = percent) +
   labs(title = "Levels of earmarking | 2012-2020",
-       x = "",
-       y = "",
        caption = "Source: UNHCR\n© UNHCR, The UN Refugee Agency") +
   theme_unhcr(grid = "Y",
-              axis = "X")
+              axis = "x",
+              axis_title = FALSE)
 ```
 
 ## Population pyramid
@@ -456,10 +445,9 @@ Source: UNHCR Refugee Data Finder
   scale_fill_manual(values = setNames(unhcr_pal(n = 3, "pal_unhcr")[c(2, 1)],
                                       c("Male", "Female"))) +
   theme_unhcr(grid = FALSE,
-              axis = FALSE) +
-  theme(axis.text.x = element_blank(),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank())
+              axis = FALSE,
+              axis_text = "y",
+              axis_title = FALSE)
 ```
 
 ## Line chart
@@ -514,9 +502,9 @@ df9 |>
   scale_color_unhcr_d(palette = "pal_unhcr",
                       nmax = 10, order = c(5, 1)) +
   coord_cartesian(clip = "off") +
-  theme_unhcr(grid = "Y") +
-  theme(legend.position = "none",
-        axis.title.y = element_blank())
+  theme_unhcr(grid = "Y",
+              axis_title = "x",
+              legend = FALSE)
 ```
 
 ## Area chart
@@ -545,6 +533,7 @@ df10 |>
   geom_area(aes(ym, value, fill = name)) +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   labs(title = "Monthly evolution of funding in West and Central Africa region | 2020",
+       y = "USD millions",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_date(breaks = seq.Date(as.Date("2021-01-01"),
                                  as.Date("2021-12-01"),
@@ -552,8 +541,8 @@ df10 |>
                date_labels = "%b",
                expand = expansion(c(0, 0))) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(grid = "Y") +
-  theme(axis.title.x = element_blank())
+  theme_unhcr(grid = "Y",
+              axis_title = "y")
 ```
 
 ## Combined column and line chart
@@ -594,8 +583,8 @@ ggplot(data = df11) +
                      sec.axis = sec_axis(~ . / 10,
                                          breaks = pretty_breaks(),
                                          name = "Proportion displaced (number displaced per 1,000)")) +
-  theme_unhcr(grid = "Y") +
-  theme(axis.title.x = element_blank())
+  theme_unhcr(grid = "Y",
+              axis_title = "y")
 ```
 
 ## Treemap
@@ -629,6 +618,7 @@ df13 |>
 Source: UNHCR Refugee Data Finder
 © UNHCR, The UN Refugee Agency") +
   theme_unhcr(axis = FALSE,
+              axis_title = FALSE,
               grid = FALSE)
 ```
 
@@ -664,12 +654,10 @@ df12 |>
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   scale_x_continuous(expand = expansion(c(0.3, 0.5))) +
   coord_fixed(clip = "off") +
-  theme_unhcr(grid = FALSE, axis = FALSE) +
-  theme(legend.position = "none",
-        axis.title.y = element_blank(),
-        axis.text.y = element_blank(),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank())
+  theme_unhcr(grid = FALSE, axis = FALSE,
+              axis_title = FALSE,
+              axis_text = FALSE,
+              legend = FALSE)
 ```
 
 ## Donut chart
@@ -704,10 +692,8 @@ df12 |>
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   scale_x_continuous(expand = expansion(c(0.3, 0.5))) +
   coord_fixed(clip = "off") +
-  theme_unhcr(grid = FALSE, axis = FALSE) +
-  theme(legend.position = "none",
-        axis.title.y = element_blank(),
-        axis.text.y = element_blank(),
-        axis.title.x = element_blank(),
-        axis.text.x = element_blank())
+  theme_unhcr(grid = FALSE, axis = FALSE,
+              axis_title = FALSE,
+              axis_text = FALSE,
+              legend = FALSE)
 ```

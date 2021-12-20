@@ -14,7 +14,10 @@ theme_unhcr(
   rel_large = 12/9,
   grid = TRUE,
   axis = "x",
-  ticks = FALSE,
+  axis_text = TRUE,
+  axis_title = TRUE,
+  axis_ticks = FALSE,
+  legend = TRUE,
   legend_title = FALSE
 )
 
@@ -25,6 +28,7 @@ theme_unhcr_map(
   rel_small = 12/14,
   rel_tiny = 11/14,
   rel_large = 16/14,
+  legend = TRUE,
   legend_title = FALSE
 )
 }
@@ -45,7 +49,13 @@ theme_unhcr_map(
 
 \item{axis}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
 
-\item{ticks}{Turn on and off ticks. Use "X" or "Y" to have only the correspondent active}
+\item{axis_text}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
+
+\item{axis_title}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
+
+\item{axis_ticks}{Turn on and off ticks. Use "X" or "Y" to have only the correspondent active}
+
+\item{legend}{Turn on and off the legend, default TRUE.}
 
 \item{legend_title}{Turn on and off title of the legend, default FALSE.}
 }

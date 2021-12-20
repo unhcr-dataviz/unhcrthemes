@@ -14,7 +14,10 @@
 #' @param rel_large Relative size of large text (e.g., title)
 #' @param grid Turn on and off the grids. "X" or "Y" for major and "x" or "y" for minor
 #' @param axis Turn on and off axis. Use "X" or "Y" to have only the correspondent active
-#' @param ticks Turn on and off ticks. Use "X" or "Y" to have only the correspondent active
+#' @param axis_title Turn on and off axis. Use "X" or "Y" to have only the correspondent active
+#' @param axis_text Turn on and off axis. Use "X" or "Y" to have only the correspondent active
+#' @param axis_ticks Turn on and off ticks. Use "X" or "Y" to have only the correspondent active
+#' @param legend Turn on and off the legend, default TRUE.
 #' @param legend_title Turn on and off title of the legend, default FALSE.
 #'
 #' @return The theme style
@@ -32,7 +35,8 @@
 #' }
 theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
                             rel_small = 8 / 9, rel_tiny = 7 / 9, rel_large = 12 / 9,
-                            grid = TRUE, axis = "x", ticks = FALSE, legend_title = FALSE) {
+                        grid = TRUE, axis = "x", axis_text = TRUE, axis_title = TRUE,
+                        axis_ticks = FALSE, legend = TRUE, legend_title = FALSE) {
   # TODO Plot left aligned legend
   # TODO Blue line on top
   # TODO Horizontal Y-axis title above axis
@@ -63,23 +67,28 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   ))
 
   # legend
-  ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.spacing = grid::unit(font_size, "pt"))
-  ret <- ret + ggplot2::theme(legend.margin = ggplot2::margin(0, 0, 0, 0))
-  ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.key.size = grid::unit(1.2 * font_size, "pt"))
-  ret <- ret + ggplot2::theme(legend.text = ggplot2::element_text(color = dark_grey, size = rel(rel_small)))
-  ret <- ret + ggplot2::theme(legend.position = "top")
-  ret <- ret + ggplot2::theme(legend.direction = "horizontal")
-  ret <- ret + ggplot2::theme(legend.justification = 0)
-  ret <- ret + ggplot2::theme(legend.box.margin = ggplot2::margin(0, 0, 0, 0))
-  ret <- ret + ggplot2::theme(legend.box.background = ggplot2::element_blank())
-  ret <- ret + ggplot2::theme(legend.box.spacing = grid::unit(font_size, "pt"))
-  if (!legend_title) {
-    ret <- ret + theme(legend.title = element_blank())
+  if (!legend) {
+    ret <- ret + theme(legend.position = "none")
   } else {
-    ret <- ret + ggplot2::theme(legend.title = ggplot2::element_text(size = rel(rel_small), color = dark_grey,
-                                                                     hjust = 0))
+    ret <- ret + ggplot2::theme(legend.background = ggplot2::element_blank())
+    ret <- ret + ggplot2::theme(legend.spacing = grid::unit(font_size, "pt"))
+    ret <- ret + ggplot2::theme(legend.margin = ggplot2::margin(0, 0, 0, 0))
+    ret <- ret + ggplot2::theme(legend.key = ggplot2::element_blank())
+    ret <- ret + ggplot2::theme(legend.key.size = grid::unit(1.2 * font_size, "pt"))
+    ret <- ret + ggplot2::theme(legend.text = ggplot2::element_text(color = dark_grey, size = rel(rel_small)))
+    ret <- ret + ggplot2::theme(legend.position = "top")
+    ret <- ret + ggplot2::theme(legend.direction = "horizontal")
+    ret <- ret + ggplot2::theme(legend.justification = 0)
+    ret <- ret + ggplot2::theme(legend.box.margin = ggplot2::margin(0, 0, 0, 0))
+    ret <- ret + ggplot2::theme(legend.box.background = ggplot2::element_blank())
+    ret <- ret + ggplot2::theme(legend.box.spacing = grid::unit(font_size, "pt"))
+    if (!legend_title) {
+      ret <- ret + theme(legend.title = element_blank())
+    } else {
+      ret <- ret + ggplot2::theme(legend.title = ggplot2::element_text(size = rel(rel_small),
+                                                                       color = dark_grey,
+                                                                       hjust = 0))
+    }
   }
 
   # grid
@@ -143,47 +152,103 @@ theme_unhcr <- function(font_size = 9, font_family = "Lato", line_size = .5,
   }
 
   # axis text
-  ret <- ret + ggplot2::theme(axis.text = ggplot2::element_text(size = rel(rel_small), color = dark_grey))
-  ret <- ret + ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(
-    t = rel_small * font_size / 4
-  ), vjust = 1))
-  ret <- ret + ggplot2::theme(axis.text.x.top = ggplot2::element_text(margin = ggplot2::margin(
-    b = rel_small * font_size / 4
-  ), vjust = 0))
-  ret <- ret + ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(
-    r = rel_small * font_size / 4
-  ), hjust = 1))
-  ret <- ret + ggplot2::theme(axis.text.y.right = ggplot2::element_text(margin = ggplot2::margin(
-    l = rel_small * font_size / 4
-  ), hjust = 0))
+  if (inherits(axis_text, "character") | axis_text == TRUE) {
+    ret <- ret + ggplot2::theme(axis.text = ggplot2::element_text(size = rel(rel_small), color = dark_grey))
+    if (inherits(axis_text, "character")) {
+      axis_text <- tolower(axis_text)
+      if (regexpr("x", axis_text)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.text.x = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(
+          t = rel_small * font_size / 4
+        ), vjust = 1))
+        ret <- ret + ggplot2::theme(axis.text.x.top = ggplot2::element_text(margin = ggplot2::margin(
+          b = rel_small * font_size / 4
+        ), vjust = 0))
+      }
+      if (regexpr("y", axis_text)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.text.y = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(
+          r = rel_small * font_size / 4
+        ), hjust = 1))
+        ret <- ret + ggplot2::theme(axis.text.y.right = ggplot2::element_text(margin = ggplot2::margin(
+          l = rel_small * font_size / 4
+        ), hjust = 0))
+      }
+    } else {
+      ret <- ret + ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(
+        t = rel_small * font_size / 4
+      ), vjust = 1))
+      ret <- ret + ggplot2::theme(axis.text.x.top = ggplot2::element_text(margin = ggplot2::margin(
+        b = rel_small * font_size / 4
+      ), vjust = 0))
+      ret <- ret + ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(
+        r = rel_small * font_size / 4
+      ), hjust = 1))
+      ret <- ret + ggplot2::theme(axis.text.y.right = ggplot2::element_text(margin = ggplot2::margin(
+        l = rel_small * font_size / 4
+      ), hjust = 0))
+    }
+  } else {
+    ret <- ret + ggplot2::theme(axis.text = ggplot2::element_blank())
+  }
 
   # axis title
-  ret <- ret + ggplot2::theme(axis.title = ggplot2::element_text(size = rel(rel_small), color = medium_grey))
-  ret <- ret + ggplot2::theme(axis.title.x = ggplot2::element_text(margin = ggplot2::margin(
-    t = rel_small * font_size / 4
-  ), vjust = 1))
-  ret <- ret + ggplot2::theme(axis.title.x.top = ggplot2::element_text(margin = ggplot2::margin(
-    b = rel_small * font_size / 4
-  ), vjust = 0))
-  ret <- ret + ggplot2::theme(axis.title.y = ggplot2::element_text(angle = 90, margin = ggplot2::margin(
-    r = rel_small * font_size / 4
-  ), vjust = 1))
-  ret <- ret + ggplot2::theme(axis.title.y.right = ggplot2::element_text(angle = -90, margin = ggplot2::margin(
-    l = rel_small * font_size / 4
-  ), vjust = 0))
+  if (inherits(axis_title, "character") | axis_title == TRUE) {
+    ret <- ret + ggplot2::theme(axis.title = ggplot2::element_text(size = rel(rel_small), color = medium_grey))
+    if (inherits(axis_title, "character")) {
+      axis_title <- tolower(axis_title)
+      if (regexpr("x", axis_title)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.title.x = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.title.x = ggplot2::element_text(margin = ggplot2::margin(
+          t = rel_small * font_size / 4
+      ), vjust = 1))
+        ret <- ret + ggplot2::theme(axis.title.x.top = ggplot2::element_text(margin = ggplot2::margin(
+          b = rel_small * font_size / 4
+        ), vjust = 0))
+      }
+      if (regexpr("y", axis_title)[1] < 0) {
+        ret <- ret + ggplot2::theme(axis.title.y = ggplot2::element_blank())
+      } else {
+        ret <- ret + ggplot2::theme(axis.title.y = ggplot2::element_text(angle = 90, margin = ggplot2::margin(
+          r = rel_small * font_size / 4
+        ), vjust = 1))
+        ret <- ret + ggplot2::theme(axis.title.y.right = ggplot2::element_text(angle = -90, margin = ggplot2::margin(
+          l = rel_small * font_size / 4
+        ), vjust = 0))
+      }
+    } else {
+      ret <- ret + ggplot2::theme(axis.title.x = ggplot2::element_text(margin = ggplot2::margin(
+        t = rel_small * font_size / 4
+      ), vjust = 1))
+      ret <- ret + ggplot2::theme(axis.title.x.top = ggplot2::element_text(margin = ggplot2::margin(
+        b = rel_small * font_size / 4
+      ), vjust = 0))
+      ret <- ret + ggplot2::theme(axis.title.y = ggplot2::element_text(angle = 90, margin = ggplot2::margin(
+        r = rel_small * font_size / 4
+      ), vjust = 1))
+      ret <- ret + ggplot2::theme(axis.title.y.right = ggplot2::element_text(angle = -90, margin = ggplot2::margin(
+        l = rel_small * font_size / 4
+      ), vjust = 0))
+    }
+  } else {
+    ret <- ret + ggplot2::theme(axis.title = ggplot2::element_blank())
+  }
 
   # ticks
-  if (inherits(ticks, "character") | ticks == TRUE) {
+  if (inherits(axis_ticks, "character") | axis_ticks == TRUE) {
     ret <- ret + ggplot2::theme(axis.ticks.length = grid::unit(half_line / 2, "pt"))
     ret <- ret + ggplot2::theme(axis.ticks = ggplot2::element_line(color = dark_grey, size = line_size / 2))
-    if (inherits(ticks, "character")) {
-      ticks <- tolower(ticks)
-      if (regexpr("x", ticks)[1] < 0) {
+    if (inherits(axis_ticks, "character")) {
+      axis_ticks <- tolower(axis_ticks)
+      if (regexpr("x", axis_ticks)[1] < 0) {
         ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_blank())
       } else {
         ret <- ret + ggplot2::theme(axis.ticks.x = ggplot2::element_line(color = dark_grey, size = line_size / 2))
       }
-      if (regexpr("y", ticks)[1] < 0) {
+      if (regexpr("y", axis_ticks)[1] < 0) {
         ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_blank())
       } else {
         ret <- ret + ggplot2::theme(axis.ticks.y = ggplot2::element_line(color = dark_grey, size = line_size / 2))

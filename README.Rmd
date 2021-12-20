@@ -55,7 +55,7 @@ UNHCR uses **Lato** as its main font for publications and data visualizations. *
 
 ## Usage
 
-```{r load}
+```{r load, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(scales)
 library(unhcrthemes)
@@ -85,9 +85,7 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 12,
-              font_family = "Lato",
-              grid = "Y")
+  theme_unhcr(grid = "Y", axis_text = "x")
 ```
 
 
@@ -112,9 +110,7 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(font_size = 12,
-              font_family = "Lato",
-              grid = "Y")
+  theme_unhcr(grid = "Y")
 ```
 
 ```{r plot-theme-color-data}
@@ -143,9 +139,7 @@ ggplot(pop_total_sex) +
        x = "",
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
-  theme_unhcr(font_size = 12,
-              font_family = "Lato",
-              grid = "Y")
+  theme_unhcr(grid = "Y")
 ```
 
 ```{r child="man/rmdfragments/unhcrverse.Rmd"}
