@@ -6,3 +6,6 @@
 ^\.github$
 ^\./inst/gen_color_data.R
 ^CODE_OF_CONDUCT\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

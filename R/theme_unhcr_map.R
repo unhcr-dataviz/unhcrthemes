@@ -11,6 +11,7 @@
 #' @param rel_small Relative size of small text (e.g., axis labels)
 #' @param rel_tiny Relative size of tiny text (e.g., caption)
 #' @param rel_large Relative size of large text (e.g., title)
+#' @param legend Turn on and off the legend, default TRUE.
 #' @param legend_title Turn on and off title of the legend, default FALSE.
 #'
 #' @return The theme style
@@ -18,11 +19,11 @@
 #' @importFrom grid unit
 #' @export
 theme_unhcr_map <- function (font_size = 14, font_family = "Lato", line_size = 0.5,
-    rel_small = 12/14, rel_tiny = 11/14, rel_large = 16/14, legend_title = FALSE) {
+    rel_small = 12/14, rel_tiny = 11/14, rel_large = 16/14, legend = TRUE, legend_title = FALSE) {
     theme_unhcr(font_size = font_size, font_family = font_family,
                 line_size = line_size, rel_small = rel_small,
                 rel_tiny = rel_tiny, rel_large = rel_large,
-                grid = FALSE, axis = FALSE, ticks = FALSE) %+replace%
+                grid = FALSE, axis = FALSE, axis_text = FALSE, axis_ticks = FALSE) %+replace%
       theme(line = element_blank(),
             rect = element_blank(), axis.line = element_blank(),
             axis.line.x = NULL, axis.line.y = NULL, axis.text = element_blank(),

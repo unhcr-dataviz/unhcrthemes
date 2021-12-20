@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" height="140" /></a>
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="120" /></a>
 
 <!-- badges: start -->
 
@@ -60,21 +60,40 @@ not possible to install **Lato** on your computer.
 ## Usage
 
 ``` r
-library(ggplot2) # or library(tidyverse)
+library(tidyverse)
+library(scales)
 library(unhcrthemes)
+library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ```
 
 ### Base ggplot2 theme
 
 ``` r
-ggplot(data = mtcars, aes(factor(cyl))) +
-  geom_bar() +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
-  labs(x = "Number of Cylinders",
-       y = "Count", title = "Bar chart example",
-       subtitle = "Simple plot to showcase theme_unhcr default style",
-       caption = "Data from mtcars") +
-  theme_unhcr(font_size = 16, grid = "Y")
+pop_total <- demographics |>
+  filter(`Population Type` == "IDP", Year >= 2010) |>
+  group_by(year = Year) |>
+  summarise(idp = sum(Total, na.rm = TRUE) / 1e6) |>
+  ungroup()
+
+
+glimpse(pop_total)
+#> Rows: 10
+#> Columns: 2
+#> $ year <chr> "2010", "2011", "2012", "2013", "2014", "2015", "2…
+#> $ idp  <dbl> 14.39780, 15.17338, 17.67037, 23.92555, 32.27462, …
+```
+
+``` r
+ggplot(pop_total) +
+  geom_col(aes(x = year, y = idp),
+           width = 0.8) +
+  labs(title = "Globalement IDP displacement | 2010 - 2020",
+       subtitle = "Number of people (in million)",
+       x = "",
+       y = "",
+       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  theme_unhcr(grid = "Y")
 ```
 
 <img src="man/figures/README-plot-theme-1.png" width="672" />
@@ -93,27 +112,53 @@ display_unhcr_all()
 ### Base theme and color scale
 
 ``` r
-ggplot(data = mtcars, aes(factor(cyl))) +
-  geom_bar(fill = unhcr_pal(n = 1, name = "pal_unhcr")) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
-  labs(x = "Number of Cylinders",
-       y = "Count", title = "Bar chart example with UNHCR colors",
-       subtitle = "Simple plot to showcase theme_unhcr default style",
-       caption = "Data from mtcars") +
-  theme_unhcr(font_size = 16, grid = "Y")
+ggplot(pop_total) +
+  geom_col(aes(x = year, y = idp),
+           fill = unhcr_pal(n = 1, "pal_blue"),
+           width = 0.8) +
+  labs(title = "Globalement IDP displacement | 2010 - 2020",
+       subtitle = "Number of people (in million)",
+       x = "",
+       y = "",
+       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  theme_unhcr(grid = "Y")
 ```
 
 <img src="man/figures/README-plot-theme-fill-1.png" width="672" />
 
 ``` r
-ggplot(mtcars, aes(mpg, wt)) +
-  geom_point(aes(color = factor(gear))) +
-  scale_color_unhcr_d(palette = "pal_unhcr") +
-  labs(x = "Number of Cylinders",
-       y = "Count", title = "Scatter plot example with UNHCR colors",
-       subtitle = "Simple plot to showcase theme_unhcr default style",
-       caption = "Data from mtcars") +
-  theme_unhcr(font_size = 16, axis = FALSE)
+pop_total_sex <- demographics |>
+  filter(`Population Type` == "IDP", Year >= 2010) |>
+  select(year = Year, female = FemaleTotal, male = MaleTotal) |>
+  pivot_longer(cols = -year, names_to = "sex",
+               values_to = "idp") |>
+  group_by(year, sex) |>
+  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
+  ungroup()
+#> `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
+
+glimpse(pop_total_sex)
+#> Rows: 20
+#> Columns: 3
+#> $ year <chr> "2010", "2010", "2011", "2011", "2012", "2012", "2…
+#> $ sex  <chr> "female", "male", "female", "male", "female", "mal…
+#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …
+```
+
+``` r
+ggplot(pop_total_sex) +
+  geom_col(aes(x = year, y = idp, fill = sex),
+           width = 0.8,
+           position = position_dodge(width = 0.9)) +
+  scale_fill_unhcr_d(palette = "pal_unhcr") +
+  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  labs(title = "Globalement IDP displacement | 2010 - 2020",
+       subtitle = "Number of people (in million)",
+       x = "",
+       y = "",
+       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  theme_unhcr(grid = "Y")
 ```
 
 <img src="man/figures/README-plot-theme-color-1.png" width="672" />
