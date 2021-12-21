@@ -15,7 +15,7 @@ status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-projec
 
 ## Overview
 
-The **unhcrthemes** package provides a `ggplot` theme and a set of
+The **unhcrthemes** package provides a `ggplot2` theme and a set of
 colour palettes for making charts and graphics based on [UNHCR Data
 Visualization
 Guidelines](https://www.unhcr.org/brand/wp-content/uploads/sites/89/2021/11/UNHCR_Data_Visualization_Guidelines.pdf).
@@ -97,7 +97,7 @@ ggplot(pop_total) +
   theme_unhcr(grid = "Y")
 ```
 
-<img src="man/figures/README-plot-theme-1.png" width="1800" />
+<img src="man/figures/README-plot-theme-1.png" width="2100" />
 
 ### UNHCR color palette
 
