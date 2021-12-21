@@ -26,7 +26,9 @@ Imports:
     sysfonts,
     systemfonts,
     ragg
-Remotes: unhcr/unhcrdatapackage
+Remotes:
+  unhcr/unhcrdatapackage,
+  dickoa/unhcrtemplate
 RoxygenNote: 7.1.2
 Suggests:
     rmarkdown,
@@ -37,7 +39,7 @@ Suggests:
     treemapify,
     lubridate,
     unhcrdatapackage,
+    unhcrtemplate,
     tidyverse
 VignetteBuilder: knitr
-Config/Needs/website:
-    dickoa/unhcrtemplate
+Config/Needs/website: dickoa/unhcrtemplate
