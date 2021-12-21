@@ -88,13 +88,11 @@ ggplot(pop_total) +
   geom_col(aes(x = year, y = idp),
            width = 0.8) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       subtitle = "Number of people (in million)",
-       x = "",
-       y = "",
+       y = "Number of people (in million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(grid = "Y", axis_title = "y")
 ```
 
 <img src="man/figures/README-plot-theme-1.png" width="2100" />
@@ -118,13 +116,11 @@ ggplot(pop_total) +
            fill = unhcr_pal(n = 1, "pal_blue"),
            width = 0.8) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       subtitle = "Number of people (in million)",
-       x = "",
-       y = "",
+       y = "Number of people (in million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(grid = "Y", axis_title = "y")
 ```
 
 <img src="man/figures/README-plot-theme-fill-1.png" width="2100" />
@@ -156,12 +152,10 @@ ggplot(pop_total_sex) +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       subtitle = "Number of people (in million)",
-       x = "",
-       y = "",
+       y = "Number of people (in million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y")
+  theme_unhcr(grid = "Y", axis_title = "y")
 ```
 
 <img src="man/figures/README-plot-theme-color-1.png" width="2100" />
