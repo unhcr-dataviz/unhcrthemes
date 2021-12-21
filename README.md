@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" class="logo" /></a>
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" /></a>
 
 <!-- badges: start -->
 
