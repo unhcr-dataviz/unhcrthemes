@@ -3,8 +3,8 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   intro-unhcrthemes: intro-unhcrthemes.html
-last_built: 2021-12-20T16:08Z
+last_built: 2021-12-21T11:35Z
 urls:
-  reference: https://dickoa.github.io/unhcrthemes/reference
-  article: https://dickoa.github.io/unhcrthemes/articles
+  reference: https://vidonne.github.io/unhcrthemes/reference
+  article: https://vidonne.github.io/unhcrthemes/articles
 

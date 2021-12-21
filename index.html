@@ -9,7 +9,9 @@
 <title>UNHCR Templates for Ggplot and Colour Palettes • unhcrthemes</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Lato-0.4.0/font.css" rel="stylesheet">
+<link href="deps/_Source%20Code%20Pro-0.4.0/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="UNHCR Templates for Ggplot and Colour Palettes">
 <meta property="og:description" content="Color palettes and themes for plots based on UNHCR brand book.">
@@ -64,7 +66,7 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="unhcrthemes-">unhcrthemes <a href="https://github.com/vidonne/unhcrthemes" class="external-link"><img src="reference/figures/unhcrthemes_sticker.png" align="right" alt="" width="120"></a>
+<div class="page-header"><h1 id="unhcrthemes-">unhcrthemes <a href="https://github.com/vidonne/unhcrthemes" class="external-link"><img src="reference/figures/unhcrthemes_sticker.png" align="right" alt="" width="140" class="logo"></a>
 <a class="anchor" aria-label="anchor" href="#unhcrthemes-"></a>
 </h1></div>
 <!-- badges: start -->
@@ -117,18 +119,18 @@
 <h3 id="base-ggplot2-theme">Base ggplot2 theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pop_total</span> <span class="op">&lt;-</span> <span class="va">demographics</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">`Population Type`</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
+<code class="sourceCode R"><span class="va">pop_total</span> <span class="op">&lt;-</span> <span class="fu">unhcrdatapackage</span><span class="fu">::</span><span class="va"><a href="https://unhcr.github.io/unhcrdatapackage/docs//reference/demographics.html" class="external-link">demographics</a></span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Population.type</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">Year</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Total</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span>
 
 
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pop_total</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 10</span>
+<span class="co">#&gt; Rows: 11</span>
 <span class="co">#&gt; Columns: 2</span>
-<span class="co">#&gt; $ year &lt;chr&gt; "2010", "2011", "2012", "2013", "2014", "2015", "2…</span>
-<span class="co">#&gt; $ idp  &lt;dbl&gt; 14.39780, 15.17338, 17.67037, 23.92555, 32.27462, …</span></code></pre></div>
+<span class="co">#&gt; $ year &lt;dbl&gt; 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020</span>
+<span class="co">#&gt; $ idp  &lt;dbl&gt; 14.69780, 15.47338, 17.67037, 23.92555, 32.27462, 37.49417, 36.62~</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_total</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span><span class="op">)</span>,
@@ -139,8 +141,9 @@
        y <span class="op">=</span> <span class="st">""</span>,
        caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-1.png" width="672"></p>
+<p><img src="reference/figures/README-plot-theme-1.png" width="1800"></p>
 </div>
 <div class="section level3">
 <h3 id="unhcr-color-palette">UNHCR color palette<a class="anchor" aria-label="anchor" href="#unhcr-color-palette"></a>
@@ -148,7 +151,7 @@
 <p>All recommended data visualization colors are accessible as <strong>palettes</strong> or <strong>scales</strong> (color/fill).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/display_unhcr_all.html">display_unhcr_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-palette-1.png" width="672"></p>
+<p><img src="reference/figures/README-palette-1.png" width="2100"></p>
 </div>
 <div class="section level3">
 <h3 id="base-theme-and-color-scale">Base theme and color scale<a class="anchor" aria-label="anchor" href="#base-theme-and-color-scale"></a>
@@ -164,11 +167,12 @@
        y <span class="op">=</span> <span class="st">""</span>,
        caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-fill-1.png" width="672"></p>
+<p><img src="reference/figures/README-plot-theme-fill-1.png" width="2100"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pop_total_sex</span> <span class="op">&lt;-</span> <span class="va">demographics</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">`Population Type`</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Population.type</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">Year</span>, female <span class="op">=</span> <span class="va">FemaleTotal</span>, male <span class="op">=</span> <span class="va">MaleTotal</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">year</span>, names_to <span class="op">=</span> <span class="st">"sex"</span>,
                values_to <span class="op">=</span> <span class="st">"idp"</span><span class="op">)</span> |&gt;
@@ -178,11 +182,11 @@
 <span class="co">#&gt; `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.</span>
 
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pop_total_sex</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 20</span>
+<span class="co">#&gt; Rows: 22</span>
 <span class="co">#&gt; Columns: 3</span>
-<span class="co">#&gt; $ year &lt;chr&gt; "2010", "2010", "2011", "2011", "2012", "2012", "2…</span>
-<span class="co">#&gt; $ sex  &lt;chr&gt; "female", "male", "female", "male", "female", "mal…</span>
-<span class="co">#&gt; $ idp  &lt;dbl&gt; 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …</span></code></pre></div>
+<span class="co">#&gt; $ year &lt;dbl&gt; 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,~</span>
+<span class="co">#&gt; $ sex  &lt;chr&gt; "female", "male", "female", "male", "female", "male", "female", "~</span>
+<span class="co">#&gt; $ idp  &lt;dbl&gt; 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938~</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_total_sex</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span>,
@@ -195,8 +199,9 @@
        x <span class="op">=</span> <span class="st">""</span>,
        y <span class="op">=</span> <span class="st">""</span>,
        caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/breaks_pretty.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-color-1.png" width="672"></p>
+<p><img src="reference/figures/README-plot-theme-color-1.png" width="2100"></p>
 </div>
 </div>
 <div class="section level2">
