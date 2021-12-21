@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="120" /></a>
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" class="logo" /></a>
 
 <!-- badges: start -->
 
@@ -69,18 +69,18 @@ library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ### Base ggplot2 theme
 
 ``` r
-pop_total <- demographics |>
-  filter(`Population Type` == "IDP", Year >= 2010) |>
+pop_total <- unhcrdatapackage::demographics |>
+  filter(Population.type == "IDP", Year >= 2010) |>
   group_by(year = Year) |>
   summarise(idp = sum(Total, na.rm = TRUE) / 1e6) |>
   ungroup()
 
 
 glimpse(pop_total)
-#> Rows: 10
+#> Rows: 11
 #> Columns: 2
-#> $ year <chr> "2010", "2011", "2012", "2013", "2014", "2015", "2…
-#> $ idp  <dbl> 14.39780, 15.17338, 17.67037, 23.92555, 32.27462, …
+#> $ year <dbl> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+#> $ idp  <dbl> 14.69780, 15.47338, 17.67037, 23.92555, 32.27462, 37.49417, 36.62~
 ```
 
 ``` r
@@ -93,10 +93,11 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y")
 ```
 
-<img src="man/figures/README-plot-theme-1.png" width="672" />
+<img src="man/figures/README-plot-theme-1.png" width="1800" />
 
 ### UNHCR color palette
 
@@ -107,7 +108,7 @@ or **scales** (color/fill).
 display_unhcr_all()
 ```
 
-<img src="man/figures/README-palette-1.png" width="672" />
+<img src="man/figures/README-palette-1.png" width="2100" />
 
 ### Base theme and color scale
 
@@ -122,14 +123,15 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y")
 ```
 
-<img src="man/figures/README-plot-theme-fill-1.png" width="672" />
+<img src="man/figures/README-plot-theme-fill-1.png" width="2100" />
 
 ``` r
 pop_total_sex <- demographics |>
-  filter(`Population Type` == "IDP", Year >= 2010) |>
+  filter(Population.type == "IDP", Year >= 2010) |>
   select(year = Year, female = FemaleTotal, male = MaleTotal) |>
   pivot_longer(cols = -year, names_to = "sex",
                values_to = "idp") |>
@@ -139,11 +141,11 @@ pop_total_sex <- demographics |>
 #> `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
 
 glimpse(pop_total_sex)
-#> Rows: 20
+#> Rows: 22
 #> Columns: 3
-#> $ year <chr> "2010", "2010", "2011", "2011", "2012", "2012", "2…
-#> $ sex  <chr> "female", "male", "female", "male", "female", "mal…
-#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …
+#> $ year <dbl> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,~
+#> $ sex  <chr> "female", "male", "female", "male", "female", "male", "female", "~
+#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938~
 ```
 
 ``` r
@@ -158,10 +160,11 @@ ggplot(pop_total_sex) +
        x = "",
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y")
 ```
 
-<img src="man/figures/README-plot-theme-color-1.png" width="672" />
+<img src="man/figures/README-plot-theme-color-1.png" width="2100" />
 
 ## UNHCR packages
 

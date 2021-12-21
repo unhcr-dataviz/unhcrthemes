@@ -10,12 +10,13 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   fig.retina = 2,
+  dpi = 300,
   fig.showtext = TRUE,
   dev = "ragg_png"
 )
 ```
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="120" /></a>
+# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" class="logo" /></a>
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -65,8 +66,8 @@ library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ### Base ggplot2 theme
 
 ```{r plot-theme-data}
-pop_total <- demographics |>
-  filter(`Population Type` == "IDP", Year >= 2010) |>
+pop_total <- unhcrdatapackage::demographics |>
+  filter(Population.type == "IDP", Year >= 2010) |>
   group_by(year = Year) |>
   summarise(idp = sum(Total, na.rm = TRUE) / 1e6) |>
   ungroup()
@@ -85,7 +86,8 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  theme_unhcr(grid = "Y", axis_text = "x")
+  scale_x_continuous(breaks = pretty_breaks(10)) +
+  theme_unhcr(grid = "Y")
 ```
 
 
@@ -110,12 +112,13 @@ ggplot(pop_total) +
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y")
 ```
 
 ```{r plot-theme-color-data}
 pop_total_sex <- demographics |>
-  filter(`Population Type` == "IDP", Year >= 2010) |>
+  filter(Population.type == "IDP", Year >= 2010) |>
   select(year = Year, female = FemaleTotal, male = MaleTotal) |>
   pivot_longer(cols = -year, names_to = "sex",
                values_to = "idp") |>
@@ -127,7 +130,7 @@ glimpse(pop_total_sex)
 ```
 
 
-```{r plot-theme-color}
+```{r plot-theme-color }
 ggplot(pop_total_sex) +
   geom_col(aes(x = year, y = idp, fill = sex),
            width = 0.8,
@@ -139,6 +142,7 @@ ggplot(pop_total_sex) +
        x = "",
        y = "",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y")
 ```
 

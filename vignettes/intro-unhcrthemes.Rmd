@@ -16,7 +16,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   dev = "ragg_png",
   fig.showtext = TRUE,
-  dpi = 128
+  fig.retina = 2,
+  dpi = 300
 )
 ```
 
@@ -37,7 +38,7 @@ library(treemapify)
 
 ## Column chart
 
-```{r bar1, fig.width = 5.5, fig.height = 3}
+```{r bar1, fig.width = 7, fig.height = 4.25}
 df1 <- tribble(
 ~year, ~nidp,
 "2010",24.98,
@@ -69,7 +70,7 @@ ggplot(df1) +
 ## Column chart with data label
 
 
-```{r bar1_alt, fig.width = 5.5, fig.height = 3}
+```{r bar1_alt, fig.width = 7, fig.height = 5}
 ggplot(df1) +
   geom_col(aes(x = year, y = nidp),
            fill = unhcr_pal(n = 1, "pal_blue"),
@@ -78,18 +79,18 @@ ggplot(df1) +
             vjust = -1,
             size = 3) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (million)",
+       subtitle = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(grid = FALSE,
               axis = "x",
               axis_text = "x",
-              axis_title = "y")
+              axis_title = FALSE)
 ```
 
 ## Bar chart
 
-```{r col1, fig.width = 5.5, fig.height = 5}
+```{r col1, fig.width = 7, fig.height = 6}
 df2 <- tribble(
   ~country,~displaced,
   "Eritrea",522000,
@@ -121,7 +122,7 @@ df2 |>
 
 ## Bar chart with data label
 
-```{r col1_alt, fig.width = 5.5, fig.height = 5}
+```{r col1_alt, fig.width = 7, fig.height = 6}
 df2 |>
   ggplot() +
   geom_col(aes(x = displaced/1e6,
@@ -134,19 +135,19 @@ df2 |>
             hjust = -0.5,
             size = 3) +
   labs(title = "People displaced across borders by country of origin | 2020",
-       y = "Number of people (million)",
+       subtitle = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   theme_unhcr(grid = FALSE,
               axis = "y",
               axis_text = "y",
-              axis_title = "y")
+              axis_title = FALSE)
 ```
 
 
 ## Grouped column chart
 
-```{r bar2, fig.width = 5.5, fig.height = 3.5}
+```{r bar2, fig.width = 7, fig.height = 5}
 df3 <- tribble(
   ~year,~EHAGL,~RBSA,~RBWCA,
   "2017",7,4,3,
@@ -173,7 +174,7 @@ df3 |>
 
 ## Grouped column chart with data label
 
-```{r bar2_alt, fig.width = 5.5, fig.height = 3.5}
+```{r bar2_alt, fig.width = 7, fig.height = 5}
 df3 |>
   pivot_longer(cols = -year) |>
   ggplot() +
@@ -186,20 +187,20 @@ df3 |>
             size = 3) +
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 3, order = c(2, 3, 1)) +
   labs(title = "IDPs of concern to UNHCR in Africa region | 2017-2020",
-       y = "Number of people (million)",
+       subtitle = "Number of people (million)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_y_continuous(expand = expansion(c(0, 0.2)),
                      breaks = pretty_breaks()) +
   theme_unhcr(grid = FALSE,
               axis = "x",
               axis_text = "x",
-              axis_title = "y")
+              axis_title = FALSE)
 ```
 
 ## Grouped bar chart
 
 
-```{r col2, fig.width = 5.5, fig.height = 5}
+```{r col2, fig.width = 7, fig.height = 6}
 df4 <- tribble(
   ~region,~'2019',~'2020',
   "West and Central Africa",70834,21581,
@@ -228,7 +229,7 @@ df4 |>
 
 ## Grouped bar chart with data label
 
-```{r col2_alt, fig.width = 5.5, fig.height = 5}
+```{r col2_alt, fig.width = 7, fig.height = 6}
 df4 |>
   pivot_longer(cols = -region) |>
   ggplot() +
@@ -244,18 +245,18 @@ df4 |>
             size = 3) +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   labs(title = "Individual asylum applications registered by region | 2019-2020",
-       y = "Number of people (thousand)",
+       subtitle = "Number of people (thousand)",
        caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   theme_unhcr(grid = FALSE,
               axis = "y",
-              axis_title = "y",
+              axis_title = FALSE,
               axis_text = "y")
 ```
 
 ## Stacked column chart
 
-```{r bar3, fig.width = 5.5, fig.height = 3.5}
+```{r bar3, fig.width = 7, fig.height = 5}
 df5 <- tribble(
 ~Year,~`UNHCR resettlement`,~`Other resettlement`,
 "2010",73,26,
@@ -288,7 +289,7 @@ df5 |>
 ## Stacked column chart with data label
 
 
-```{r bar3_alt, fig.width = 5.5, fig.height = 3.5}
+```{r bar3_alt, fig.width = 7, fig.height = 5}
 df5 |>
   pivot_longer(cols = -Year) |>
   ggplot() +
@@ -303,17 +304,17 @@ df5 |>
   scale_fill_unhcr_d(palette = "pal_unhcr", nmax = 2, order = 2:1) +
   scale_y_continuous(expand = expansion(c(0, 0.25))) +
   labs(title = "Resettlement by UNHCR and others | 2010-2020",
-       y = "Number of people (thousand)",
+       subtitle = "Number of people (thousand)",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   theme_unhcr(grid = FALSE,
               axis = "x",
               axis_text = "x",
-              axis_title = "y")
+              axis_title = FALSE)
 ```
 
 ## Stacked bar chart
 
-```{r bar4, fig.width = 5.5, fig.height = 5}
+```{r bar4, fig.width = 7, fig.height = 6}
 df6 <- tribble(
 ~Country,~Refugees,~`Asylum-seekers`,~`Venezuelans displaced abroad`,
 "Eritrea",0.5,0.1,0.0,
@@ -345,7 +346,7 @@ df6 |>
 
 ## Stacked bar chart with data label
 
-```{r bar4_alt, fig.width = 5.5, fig.height = 5}
+```{r bar4_alt, fig.width = 7, fig.height = 6}
 df6_long <- df6 |>
   pivot_longer(cols = -Country)
 
@@ -361,7 +362,7 @@ ggplot() +
             color = "#FFFFFF",
             size = 3) +
   labs(title = "People displaced across borders by country of origin | 2020",
-       y =  "Number of people (million)",
+       subtitle =  "Number of people (million)",
        caption = "Source: data source here\n© UNHCR, The UN Refugee Agency") +
   scale_x_continuous(expand = expansion(c(0, 0.1))) +
   scale_fill_unhcr_d(palette = "pal_unhcr",
@@ -369,13 +370,13 @@ ggplot() +
   theme_unhcr(grid = FALSE,
               axis = "y",
               axis_text = "y",
-              axis_title = "y",
+              axis_title = FALSE,
               legend = TRUE)
 ```
 
 ## 100% stacked column chart
 
-```{r bar5, fig.width = 5.5, fig.height = 3}
+```{r bar5, fig.width = 7, fig.height = 5}
 df7 <- tribble(
 ~Year,~Unearmarked,~`Softly earmarked`,~Earmarked,~`Tightly earmarked`,
 "2012",20,32,20,28,
@@ -409,7 +410,7 @@ df7 |>
 
 ## Population pyramid
 
-```{r bar6, fig.width = 5.5, fig.height = 5}
+```{r bar6, fig.width = 7, fig.height = 6}
 df8 <- tribble(
   ~ages,~male,~female,
   "0-4",0.06,0.06,
@@ -452,7 +453,7 @@ Source: UNHCR Refugee Data Finder
 
 ## Line chart
 
-```{r line, fig.width = 5.5, fig.height = 3.5}
+```{r line, fig.width = 7, fig.height = 5}
 df9 <- tribble(
 ~Year,~Refugees,~IDPs,
 1990,17.4,0,
@@ -509,7 +510,7 @@ df9 |>
 
 ## Area chart
 
-```{r area, fig.width = 5.5, fig.height = 3.5}
+```{r area, fig.width = 7, fig.height = 5}
 df10 <- tribble(
 ~Month,~Unearmarked,~`Softly earmarked`,~Earmarked,~`Tightly earmarked`,
 "Jan",15.1,0.6,1.6,19.2,
@@ -547,7 +548,7 @@ df10 |>
 
 ## Combined column and line chart
 
-```{r line2, fig.width = 5.5, fig.height = 3.5}
+```{r line2, fig.width = 7, fig.height = 5}
 df11 <- tribble(
 ~Year,~`Displaced population`,~`Proportion displaced`,
 2007,42.69,6.38964,
@@ -589,7 +590,7 @@ ggplot(data = df11) +
 
 ## Treemap
 
-```{r treemap, fig.width = 5.5, fig.height = 5}
+```{r treemap, fig.width = 7, fig.height = 6}
 df13 <- tribble(
   ~region,~workforce,
   "West and Central Africa",5,
@@ -625,7 +626,7 @@ Source: UNHCR Refugee Data Finder
 
 ## Pie chart
 
-```{r pie, fig.width = 5.5, fig.height = 5}
+```{r pie, fig.width = 7, fig.height = 6}
 df12 <- tribble(
   ~label,~Funding,
   "Received to date",144,
@@ -662,7 +663,7 @@ df12 |>
 
 ## Donut chart
 
-```{r donut, fig.width = 5.5, fig.height = 5}
+```{r donut, fig.width = 7, fig.height = 6}
 df12 |>
   mutate(p = Funding / sum(Funding),
          label2 = paste0("**$", Funding, " M**",
