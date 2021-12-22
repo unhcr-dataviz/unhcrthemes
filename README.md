@@ -163,6 +163,8 @@ production of statistical evidence and data stories.
 
 -   [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
     for R Markdown
+-   [unhcrthemes](https://github.com/vidonne/unhcrthemes): UNHCR branded
+    theme for ggplot2 and data visualization colour palettes
 -   [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
     Use UNHCR Open data
 -   [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
@@ -177,6 +179,8 @@ You can install them all with the following:
 ``` r
 ## unhcrdown
 remotes::install_github("vidonne/unhcrdown")
+## unhcrthemes
+remotes::install_github("vidonne/unhcrthemes")
 ## unhcrdatapackage
 remotes::install_github('unhcr/unhcrdatapackage')
 ## hcrdata
