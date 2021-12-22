@@ -18,9 +18,9 @@
 #' @export
 display_unhcr_all <- function(n = NULL, type = "all") {
   unhcrcolors <- unhcrcolors[nrow(unhcrcolors):1, ]
-  if(any(type == "all")) {
+  if (any(type == "all")) {
     selected_type <- unhcrcolors
-  } else if (any(type %in% c("qualitative", "sequential", "diverging"))){
+  } else if (any(type %in% c("qualitative", "sequential", "diverging"))) {
     selected_type <- unhcrcolors[unhcrcolors$type %in% type, ]
   } else {
     stop(paste(type, "is not a valid name for a color type\n"))
@@ -29,7 +29,7 @@ display_unhcr_all <- function(n = NULL, type = "all") {
 
   n_colors <- nrow(selected_metadata)
 
-  if(is.null(n)) {
+  if (is.null(n)) {
     my_n <- selected_metadata$max_n
   } else{
     my_n <- rep(n, n_colors)
