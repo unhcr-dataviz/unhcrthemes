@@ -37,6 +37,6 @@ Suggests:
     tidyverse
 VignetteBuilder: knitr
 Config/Needs/website:
-    dickoa/unhcrtemplate
+    vidonne/unhcrtemplate
 Config/testthat/edition: 3
 LazyData: true
