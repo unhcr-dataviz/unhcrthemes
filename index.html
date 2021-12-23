@@ -113,26 +113,26 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://unhcr.github.io/unhcrdatapackage/docs/" class="external-link">unhcrdatapackage</a></span><span class="op">)</span> <span class="co">## remotes::install_github("unhcr/unhcrdatapackage")</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></code></pre></div>
 <div class="section level3">
 <h3 id="base-ggplot2-theme">Base ggplot2 theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pop_total</span> <span class="op">&lt;-</span> <span class="fu">unhcrdatapackage</span><span class="fu">::</span><span class="va"><a href="https://unhcr.github.io/unhcrdatapackage/docs//reference/demographics.html" class="external-link">demographics</a></span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Population.type</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">Year</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Total</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> |&gt;
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">idp</span>, package <span class="op">=</span> <span class="st">"unhcrthemes"</span><span class="op">)</span>
+
+<span class="va">idp_total</span> <span class="op">&lt;-</span> <span class="va">idp</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">idp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span>
 
 
-<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pop_total</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 11</span>
+<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 10</span>
 <span class="co">#&gt; Columns: 2</span>
-<span class="co">#&gt; $ year &lt;dbl&gt; 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020</span>
-<span class="co">#&gt; $ idp  &lt;dbl&gt; 14.69780, 15.47338, 17.67037, 23.92555, 32.27462, 37.49417, 36.62~</span></code></pre></div>
+<span class="co">#&gt; $ year &lt;int&gt; 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 20…</span>
+<span class="co">#&gt; $ idp  &lt;dbl&gt; 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, …</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_total</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span><span class="op">)</span>,
            width <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Globalement IDP displacement | 2010 - 2020"</span>,
@@ -155,7 +155,7 @@
 <h3 id="base-theme-and-color-scale">Base theme and color scale<a class="anchor" aria-label="anchor" href="#base-theme-and-color-scale"></a>
 </h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_total</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span><span class="op">)</span>,
            fill <span class="op">=</span> <span class="fu"><a href="reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,
            width <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
@@ -167,24 +167,20 @@
   <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-plot-theme-fill-1.png" width="2100"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pop_total_sex</span> <span class="op">&lt;-</span> <span class="va">demographics</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Population.type</span> <span class="op">==</span> <span class="st">"IDP"</span>, <span class="va">Year</span> <span class="op">&gt;=</span> <span class="fl">2010</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">Year</span>, female <span class="op">=</span> <span class="va">FemaleTotal</span>, male <span class="op">=</span> <span class="va">MaleTotal</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="op">-</span><span class="va">year</span>, names_to <span class="op">=</span> <span class="st">"sex"</span>,
-               values_to <span class="op">=</span> <span class="st">"idp"</span><span class="op">)</span> |&gt;
+<code class="sourceCode R"><span class="va">idp_total_sex</span> <span class="op">&lt;-</span> <span class="va">idp</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">idp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.</span>
 
-<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">pop_total_sex</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 22</span>
+<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">idp_total_sex</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 20</span>
 <span class="co">#&gt; Columns: 3</span>
-<span class="co">#&gt; $ year &lt;dbl&gt; 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,~</span>
-<span class="co">#&gt; $ sex  &lt;chr&gt; "female", "male", "female", "male", "female", "male", "female", "~</span>
-<span class="co">#&gt; $ idp  &lt;dbl&gt; 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938~</span></code></pre></div>
+<span class="co">#&gt; $ year &lt;int&gt; 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 20…</span>
+<span class="co">#&gt; $ sex  &lt;chr&gt; "female", "male", "female", "male", "female", "mal…</span>
+<span class="co">#&gt; $ idp  &lt;dbl&gt; 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">pop_total_sex</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total_sex</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span>,
            width <span class="op">=</span> <span class="fl">0.8</span>,
            position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html" class="external-link">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -206,6 +202,8 @@
 <li>
 <a href="https://github.com/vidonne/unhcrdown" class="external-link">unhcrdown</a>: UNHCR templates for R Markdown</li>
 <li>
+<a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a>: UNHCR branded theme for ggplot2 and data visualization colour palettes</li>
+<li>
 <a href="https://github.com/Edouard-Legoupil/unhcrdatapackage" class="external-link">unhcrdatapackage</a>: Use UNHCR Open data</li>
 <li>
 <a href="https://github.com/UNHCR-WEB/hcrdata/" class="external-link">hcrdata</a>: API to connect to internal data source</li>
@@ -218,6 +216,8 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## unhcrdown</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vidonne/unhcrdown"</span><span class="op">)</span>
+<span class="co">## unhcrthemes</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vidonne/unhcrthemes"</span><span class="op">)</span>
 <span class="co">## unhcrdatapackage</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'unhcr/unhcrdatapackage'</span><span class="op">)</span>
 <span class="co">## hcrdata</span>
