@@ -60,24 +60,24 @@ UNHCR uses **Lato** as its main font for publications and data visualizations. *
 library(tidyverse)
 library(scales)
 library(unhcrthemes)
-library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ```
 
 ### Base ggplot2 theme
 
 ```{r plot-theme-data}
-pop_total <- unhcrdatapackage::demographics |>
-  filter(Population.type == "IDP", Year >= 2010) |>
-  group_by(year = Year) |>
-  summarise(idp = sum(Total, na.rm = TRUE) / 1e6) |>
+data(idp, package = "unhcrthemes")
+
+idp_total <- idp |>
+  group_by(year) |>
+  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
   ungroup()
 
 
-glimpse(pop_total)
+glimpse(idp_total)
 ```
 
 ```{r plot-theme}
-ggplot(pop_total) +
+ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
            width = 0.8) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
@@ -100,7 +100,7 @@ display_unhcr_all()
 ### Base theme and color scale
 
 ```{r plot-theme-fill}
-ggplot(pop_total) +
+ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
            fill = unhcr_pal(n = 1, "pal_blue"),
            width = 0.8) +
@@ -113,21 +113,17 @@ ggplot(pop_total) +
 ```
 
 ```{r plot-theme-color-data}
-pop_total_sex <- demographics |>
-  filter(Population.type == "IDP", Year >= 2010) |>
-  select(year = Year, female = FemaleTotal, male = MaleTotal) |>
-  pivot_longer(cols = -year, names_to = "sex",
-               values_to = "idp") |>
+idp_total_sex <- idp |>
   group_by(year, sex) |>
   summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
   ungroup()
 
-glimpse(pop_total_sex)
+glimpse(idp_total_sex)
 ```
 
 
 ```{r plot-theme-color }
-ggplot(pop_total_sex) +
+ggplot(idp_total_sex) +
   geom_col(aes(x = year, y = idp, fill = sex),
            width = 0.8,
            position = position_dodge(width = 0.9)) +

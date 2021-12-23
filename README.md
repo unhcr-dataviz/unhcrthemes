@@ -63,28 +63,28 @@ not possible to install **Lato** on your computer.
 library(tidyverse)
 library(scales)
 library(unhcrthemes)
-library(unhcrdatapackage) ## remotes::install_github("unhcr/unhcrdatapackage")
 ```
 
 ### Base ggplot2 theme
 
 ``` r
-pop_total <- unhcrdatapackage::demographics |>
-  filter(Population.type == "IDP", Year >= 2010) |>
-  group_by(year = Year) |>
-  summarise(idp = sum(Total, na.rm = TRUE) / 1e6) |>
+data(idp, package = "unhcrthemes")
+
+idp_total <- idp |>
+  group_by(year) |>
+  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
   ungroup()
 
 
-glimpse(pop_total)
-#> Rows: 11
+glimpse(idp_total)
+#> Rows: 10
 #> Columns: 2
-#> $ year <dbl> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
-#> $ idp  <dbl> 14.69780, 15.47338, 17.67037, 23.92555, 32.27462, 37.49417, 36.62~
+#> $ year <int> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 20…
+#> $ idp  <dbl> 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, …
 ```
 
 ``` r
-ggplot(pop_total) +
+ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
            width = 0.8) +
   labs(title = "Globalement IDP displacement | 2010 - 2020",
@@ -111,7 +111,7 @@ display_unhcr_all()
 ### Base theme and color scale
 
 ``` r
-ggplot(pop_total) +
+ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
            fill = unhcr_pal(n = 1, "pal_blue"),
            width = 0.8) +
@@ -126,26 +126,22 @@ ggplot(pop_total) +
 <img src="man/figures/README-plot-theme-fill-1.png" width="2100" />
 
 ``` r
-pop_total_sex <- demographics |>
-  filter(Population.type == "IDP", Year >= 2010) |>
-  select(year = Year, female = FemaleTotal, male = MaleTotal) |>
-  pivot_longer(cols = -year, names_to = "sex",
-               values_to = "idp") |>
+idp_total_sex <- idp |>
   group_by(year, sex) |>
   summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
   ungroup()
 #> `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
 
-glimpse(pop_total_sex)
-#> Rows: 22
+glimpse(idp_total_sex)
+#> Rows: 20
 #> Columns: 3
-#> $ year <dbl> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,~
-#> $ sex  <chr> "female", "male", "female", "male", "female", "male", "female", "~
-#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938~
+#> $ year <int> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 20…
+#> $ sex  <chr> "female", "male", "female", "male", "female", "mal…
+#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …
 ```
 
 ``` r
-ggplot(pop_total_sex) +
+ggplot(idp_total_sex) +
   geom_col(aes(x = year, y = idp, fill = sex),
            width = 0.8,
            position = position_dodge(width = 0.9)) +
@@ -167,6 +163,8 @@ production of statistical evidence and data stories.
 
 -   [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
     for R Markdown
+-   [unhcrthemes](https://github.com/vidonne/unhcrthemes): UNHCR branded
+    theme for ggplot2 and data visualization colour palettes
 -   [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
     Use UNHCR Open data
 -   [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
@@ -181,6 +179,8 @@ You can install them all with the following:
 ``` r
 ## unhcrdown
 remotes::install_github("vidonne/unhcrdown")
+## unhcrthemes
+remotes::install_github("vidonne/unhcrthemes")
 ## unhcrdatapackage
 remotes::install_github('unhcr/unhcrdatapackage')
 ## hcrdata

@@ -13,7 +13,6 @@ Description: Color palettes and themes for plots based on UNHCR brand book.
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/vidonne/unhcrthemes,
-    https://dickoa.github.io/unhcrthemes/,
     https://vidonne.github.io/unhcrthemes/
 BugReports: https://github.com/vidonne/unhcrthemes/issues
 Depends:
@@ -26,7 +25,6 @@ Imports:
     sysfonts,
     systemfonts,
     ragg
-Remotes: unhcr/unhcrdatapackage
 RoxygenNote: 7.1.2
 Suggests:
     rmarkdown,
@@ -36,6 +34,9 @@ Suggests:
     directlabels,
     treemapify,
     lubridate,
-    unhcrdatapackage,
     tidyverse
 VignetteBuilder: knitr
+Config/Needs/website:
+    dickoa/unhcrtemplate
+Config/testthat/edition: 3
+LazyData: true
