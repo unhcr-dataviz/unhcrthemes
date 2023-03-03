@@ -23,6 +23,7 @@ theme_unhcr_map <- function (font_size = 14, font_family = "Lato", line_size = 0
     theme_unhcr(font_size = font_size, font_family = font_family,
                 line_size = line_size, rel_small = rel_small,
                 rel_tiny = rel_tiny, rel_large = rel_large,
+                legend = legend, legend_title = legend_title,
                 grid = FALSE, axis = FALSE, axis_text = FALSE, axis_ticks = FALSE) %+replace%
       theme(line = element_blank(),
             rect = element_blank(), axis.line = element_blank(),

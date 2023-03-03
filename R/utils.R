@@ -8,3 +8,10 @@ add_gg_theme <- function(plot, object) {
   }
   plot
 }
+
+#' @noRd
+binned_pal <- function(palette) {
+  function(x) {
+    palette(length(x))
+  }
+}

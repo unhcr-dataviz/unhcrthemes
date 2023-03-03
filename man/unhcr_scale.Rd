@@ -3,10 +3,13 @@
 \name{scale_color_unhcr_c}
 \alias{scale_color_unhcr_c}
 \alias{scale_color_unhcr_d}
+\alias{scale_color_unhcr_b}
 \alias{scale_colour_unhcr_c}
 \alias{scale_colour_unhcr_d}
+\alias{scale_colour_unhcr_b}
 \alias{scale_fill_unhcr_c}
 \alias{scale_fill_unhcr_d}
+\alias{scale_fill_unhcr_b}
 \title{UNHCR ggplot2 color scales}
 \usage{
 scale_color_unhcr_c(
@@ -28,6 +31,17 @@ scale_color_unhcr_d(
   na.value = "#E9E9E9"
 )
 
+scale_color_unhcr_b(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E9E9E9",
+  guide = "coloursteps"
+)
+
 scale_colour_unhcr_c(
   ...,
   type = "sequential",
@@ -47,6 +61,17 @@ scale_colour_unhcr_d(
   na.value = "#E9E9E9"
 )
 
+scale_colour_unhcr_b(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E9E9E9",
+  guide = "coloursteps"
+)
+
 scale_fill_unhcr_c(
   ...,
   type = "sequential",
@@ -64,6 +89,17 @@ scale_fill_unhcr_d(
   nmax = NULL,
   order = NULL,
   na.value = "#E9E9E9"
+)
+
+scale_fill_unhcr_b(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E9E9E9",
+  guide = "coloursteps"
 )
 }
 \arguments{

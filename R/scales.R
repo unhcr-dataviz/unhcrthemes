@@ -69,6 +69,29 @@ scale_color_unhcr_d <- function(..., type = "qualitative",
                  ...)
 }
 
+#' @rdname unhcr_scale
+#' @export
+scale_color_unhcr_b <- function(..., type = "qualitative",
+                              palette = 1,
+                              direction = 1,
+                              nmax = NULL,
+                              order = NULL,
+                              na.value = "#E9E9E9",
+                              guide = "coloursteps") {
+
+  pal <- binned_pal(unhcr_pal_scale(type = type,
+                                    palette = palette,
+                                    nmax = nmax,
+                                    order = order,
+                                    direction = direction))
+
+  binned_scale("colour",
+               "unhcr_binned",
+               pal,
+               na.value = na.value,
+               guide = guide,
+               ...)
+}
 
 #' @rdname unhcr_scale
 #' @aliases scale_color_unhcr_c
@@ -79,6 +102,11 @@ scale_colour_unhcr_c <- scale_color_unhcr_c
 #' @aliases scale_color_unhcr_d
 #' @export
 scale_colour_unhcr_d <- scale_color_unhcr_d
+
+#' @rdname unhcr_scale
+#' @aliases scale_color_unhcr_b
+#' @export
+scale_colour_unhcr_b <- scale_color_unhcr_b
 
 #' @rdname unhcr_scale
 #' @export
@@ -122,6 +150,30 @@ scale_fill_unhcr_d <- function(..., type = "qualitative",
                  ...)
 }
 
+#' @rdname unhcr_scale
+#' @export
+scale_fill_unhcr_b <- function(..., type = "qualitative",
+                               palette = 1,
+                               direction = 1,
+                               nmax = NULL,
+                               order = NULL,
+                               na.value	= "#E9E9E9",
+                               guide = "coloursteps") {
+
+  pal <- binned_pal(unhcr_pal_scale(type = type,
+                                    palette = palette,
+                                    nmax = nmax,
+                                    order = order,
+                                    direction = direction))
+
+  binned_scale("fill",
+               "unhcr_binned",
+               pal,
+               na.value = na.value,
+               guide = guide,
+               ...)
+}
+
 #' @noRd
 unhcr_pal_scale <- function(type = "qualitative",
                             nmax = NULL, order = NULL,
@@ -159,7 +211,6 @@ unhcr_pal_scale <- function(type = "qualitative",
     unname(pal)
   }
 }
-
 
 #' @noRd
 unhcr_pal_name <- function(palette, type) {
