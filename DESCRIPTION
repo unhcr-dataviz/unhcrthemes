@@ -25,7 +25,7 @@ Imports:
     sysfonts,
     systemfonts,
     ragg
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Suggests:
     rmarkdown,
     knitr,
