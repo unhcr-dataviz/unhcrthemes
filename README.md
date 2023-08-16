@@ -30,7 +30,7 @@ remotes package.
 
 ``` r
 install.packages("remotes")
-remotes::install_github("vidonne/unhcrthemes")
+remotes::install_github("unhcr-dataviz/unhcrthemes")
 ```
 
 ## Content
