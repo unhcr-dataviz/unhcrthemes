@@ -3,22 +3,34 @@
 \name{theme_unhcr}
 \alias{theme_unhcr}
 \alias{theme_unhcr_map}
-\title{UNHCR [ggplot2] theme following brand recommendations}
+\title{UNHCR [ggplot2] theme}
 \usage{
 theme_unhcr(
-  font_size = 9,
   font_family = "Lato",
-  line_size = 0.5,
-  rel_small = 8/9,
-  rel_tiny = 7/9,
-  rel_large = 12/9,
-  grid = TRUE,
-  axis = "x",
+  font_size = 12,
+  plot_title_size = rel(1.35),
+  plot_title_margin = font_size,
+  subtitle_size = font_size,
+  subtitle_margin = font_size * 1.5,
+  strip_text_size = rel(0.9),
+  strip_text_face = "bold",
+  strip_text_just = 0,
+  caption_size = rel(0.7),
+  caption_margin = font_size,
   axis_text = TRUE,
+  axis_text_size = rel(0.9),
   axis_title = TRUE,
+  axis_title_size = rel(0.9),
+  axis = FALSE,
   axis_ticks = FALSE,
+  grid = "XY",
   legend = TRUE,
-  legend_title = FALSE
+  legend_text_size = rel(0.9),
+  legend_title = FALSE,
+  legend_title_size = rel(0.9),
+  plot_margin = margin(font_size, font_size, font_size, font_size),
+  plot_background = "white",
+  void = FALSE
 )
 
 theme_unhcr_map(
@@ -33,9 +45,65 @@ theme_unhcr_map(
 )
 }
 \arguments{
+\item{font_family}{Base font family, default "Lato"}
+
 \item{font_size}{Base font size}
 
-\item{font_family}{Base font family, default "Lato"}
+\item{plot_title_size}{Plot title font size.}
+
+\item{plot_title_margin}{Plot title bottom margin.}
+
+\item{subtitle_size}{Plot subtitle font size.}
+
+\item{subtitle_margin}{Plot subtitle bottom margin.}
+
+\item{strip_text_size}{Facet label font size.}
+
+\item{strip_text_face}{Facet label font face.}
+
+\item{strip_text_just}{Facet label justification.}
+
+\item{caption_size}{Caption font size.}
+
+\item{caption_margin}{Caption top margin.}
+
+\item{axis_text}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis label.
+Use `x` or `y` to have only the correspondent active.}
+
+\item{axis_text_size}{Axis label font size.}
+
+\item{axis_title}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis title.
+Use `x` or `y` to have only the correspondent active.}
+
+\item{axis_title_size}{Axis title font size.}
+
+\item{axis}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis.
+Use `x` or `y` to have only the correspondent active. Don't forget to review
+the `expand` argument of the `scale_x(or y)_...` to avoid spacing between
+the axis and the baseline of the plot.}
+
+\item{axis_ticks}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis ticks.
+Use `x` or `y` to have only the correspondent active.}
+
+\item{grid}{Logical `TRUE/FALSE` or a combination of `XxYy`.
+Turn on and off panel grids. Use `X` or `Y` for major
+and `x` or `y` for minor.}
+
+\item{legend}{Turn on and off the legend, default TRUE.}
+
+\item{legend_text_size}{Legend key font size.}
+
+\item{legend_title}{Turn on and off title of the legend, default FALSE.}
+
+\item{legend_title_size}{Legend title font size.}
+
+\item{plot_margin}{Plot margin (specify with `ggplot2::margin()`).}
+
+\item{plot_background}{Plot background, default "white".
+Put "transparent" for no background color.}
+
+\item{void}{Logical `TRUE/FALSE`. If `TRUE`, all grid lines, ticks
+and axes are removed. Useful}
 
 \item{line_size}{Base line size for axis. Gridlines are line_size/2}
 
@@ -44,20 +112,6 @@ theme_unhcr_map(
 \item{rel_tiny}{Relative size of tiny text (e.g., caption)}
 
 \item{rel_large}{Relative size of large text (e.g., title)}
-
-\item{grid}{Turn on and off the grids. "X" or "Y" for major and "x" or "y" for minor}
-
-\item{axis}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
-
-\item{axis_text}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
-
-\item{axis_title}{Turn on and off axis. Use "X" or "Y" to have only the correspondent active}
-
-\item{axis_ticks}{Turn on and off ticks. Use "X" or "Y" to have only the correspondent active}
-
-\item{legend}{Turn on and off the legend, default TRUE.}
-
-\item{legend_title}{Turn on and off title of the legend, default FALSE.}
 }
 \value{
 The theme style
@@ -76,7 +130,7 @@ to use with map made using \bold{ggplot2}.
 library(ggplot2)
 
 ggplot(mpg, aes(displ, hwy)) +
-geom_point() +
-theme_unhcr()
+  geom_point() +
+  theme_unhcr()
 }
 }

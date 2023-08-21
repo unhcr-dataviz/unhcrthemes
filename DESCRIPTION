@@ -8,7 +8,9 @@ Authors@R:
 	     role = c("aut", "cre")),
       person("Ahmadou", "Dicko",
              email = "mail@ahmadoudicko.com",
-	     role = "ctb"))
+	     role = "ctb"),
+      person("UNHCR",
+         role = "cph"))
 Description: Color palettes and themes for plots based on UNHCR brand book.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -20,16 +22,16 @@ Depends:
 Imports:
     ggplot2,
     scales,
-    colorspace,
+    ggtext,
     showtext,
     sysfonts,
-    systemfonts,
-    ragg
+    systemfonts
 RoxygenNote: 7.2.3
 Suggests:
     rmarkdown,
     knitr,
-    ggtext,
+    colorspace,
+    ragg,
     ggforce,
     directlabels,
     treemapify,

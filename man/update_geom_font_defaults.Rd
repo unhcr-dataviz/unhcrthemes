@@ -7,18 +7,18 @@
 update_geom_font_defaults(
   family = "Lato",
   face = "plain",
-  size = 3.5,
-  color = "#191919"
+  size = 3.8,
+  color = "#1a1a1a"
 )
 }
 \arguments{
-\item{family}{Font family, default "Lato"}
+\item{family}{Font family, default "Lato".}
 
-\item{face}{Font face, default "plain"}
+\item{face}{Font face, default "plain".}
 
-\item{size}{Size}
+\item{size}{font size in mm.}
 
-\item{color}{Font color, default "#191919"}
+\item{color}{Font color, default "#1a1a1a".}
 }
 \description{
 Updates [ggplot2::geom_label] and [ggplot2::geom_text] font defaults
