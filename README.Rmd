@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
+[![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
@@ -79,10 +79,13 @@ glimpse(idp_total)
 ```{r plot-theme}
 ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
-           width = 0.8) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+    width = 0.8
+  ) +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
@@ -102,11 +105,14 @@ display_unhcr_all()
 ```{r plot-theme-fill}
 ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
-           fill = unhcr_pal(n = 1, "pal_blue"),
-           width = 0.8) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = 0.8
+  ) +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
@@ -125,13 +131,16 @@ glimpse(idp_total_sex)
 ```{r plot-theme-color }
 ggplot(idp_total_sex) +
   geom_col(aes(x = year, y = idp, fill = sex),
-           width = 0.8,
-           position = position_dodge(width = 0.9)) +
+    width = 0.8,
+    position = position_dodge(width = 0.9)
+  ) +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
 ```

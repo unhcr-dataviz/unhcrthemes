@@ -8,7 +8,7 @@
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/vidonne/unhcrthemes/workflows/R-CMD-check/badge.svg)](https://github.com/vidonne/unhcrthemes/actions)
+[![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
@@ -30,7 +30,7 @@ remotes package.
 
 ``` r
 install.packages("remotes")
-remotes::install_github("unhcr-dataviz/unhcrthemes")
+remotes::install_github("vidonne/unhcrthemes")
 ```
 
 ## Content
@@ -41,15 +41,15 @@ products and data stories:
 
 1.  Adjusted `ggplot2` theme
 2.  A series of color palette for:
-    -   A **categorical palette** for UNHCR main data visualization
+      - A **categorical palette** for UNHCR main data visualization
         colors
-    -   A **categorical palette** for people of concern to UNHCR
+      - A **categorical palette** for people of concern to UNHCR
         categories
-    -   A **categorical palette** for geographical regional divisions of
+      - A **categorical palette** for geographical regional divisions of
         UNHCR
-    -   Six **sequential color palettes** for all the main data
+      - Six **sequential color palettes** for all the main data
         visualization colors
-    -   Two recommended **diverging color palette**
+      - Two recommended **diverging color palette**
 
 ## Fonts
 
@@ -79,17 +79,20 @@ idp_total <- idp |>
 glimpse(idp_total)
 #> Rows: 10
 #> Columns: 2
-#> $ year <int> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 20…
-#> $ idp  <dbl> 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, …
+#> $ year <int> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
+#> $ idp  <dbl> 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, 10.89438, 18.86…
 ```
 
 ``` r
 ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
-           width = 0.8) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+    width = 0.8
+  ) +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
@@ -113,11 +116,14 @@ display_unhcr_all()
 ``` r
 ggplot(idp_total) +
   geom_col(aes(x = year, y = idp),
-           fill = unhcr_pal(n = 1, "pal_blue"),
-           width = 0.8) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = 0.8
+  ) +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
@@ -130,26 +136,30 @@ idp_total_sex <- idp |>
   group_by(year, sex) |>
   summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
   ungroup()
-#> `summarise()` has grouped output by 'year'. You can override using the `.groups` argument.
+#> `summarise()` has grouped output by 'year'. You can override using the
+#> `.groups` argument.
 
 glimpse(idp_total_sex)
 #> Rows: 20
 #> Columns: 3
-#> $ year <int> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 20…
-#> $ sex  <chr> "female", "male", "female", "male", "female", "mal…
-#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, …
+#> $ year <int> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,…
+#> $ sex  <chr> "female", "male", "female", "male", "female", "male", "female", "…
+#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938…
 ```
 
 ``` r
 ggplot(idp_total_sex) +
   geom_col(aes(x = year, y = idp, fill = sex),
-           width = 0.8,
-           position = position_dodge(width = 0.9)) +
+    width = 0.8,
+    position = position_dodge(width = 0.9)
+  ) +
   scale_fill_unhcr_d(palette = "pal_unhcr") +
   scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  labs(title = "Globalement IDP displacement | 2010 - 2020",
-       y = "Number of people (in million)",
-       caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency") +
+  labs(
+    title = "Globalement IDP displacement | 2010 - 2020",
+    y = "Number of people (in million)",
+    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+  ) +
   scale_x_continuous(breaks = pretty_breaks(10)) +
   theme_unhcr(grid = "Y", axis_title = "y")
 ```
@@ -161,17 +171,17 @@ ggplot(idp_total_sex) +
 unhcrthemes is part of **unhcrverse**, a set of packages to ease the
 production of statistical evidence and data stories.
 
--   [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
+  - [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
     for R Markdown
--   [unhcrthemes](https://github.com/vidonne/unhcrthemes): UNHCR branded
+  - [unhcrthemes](https://github.com/vidonne/unhcrthemes): UNHCR branded
     theme for ggplot2 and data visualization colour palettes
--   [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
+  - [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
     Use UNHCR Open data
--   [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
+  - [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
     internal data source
--   [HighFrequencyChecks](https://github.com/unhcr/HighFrequencyChecks/):
+  - [HighFrequencyChecks](https://github.com/unhcr/HighFrequencyChecks/):
     Perform High Frequency Check
--   [koboloadeR](https://github.com/unhcr/koboloadeR/): Process data
+  - [koboloadeR](https://github.com/unhcr/koboloadeR/): Process data
     crunching for survey dataset
 
 You can install them all with the following:
