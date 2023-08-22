@@ -37,6 +37,6 @@ Suggests:
     lubridate,
     tidyverse
 VignetteBuilder: knitr
-Config/Needs/website: unhcrtemplate
+Config/Needs/website: unhcr-dataviz/unhcrtemplate
 Config/testthat/edition: 3
 LazyData: true
