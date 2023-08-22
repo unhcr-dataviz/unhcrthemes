@@ -8,7 +8,7 @@ Authors@R:
 	     role = c("aut", "cre")),
       person("Ahmadou", "Dicko",
              email = "mail@ahmadoudicko.com",
-	     role = "ctb"),
+	     role = "aut"),
       person("UNHCR",
          role = "cph"))
 Description: Color palettes and themes for plots based on UNHCR brand book.
