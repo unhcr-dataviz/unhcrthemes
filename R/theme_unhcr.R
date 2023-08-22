@@ -363,7 +363,10 @@ theme_unhcr <- function(
   ret <- ret + theme(plot.margin = plot_margin)
 
   # background
-  ret <- ret + theme(plot.background = element_rect(fill = plot_background))
+  ret <- ret + theme(plot.background = element_rect(
+    fill = plot_background,
+    color = plot_background
+  ))
 
   ret
 }
