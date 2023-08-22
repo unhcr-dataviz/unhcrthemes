@@ -1,5 +1,4 @@
-url: https://vidonne.github.io/unhcrthemes/
+url: https://unhcr-dataviz.github.io/unhcrthemes/
 template:
   package: unhcrtemplate
   bootstrap: 5
-

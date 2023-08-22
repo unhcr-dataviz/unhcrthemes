@@ -14,8 +14,7 @@ Authors@R:
 Description: Color palettes and themes for plots based on UNHCR brand book.
 License: MIT + file LICENSE
 Encoding: UTF-8
-URL: https://github.com/vidonne/unhcrthemes,
-    https://vidonne.github.io/unhcrthemes/
+URL: https://github.com/vidonne/unhcrthemes, https://vidonne.github.io/unhcrthemes/, https://unhcr-dataviz.github.io/unhcrthemes/
 BugReports: https://github.com/vidonne/unhcrthemes/issues
 Depends:
     R (>= 3.5)
@@ -38,7 +37,6 @@ Suggests:
     lubridate,
     tidyverse
 VignetteBuilder: knitr
-Config/Needs/website:
-    vidonne/unhcrtemplate
+Config/Needs/website: unhcrtemplate
 Config/testthat/edition: 3
 LazyData: true
