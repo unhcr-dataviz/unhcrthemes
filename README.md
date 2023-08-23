@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/vidonne/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" /></a>
+# unhcrthemes <a href="https://github.com/unhcr-dataviz/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" /></a>
 
 <!-- badges: start -->
 
@@ -13,203 +13,177 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
-## Overview
+Simplify your data visualizations creation with the `{unhcrthemes}` R
+package, designed to align your plots with [UNHCR’s data
+visualization](https://dataviz.unhcr.org/general_guidance/)
+recommendations. This package offers a comprehensive `{ggplot2}` theme,
+including built-in customizations and thoughtfully crafted color
+palettes.
 
-The **unhcrthemes** package provides a `ggplot2` theme and a set of
-colour palettes for making charts and graphics based on [UNHCR Data
-Visualization
-Guidelines](https://www.unhcr.org/brand/wp-content/uploads/sites/89/2021/11/UNHCR_Data_Visualization_Guidelines.pdf).
-The goal of this package is to ease and speed up the creation of charts,
-while promoting the UNHCR visual identity with a predefined `ggplot`
-theme, as well as a set of colour palettes and scales.
+## Features
+
+  - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
+    Data Visualization
+    Guidelines](https://dataviz.unhcr.org/general_guidance/).
+  - A collection of color palettes that ensure your plots are consistent
+    with [UNHCR’s color
+    scheme](https://dataviz.unhcr.org/general_guidance/).
+  - Easy-to-use functions to apply the theme and color palettes to your
+    `{ggplot2}` plots.
 
 ## Installation
 
-This package is not on yet on CRAN and to install it, you will need the
-remotes package.
+Get started by installing the `{unhcrthemes}` package from GitHub using
+the `{pak}` library:
 
 ``` r
-install.packages("remotes")
-remotes::install_github("vidonne/unhcrthemes")
+# If pak is not yet installed, uncomment the following line:
+# install.packages("pak")
+
+pak::pkg_install("unhcr-dataviz/unhcrthemes")
 ```
-
-## Content
-
-A package with all necessary elements to quickly implement [UNHCR Brand
-style](https://www.unhcr.org/brand/how-we-look/) in your statistical
-products and data stories:
-
-1.  Adjusted `ggplot2` theme
-2.  A series of color palette for:
-      - A **categorical palette** for UNHCR main data visualization
-        colors
-      - A **categorical palette** for people of concern to UNHCR
-        categories
-      - A **categorical palette** for geographical regional divisions of
-        UNHCR
-      - Six **sequential color palettes** for all the main data
-        visualization colors
-      - Two recommended **diverging color palette**
-
-## Fonts
-
-UNHCR uses **Lato** as its main font for publications and data
-visualizations. **Arial** can also be used as a fallback option if it is
-not possible to install **Lato** on your computer.
 
 ## Usage
 
 ``` r
-library(tidyverse)
-library(scales)
+# Load required packages
+library(ggplot2)
 library(unhcrthemes)
 ```
 
-### Base ggplot2 theme
+### Base `{ggplot2}` theme
 
 ``` r
-data(idp, package = "unhcrthemes")
-
-idp_total <- idp |>
-  group_by(year) |>
-  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
-  ungroup()
-
-
-glimpse(idp_total)
-#> Rows: 10
-#> Columns: 2
-#> $ year <int> 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
-#> $ idp  <dbl> 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, 10.89438, 18.86…
-```
-
-``` r
-ggplot(idp_total) +
-  geom_col(aes(x = year, y = idp),
-    width = 0.8
-  ) +
+# Apply the theme_unhcr() to your plot
+ggplot(
+  mtcars,
+  aes(x = hp, y = mpg)
+) +
+  geom_point() +
   labs(
-    title = "Globalement IDP displacement | 2010 - 2020",
-    y = "Number of people (in million)",
-    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+    title = "Simple scatterplot with ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    x = "Horsepower (hp)",
+    y = "Fuel efficiency (mpg)",
+    caption = "Source: mtcars"
   ) +
-  scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y", axis_title = "y")
+  theme_unhcr()
 ```
 
-<img src="man/figures/README-plot-theme-1.png" width="2100" />
+<img src="man/figures/README-base-plot-1.png" width="85%" style="display: block; margin: auto;" />
 
-### UNHCR color palette
+### Color palettes
 
-All recommended data visualization colors are accessible as **palettes**
-or **scales** (color/fill).
+Choose from a variety of carefully curated color palettes that harmonize
+with UNHCR’s visual identity.
 
 ``` r
+# Display all unhcr color palette
 display_unhcr_all()
 ```
 
-<img src="man/figures/README-palette-1.png" width="2100" />
-
-### Base theme and color scale
+<img src="man/figures/README-palette-all-1.png" width="85%" style="display: block; margin: auto;" />
 
 ``` r
-ggplot(idp_total) +
-  geom_col(aes(x = year, y = idp),
-    fill = unhcr_pal(n = 1, "pal_blue"),
-    width = 0.8
-  ) +
+# Or select a specific one and limit the number of colors
+display_unhcr_pal(n = 3, "pal_blue")
+```
+
+<img src="man/figures/README-palette-blue-1.png" width="85%" style="display: block; margin: auto;" />
+
+### Scales (color/fill)
+
+``` r
+# Add color scale to your plot
+ggplot(
+  mtcars,
+  aes(x = hp, y = mpg, color = as.factor(cyl))
+) +
+  geom_point() +
   labs(
-    title = "Globalement IDP displacement | 2010 - 2020",
-    y = "Number of people (in million)",
-    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+    title = "Simple scatterplot with ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    x = "Horsepower (hp)",
+    y = "Fuel efficiency (mpg)",
+    color = "Number of cylinder",
+    caption = "Source: mtcars"
   ) +
-  scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y", axis_title = "y")
+  scale_color_unhcr_d() +
+  theme_unhcr(legend_title = TRUE)
 ```
 
-<img src="man/figures/README-plot-theme-fill-1.png" width="2100" />
+<img src="man/figures/README-scale-plot-1.png" width="85%" style="display: block; margin: auto;" />
+
+### Geoms (text/label)
 
 ``` r
-idp_total_sex <- idp |>
-  group_by(year, sex) |>
-  summarise(idp = sum(idp, na.rm = TRUE) / 1e6) |>
-  ungroup()
-#> `summarise()` has grouped output by 'year'. You can override using the
-#> `.groups` argument.
+# Update geom default font
+update_geom_font_defaults()
 
-glimpse(idp_total_sex)
-#> Rows: 20
-#> Columns: 3
-#> $ year <int> 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,…
-#> $ sex  <chr> "female", "male", "female", "male", "female", "male", "female", "…
-#> $ idp  <dbl> 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938…
-```
-
-``` r
-ggplot(idp_total_sex) +
-  geom_col(aes(x = year, y = idp, fill = sex),
-    width = 0.8,
-    position = position_dodge(width = 0.9)
-  ) +
-  scale_fill_unhcr_d(palette = "pal_unhcr") +
-  scale_y_continuous(expand = expansion(c(0, 0.1))) +
+# Add geom_text to the plot
+dplyr::count(mpg, class) |>
+  dplyr::arrange(n) |>
+  dplyr::mutate(class = factor(class, levels = class)) |>
+  ggplot(aes(n, class)) +
+  geom_col(fill = unhcr_pal(n = 1, "pal_blue")) +
+  geom_text(aes(label = n), hjust = 0, nudge_x = 1) +
   labs(
-    title = "Globalement IDP displacement | 2010 - 2020",
-    y = "Number of people (in million)",
-    caption = "Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"
+    title = "Simple bar chart with labels using ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    caption = "Source: mtcars"
   ) +
-  scale_x_continuous(breaks = pretty_breaks(10)) +
-  theme_unhcr(grid = "Y", axis_title = "y")
+  scale_x_continuous(expand = expansion(c(0, 0.1))) +
+  theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
 ```
 
-<img src="man/figures/README-plot-theme-color-1.png" width="2100" />
+<img src="man/figures/README-geom-plot-1.png" width="85%" style="display: block; margin: auto;" />
 
-## UNHCR packages
+Explore more examples of `{unhcrthemes}` in action on the [package
+vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html)
+or [UNHCR Data Visualization
+Platform](https://dataviz.unhcr.org/tools/r/).
 
-unhcrthemes is part of **unhcrverse**, a set of packages to ease the
-production of statistical evidence and data stories.
+## Additional UNHCR Tools
 
-  - [unhcrdown](https://github.com/vidonne/unhcrdown): UNHCR templates
-    for R Markdown
-  - [unhcrthemes](https://github.com/vidonne/unhcrthemes): UNHCR branded
-    theme for ggplot2 and data visualization colour palettes
-  - [unhcrdatapackage](https://github.com/Edouard-Legoupil/unhcrdatapackage):
-    Use UNHCR Open data
-  - [hcrdata](https://github.com/UNHCR-WEB/hcrdata/): API to connect to
-    internal data source
-  - [HighFrequencyChecks](https://github.com/unhcr/HighFrequencyChecks/):
-    Perform High Frequency Check
-  - [koboloadeR](https://github.com/unhcr/koboloadeR/): Process data
-    crunching for survey dataset
+  - [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
+    comprehensive package for accessing [UNHCR Refugee Population
+    Statistics
+    Database](https://www.unhcr.org/refugee-statistics/download/).
+  - [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
+    branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
+  - [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `reveal.js` presentations.
+  - [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `HTML` document.
+  - [Data Visualization Platform](https://dataviz.unhcr.org/): A
+    collection of recommendations on [chart
+    type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
+    dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
+    and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
+    some of the [data visualization products made by
+    UNHCR](https://dataviz.unhcr.org/products/).
 
-You can install them all with the following:
+## Acknowledgements
 
-``` r
-## unhcrdown
-remotes::install_github("vidonne/unhcrdown")
-## unhcrthemes
-remotes::install_github("vidonne/unhcrthemes")
-## unhcrdatapackage
-remotes::install_github('unhcr/unhcrdatapackage')
-## hcrdata
-remotes::install_github('unhcr-web/hcrdata')
-## HighFrequencyChecks
-remotes::install_github('unhcr/HighFrequencyChecks')
-## koboloadeR
-remotes::install_github('unhcr/koboloadeR')
-```
+We extend our gratitude to the creators of the
+[`{hrbrthemes}`](https://github.com/hrbrmstr/hrbrthemes) and
+[`{cowplot}`](https://github.com/wilkelab/cowplot/) packages that
+influenced the development of `{unhcrthemes}`.
 
-## Getting help
+## Contribution and Code of Conduct
 
-Please report any issues or bugs on
-[GitHub](https://github.com/vidonne/unhcrthemes/issues), try to include
-a minimal reproducible example to help us understand.
-
-## Code of Conduct
-
-Please note that the mynewpack project is released with a [Contributor
-Code of
+Contributions to `{unhcrthemes}` are highly valued. To ensure a
+welcoming and inclusive community, we follow our [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+If you have suggestions, uncover bugs, or envision new features, kindly
+submit an [issue on
+GitHub](https://github.com/unhcr-dataviz/unhcrthemes/issues). To
+contribute code, don’t hesitate to fork the repository and create a pull
+request.
+
+## License
+
+This package is distributed under the [MIT
+License](https://github.com/unhcr-dataviz/unhcrthemes/blob/master/LICENSE.md).
