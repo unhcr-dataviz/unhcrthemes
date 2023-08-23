@@ -68,186 +68,148 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="unhcrthemes-">unhcrthemes <a href="https://github.com/vidonne/unhcrthemes" class="external-link"><img src="reference/figures/unhcrthemes_sticker.png" align="right" alt="" width="140"></a>
+<div class="page-header"><h1 id="unhcrthemes-">unhcrthemes <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link"><img src="reference/figures/unhcrthemes_sticker.png" align="right" alt="" width="140"></a>
 <a class="anchor" aria-label="anchor" href="#unhcrthemes-"></a>
 </h1></div>
 <!-- badges: start -->
 
+<p>Simplify your data visualizations creation with the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> R package, designed to align your plots with <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR’s data visualization</a> recommendations. This package offers a comprehensive <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme, including built-in customizations and thoughtfully crafted color palettes.</p>
 <div class="section level2">
-<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
 </h2>
-<p>The <strong>unhcrthemes</strong> package provides a <code>ggplot2</code> theme and a set of colour palettes for making charts and graphics based on <a href="https://www.unhcr.org/brand/wp-content/uploads/sites/89/2021/11/UNHCR_Data_Visualization_Guidelines.pdf" class="external-link">UNHCR Data Visualization Guidelines</a>. The goal of this package is to ease and speed up the creation of charts, while promoting the UNHCR visual identity with a predefined <code>ggplot</code> theme, as well as a set of colour palettes and scales.</p>
+<ul>
+<li>A consistent and appealing <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme that matches <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR Data Visualization Guidelines</a>.</li>
+<li>A collection of color palettes that ensure your plots are consistent with <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR’s color scheme</a>.</li>
+<li>Easy-to-use functions to apply the theme and color palettes to your <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> plots.</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>This package is not on yet on CRAN and to install it, you will need the remotes package.</p>
+<p>Get started by installing the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package from GitHub using the <a href="https://pak.r-lib.org/" class="external-link">pak</a> library:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vidonne/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="content">Content<a class="anchor" aria-label="anchor" href="#content"></a>
-</h2>
-<p>A package with all necessary elements to quickly implement <a href="https://www.unhcr.org/brand/how-we-look/" class="external-link">UNHCR Brand style</a> in your statistical products and data stories:</p>
-<ol style="list-style-type: decimal">
-<li>Adjusted <code>ggplot2</code> theme</li>
-<li>A series of color palette for:
-<ul>
-<li>A <strong>categorical palette</strong> for UNHCR main data visualization colors</li>
-<li>A <strong>categorical palette</strong> for people of concern to UNHCR categories</li>
-<li>A <strong>categorical palette</strong> for geographical regional divisions of UNHCR</li>
-<li>Six <strong>sequential color palettes</strong> for all the main data visualization colors</li>
-<li>Two recommended <strong>diverging color palette</strong>
-</li>
-</ul>
-</li>
-</ol>
-</div>
-<div class="section level2">
-<h2 id="fonts">Fonts<a class="anchor" aria-label="anchor" href="#fonts"></a>
-</h2>
-<p>UNHCR uses <strong>Lato</strong> as its main font for publications and data visualizations. <strong>Arial</strong> can also be used as a fallback option if it is not possible to install <strong>Lato</strong> on your computer.</p>
+<code class="sourceCode R"><span><span class="co"># If pak is not yet installed, uncomment the following line:</span></span>
+<span><span class="co"># install.packages("pak")</span></span>
+<span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"unhcr-dataviz/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
-<h3 id="base-ggplot2-theme">Base ggplot2 theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
+<h3 id="base-ggplot2-theme">Base <code>{ggplot2}</code> theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">idp</span>, package <span class="op">=</span> <span class="st">"unhcrthemes"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">idp_total</span> <span class="op">&lt;-</span> <span class="va">idp</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">idp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 10</span></span>
-<span><span class="co">#&gt; Columns: 2</span></span>
-<span><span class="co">#&gt; $ year &lt;int&gt; 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019</span></span>
-<span><span class="co">#&gt; $ idp  &lt;dbl&gt; 10.32914, 11.62813, 10.76541, 13.48312, 16.31171, 10.89438, 18.86…</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span><span class="op">)</span>,</span>
-<span>    width <span class="op">=</span> <span class="fl">0.8</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="co"># Apply the theme_unhcr() to your plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">mtcars</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hp</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Globalement IDP displacement | 2010 - 2020"</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Number of people (in million)"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Simple scatterplot with ggplot"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"This plot shows the default style of theme_unhcr()"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Horsepower (hp)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Fuel efficiency (mpg)"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: mtcars"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-1.png" width="2100"></p>
+<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-base-plot-1.png" width="85%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
-<h3 id="unhcr-color-palette">UNHCR color palette<a class="anchor" aria-label="anchor" href="#unhcr-color-palette"></a>
+<h3 id="color-palettes">Color palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a>
 </h3>
-<p>All recommended data visualization colors are accessible as <strong>palettes</strong> or <strong>scales</strong> (color/fill).</p>
+<p>Choose from a variety of carefully curated color palettes that harmonize with UNHCR’s visual identity.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Display all unhcr color palette</span></span>
+<span><span class="fu"><a href="reference/display_unhcr_all.html">display_unhcr_all</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-palette-all-1.png" width="85%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/display_unhcr_all.html">display_unhcr_all</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-palette-1.png" width="2100"></p>
+<code class="sourceCode R"><span><span class="co"># Or select a specific one and limit the number of colors</span></span>
+<span><span class="fu"><a href="reference/display_unhcr_pal.html">display_unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_blue"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-palette-blue-1.png" width="85%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
-<h3 id="base-theme-and-color-scale">Base theme and color scale<a class="anchor" aria-label="anchor" href="#base-theme-and-color-scale"></a>
+<h3 id="scales-colorfill">Scales (color/fill)<a class="anchor" aria-label="anchor" href="#scales-colorfill"></a>
 </h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span><span class="op">)</span>,</span>
-<span>    fill <span class="op">=</span> <span class="fu"><a href="reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,</span>
-<span>    width <span class="op">=</span> <span class="fl">0.8</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="co"># Add color scale to your plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">mtcars</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">hp</span>, y <span class="op">=</span> <span class="va">mpg</span>, color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Globalement IDP displacement | 2010 - 2020"</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Number of people (in million)"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Simple scatterplot with ggplot"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"This plot shows the default style of theme_unhcr()"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Horsepower (hp)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Fuel efficiency (mpg)"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"Number of cylinder"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: mtcars"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-fill-1.png" width="2100"></p>
+<span>  <span class="fu"><a href="reference/unhcr_scale.html">scale_color_unhcr_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>legend_title <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-scale-plot-1.png" width="85%" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
+<h3 id="geoms-textlabel">Geoms (text/label)<a class="anchor" aria-label="anchor" href="#geoms-textlabel"></a>
+</h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">idp_total_sex</span> <span class="op">&lt;-</span> <span class="va">idp</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>idp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">idp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1e6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">#&gt; `.groups` argument.</span></span>
+<code class="sourceCode R"><span><span class="co"># Update geom default font</span></span>
+<span><span class="fu"><a href="reference/update_geom_font_defaults.html">update_geom_font_defaults</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">idp_total_sex</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 20</span></span>
-<span><span class="co">#&gt; Columns: 3</span></span>
-<span><span class="co">#&gt; $ year &lt;int&gt; 2010, 2010, 2011, 2011, 2012, 2012, 2013, 2013, 2014, 2014, 2015,…</span></span>
-<span><span class="co">#&gt; $ sex  &lt;chr&gt; "female", "male", "female", "male", "female", "male", "female", "…</span></span>
-<span><span class="co">#&gt; $ idp  &lt;dbl&gt; 5.158210, 5.170928, 5.874562, 5.753568, 5.389737, 5.375677, 6.938…</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">idp_total_sex</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">idp</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span>,</span>
-<span>    width <span class="op">=</span> <span class="fl">0.8</span>,</span>
-<span>    position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html" class="external-link">position_dodge</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"pal_unhcr"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="co"># Add geom_text to the plot</span></span>
+<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">class</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">class</span>, levels <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">n</span><span class="op">)</span>, hjust <span class="op">=</span> <span class="fl">0</span>, nudge_x <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Globalement IDP displacement | 2010 - 2020"</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Number of people (in million)"</span>,</span>
-<span>    caption <span class="op">=</span> <span class="st">"Source: UNHCR Refugee Data Finder\n© UNHCR, The UN Refugee Agency"</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Simple bar chart with labels using ggplot"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"This plot shows the default style of theme_unhcr()"</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: mtcars"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-plot-theme-color-1.png" width="2100"></p>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-geom-plot-1.png" width="85%" style="display: block; margin: auto;"></p>
+<p>Explore more examples of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> in action on the <a href="https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html">package vignette</a> or <a href="https://dataviz.unhcr.org/tools/r/" class="external-link">UNHCR Data Visualization Platform</a>.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="unhcr-packages">UNHCR packages<a class="anchor" aria-label="anchor" href="#unhcr-packages"></a>
+<h2 id="additional-unhcr-tools">Additional UNHCR Tools<a class="anchor" aria-label="anchor" href="#additional-unhcr-tools"></a>
 </h2>
-<p>unhcrthemes is part of <strong>unhcrverse</strong>, a set of packages to ease the production of statistical evidence and data stories.</p>
 <ul>
 <li>
-<a href="https://github.com/vidonne/unhcrdown" class="external-link">unhcrdown</a>: UNHCR templates for R Markdown</li>
+<a href="https://github.com/PopulationStatistics/refugees" class="external-link"><code>{refugees}</code></a>: A comprehensive package for accessing <a href="https://www.unhcr.org/refugee-statistics/download/" class="external-link">UNHCR Refugee Population Statistics Database</a>.</li>
 <li>
-<a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a>: UNHCR branded theme for ggplot2 and data visualization colour palettes</li>
+<a href="https://github.com/unhcr-dataviz/unhcrdown" class="external-link"><code>{unhcrdown}</code></a>: UNHCR branded templates for <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a>.</li>
 <li>
-<a href="https://github.com/Edouard-Legoupil/unhcrdatapackage" class="external-link">unhcrdatapackage</a>: Use UNHCR Open data</li>
+<a href="https://github.com/unhcr-dataviz/quarto-revealjs-unhcr" class="external-link"><code>quarto-revealjs-unhcr</code></a>: A <a href="https://quarto.org/" class="external-link">Quarto</a> extension to create <a href="https://www.unhcr.org/brand" class="external-link">UNHCR branded</a> <code>reveal.js</code> presentations.</li>
 <li>
-<a href="https://github.com/UNHCR-WEB/hcrdata/" class="external-link">hcrdata</a>: API to connect to internal data source</li>
+<a href="https://github.com/unhcr-dataviz/quarto-html-unhcr" class="external-link"><code>quarto-html-unhcr</code></a>: A <a href="https://quarto.org/" class="external-link">Quarto</a> extension to create <a href="https://www.unhcr.org/brand" class="external-link">UNHCR branded</a> <code>HTML</code> document.</li>
 <li>
-<a href="https://github.com/unhcr/HighFrequencyChecks/" class="external-link">HighFrequencyChecks</a>: Perform High Frequency Check</li>
-<li>
-<a href="https://github.com/unhcr/koboloadeR/" class="external-link">koboloadeR</a>: Process data crunching for survey dataset</li>
+<a href="https://dataviz.unhcr.org/" class="external-link">Data Visualization Platform</a>: A collection of recommendations on <a href="https://dataviz.unhcr.org/chart_gallery/" class="external-link">chart type</a> selection, <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">general dataviz design</a>, <a href="https://dataviz.unhcr.org/tools/" class="external-link">tools and tutorials</a> and a showcase of some of the <a href="https://dataviz.unhcr.org/products/" class="external-link">data visualization products made by UNHCR</a>.</li>
 </ul>
-<p>You can install them all with the following:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## unhcrdown</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vidonne/unhcrdown"</span><span class="op">)</span></span>
-<span><span class="co">## unhcrthemes</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vidonne/unhcrthemes"</span><span class="op">)</span></span>
-<span><span class="co">## unhcrdatapackage</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'unhcr/unhcrdatapackage'</span><span class="op">)</span></span>
-<span><span class="co">## hcrdata</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'unhcr-web/hcrdata'</span><span class="op">)</span></span>
-<span><span class="co">## HighFrequencyChecks</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'unhcr/HighFrequencyChecks'</span><span class="op">)</span></span>
-<span><span class="co">## koboloadeR</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'unhcr/koboloadeR'</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>Please report any issues or bugs on <a href="https://github.com/vidonne/unhcrthemes/issues" class="external-link">GitHub</a>, try to include a minimal reproducible example to help us understand.</p>
+<p>We extend our gratitude to the creators of the <a href="https://github.com/hrbrmstr/hrbrthemes" class="external-link"><code>{hrbrthemes}</code></a> and <a href="https://github.com/wilkelab/cowplot/" class="external-link"><code>{cowplot}</code></a> packages that influenced the development of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+<h2 id="contribution-and-code-of-conduct">Contribution and Code of Conduct<a class="anchor" aria-label="anchor" href="#contribution-and-code-of-conduct"></a>
 </h2>
-<p>Please note that the mynewpack project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Contributions to <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> are highly valued. To ensure a welcoming and inclusive community, we follow our <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. If you have suggestions, uncover bugs, or envision new features, kindly submit an <a href="https://github.com/unhcr-dataviz/unhcrthemes/issues" class="external-link">issue on GitHub</a>. To contribute code, don’t hesitate to fork the repository and create a pull request.</p>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>This package is distributed under the <a href="https://github.com/unhcr-dataviz/unhcrthemes/blob/master/LICENSE.md" class="external-link">MIT License</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
