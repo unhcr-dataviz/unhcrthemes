@@ -45,7 +45,87 @@ pak::pkg_install("unhcr-dataviz/unhcrthemes")
 
 ## Usage
 
-**ToBeDevelop**
+```{r load, message = FALSE, warning = FALSE}
+# Load required packages
+library(ggplot2)
+library(unhcrthemes)
+```
+
+### Base `{ggplot2}` theme
+
+```{r base-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center"}
+# Apply the theme_unhcr() to your plot
+ggplot(
+  mtcars,
+  aes(x = hp, y = mpg)
+) +
+  geom_point() +
+  labs(
+    title = "Simple scatterplot with ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    x = "Horsepower (hp)",
+    y = "Fuel efficiency (mpg)",
+    caption = "Source: mtcars"
+  ) +
+  theme_unhcr()
+```
+
+### Color palettes
+
+Choose from a variety of carefully curated color palettes that harmonize with UNHCR's visual identity.
+
+```{r palette-all, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4.5}
+# Display all unhcr color palette
+display_unhcr_all()
+```
+
+```{r palette-blue, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=2.5}
+# Or select a specific one and limit the number of colors
+display_unhcr_pal(n = 3, "pal_blue")
+```
+
+### Scales (color/fill)
+
+```{r scale-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center"}
+# Add color scale to your plot
+ggplot(
+  mtcars,
+  aes(x = hp, y = mpg, color = as.factor(cyl))
+) +
+  geom_point() +
+  labs(
+    title = "Simple scatterplot with ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    x = "Horsepower (hp)",
+    y = "Fuel efficiency (mpg)",
+    color = "Number of cylinder",
+    caption = "Source: mtcars"
+  ) +
+  scale_color_unhcr_d() +
+  theme_unhcr(legend_title = TRUE)
+```
+
+### Geoms (text/label)
+
+```{r geom-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4}
+# Update geom default font
+update_geom_font_defaults()
+
+# Add geom_text to the plot
+dplyr::count(mpg, class) |>
+  dplyr::arrange(n) |>
+  dplyr::mutate(class = factor(class, levels = class)) |>
+  ggplot(aes(n, class)) +
+  geom_col(fill = unhcr_pal(n = 1, "pal_blue")) +
+  geom_text(aes(label = n), hjust = 0, nudge_x = 1) +
+  labs(
+    title = "Simple bar chart with labels using ggplot",
+    subtitle = "This plot shows the default style of theme_unhcr()",
+    caption = "Source: mtcars"
+  ) +
+  scale_x_continuous(expand = expansion(c(0, 0.1))) +
+  theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
+```
 
 Explore more examples of `{unhcrthemes}` in action on the [package vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html) or [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tools/r/).
 
