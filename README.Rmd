@@ -11,7 +11,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.retina = 2,
   dpi = 300,
-  fig.showtext = TRUE,
   dev = "ragg_png"
 )
 ```
@@ -108,9 +107,6 @@ ggplot(
 ### Geoms (text/label)
 
 ```{r geom-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4}
-# Update geom default font
-update_geom_font_defaults()
-
 # Add geom_text to the plot
 dplyr::count(mpg, class) |>
   dplyr::arrange(n) |>

@@ -21,5 +21,5 @@ update_geom_font_defaults(
 \item{color}{Font color, default "#1a1a1a".}
 }
 \description{
-Updates [ggplot2::geom_label] and [ggplot2::geom_text] font defaults
+Updates \link[ggplot2:geom_text]{ggplot2::geom_label} and \link[ggplot2:geom_text]{ggplot2::geom_text} font defaults
 }

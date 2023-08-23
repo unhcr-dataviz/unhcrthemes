@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_unhcr.R
 \name{theme_unhcr}
 \alias{theme_unhcr}
-\title{UNHCR [ggplot2] theme}
+\title{UNHCR \link{ggplot2} theme}
 \usage{
 theme_unhcr(
   font_family = "Lato",
@@ -55,42 +55,42 @@ theme_unhcr(
 
 \item{caption_margin}{Caption top margin.}
 
-\item{axis_text}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis label.
-Use `x` or `y` to have only the correspondent active.}
+\item{axis_text}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis label.
+Use \code{x} or \code{y} to have only the correspondent active.}
 
 \item{axis_text_size}{Axis label font size.}
 
-\item{axis_title}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis title.
-Use `x` or `y` to have only the correspondent active.}
+\item{axis_title}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis title.
+Use \code{x} or \code{y} to have only the correspondent active.}
 
 \item{axis_title_size}{Axis title font size.}
 
-\item{axis}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis.
-Use `x` or `y` to have only the correspondent active. Don't forget to review
-the `expand` argument of the `scale_x(or y)_...` to avoid spacing between
+\item{axis}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis.
+Use \code{x} or \code{y} to have only the correspondent active. Don't forget to review
+the \code{expand} argument of the \verb{scale_x(or y)_...} to avoid spacing between
 the axis and the baseline of the plot.}
 
-\item{axis_ticks}{Logical `TRUE/FALSE` or `xy`. Turn on and off axis ticks.
-Use `x` or `y` to have only the correspondent active.}
+\item{axis_ticks}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis ticks.
+Use \code{x} or \code{y} to have only the correspondent active.}
 
-\item{grid}{Logical `TRUE/FALSE` or a combination of `XxYy`.
-Turn on and off panel grids. Use `X` or `Y` for major
-and `x` or `y` for minor.}
+\item{grid}{Logical \code{TRUE/FALSE} or a combination of \code{XxYy}.
+Turn on and off panel grids. Use \code{X} or \code{Y} for major
+and \code{x} or \code{y} for minor.}
 
-\item{legend}{Logical `TRUE/FALSE`. Turn on and off the legend.}
+\item{legend}{Logical \code{TRUE/FALSE}. Turn on and off the legend.}
 
 \item{legend_text_size}{Legend key font size.}
 
-\item{legend_title}{Logical `TRUE/FALSE`. Turn on and off the legend title.}
+\item{legend_title}{Logical \code{TRUE/FALSE}. Turn on and off the legend title.}
 
 \item{legend_title_size}{Legend title font size.}
 
-\item{plot_margin}{Plot margin (specify with `ggplot2::margin()`).}
+\item{plot_margin}{Plot margin (specify with \code{ggplot2::margin()}).}
 
 \item{plot_background}{Plot background, default "white".
 Put "transparent" for no background color.}
 
-\item{void}{Logical `TRUE/FALSE`. If `TRUE`, all grid lines, ticks
+\item{void}{Logical \code{TRUE/FALSE}. If \code{TRUE}, all grid lines, ticks
 and axes are removed. Useful}
 }
 \value{

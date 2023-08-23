@@ -103,16 +103,16 @@ scale_fill_unhcr_b(
 )
 }
 \arguments{
-\item{...}{Other arguments passed on to [discrete_scale()] or
-[continuous_scale()] to control name, limits, breaks, labels and so forth}
+\item{...}{Other arguments passed on to \code{\link[=discrete_scale]{discrete_scale()}} or
+\code{\link[=continuous_scale]{continuous_scale()}} to control name, limits, breaks, labels and so forth}
 
 \item{type}{One of \"sequential\", \"diverging\" or \"qualitative\"}
 
 \item{palette}{If a string, will use that named palette. If a number, will
-index into the list of palettes of appropriate `type`}
+index into the list of palettes of appropriate \code{type}}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default,
-colors are as output by [unhcr_pal()]. If -1, the order of colors is reversed}
+colors are as output by \code{\link[=unhcr_pal]{unhcr_pal()}}. If -1, the order of colors is reversed}
 
 \item{na.value}{Missing values will be replaced with this value.}
 

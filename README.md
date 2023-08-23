@@ -22,14 +22,14 @@ palettes.
 
 ## Features
 
-  - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
-    Data Visualization
-    Guidelines](https://dataviz.unhcr.org/general_guidance/).
-  - A collection of color palettes that ensure your plots are consistent
-    with [UNHCR’s color
-    scheme](https://dataviz.unhcr.org/general_guidance/).
-  - Easy-to-use functions to apply the theme and color palettes to your
-    `{ggplot2}` plots.
+- A consistent and appealing `{ggplot2}` theme that matches [UNHCR Data
+  Visualization
+  Guidelines](https://dataviz.unhcr.org/general_guidance/).
+- A collection of color palettes that ensure your plots are consistent
+  with [UNHCR’s color
+  scheme](https://dataviz.unhcr.org/general_guidance/).
+- Easy-to-use functions to apply the theme and color palettes to your
+  `{ggplot2}` plots.
 
 ## Installation
 
@@ -117,9 +117,6 @@ ggplot(
 ### Geoms (text/label)
 
 ``` r
-# Update geom default font
-update_geom_font_defaults()
-
 # Add geom_text to the plot
 dplyr::count(mpg, class) |>
   dplyr::arrange(n) |>
@@ -145,25 +142,25 @@ Platform](https://dataviz.unhcr.org/tools/r/).
 
 ## Additional UNHCR Tools
 
-  - [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
-    comprehensive package for accessing [UNHCR Refugee Population
-    Statistics
-    Database](https://www.unhcr.org/refugee-statistics/download/).
-  - [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
-    branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
-  - [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
-    A [Quarto](https://quarto.org/) extension to create [UNHCR
-    branded](https://www.unhcr.org/brand) `reveal.js` presentations.
-  - [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
-    A [Quarto](https://quarto.org/) extension to create [UNHCR
-    branded](https://www.unhcr.org/brand) `HTML` document.
-  - [Data Visualization Platform](https://dataviz.unhcr.org/): A
-    collection of recommendations on [chart
-    type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
-    dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
-    and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
-    some of the [data visualization products made by
-    UNHCR](https://dataviz.unhcr.org/products/).
+- [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
+  comprehensive package for accessing [UNHCR Refugee Population
+  Statistics
+  Database](https://www.unhcr.org/refugee-statistics/download/).
+- [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
+  branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
+- [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+  A [Quarto](https://quarto.org/) extension to create [UNHCR
+  branded](https://www.unhcr.org/brand) `reveal.js` presentations.
+- [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+  A [Quarto](https://quarto.org/) extension to create [UNHCR
+  branded](https://www.unhcr.org/brand) `HTML` document.
+- [Data Visualization Platform](https://dataviz.unhcr.org/): A
+  collection of recommendations on [chart
+  type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
+  dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
+  and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
+  some of the [data visualization products made by
+  UNHCR](https://dataviz.unhcr.org/products/).
 
 ## Acknowledgements
 

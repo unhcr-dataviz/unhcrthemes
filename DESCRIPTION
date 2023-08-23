@@ -23,10 +23,7 @@ Imports:
     ggplot2,
     scales,
     ggtext,
-    showtext,
-    sysfonts,
     systemfonts
-RoxygenNote: 7.2.3
 Suggests:
     rmarkdown,
     knitr,
@@ -38,6 +35,8 @@ Suggests:
     treemapify,
     lubridate,
     tidyverse
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Config/Needs/website: unhcr-dataviz/unhcrtemplate
 Config/testthat/edition: 3
