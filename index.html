@@ -30,7 +30,7 @@
     
     <a class="navbar-brand me-2" href="index.html">unhcrthemes</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/intro-unhcrthemes.html">UNHCR branded charts with unhcrthemes</a>
+    <a class="dropdown-item" href="articles/intro-unhcrthemes.html">unhcrthemes: UNHCR Data Visualization Guidelines Recommendations with ggplot2</a>
   </div>
 </li>
       </ul>
@@ -121,6 +121,11 @@
 <p><img src="reference/figures/README-base-plot-1.png" width="85%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
+<h3 id="font">Font<a class="anchor" aria-label="anchor" href="#font"></a>
+</h3>
+<p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
+</div>
+<div class="section level3">
 <h3 id="color-palettes">Color palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a>
 </h3>
 <p>Choose from a variety of carefully curated color palettes that harmonize with UNHCR’s visual identity.</p>
@@ -159,10 +164,7 @@
 <h3 id="geoms-textlabel">Geoms (text/label)<a class="anchor" aria-label="anchor" href="#geoms-textlabel"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Update geom default font</span></span>
-<span><span class="fu"><a href="reference/update_geom_font_defaults.html">update_geom_font_defaults</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add geom_text to the plot</span></span>
+<code class="sourceCode R"><span><span class="co"># Add geom_text to the plot</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">class</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">class</span>, levels <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>

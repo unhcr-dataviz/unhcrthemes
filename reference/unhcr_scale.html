@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">unhcrthemes</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/intro-unhcrthemes.html">UNHCR branded charts with unhcrthemes</a>
+    <a class="dropdown-item" href="../articles/intro-unhcrthemes.html">unhcrthemes: UNHCR Data Visualization Guidelines Recommendations with ggplot2</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -148,8 +148,8 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>...</dt>
-<dd><p>Other arguments passed on to [discrete_scale()] or
-[continuous_scale()] to control name, limits, breaks, labels and so forth</p></dd>
+<dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">discrete_scale()</a></code> or
+<code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">continuous_scale()</a></code> to control name, limits, breaks, labels and so forth</p></dd>
 
 
 <dt>type</dt>
@@ -158,12 +158,12 @@
 
 <dt>palette</dt>
 <dd><p>If a string, will use that named palette. If a number, will
-index into the list of palettes of appropriate `type`</p></dd>
+index into the list of palettes of appropriate <code>type</code></p></dd>
 
 
 <dt>direction</dt>
 <dd><p>Sets the order of colors in the scale. If 1, the default,
-colors are as output by [unhcr_pal()]. If -1, the order of colors is reversed</p></dd>
+colors are as output by <code><a href="unhcr_pal.html">unhcr_pal()</a></code>. If -1, the order of colors is reversed</p></dd>
 
 
 <dt>na.value</dt>
