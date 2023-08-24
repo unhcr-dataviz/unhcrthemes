@@ -28,70 +28,72 @@ theme_unhcr(
   legend_title = FALSE,
   legend_title_size = rel(0.9),
   plot_margin = margin(font_size, font_size, font_size, font_size),
-  plot_background = "white",
+  plot_background = "#ffffff",
   void = FALSE
 )
 }
 \arguments{
-\item{font_family}{Base font family "Lato".}
+\item{font_family}{Base font family "Lato".
+You need to have "Lato" font installed on your device in order to use it.}
 
-\item{font_size}{Base font size in pt.}
+\item{font_size}{Base font size in pt. Default to 12 pts.}
 
-\item{plot_title_size}{Plot title font size.}
+\item{plot_title_size}{Plot title font size. Default to \code{font_size} * 1.35.}
 
-\item{plot_title_margin}{Plot title bottom margin.}
+\item{plot_title_margin}{Plot title bottom margin. Default to \code{font_size}.}
 
-\item{subtitle_size}{Plot subtitle font size.}
+\item{subtitle_size}{Plot subtitle font size. Default to \code{font_size}.}
 
-\item{subtitle_margin}{Plot subtitle bottom margin.}
+\item{subtitle_margin}{Plot subtitle bottom margin. Default to \code{font_size} * 1.5.}
 
-\item{strip_text_size}{Facet label font size.}
+\item{strip_text_size}{Facet label font size. Default to \code{font_size} * 0.9.}
 
-\item{strip_text_face}{Facet label font face.}
+\item{strip_text_face}{Facet label font face. Default to "bold".}
 
-\item{strip_text_just}{Facet label justification.}
+\item{strip_text_just}{Facet label justification. Default to 0.}
 
-\item{caption_size}{Caption font size.}
+\item{caption_size}{Caption font size. Default to \code{font_size} * 0.7.}
 
-\item{caption_margin}{Caption top margin.}
+\item{caption_margin}{Caption top margin. Default to \code{font_size}.}
 
-\item{axis_text}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis label.
-Use \code{x} or \code{y} to have only the correspondent active.}
+\item{axis_text}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis label.
+Use \code{x} or \code{y} to have only the correspondent active. Default to \code{TRUE}.}
 
-\item{axis_text_size}{Axis label font size.}
+\item{axis_text_size}{Axis label font size. Default to \code{font_size} * 0.9.}
 
-\item{axis_title}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis title.
-Use \code{x} or \code{y} to have only the correspondent active.}
+\item{axis_title}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis title.
+Use \code{x} or \code{y} to have only the correspondent active. Default to \code{TRUE}.}
 
-\item{axis_title_size}{Axis title font size.}
+\item{axis_title_size}{Axis title font size. Default to \code{font_size} * 0.9.}
 
-\item{axis}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis.
-Use \code{x} or \code{y} to have only the correspondent active. Don't forget to review
-the \code{expand} argument of the \verb{scale_x(or y)_...} to avoid spacing between
-the axis and the baseline of the plot.}
+\item{axis}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis.
+Use \code{x} or \code{y} to have only the correspondent axis active. Don't forget to review
+the \code{expand} argument of the \verb{scale_x_*}/\verb{scale_y_*} to avoid spacing between
+the axis and the baseline of the plot. Default to \code{FALSE}.}
 
-\item{axis_ticks}{Logical \code{TRUE/FALSE} or \code{xy}. Turn on and off axis ticks.
-Use \code{x} or \code{y} to have only the correspondent active.}
+\item{axis_ticks}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis ticks.
+Use \code{x} or \code{y} to have only the correspondent axis ticks active. Default to \code{FALSE}.}
 
-\item{grid}{Logical \code{TRUE/FALSE} or a combination of \code{XxYy}.
-Turn on and off panel grids. Use \code{X} or \code{Y} for major
-and \code{x} or \code{y} for minor.}
+\item{grid}{Logical \code{TRUE}/\code{FALSE} or a combination of \code{X} or \code{x} and \code{Y} or y\verb{. Turn on and off panel grids. Use }X\code{or}Y\verb{for major grids, and}x\code{or}y\verb{for minor grid.  Default to}XY`.}
 
-\item{legend}{Logical \code{TRUE/FALSE}. Turn on and off the legend.}
+\item{legend}{Logical \code{TRUE}/\code{FALSE}. Turn on and off the legend.
+Default to \code{TRUE}.}
 
-\item{legend_text_size}{Legend key font size.}
+\item{legend_text_size}{Legend key font size. Default to \code{font_size} * 0.9.}
 
-\item{legend_title}{Logical \code{TRUE/FALSE}. Turn on and off the legend title.}
+\item{legend_title}{Logical \code{TRUE}/\code{FALSE}. Turn on and off the legend title.
+Default to \code{FALSE}.}
 
-\item{legend_title_size}{Legend title font size.}
+\item{legend_title_size}{Legend title font size. Default to \code{font_size} * 0.9.}
 
-\item{plot_margin}{Plot margin (specify with \code{ggplot2::margin()}).}
+\item{plot_margin}{Plot margin (specify with \code{ggplot2::margin()}).
+Default to \code{ggplot2::margin(font_size, font_size, font_size, font_size)}.}
 
-\item{plot_background}{Plot background, default "white".
-Put "transparent" for no background color.}
+\item{plot_background}{Plot background.
+Put "transparent" for no background color. Default to "white".}
 
-\item{void}{Logical \code{TRUE/FALSE}. If \code{TRUE}, all grid lines, ticks
-and axes are removed. Useful}
+\item{void}{Logical \code{TRUE}/\code{FALSE}. If \code{TRUE}, all grid lines, ticks
+and axes are removed. Default to \code{FALSE}.}
 }
 \value{
 The theme style

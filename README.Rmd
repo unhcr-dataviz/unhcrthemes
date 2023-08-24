@@ -69,6 +69,10 @@ ggplot(
   theme_unhcr()
 ```
 
+### Font
+
+One of the two officially recommended fonts outlined in the [UNHCR Data Visualization Guidelines](https://dataviz.unhcr.org/general_guidance/) is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal functionality of the `{unhcrthemes}` package, please make sure that the `Lato` font is installed on your device prior to usage.
+
 ### Color palettes
 
 Choose from a variety of carefully curated color palettes that harmonize with UNHCR's visual identity.

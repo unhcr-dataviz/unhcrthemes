@@ -72,6 +72,14 @@ ggplot(
 
 <img src="man/figures/README-base-plot-1.png" width="85%" style="display: block; margin: auto;" />
 
+### Font
+
+One of the two officially recommended fonts outlined in the [UNHCR Data
+Visualization Guidelines](https://dataviz.unhcr.org/general_guidance/)
+is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal
+functionality of the `{unhcrthemes}` package, please make sure that the
+`Lato` font is installed on your device prior to usage.
+
 ### Color palettes
 
 Choose from a variety of carefully curated color palettes that harmonize

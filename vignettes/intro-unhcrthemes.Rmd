@@ -1,8 +1,8 @@
 ---
-title: "UNHCR branded charts with unhcrthemes"
+title: "unhcrthemes: UNHCR Data Visualization Guidelines Recommendations with ggplot2"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{UNHCR branded charts with unhcrthemes}
+  %\VignetteIndexEntry{unhcrthemes: UNHCR Data Visualization Guidelines Recommendations with ggplot2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,13 +23,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(unhcrthemes)
-library(tidyverse)
-library(unhcrthemes)
-library(scales)
-library(lubridate)
-library(directlabels)
-library(ggforce)
-library(treemapify)
 ```
 
 ## Column chart
