@@ -38,7 +38,9 @@ display_unhcr_all <- function(n = NULL, type = "all") {
   selected_colors <- vector("list", n_colors)
 
   ylim <- c(0, n_colors)
-  oldpar <- par(mgp = c(2, 0.25, 0))
+  oldpar <- par(mgp = c(2, 0.25, 0),
+                pty = "s",
+                mar = c(0, 0, 0, 0))
   on.exit(par(oldpar))
   max_my_n <- max(my_n)
   plot(1, 1, xlim = c(-1.5, max_my_n), ylim = ylim,

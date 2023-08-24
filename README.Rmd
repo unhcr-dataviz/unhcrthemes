@@ -11,7 +11,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.retina = 2,
   dpi = 300,
-  fig.showtext = TRUE,
   dev = "ragg_png"
 )
 ```
@@ -70,6 +69,10 @@ ggplot(
   theme_unhcr()
 ```
 
+### Font
+
+One of the two officially recommended fonts outlined in the [UNHCR Data Visualization Guidelines](https://dataviz.unhcr.org/general_guidance/) is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal functionality of the `{unhcrthemes}` package, please make sure that the `Lato` font is installed on your device prior to usage.
+
 ### Color palettes
 
 Choose from a variety of carefully curated color palettes that harmonize with UNHCR's visual identity.
@@ -108,9 +111,6 @@ ggplot(
 ### Geoms (text/label)
 
 ```{r geom-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4}
-# Update geom default font
-update_geom_font_defaults()
-
 # Add geom_text to the plot
 dplyr::count(mpg, class) |>
   dplyr::arrange(n) |>

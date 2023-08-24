@@ -224,3 +224,10 @@ unhcr_pal_name <- function(palette, type) {
   type <- match.arg(type, unique(unhcrcolors$type))
   unhcrcolors$name[unhcrcolors$type == type][palette]
 }
+
+#' @noRd
+binned_pal <- function(palette) {
+  function(x) {
+    palette(length(x))
+  }
+}

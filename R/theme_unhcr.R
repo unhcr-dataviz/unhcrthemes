@@ -6,40 +6,44 @@
 #' @rdname theme_unhcr
 #'
 #' @param font_family Base font family "Lato".
-#' @param font_size Base font size in pt.
-#' @param plot_title_size Plot title font size.
-#' @param plot_title_margin Plot title bottom margin.
-#' @param subtitle_size Plot subtitle font size.
-#' @param subtitle_margin Plot subtitle bottom margin.
-#' @param strip_text_size Facet label font size.
-#' @param strip_text_face Facet label font face.
-#' @param strip_text_just Facet label justification.
-#' @param caption_size Caption font size.
-#' @param caption_margin Caption top margin.
-#' @param axis_text Logical `TRUE/FALSE` or `xy`. Turn on and off axis label.
-#' Use `x` or `y` to have only the correspondent active.
-#' @param axis_text_size Axis label font size.
-#' @param axis_title Logical `TRUE/FALSE` or `xy`. Turn on and off axis title.
-#' Use `x` or `y` to have only the correspondent active.
-#' @param axis_title_size Axis title font size.
-#' @param axis Logical `TRUE/FALSE` or `xy`. Turn on and off axis.
-#' Use `x` or `y` to have only the correspondent active. Don't forget to review
-#' the `expand` argument of the `scale_x(or y)_...` to avoid spacing between
-#' the axis and the baseline of the plot.
-#' @param axis_ticks Logical `TRUE/FALSE` or `xy`. Turn on and off axis ticks.
-#' Use `x` or `y` to have only the correspondent active.
-#' @param grid Logical `TRUE/FALSE` or a combination of `XxYy`.
-#' Turn on and off panel grids. Use `X` or `Y` for major
-#' and `x` or `y` for minor.
-#' @param legend Logical `TRUE/FALSE`. Turn on and off the legend.
-#' @param legend_text_size Legend key font size.
-#' @param legend_title Logical `TRUE/FALSE`. Turn on and off the legend title.
-#' @param legend_title_size Legend title font size.
+#' You need to have "Lato" font installed on your device in order to use it.
+#' @param font_size Base font size in pt. Default to 12 pts.
+#' @param plot_title_size Plot title font size. Default to `font_size` * 1.35.
+#' @param plot_title_margin Plot title bottom margin. Default to `font_size`.
+#' @param subtitle_size Plot subtitle font size. Default to `font_size`.
+#' @param subtitle_margin Plot subtitle bottom margin. Default to `font_size` * 1.5.
+#' @param strip_text_size Facet label font size. Default to `font_size` * 0.9.
+#' @param strip_text_face Facet label font face. Default to "bold".
+#' @param strip_text_just Facet label justification. Default to 0.
+#' @param caption_size Caption font size. Default to `font_size` * 0.7.
+#' @param caption_margin Caption top margin. Default to `font_size`.
+#' @param axis_text Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis label.
+#' Use `x` or `y` to have only the correspondent active. Default to `TRUE`.
+#' @param axis_text_size Axis label font size. Default to `font_size` * 0.9.
+#' @param axis_title Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis title.
+#' Use `x` or `y` to have only the correspondent active. Default to `TRUE`.
+#' @param axis_title_size Axis title font size. Default to `font_size` * 0.9.
+#' @param axis Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis.
+#' Use `x` or `y` to have only the correspondent axis active. Don't forget to review
+#' the `expand` argument of the `scale_x_*`/`scale_y_*` to avoid spacing between
+#' the axis and the baseline of the plot. Default to `FALSE`.
+#' @param axis_ticks Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis ticks.
+#' Use `x` or `y` to have only the correspondent axis ticks active. Default to `FALSE`.
+#' @param grid Logical `TRUE`/`FALSE` or a combination of `X` or `x` and `Y` or y`.
+#' Turn on and off panel grids. Use `X` or `Y` for major grids,
+#' and `x` or `y` for minor grid.  Default to `XY`.
+#' @param legend Logical `TRUE`/`FALSE`. Turn on and off the legend.
+#' Default to `TRUE`.
+#' @param legend_text_size Legend key font size. Default to `font_size` * 0.9.
+#' @param legend_title Logical `TRUE`/`FALSE`. Turn on and off the legend title.
+#' Default to `FALSE`.
+#' @param legend_title_size Legend title font size. Default to `font_size` * 0.9.
 #' @param plot_margin Plot margin (specify with `ggplot2::margin()`).
-#' @param plot_background Plot background, default "white".
-#' Put "transparent" for no background color.
-#' @param void Logical `TRUE/FALSE`. If `TRUE`, all grid lines, ticks
-#' and axes are removed. Useful
+#' Default to `ggplot2::margin(font_size, font_size, font_size, font_size)`.
+#' @param plot_background Plot background.
+#' Put "transparent" for no background color. Default to "white".
+#' @param void Logical `TRUE`/`FALSE`. If `TRUE`, all grid lines, ticks
+#' and axes are removed. Default to `FALSE`.
 #'
 #' @return The theme style
 #' @import ggplot2
@@ -77,7 +81,7 @@ theme_unhcr <- function(
     legend_title = FALSE,
     legend_title_size = rel(0.9),
     plot_margin = margin(font_size, font_size, font_size, font_size),
-    plot_background = "white",
+    plot_background = "#ffffff",
     void = FALSE) {
   # colors
   dark_text <- "#1a1a1a"
@@ -374,17 +378,18 @@ theme_unhcr <- function(
 #' Update matching font defaults for text geoms
 #'
 #' Updates [ggplot2::geom_label] and [ggplot2::geom_text] font defaults
+#' @importFrom ggrepel GeomTextRepel GeomLabelRepel
 #'
 #' @param family Font family, default "Lato".
 #' @param face Font face, default "plain".
 #' @param size font size in mm.
 #' @param color Font color, default "#1a1a1a".
 #'
-#' @export
+#' @noRd
 update_geom_font_defaults <- function(
     family = "Lato",
     face = "plain",
-    size = 3.8,
+    size = 3.5,
     color = "#1a1a1a") {
   ggplot2::update_geom_defaults(
     "text",
@@ -392,6 +397,14 @@ update_geom_font_defaults <- function(
   )
   ggplot2::update_geom_defaults(
     "label",
+    list(family = family, face = face, size = size, color = color)
+  )
+  ggplot2::update_geom_defaults(
+    "text_repel",
+    list(family = family, face = face, size = size, color = color)
+  )
+  ggplot2::update_geom_defaults(
+    "label_repel",
     list(family = family, face = face, size = size, color = color)
   )
 }
