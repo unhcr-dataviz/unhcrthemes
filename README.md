@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <a href="https://github.com/unhcr-dataviz/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" /></a>
+# unhcrthemes <img src='man/figures/logo.svg' align="right" alt="unhcrthemes package hex sticker" width="140" />
 
 <!-- badges: start -->
 
@@ -22,14 +22,14 @@ palettes.
 
 ## Features
 
-- A consistent and appealing `{ggplot2}` theme that matches [UNHCR Data
-  Visualization
-  Guidelines](https://dataviz.unhcr.org/general_guidance/).
-- A collection of color palettes that ensure your plots are consistent
-  with [UNHCR’s color
-  scheme](https://dataviz.unhcr.org/general_guidance/).
-- Easy-to-use functions to apply the theme and color palettes to your
-  `{ggplot2}` plots.
+  - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
+    Data Visualization
+    Guidelines](https://dataviz.unhcr.org/general_guidance/).
+  - A collection of color palettes that ensure your plots are consistent
+    with [UNHCR’s color
+    scheme](https://dataviz.unhcr.org/general_guidance/).
+  - Easy-to-use functions to apply the theme and color palettes to your
+    `{ggplot2}` plots.
 
 ## Installation
 
@@ -70,7 +70,7 @@ ggplot(
   theme_unhcr()
 ```
 
-<img src="man/figures/README-base-plot-1.png" width="85%" style="display: block; margin: auto;" />
+<img src="man/figures/README-base-plot-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Font
 
@@ -90,14 +90,14 @@ with UNHCR’s visual identity.
 display_unhcr_all()
 ```
 
-<img src="man/figures/README-palette-all-1.png" width="85%" style="display: block; margin: auto;" />
+<img src="man/figures/README-palette-all-1.png" width="90%" style="display: block; margin: auto;" />
 
 ``` r
 # Or select a specific one and limit the number of colors
 display_unhcr_pal(n = 3, "pal_blue")
 ```
 
-<img src="man/figures/README-palette-blue-1.png" width="85%" style="display: block; margin: auto;" />
+<img src="man/figures/README-palette-blue-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Scales (color/fill)
 
@@ -107,7 +107,7 @@ ggplot(
   mtcars,
   aes(x = hp, y = mpg, color = as.factor(cyl))
 ) +
-  geom_point() +
+  geom_point(alpha = .8) +
   labs(
     title = "Simple scatterplot with ggplot",
     subtitle = "This plot shows the default style of theme_unhcr()",
@@ -120,12 +120,12 @@ ggplot(
   theme_unhcr(legend_title = TRUE)
 ```
 
-<img src="man/figures/README-scale-plot-1.png" width="85%" style="display: block; margin: auto;" />
+<img src="man/figures/README-scale-plot-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Geoms (text/label)
 
 ``` r
-# Add geom_text to the plot
+# Default Lato font also apply for geom_text and label
 dplyr::count(mpg, class) |>
   dplyr::arrange(n) |>
   dplyr::mutate(class = factor(class, levels = class)) |>
@@ -141,7 +141,7 @@ dplyr::count(mpg, class) |>
   theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
 ```
 
-<img src="man/figures/README-geom-plot-1.png" width="85%" style="display: block; margin: auto;" />
+<img src="man/figures/README-geom-plot-1.png" width="90%" style="display: block; margin: auto;" />
 
 Explore more examples of `{unhcrthemes}` in action on the [package
 vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html)
@@ -150,25 +150,25 @@ Platform](https://dataviz.unhcr.org/tools/r/).
 
 ## Additional UNHCR Tools
 
-- [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
-  comprehensive package for accessing [UNHCR Refugee Population
-  Statistics
-  Database](https://www.unhcr.org/refugee-statistics/download/).
-- [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
-  branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
-- [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
-  A [Quarto](https://quarto.org/) extension to create [UNHCR
-  branded](https://www.unhcr.org/brand) `reveal.js` presentations.
-- [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
-  A [Quarto](https://quarto.org/) extension to create [UNHCR
-  branded](https://www.unhcr.org/brand) `HTML` document.
-- [Data Visualization Platform](https://dataviz.unhcr.org/): A
-  collection of recommendations on [chart
-  type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
-  dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
-  and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
-  some of the [data visualization products made by
-  UNHCR](https://dataviz.unhcr.org/products/).
+  - [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
+    comprehensive package for accessing [UNHCR Refugee Population
+    Statistics
+    Database](https://www.unhcr.org/refugee-statistics/download/).
+  - [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
+    branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
+  - [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `reveal.js` presentations.
+  - [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `HTML` document.
+  - [Data Visualization Platform](https://dataviz.unhcr.org/): A
+    collection of recommendations on [chart
+    type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
+    dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
+    and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
+    some of the [data visualization products made by
+    UNHCR](https://dataviz.unhcr.org/products/).
 
 ## Acknowledgements
 

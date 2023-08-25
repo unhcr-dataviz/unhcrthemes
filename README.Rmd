@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# unhcrthemes <a href="https://github.com/unhcr-dataviz/unhcrthemes"><img src='man/figures/unhcrthemes_sticker.png' align="right" alt="" width="140" /></a>
+# unhcrthemes <img src='man/figures/logo.svg' align="right" alt="unhcrthemes package hex sticker" width="140" />
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -52,7 +52,7 @@ library(unhcrthemes)
 
 ### Base `{ggplot2}` theme
 
-```{r base-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center"}
+```{r base-plot, message = FALSE, warning = FALSE, out.width="90%", fig.align="center"}
 # Apply the theme_unhcr() to your plot
 ggplot(
   mtcars,
@@ -77,25 +77,25 @@ One of the two officially recommended fonts outlined in the [UNHCR Data Visualiz
 
 Choose from a variety of carefully curated color palettes that harmonize with UNHCR's visual identity.
 
-```{r palette-all, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4.5}
+```{r palette-all, message = FALSE, warning = FALSE, out.width="90%", fig.align="center", fig.height=3.2}
 # Display all unhcr color palette
 display_unhcr_all()
 ```
 
-```{r palette-blue, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=2.5}
+```{r palette-blue, message = FALSE, warning = FALSE, out.width="90%", fig.align="center", fig.height=2}
 # Or select a specific one and limit the number of colors
 display_unhcr_pal(n = 3, "pal_blue")
 ```
 
 ### Scales (color/fill)
 
-```{r scale-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center"}
+```{r scale-plot, message = FALSE, warning = FALSE, out.width="90%", fig.align="center"}
 # Add color scale to your plot
 ggplot(
   mtcars,
   aes(x = hp, y = mpg, color = as.factor(cyl))
 ) +
-  geom_point() +
+  geom_point(alpha = .8) +
   labs(
     title = "Simple scatterplot with ggplot",
     subtitle = "This plot shows the default style of theme_unhcr()",
@@ -110,8 +110,8 @@ ggplot(
 
 ### Geoms (text/label)
 
-```{r geom-plot, message = FALSE, warning = FALSE, out.width="85%", fig.align="center", fig.height=4}
-# Add geom_text to the plot
+```{r geom-plot, message = FALSE, warning = FALSE, out.width="90%", fig.align="center", fig.height=4}
+# Default Lato font also apply for geom_text and label
 dplyr::count(mpg, class) |>
   dplyr::arrange(n) |>
   dplyr::mutate(class = factor(class, levels = class)) |>
