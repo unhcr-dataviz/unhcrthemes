@@ -13,8 +13,9 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
-Simplify your data visualizations creation with the `{unhcrthemes}` R
-package, designed to align your plots with [UNHCR’s data
+Simplify the creation of your data visualizations with the
+`{unhcrthemes}` R package. It is designed to align your plots with
+[UNHCR’s data
 visualization](https://dataviz.unhcr.org/general_guidance/)
 recommendations. This package offers a comprehensive `{ggplot2}` theme,
 including built-in customizations and thoughtfully crafted color
@@ -25,7 +26,7 @@ palettes.
   - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
     Data Visualization
     Guidelines](https://dataviz.unhcr.org/general_guidance/).
-  - A collection of color palettes that ensure your plots are consistent
+  - A collection of color palettes ensuring your plots are consistent
     with [UNHCR’s color
     scheme](https://dataviz.unhcr.org/general_guidance/).
   - Easy-to-use functions to apply the theme and color palettes to your

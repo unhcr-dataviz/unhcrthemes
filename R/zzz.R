@@ -4,7 +4,7 @@
 
   sys_fonts <- systemfonts::system_fonts()
   if (!any(grepl("lato", sys_fonts$family, ignore.case = TRUE))) {
-    warning("Lato font is missing, please install it!",
+    message("Lato font is missing, please install it!",
       call. = FALSE
     )
     systemfonts::register_font(
