@@ -1,0 +1,121 @@
+---
+title: "Designing UNHCR Branded Charts using unhcrthemes"
+---
+
+```{r, include = FALSE}
+library(ragg)
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>",
+  dev = "ragg_png",
+  fig.retina = 2,
+  dpi = 300
+)
+```
+
+Data visualization is a powerful tool for conveying information and insights from complex datasets. The [United Nations High Commissioner for Refugees](https://www.unhcr.org/) (UNHCR) provides crucial [refugee statistics](https://www.unhcr.org/refugee-statistics/download/) that can be presented in an informative and visually appealing manner. The `{unhcrthemes}` package, in combination with the [`{refugee}` package](https://github.com/PopulationStatistics/refugees) and the versatile `{ggplot2}` library, offers an excellent solution to create UNHCR-branded charts with ease.
+
+## Installing Required Packages
+
+Before we start creating UNHCR branded charts, make sure you have the necessary packages installed:
+
+```{r install, eval=FALSE}
+# Install missing CRAN packages
+packages <- c("refugees", "tidyverse", "scales", "ragg", "pak")
+
+install.packages(setdiff(packages, rownames(installed.packages())))
+
+# Install unhcrthemes with pak
+pak::pkg_install("unhcr-dataviz/unhcrthemes")
+```
+
+## Loading Required Packages
+
+Load the packages into your R environment:
+
+```{r setup}
+# Load required packages
+library(unhcrthemes)
+library(refugees)
+library(tidyverse)
+library(scales)
+```
+
+Some packages installed above will be loaded using the `::` notation to make the code and intentions clearer.
+
+## Loading Different Datasets
+
+For this tutorial, we'll use statistics provided by UNHCR. The refugee package allows us to access and work with this data. You can find more information on the datasets available and the use of the `{refugees}` package in [this blog post](https://www.unhcr.org/refugee-statistics/insights/explainers/refugees-r-package.html).
+
+```{r data-load}
+# Load data on forcibly displaced and stateless persons
+population <- refugees::population |>
+  filter(year > 1992)
+
+# Load data on IDPs displaced due to conflict and violence
+idmc <- refugees::idmc |>
+  filter(year > 1990)
+
+# Load data on refugees under UNRWA’s mandate
+```
+
+## Creating Different Chart Types
+
+### Bar chart
+
+Let's start by creating a simple bar chart to visualize the top 10 refugee and other people in need of international protection by country of origin in 2022.
+
+**Preparing the data:**
+
+- Keep only 2022 records
+- Sum refugees and oip
+- Keep only top 10
+- Wrap long label
+
+```{r bar-data}
+bar_df <- population |>
+  filter(year == 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE) + sum(oip, na.rm = TRUE),
+    .by = coo_name
+  ) |>
+  slice_max(order_by = refugees, n = 10) |>
+  mutate(coo_name = str_wrap(coo_name, 25))
+```
+
+**Plot the data:**
+
+```{r bar-plot, out.width="90%", fig.align="center"}
+# Set title, subtitle and caption
+# Caption will be used throughout the tutorial
+title_bar <- "Refugees and other people in need of international protection"
+subtitle_bar <- "By country of origin at the end of 2022"
+caption <- "Source: Refugee Data Finder<br>© UNHCR, The UN Refugee Agency"
+
+# Plot
+ggplot(
+  bar_df,
+  aes(
+    x = refugees,
+    y = reorder(coo_name, refugees)
+  )
+) +
+  geom_col(
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = 0.8
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, .1)),
+    breaks = seq(0, 7e6, by = 1e6),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  labs(
+    title = title_bar,
+    subtitle = subtitle_bar,
+    caption = caption,
+    x = "Number of people"
+  ) +
+  theme_unhcr(grid = "X", axis = "Y", axis_title = "X")
+```
