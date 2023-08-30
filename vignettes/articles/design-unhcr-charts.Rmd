@@ -235,41 +235,53 @@ ggplot(
 
 ### Stacked bar chart
 
-Let's start by creating a simple bar chart to visualize the top 10 refugee and other people in need of international protection by country of origin in 2022.
+Let's make a stacked bar chart comparing the different population displaced across borders by the top 10 country of origin in 2022.
 
 **Preparing the data:**
 
 ```{r stack-bar-data}
-# Keep only 2022 records, Sum refugees and oip,
-# Keep only top 10, Wrap long label
-bar_df <- refugees::population |>
+# Keep only 2022 records, Summarize popolutaion type by coo,
+# Keep only top 10, Pivot for ggplot2,
+# Wrap long label and make factor of pop_type, Remove 0
+stack_bar_df <- refugees::population |>
   filter(year == 2022) |>
   summarise(
-    refugees = sum(refugees, na.rm = TRUE) + sum(oip, na.rm = TRUE),
+    ref = sum(refugees, na.rm = TRUE),
+    oip = sum(oip, na.rm = TRUE),
+    asy = sum(asylum_seekers, na.rm = TRUE),
+    tot = ref + oip + asy,
     .by = coo_name
   ) |>
-  slice_max(order_by = refugees, n = 10) |>
-  mutate(coo_name = str_wrap(coo_name, 25))
+  slice_max(order_by = tot, n = 10) |>
+  pivot_longer(
+    cols = c(ref, oip, asy),
+    names_to = "pop_type",
+    values_to = "pop_num"
+  ) |>
+  mutate(
+    coo_name = str_wrap(coo_name, 25),
+    pop_type = factor(pop_type, levels = c("oip", "asy", "ref"))
+  ) |>
+  select(-tot) |>
+  filter(pop_num != 0)
 ```
 
 **Plot:**
 
 ```{r stack-bar-plot, out.width="100%"}
 # Set title and subtitle
-title_bar <- "Refugees and other people in need of international protection"
-subtitle_bar <- "By country of origin at the end of 2022"
-caption <- "Source: Refugee Data Finder<br>© UNHCR, The UN Refugee Agency"
+title_stack_bar <- "Top 10 country of origin of people displaced across borders in 2022"
 
 # Plot
 ggplot(
-  bar_df,
+  stack_bar_df,
   aes(
-    x = refugees,
-    y = reorder(coo_name, refugees)
+    x = pop_num,
+    y = fct_rev(as_factor(coo_name)),
+    fill = pop_type
   )
 ) +
   geom_col(
-    fill = unhcr_pal(n = 1, "pal_blue"),
     width = 0.8
   ) +
   scale_x_continuous(
@@ -277,71 +289,175 @@ ggplot(
     breaks = seq(0, 7e6, by = 1e6),
     labels = scales::label_number(scale_cut = scales::cut_short_scale())
   ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_poc", nmax = 9,
+    order = c(9, 3, 1), labels = c("Other people in need of international protection", "Asylum-seekers", "Refugees"),
+    guide = guide_legend(reverse = TRUE)
+  ) +
   labs(
-    title = title_bar,
-    subtitle = subtitle_bar,
+    title = title_stack_bar,
     caption = caption,
     x = "Number of people"
   ) +
-  theme_unhcr(grid = "X", axis = "Y", axis_title = "X")
+  theme_unhcr(
+    grid = "X", axis = "Y", axis_title = "X",
+    legend_text_size = 9
+  )
 ```
 
 **Plot with labels:**
 
 ```{r stack-bar-label, out.width="100%"}
+# Add subtitle instead of legend
+subtitle_stack_bar <- paste0(
+  "People displaced across borders asr composed of <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[1],
+  "'>Refugees</span>, <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[3],
+  "'>Asylum-seekers</span> and <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[9],
+  "'>Other people in need of international protection</span>."
+)
+
 # Plot with labels
 ggplot(
-  bar_df,
+  stack_bar_df,
   aes(
-    x = refugees,
-    y = reorder(coo_name, refugees)
+    x = pop_num,
+    y = fct_rev(as_factor(coo_name)),
+    fill = pop_type,
+    group = pop_type
   )
 ) +
-  geom_col(
-    fill = unhcr_pal(n = 1, "pal_blue"),
-    width = 0.8
-  ) +
+  geom_col(width = 0.8) +
   geom_text(
     aes(
-      label = scales::label_number(
-        scale_cut = scales::cut_short_scale(),
-        accuracy = .1
-      )(refugees)
+      label = case_when(
+        pop_num >= 1e6 ~ scales::label_number(
+          scale_cut = scales::cut_short_scale(),
+          accuracy = .1
+        )(pop_num),
+        TRUE ~ scales::label_number(
+          scale_cut = scales::cut_short_scale(),
+          accuracy = 1
+        )(pop_num)
+      ),
+      hjust = case_when(
+        pop_num < 2e5 & pop_type == "asy" ~ -0.25,
+        pop_num < 5e5 & pop_type == "asy" ~ -0.55,
+        pop_num < 5e5 & pop_type == "ref" ~ 0.15,
+        TRUE ~ .5
+      ),
+      color = case_when(
+        pop_num < 5e5 & pop_type == "asy" ~ "#1a1a1a",
+        TRUE ~ "#ffffff"
+      )
     ),
-    hjust = -.2
+    position = position_stack(vjust = .5),
+    size = 9 / .pt
   ) +
-  scale_x_continuous(expand = expansion(mult = c(0, .1))) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, .1))
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_poc", nmax = 9,
+    order = c(9, 3, 1)
+  ) +
+  scale_color_identity() +
   labs(
-    title = title_bar,
-    subtitle = subtitle_bar,
+    title = title_stack_bar,
+    subtitle = subtitle_stack_bar,
     caption = caption
   ) +
-  theme_unhcr(grid = FALSE, axis = "Y", axis_text = "Y", axis_title = FALSE)
+  theme_unhcr(
+    grid = FALSE, axis = "Y", axis_title = FALSE,
+    axis_text = "y", legend = FALSE
+  )
 ```
 
 ### Population pyramid
 
-Lorem ipsum
+This type of chart is perfect to represent age & gender disagregation. Let's make a population pyramid of populations protected and/or assisted by UNHCR in 2022.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r pyramid-data}
+# Filter 2022 records, Keep only relevant pop_type,
+# Summarise age group, pivot and separate age/gender,
+# Calculate percent, put ages in a factor
+pyramid_df <- refugees::demographics |>
+  filter(year == 2022 &
+    pop_type %in% c("REF", "ASY", "IDP", "OIP", "RDP", "RET", "STA", "OOC")) |>
+  summarise(
+    "male 0-4" = sum(m_0_4, na.rm = TRUE),
+    "male 5-11" = sum(m_5_11, na.rm = TRUE),
+    "male 12-17" = sum(m_12_17, na.rm = TRUE),
+    "male 18-59" = sum(m_18_59, na.rm = TRUE),
+    "male 60+" = sum(m_60, na.rm = TRUE),
+    "female 0-4" = sum(f_0_4, na.rm = TRUE),
+    "female 5-11" = sum(f_5_11, na.rm = TRUE),
+    "female 12-17" = sum(f_12_17, na.rm = TRUE),
+    "female 18-59" = sum(f_18_59, na.rm = TRUE),
+    "female 60+" = sum(f_60, na.rm = TRUE)
+  ) |>
+  pivot_longer(
+    cols = everything(),
+    names_sep = " ",
+    names_to = c(".value", "ages")
+  ) |>
+  mutate(
+    male_p = round(male / (sum(female) + sum(male)), 2),
+    female_p = round(female / (sum(female) + sum(male)), 2),
+    ages = factor(ages, levels = c("0-4", "5-11", "12-17", "18-59", "60+"))
+  )
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
-# Set title
-
-
+```{r pyramid-plot, out.width="100%"}
 # Plot
-```
-
-**Plot with labels:**
-
-```{r, out.width="100%"}
-# Plot with labels
+ggplot(
+  pyramid_df,
+  aes(y = ages)
+) +
+  geom_col(aes(x = -male_p),
+    fill = unhcr_pal(n = 1, "pal_navy"),
+    width = .7
+  ) +
+  geom_col(aes(x = female_p),
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = .7
+  ) +
+  geom_text(
+    aes(
+      x = -male_p,
+      label = scales::percent(abs(male_p))
+    ),
+    hjust = 1.25,
+    color = unhcr_pal(n = 1, "pal_navy"),
+    fontface = "bold"
+  ) +
+  geom_text(
+    aes(
+      x = female_p,
+      label = scales::percent(abs(female_p))
+    ),
+    hjust = -.25,
+    color = unhcr_pal(n = 1, "pal_blue"),
+    fontface = "bold"
+  ) +
+  scale_x_continuous(expand = expansion(c(0.2, 0.2))) +
+  coord_cartesian(clip = "off") +
+  labs(
+    title = "Demographics of populations protected and/or assisted by UNHCR at the end of 2022",
+    caption = "Note: Age and sex disaggregated data is not available for all countries of asylum. Figures do not add up to 100 per cent due to rounding.<br>Source: UNHCR Refugee Data Finder - © UNHCR, The UN Refugee Agency"
+  ) +
+  annotate("text", x = -.01, y = 5.65, label = "Male", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 1, color = unhcr_pal(n = 1, "pal_navy")) +
+  annotate("text", x = .01, y = 5.65, label = "Female", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 0, color = unhcr_pal(n = 1, "pal_blue")) +
+  theme_unhcr(
+    axis_text = "Y", axis_title = FALSE, grid = FALSE,
+    plot_title_margin = 24
+  )
 ```
 
 ## Column chart
