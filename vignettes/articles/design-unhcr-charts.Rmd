@@ -43,7 +43,14 @@ Some packages installed above will be loaded using the `::` notation to make the
 
 For this tutorial, we'll use statistics provided by UNHCR. The refugee package allows us to access and work with this data. You can find more information on the datasets available and the use of the `{refugees}` package in [this blog post](https://www.unhcr.org/refugee-statistics/insights/explainers/refugees-r-package.html).
 
+```{r caption}
+# Set caption for all charts, as we will only use the refugees package
+caption <- "Source: Refugee Data Finder<br>© UNHCR, The UN Refugee Agency"
+```
+
 ## Bar chart
+
+### Single bar chart
 
 Let's start by creating a simple bar chart to visualize the top 10 refugee and other people in need of international protection by country of origin in 2022.
 
@@ -65,11 +72,9 @@ bar_df <- refugees::population |>
 **Plot:**
 
 ```{r bar-plot, out.width="100%"}
-# Set title, subtitle and caption
-# Caption will be used throughout the tutorial
+# Set title and subtitle
 title_bar <- "Refugees and other people in need of international protection"
 subtitle_bar <- "By country of origin at the end of 2022"
-caption <- "Source: Refugee Data Finder<br>© UNHCR, The UN Refugee Agency"
 
 # Plot
 ggplot(
@@ -130,7 +135,218 @@ ggplot(
   theme_unhcr(grid = FALSE, axis = "Y", axis_text = "Y", axis_title = FALSE)
 ```
 
+### Grouped bar chart
+
+Let's compare the refugee population originated by UNHCR region in 2012 and 2022 with the help of grouped bar chart.
+
+**Preparing the data:**
+
+```{r group-bar-data}
+# Keep 2012 and 2022 records, Load and join region names,
+# Group by year and region and sum refugees,
+# Wrap long label, Remove NA
+group_bar_df <- refugees::population |>
+  filter(year == 2012 | year == 2022) |>
+  left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
+  group_by(year, unhcr_region) |>
+  summarise(refugees = sum(refugees, na.rm = TRUE)) |>
+  mutate(unhcr_region = str_wrap(unhcr_region, 20)) |>
+  filter(!is.na(unhcr_region))
+```
+
+**Plot:**
+
+```{r group-bar-plot, out.width="100%"}
+# Set title and subtitle
+title_group_bar <- paste0(
+  "Comparison of the total refugee population in <span style='color:",
+  unhcr_pal(n = 2, "pal_blue")[1],
+  "'>2012</span> and <span style='color:",
+  unhcr_pal(n = 2, "pal_blue")[2],
+  "'>2022</span> by region of origin"
+)
+
+# Plot
+ggplot(
+  group_bar_df,
+  aes(
+    x = refugees,
+    y = fct_rev(as_factor(unhcr_region)),
+    fill = as_factor(year)
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_dodge(.8),
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, .1)),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  scale_fill_unhcr_d(direction = -1) +
+  labs(
+    title = title_group_bar,
+    caption = caption,
+    x = "Number of people"
+  ) +
+  theme_unhcr(
+    grid = "X", axis = "Y", axis_title = "X",
+    legend = FALSE
+  )
+```
+
+**Plot with labels:**
+
+```{r group-bar-label, out.width="100%"}
+# Plot with labels
+ggplot(
+  group_bar_df,
+  aes(
+    x = refugees,
+    y = fct_rev(as_factor(unhcr_region)),
+    fill = as_factor(year)
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_dodge(.8),
+  ) +
+  geom_text(
+    aes(
+      label = scales::label_number(
+        scale_cut = scales::cut_short_scale(),
+        accuracy = .1
+      )(refugees)
+    ),
+    position = position_dodge(.8),
+    hjust = -.2
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0, .1))) +
+  scale_fill_unhcr_d(direction = -1) +
+  labs(
+    title = title_group_bar,
+    caption = caption,
+  ) +
+  theme_unhcr(
+    grid = FALSE, axis = "Y", axis_title = FALSE,
+    axis_text = "Y", legend = FALSE
+  )
+```
+
+### Stacked bar chart
+
+Let's start by creating a simple bar chart to visualize the top 10 refugee and other people in need of international protection by country of origin in 2022.
+
+**Preparing the data:**
+
+```{r stack-bar-data}
+# Keep only 2022 records, Sum refugees and oip,
+# Keep only top 10, Wrap long label
+bar_df <- refugees::population |>
+  filter(year == 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE) + sum(oip, na.rm = TRUE),
+    .by = coo_name
+  ) |>
+  slice_max(order_by = refugees, n = 10) |>
+  mutate(coo_name = str_wrap(coo_name, 25))
+```
+
+**Plot:**
+
+```{r stack-bar-plot, out.width="100%"}
+# Set title and subtitle
+title_bar <- "Refugees and other people in need of international protection"
+subtitle_bar <- "By country of origin at the end of 2022"
+caption <- "Source: Refugee Data Finder<br>© UNHCR, The UN Refugee Agency"
+
+# Plot
+ggplot(
+  bar_df,
+  aes(
+    x = refugees,
+    y = reorder(coo_name, refugees)
+  )
+) +
+  geom_col(
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = 0.8
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, .1)),
+    breaks = seq(0, 7e6, by = 1e6),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  labs(
+    title = title_bar,
+    subtitle = subtitle_bar,
+    caption = caption,
+    x = "Number of people"
+  ) +
+  theme_unhcr(grid = "X", axis = "Y", axis_title = "X")
+```
+
+**Plot with labels:**
+
+```{r stack-bar-label, out.width="100%"}
+# Plot with labels
+ggplot(
+  bar_df,
+  aes(
+    x = refugees,
+    y = reorder(coo_name, refugees)
+  )
+) +
+  geom_col(
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    width = 0.8
+  ) +
+  geom_text(
+    aes(
+      label = scales::label_number(
+        scale_cut = scales::cut_short_scale(),
+        accuracy = .1
+      )(refugees)
+    ),
+    hjust = -.2
+  ) +
+  scale_x_continuous(expand = expansion(mult = c(0, .1))) +
+  labs(
+    title = title_bar,
+    subtitle = subtitle_bar,
+    caption = caption
+  ) +
+  theme_unhcr(grid = FALSE, axis = "Y", axis_text = "Y", axis_title = FALSE)
+```
+
+### Population pyramid
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+**Plot with labels:**
+
+```{r, out.width="100%"}
+# Plot with labels
+```
+
 ## Column chart
+
+### Single column chart
 
 A column chart is quite similar to a bar chart, but the bars are vertical. Let's make a column chart of the last 10 years of total refugee population.
 
@@ -151,7 +367,6 @@ column_df <- refugees::population |>
 
 ```{r column-plot, out.width="100%"}
 # Set title
-# Caption come from the bar chart example
 title_column <- "Total number of refugees | 2013-2022"
 
 # Plot
@@ -208,4 +423,284 @@ ggplot(
     Y = "Number of people"
   ) +
   theme_unhcr(grid = FALSE, axis = "X", axis_title = FALSE, axis_text = "X")
+```
+
+### Grouped column chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+**Plot with labels:**
+
+```{r, out.width="100%"}
+# Plot with labels
+```
+
+### Stacked column chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+**Plot with labels:**
+
+```{r, out.width="100%"}
+# Plot with labels
+```
+
+### 100% stacked column chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+**Plot with labels:**
+
+```{r, out.width="100%"}
+# Plot with labels
+```
+
+## Line chart
+
+### Single line chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Multiple line chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+**Plot with labels:**
+
+```{r, out.width="100%"}
+# Plot with labels
+```
+
+## Area chart
+
+### Single area chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Stacked area chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+
+## Pie chart
+
+### Pie chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Donut chart
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+## Less common charts
+
+### Treemap
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Streamgraph
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Sankey diagram
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
+```
+
+### Slope
+
+Lorem ipsum
+
+**Preparing the data:**
+
+```{r}
+# Data manipulation
+```
+
+**Plot:**
+
+```{r, out.width="100%"}
+# Set title
+
+
+# Plot
 ```
