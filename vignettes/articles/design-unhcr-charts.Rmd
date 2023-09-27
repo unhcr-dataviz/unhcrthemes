@@ -548,22 +548,117 @@ Lorem ipsum
 **Preparing the data:**
 
 ```{r}
-# Data manipulation
+# Keep 2018-2022 records, Load and join region names,
+# Group by year and region and sum refugees,
+# Keep only regions in Africa
+group_col_df <- refugees::population |>
+  filter(year >= 2018 & year <= 2022) |>
+  left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
+  group_by(year, unhcr_region) |>
+  summarise(refugees = sum(refugees, na.rm = TRUE)) |>
+  ungroup() |>
+  filter(unhcr_region %in% c(
+    "East and Horn of Africa",
+    "Southern Africa",
+    "West and Central Africa"
+  ))
 ```
 
 **Plot:**
 
 ```{r, out.width="100%"}
 # Set title
+region_name <- group_col_df |>
+  distinct(unhcr_region) |>
+  pull(unhcr_region)
 
+title_group_col <- "Refugees in the different regions of Africa"
+
+subtitle_group_col <- paste0(
+  "Number of refugees in <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[1], "'>",
+  region_name[1], "</span>, <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[2], "'>",
+  region_name[2], "</span> and <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[3], "'>",
+  region_name[3], "</span> at the end of 2018-2022"
+)
 
 # Plot
+ggplot(
+  group_col_df,
+  aes(
+    x = year,
+    y = refugees,
+    fill = unhcr_region
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_dodge(.8),
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, .1)),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_region", nmax = 3
+  ) +
+  labs(
+    title = title_group_col,
+    subtitle = subtitle_group_col,
+    caption = caption,
+    x = "Number of people"
+  ) +
+  theme_unhcr(
+    grid = "Y", axis = "X", axis_title = FALSE,
+    legend = FALSE
+  )
 ```
 
 **Plot with labels:**
 
 ```{r, out.width="100%"}
 # Plot with labels
+ggplot(
+  group_col_df,
+  aes(
+    x = year,
+    y = refugees,
+    fill = unhcr_region
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_dodge(.8),
+  ) +
+  geom_text(
+    aes(
+      label = scales::label_number(
+        scale = .000001,
+        accuracy = .1,
+        suffix = "M"
+      )(refugees)
+    ),
+    position = position_dodge(.8),
+    vjust = -.3
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, .1))
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_region", nmax = 3
+  ) +
+  labs(
+    title = title_group_col,
+    subtitle = subtitle_group_col,
+    caption = caption,
+    x = "Number of people"
+  ) +
+  theme_unhcr(
+    grid = FALSE, axis_text = "x", axis = "X",
+    axis_title = FALSE, legend = FALSE
+  )
 ```
 
 ### Stacked column chart
