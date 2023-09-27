@@ -543,7 +543,7 @@ ggplot(
 
 ### Grouped column chart
 
-Lorem ipsum
+Let's compare the refugee population originated by UNHCR region of Africa in 2018-2022 with the help of grouped column chart.
 
 **Preparing the data:**
 
@@ -572,7 +572,7 @@ region_name <- group_col_df |>
   distinct(unhcr_region) |>
   pull(unhcr_region)
 
-title_group_col <- "Refugees in the different regions of Africa"
+title_group_col <- "Refugees from the different regions of Africa"
 
 subtitle_group_col <- paste0(
   "Number of refugees in <span style='color:",
