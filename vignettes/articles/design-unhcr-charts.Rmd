@@ -663,27 +663,146 @@ ggplot(
 
 ### Stacked column chart
 
-Lorem ipsum
+Let's plot the forcibly displaced people by type of population from 2013 to 2022.
 
 **Preparing the data:**
 
 ```{r}
-# Data manipulation
+# UNHCR data: Keep 2013-2022 records, pivot longer pop_type,
+# Summarise by year and pop_type, drop 0s, rename pop_type
+unhcr_df <- refugees::population |>
+  filter(year >= 2013 & year <= 2022) |>
+  pivot_longer(
+    cols = c(refugees, oip, asylum_seekers),
+    names_to = "pop_type",
+    values_to = "pop_num"
+  ) |>
+  summarise(pop_num = sum(pop_num, na.rm = TRUE), .by = c(year, pop_type)) |>
+  filter(pop_num != 0)
+
+# IDMC data: Keep 2013-2022 records,
+# Summarise by year, create pop_type
+idmc_df <- refugees::idmc |>
+  filter(year >= 2013 & year <= 2022) |>
+  summarise(pop_num = sum(total, na.rm = TRUE), .by = year) |>
+  mutate(pop_type = "idmc")
+
+# UNRWA data: Keep 2013-2022 records,
+# Summarise by year, create pop_type
+unrwa_df <- refugees::unrwa |>
+  filter(year >= 2013 & year <= 2022) |>
+  summarise(pop_num = sum(total, na.rm = TRUE), .by = year) |>
+  mutate(pop_type = "unrwa")
+
+# Append dataframes together, level factor pop_type, make year factor
+stack_col_df <- bind_rows(unhcr_df, idmc_df, unrwa_df) |>
+  mutate(
+    pop_type = factor(pop_type, levels = c(
+      "idmc",
+      "refugees",
+      "unrwa",
+      "oip",
+      "asylum_seekers"
+    )),
+    year = as_factor(year)
+  )
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r, out.width="100%", fig.height=6}
 # Set title
-
+stack_col_title <- "People forced to flee worldwide | 2013-2022"
 
 # Plot
+ggplot(
+  stack_col_df,
+  aes(
+    x = year,
+    y = pop_num,
+    fill = pop_type
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_stack(reverse = TRUE)
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0)),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_poc", nmax = 9,
+    order = c(4, 1, 2, 9, 3),
+    labels = c(
+      "IDPs",
+      "Refugees under\nUNHCR's mandate",
+      "Refugees under\nUNRWA's mandate",
+      "Other people in need\nof international protection",
+      "Asylum-seekers"
+    )
+  ) +
+  labs(
+    title = stack_col_title,
+    caption = caption,
+  ) +
+  theme_unhcr(
+    grid = "Y", axis = "X", axis_title = FALSE,
+    legend_text_size = 9
+  ) +
+  guides(fill = guide_legend(ncol = 3))
 ```
 
-**Plot with labels:**
+**Plot with category in subtitle:**
 
 ```{r, out.width="100%"}
+# Set subtitle
+stack_col_subtitle <- paste0(
+  "By: <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[4],
+  "'>IDPs</span>, <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[1],
+  "'>Refugees under UNHCR's mandate</span>, <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[2],
+  "'>Refugees under UNWRA's mandate</span>,<br><span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[9],
+  "'>Other people in need of international protection</span> and <span style='color:",
+  unhcr_pal(n = 9, "pal_unhcr_poc")[3],
+  "'>Asylum-seekers</span>."
+)
+
+
 # Plot with labels
+ggplot(
+  stack_col_df,
+  aes(
+    x = year,
+    y = pop_num,
+    fill = pop_type
+  )
+) +
+  geom_col(
+    width = .7,
+    position = position_stack(reverse = TRUE)
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0)),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_poc", nmax = 9,
+    order = c(4, 1, 2, 9, 3)
+  ) +
+  labs(
+    title = stack_col_title,
+    subtitle = stack_col_subtitle,
+    caption = caption,
+  ) +
+  theme_unhcr(
+    grid = "Y", axis = "X", axis_title = FALSE, legend = FALSE
+  )
 ```
 
 ### 100% stacked column chart
@@ -715,21 +834,52 @@ Lorem ipsum
 
 ### Single line chart
 
-Lorem ipsum
+Let's plot the evolution of the total refugee population from 1993 to 2022.
 
 **Preparing the data:**
 
 ```{r}
-# Data manipulation
+# Keep data from 1993 to 2022,
+# Sum refugees by year, year as factor
+single_line_df <- refugees::population |>
+  filter(year >= 1993 & year <= 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE),
+    .by = year
+  ) |>
+  mutate(year = as_factor(year))
 ```
 
 **Plot:**
 
 ```{r, out.width="100%"}
 # Set title
-
+title_single_line <- "Total number of refugees | 1993-2022"
 
 # Plot
+ggplot(
+  single_line_df,
+  aes(
+    x = year,
+    y = refugees,
+    group = 1
+  )
+) +
+  geom_line(
+    color = unhcr_pal(n = 1, "pal_blue"),
+    size = 1
+  ) +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  labs(
+    title = title_single_line,
+    caption = caption
+  ) +
+  theme_unhcr(grid = "Y", axis = "X", axis_title = FALSE)
 ```
 
 ### Multiple line chart
@@ -761,21 +911,57 @@ Lorem ipsum
 
 ### Single area chart
 
-Lorem ipsum
+Let's plot the evolution of the total refugee population from 1993 to 2022.
 
 **Preparing the data:**
 
 ```{r}
-# Data manipulation
+# Keep data from 1993 to 2022,
+# Sum refugees by year, year as factor
+area_df <- refugees::population |>
+  filter(year >= 1993 & year <= 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE),
+    .by = year
+  ) |>
+  mutate(year = as_factor(year))
 ```
 
 **Plot:**
 
 ```{r, out.width="100%"}
 # Set title
-
+title_area <- "Total number of refugees | 1993-2022"
 
 # Plot
+ggplot(
+  area_df,
+  aes(
+    x = year,
+    y = refugees,
+    group = 1
+  )
+) +
+  geom_area(
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    alpha = 0.3
+  ) +
+  geom_line(
+    color = unhcr_pal(n = 1, "pal_blue"),
+    size = 1
+  ) +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, .1)),
+    labels = scales::label_number(scale_cut = scales::cut_short_scale())
+  ) +
+  labs(
+    title = title_single_line,
+    caption = caption
+  ) +
+  theme_unhcr(grid = "Y", axis = "X", axis_title = FALSE)
 ```
 
 ### Stacked area chart
