@@ -1339,23 +1339,64 @@ ggplot(
 
 ## Less common charts
 
+These less common type of charts can be created with the help of the `ggplot2` and `unhcrthemes` packages but will require extra packages. When needed, the code to install the extra packages will be provided.
+
 ### Treemap
 
-Lorem ipsum
+Lst's make a treemap of the refugee population by region of origin in 2022. For this we will use the [`treemapify`](https://github.com/wilkox/treemapify) package.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r treemap-data}
+# Keep 2022 records, Load and join region names,
+# Group by region and sum refugees, Remove NAs
+treemap_df <- refugees::population |>
+  filter(year == 2022) |>
+  left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
+  group_by(unhcr_region) |>
+  summarise(refugees = sum(refugees, na.rm = TRUE)) |>
+  ungroup() |>
+  drop_na(unhcr_region)
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
-# Set title
+```{r teeemap-plot, out.width="100%"}
+# Install if needed and load package
+# install.packages("treemapify")
+library(treemapify)
 
+# Set title
+title_treemap <- "Number of refugees by region of origin | 2022"
 
 # Plot
+ggplot(
+  treemap_df,
+  aes(area = refugees)
+) +
+  geom_treemap(
+    color = "#FFFFFF",
+    size = 1,
+    fill = unhcr_pal(n = 1, "pal_blue"),
+    start = "topleft"
+  ) +
+  geom_treemap_text(
+    aes(label = paste0(
+      unhcr_region, "\n",
+      scales::label_number(scale_cut = scales::cut_short_scale())(refugees)
+    )),
+    color = "#FFFFFF",
+    size = 9,
+    lineheight = 1.1,
+    start = "topleft",
+    family = "Lato",
+    padding.y = unit(2, "mm")
+  ) +
+  labs(
+    title = title_treemap,
+    caption = caption
+  ) +
+  theme_unhcr(void = TRUE)
 ```
 
 ### Streamgraph
