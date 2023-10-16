@@ -547,7 +547,7 @@ Let's compare the refugee population originated by UNHCR region of Africa in 201
 
 **Preparing the data:**
 
-```{r}
+```{r group-col-data}
 # Keep 2018-2022 records, Load and join region names,
 # Group by year and region and sum refugees,
 # Keep only regions in Africa
@@ -566,7 +566,7 @@ group_col_df <- refugees::population |>
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r group-col-plot, out.width="100%"}
 # Set title
 region_name <- group_col_df |>
   distinct(unhcr_region) |>
@@ -618,7 +618,7 @@ ggplot(
 
 **Plot with labels:**
 
-```{r, out.width="100%"}
+```{r group-col-label, out.width="100%"}
 # Plot with labels
 ggplot(
   group_col_df,
@@ -667,7 +667,7 @@ Let's plot the forcibly displaced people by type of population from 2013 to 2022
 
 **Preparing the data:**
 
-```{r}
+```{r stack-col-data}
 # UNHCR data: Keep 2013-2022 records, pivot longer pop_type,
 # Summarise by year and pop_type, drop 0s, rename pop_type
 unhcr_df <- refugees::population |>
@@ -710,7 +710,7 @@ stack_col_df <- bind_rows(unhcr_df, idmc_df, unrwa_df) |>
 
 **Plot:**
 
-```{r, out.width="100%", fig.height=6}
+```{r stack-col-plot, out.width="100%", fig.height=6}
 # Set title
 stack_col_title <- "People forced to flee worldwide | 2013-2022"
 
@@ -756,7 +756,7 @@ ggplot(
 
 **Plot with category in subtitle:**
 
-```{r, out.width="100%"}
+```{r stack-col-label, out.width="100%"}
 # Set subtitle
 stack_col_subtitle <- paste0(
   "By: <span style='color:",
@@ -807,27 +807,126 @@ ggplot(
 
 ### 100% stacked column chart
 
-Lorem ipsum
+Let's create a 100% stacked column chart of the last 10 years of total refugee population originated by Africa's region.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r percent-stack-data}
+# Keep 2013-2022 records, Load and join region names,
+# Keep only regions in Africa, Group by year and region and sum refugees,
+# Group by year and calculate percent, make year as factor
+percent_stack_df <- refugees::population |>
+  filter(year >= 2013 & year <= 2022) |>
+  left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
+  filter(unhcr_region %in% c(
+    "East and Horn of Africa",
+    "Southern Africa",
+    "West and Central Africa"
+  )) |>
+  group_by(year, unhcr_region) |>
+  summarise(refugees = sum(refugees, na.rm = TRUE)) |>
+  ungroup() |>
+  group_by(year) |>
+  mutate(refugees = refugees / sum(refugees)) |>
+  ungroup() |>
+  mutate(year = as_factor(year))
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r percent-stack-plot, out.width="100%"}
 # Set title
+region_name <- percent_stack_df |>
+  distinct(unhcr_region) |>
+  pull(unhcr_region)
 
+title_percent_stack <- "Refugees from the different regions of Africa"
+
+subtitle_percent_stack <- paste0(
+  "Percentage of refugees in <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[1], "'>",
+  region_name[1], "</span>, <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[2], "'>",
+  region_name[2], "</span> and <span style='color:",
+  unhcr_pal(n = 3, "pal_unhcr_region")[3], "'>",
+  region_name[3], "</span> that originated from these regions at the end of 2013-2022"
+)
 
 # Plot
+ggplot(
+  percent_stack_df,
+  aes(
+    x = year,
+    y = refugees,
+    fill = unhcr_region
+  )
+) +
+  geom_col(
+    width = .7,
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, .1)),
+    labels = scales::label_percent()
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_region", nmax = 3
+  ) +
+  labs(
+    title = title_percent_stack,
+    subtitle = subtitle_percent_stack,
+    caption = caption
+  ) +
+  theme_unhcr(
+    grid = "Y", axis = "X", axis_title = FALSE,
+    legend = FALSE
+  )
 ```
 
 **Plot with labels:**
 
-```{r, out.width="100%"}
+```{r percent-stack-label, out.width="100%"}
 # Plot with labels
+ggplot(
+  percent_stack_df,
+  aes(
+    x = year,
+    y = refugees,
+    fill = unhcr_region
+  )
+) +
+  geom_col(
+    width = .7,
+  ) +
+  geom_text(
+    aes(
+      label = scales::label_percent(
+        accuracy = .1
+      )(refugees)
+    ),
+    hjust = .5,
+    position = position_stack(vjust = .5),
+    color = if_else(
+      percent_stack_df$unhcr_region == "West and Central Africa",
+      "#1a1a1a",
+      "#ffffff"
+    )
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, .1)),
+    labels = scales::label_percent()
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_region", nmax = 3
+  ) +
+  labs(
+    title = title_percent_stack,
+    subtitle = subtitle_percent_stack,
+    caption = caption
+  ) +
+  theme_unhcr(
+    grid = FALSE, axis = "X", axis_title = FALSE,
+    axis_text = "x", legend = FALSE
+  )
 ```
 
 ## Line chart
@@ -838,7 +937,7 @@ Let's plot the evolution of the total refugee population from 1993 to 2022.
 
 **Preparing the data:**
 
-```{r}
+```{r single-line-data}
 # Keep data from 1993 to 2022,
 # Sum refugees by year, year as factor
 single_line_df <- refugees::population |>
@@ -852,7 +951,7 @@ single_line_df <- refugees::population |>
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r single-line-plot, out.width="100%"}
 # Set title
 title_single_line <- "Total number of refugees | 1993-2022"
 
@@ -884,27 +983,121 @@ ggplot(
 
 ### Multiple line chart
 
-Lorem ipsum
+Let's plot the evolution of the total refugee and IDP population from 1993 to 2022.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r multi-line-data}
+# Keep data from 1993 to 2022, Sum refugees and IDPs by year,
+# Pivot longer, year as factor
+multi_line_df <- refugees::population |>
+  filter(year >= 1993 & year <= 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE),
+    idps = sum(idps, na.rm = TRUE),
+    .by = year
+  ) |>
+  pivot_longer(
+    cols = c(refugees, idps),
+    names_to = "pop_type",
+    values_to = "pop_num"
+  ) |>
+  mutate(
+    year = as_factor(year),
+    pop_type = if_else(pop_type == "refugees", "Refugees", "IDPs")
+  )
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r multi-line-plot, out.width="100%"}
 # Set title
-
+title_multi_line <- paste0(
+  "Total number of <span style='color:",
+  unhcr_pal(n = 1, "pal_blue"), "'>",
+  "refugees</span> and <span style='color:",
+  unhcr_pal(n = 1, "pal_green"), "'>",
+  "IDPs</span> | 1993-2022"
+)
 
 # Plot
+ggplot(
+  multi_line_df,
+  aes(
+    x = year,
+    y = pop_num,
+    color = pop_type,
+    group = pop_type
+  )
+) +
+  geom_line(
+    size = 1
+  ) +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    limits = c(0, 6e7), breaks = seq(0, 6e7, by = 1e7),
+    expand = expansion(mult = c(0, .05))
+  ) +
+  scale_color_unhcr_d(
+    palette = "pal_unhcr", nmax = 4,
+    order = c(4, 2)
+  ) +
+  labs(
+    title = title_multi_line,
+    caption = caption
+  ) +
+  theme_unhcr(grid = "Y", axis = "X", axis_title = FALSE, legend = FALSE)
 ```
 
 **Plot with labels:**
 
-```{r, out.width="100%"}
+```{r multi-line-label, out.width="100%"}
 # Plot with labels
+# Plot
+ggplot(
+  multi_line_df,
+  aes(
+    x = year,
+    y = pop_num,
+    color = pop_type,
+    group = pop_type
+  )
+) +
+  geom_line(
+    size = 1
+  ) +
+  geom_text(
+    data = filter(multi_line_df, year == 2022),
+    aes(
+      label = pop_type
+    ),
+    hjust = 0,
+    nudge_x = 0.15,
+  ) +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    limits = c(0, 6e7), breaks = seq(0, 6e7, by = 1e7),
+    expand = expansion(mult = c(0, .05))
+  ) +
+  scale_color_unhcr_d(
+    palette = "pal_unhcr", nmax = 4,
+    order = c(4, 2)
+  ) +
+  labs(
+    title = title_multi_line,
+    caption = caption
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_unhcr(
+    grid = "Y", axis = "X", axis_title = FALSE, legend = FALSE,
+    plot_margin = margin(12, 40, 12, 12)
+  )
 ```
 
 ## Area chart
@@ -915,7 +1108,7 @@ Let's plot the evolution of the total refugee population from 1993 to 2022.
 
 **Preparing the data:**
 
-```{r}
+```{r area-data}
 # Keep data from 1993 to 2022,
 # Sum refugees by year, year as factor
 area_df <- refugees::population |>
@@ -929,7 +1122,7 @@ area_df <- refugees::population |>
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r area-plot, out.width="100%"}
 # Set title
 title_area <- "Total number of refugees | 1993-2022"
 
@@ -966,62 +1159,182 @@ ggplot(
 
 ### Stacked area chart
 
-Lorem ipsum
+Let's plot the evolution of the total refugee and IDP population from 1993 to 2022.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r stack-area-data}
+# Keep data from 1993 to 2022, Sum refugees and IDPs by year,
+# Pivot longer, year as factor
+stack_area_df <- refugees::population |>
+  filter(year >= 1993 & year <= 2022) |>
+  summarise(
+    refugees = sum(refugees, na.rm = TRUE),
+    idps = sum(idps, na.rm = TRUE),
+    .by = year
+  ) |>
+  pivot_longer(
+    cols = c(refugees, idps),
+    names_to = "pop_type",
+    values_to = "pop_num"
+  ) |>
+  mutate(
+    year = as_factor(year),
+    pop_type = if_else(pop_type == "refugees", "Refugees", "IDPs")
+  )
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r stack-area-plot, out.width="100%"}
 # Set title
-
+title_stack_area <- paste0(
+  "Total number of <span style='color:",
+  unhcr_pal(n = 1, "pal_blue"), "'>",
+  "refugees</span> and <span style='color:",
+  unhcr_pal(n = 1, "pal_green"), "'>",
+  "IDPs</span> | 1993-2022"
+)
 
 # Plot
+ggplot(
+  stack_area_df,
+  aes(
+    x = year,
+    y = pop_num,
+    fill = pop_type,
+    group = pop_type
+  )
+) +
+  geom_area() +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+    breaks = scales::pretty_breaks(n = 4),
+    expand = expansion(mult = c(0, .05))
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr", nmax = 4,
+    order = c(4, 2)
+  ) +
+  labs(
+    title = title_stack_area,
+    caption = caption,
+    y = "Number of people"
+  ) +
+  theme_unhcr(grid = "Y", axis = "X", axis_title = "y", legend = FALSE)
 ```
 
 
 ## Pie chart
 
-### Pie chart
-
-Lorem ipsum
+Let's plot the percentage of women vs men for all population of concern by the end of 2022.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r pie-data}
+# Filter 2022 records, Keep only relevant pop_type,
+# Summarise by gender, pivot longer,
+# Calculate percentage
+pie_df <- refugees::demographics |>
+  filter(year == 2022 &
+    pop_type %in% c("REF", "ASY", "IDP", "OIP", "RDP", "RET", "STA", "OOC")) |>
+  summarise(
+    "Male" = sum(m_total, na.rm = TRUE),
+    "Female" = sum(f_total, na.rm = TRUE)
+  ) |>
+  pivot_longer(
+    cols = everything(),
+    names_to = "gender"
+  ) |>
+  mutate(
+    percent = value / sum(value)
+  )
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r pie-plot, out.width="100%"}
 # Set title
-
+pie_title <-
+  "Demographics of populations protected and/or assisted by UNHCR at the end of 2022"
 
 # Plot
+ggplot(
+  pie_df,
+  aes(
+    x = 1,
+    y = percent,
+    fill = gender
+  )
+) +
+  geom_col() +
+  geom_text(
+    aes(
+      label = paste0(gender, "\n", scales::label_percent()(percent)),
+      y = cumsum(percent) - percent / 2
+    ),
+    x = 1,
+    color = "#ffffff",
+    fontface = "bold"
+  ) +
+  scale_fill_unhcr_d(
+    nmax = 3, order = c(2, 1)
+  ) +
+  coord_polar(
+    theta = "y",
+    direction = -1
+  ) +
+  labs(
+    title = pie_title,
+    caption = caption
+  ) +
+  theme_unhcr(void = TRUE, legend = FALSE)
 ```
 
-### Donut chart
+**Donut Plot:**
 
-Lorem ipsum
-
-**Preparing the data:**
-
-```{r}
-# Data manipulation
-```
-
-**Plot:**
-
-```{r, out.width="100%"}
-# Set title
-
-
+```{r donut-plot, out.width="100%"}
 # Plot
+ggplot(
+  pie_df,
+  aes(
+    x = 1,
+    y = percent,
+    fill = gender
+  )
+) +
+  geom_col() +
+  geom_text(
+    aes(
+      label = paste0(gender, "\n", scales::label_percent()(percent)),
+      y = cumsum(percent) - percent / 2,
+      color = gender
+    ),
+    x = 1.8,
+    fontface = "bold"
+  ) +
+  scale_fill_unhcr_d(
+    nmax = 3, order = c(2, 1)
+  ) +
+  scale_color_unhcr_d(
+    nmax = 3, order = c(2, 1)
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0.8, 0.2))
+  ) +
+  coord_polar(
+    theta = "y",
+    direction = -1,
+    clip = "off"
+  ) +
+  labs(
+    title = pie_title,
+    caption = caption
+  ) +
+  theme_unhcr(void = TRUE, legend = FALSE)
 ```
 
 ## Less common charts
