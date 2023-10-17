@@ -1339,11 +1339,11 @@ ggplot(
 
 ## Less common charts
 
-These less common type of charts can be created with the help of the `ggplot2` and `unhcrthemes` packages but will require extra packages. When needed, the code to install the extra packages will be provided.
+These less common type of charts can be created with the help of the `{ggplot2}` and `{unhcrthemes}` packages but will require extra packages. When needed, the code to install the extra packages will be provided.
 
 ### Treemap
 
-Lst's make a treemap of the refugee population by region of origin in 2022. For this we will use the [`treemapify`](https://github.com/wilkox/treemapify) package.
+Let's make a treemap of the refugee population by region of origin in 2022. For this we will use the [`{treemapify}`](https://github.com/wilkox/treemapify) package.
 
 **Preparing the data:**
 
@@ -1374,13 +1374,13 @@ ggplot(
   treemap_df,
   aes(area = refugees)
 ) +
-  geom_treemap(
+  treemapify::geom_treemap(
     color = "#FFFFFF",
     size = 1,
     fill = unhcr_pal(n = 1, "pal_blue"),
     start = "topleft"
   ) +
-  geom_treemap_text(
+  treemapify::geom_treemap_text(
     aes(label = paste0(
       unhcr_region, "\n",
       scales::label_number(scale_cut = scales::cut_short_scale())(refugees)
@@ -1401,40 +1401,154 @@ ggplot(
 
 ### Streamgraph
 
-Lorem ipsum
+Let's make a streamgraph showing the evolution of the populations assisted by UNHCR from 1993 to 2022. For this we will use the [`{ggstream}`](https://github.com/davidsjoberg/ggstream) package.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r stream-data}
+# Keep 1993-2022 records, rename population columns,
+# Pivot longer, grou by year and pop_type
+# year as factor, pop_type as factor with levels, drop 0s
+stream_df <- refugees::population |>
+  filter(year >= 1993 & year <= 2022) |>
+  select(year,
+    "Refugees" = refugees,
+    "IDPs" = idps,
+    "Asylum-seekers" = asylum_seekers,
+    "Stateless person" = stateless,
+    "Other of concern" = ooc,
+    "Other people in need of international protection" = oip
+  ) |>
+  pivot_longer(
+    cols = c(
+      "Refugees",
+      "IDPs",
+      "Asylum-seekers",
+      "Stateless person",
+      "Other of concern",
+      "Other people in need of international protection"
+    ),
+    names_to = "pop_type",
+    values_to = "pop_num"
+  ) |>
+  group_by(year, pop_type) |>
+  summarise(pop_num = sum(pop_num, na.rm = TRUE)) |>
+  ungroup() |>
+  mutate(
+    year = as_factor(year),
+    pop_type = factor(pop_type, levels = c(
+      "Refugees",
+      "Asylum-seekers",
+      "IDPs",
+      "Stateless person",
+      "Other of concern",
+      "Other people in need of international protection"
+    ))
+  ) |>
+  filter(pop_num != 0)
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
-# Set title
+```{r stream-plot, out.width="100%"}
+# Install if needed and load package
+# install.packages("ggstream")
+library(ggstream)
 
+# Set title
+stream_title <- "Populations protected and/or assisted by UNHCR | 1993-2022"
 
 # Plot
+ggplot(
+  stream_df,
+  aes(
+    x = year,
+    y = pop_num,
+    fill = pop_type,
+    group = pop_type
+  )
+) +
+  ggstream::geom_stream() +
+  scale_x_discrete(
+    breaks = scales::pretty_breaks(n = 5)
+  ) +
+  scale_fill_unhcr_d(
+    palette = "pal_unhcr_poc",
+    nmax = 9,
+    order = c(1, 3:5, 8:9)
+  ) +
+  scale_y_continuous(
+    labels = scales::label_number(scale_cut = scales::cut_short_scale()),
+  ) +
+  labs(
+    title = stream_title,
+    caption = caption,
+    y = "Number of people"
+  ) +
+  theme_unhcr(axis_title = "y")
 ```
 
 ### Sankey diagram
 
-Lorem ipsum
+Let's create a Sankey diagram showing the refugee population by region of origin and destination in 2022. For this we will use the [`{ggalluvial}`](https://corybrunson.github.io/ggalluvial/) package.
 
 **Preparing the data:**
 
-```{r}
-# Data manipulation
+```{r sankey-data}
+# Select 2022 data, Load and join region names for both origin and asylum,
+# Group Sub-Saharan Africa regions togetherfor both origin and asylum,
+# Group by coo_region and coa_region, Sum refugees, make region factors
+sankey_df <-
+  refugees::population |>
+  filter(year == 2022) |>
+  left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
+  select(coa_iso, origin = unhcr_region, refugees) |>
+  left_join(refugees::countries, by = c("coa_iso" = "iso_code")) |>
+  select(origin, destination = unhcr_region, refugees) |>
+  mutate(
+    origin = case_when(
+      origin %in% c(
+        "East and Horn of Africa",
+        "Southern Africa",
+        "West and Central Africa"
+      ) ~ "Sub-Saharan Africa",
+      origin == "The Americas" ~ "Americas",
+      TRUE ~ origin
+    ),
+    destination = case_when(
+      destination %in% c(
+        "East and Horn of Africa",
+        "Southern Africa",
+        "West and Central Africa"
+      ) ~ "Sub-Saharan Africa",
+      destination == "The Americas" ~ "Americas",
+      TRUE ~ destination
+    )
+  ) |>
+  group_by(origin, destination) |>
+  summarise(refugees = sum(refugees, na.rm = TRUE)) |>
+  ungroup()
 ```
 
 **Plot:**
 
-```{r, out.width="100%"}
+```{r sankey-plot, out.width="100%"}
+# install.packages("ggalluvial")
+library(ggalluvial)
+
 # Set title
+sankey_title <- "Refugees from their region of origin to their region of asylum  | 2022"
 
 
 # Plot
+ggplot(sankey_df, aes(
+  axis1 = origin,
+  axis2 = destination,
+  y = refugees
+)) +
+  geom_alluvium(aes(fill = origin)) +
+  geom_stratum() +
+  theme_unhcr(void = TRUE)
 ```
 
 ### Slope
