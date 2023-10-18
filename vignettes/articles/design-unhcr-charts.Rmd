@@ -1361,7 +1361,7 @@ treemap_df <- refugees::population |>
 
 **Plot:**
 
-```{r teeemap-plot, out.width="100%"}
+```{r teeemap-plot, out.width="100%", fig.height=5.5}
 # Install if needed and load package
 # install.packages("treemapify")
 library(treemapify)
@@ -1450,7 +1450,7 @@ stream_df <- refugees::population |>
 
 **Plot:**
 
-```{r stream-plot, out.width="100%"}
+```{r stream-plot, out.width="100%", fig.height=6}
 # Install if needed and load package
 # install.packages("ggstream")
 library(ggstream)
@@ -1485,87 +1485,76 @@ ggplot(
     caption = caption,
     y = "Number of people"
   ) +
-  theme_unhcr(axis_title = "y")
+  theme_unhcr(
+    axis_title = "y",
+    legend_text_size = 9
+  )
 ```
 
-### Sankey diagram
+### Slope
 
-Let's create a Sankey diagram showing the refugee population by region of origin and destination in 2022. For this we will use the [`{ggalluvial}`](https://corybrunson.github.io/ggalluvial/) package.
+Let's create a slope chart showing the evolution of the total refugee population between 2017 and 2022 in the countries from the East and Horn of Africa region.
 
 **Preparing the data:**
 
-```{r sankey-data}
-# Select 2022 data, Load and join region names for both origin and asylum,
-# Group Sub-Saharan Africa regions togetherfor both origin and asylum,
-# Group by coo_region and coa_region, Sum refugees, make region factors
-sankey_df <-
-  refugees::population |>
-  filter(year == 2022) |>
+```{r slope-data}
+# Keep only 2017 and 2022 records, Load and join region names,
+# Keep only countries in East and Horn of Africa region,
+# Group by country and year and sum refugees
+slope_df <- refugees::population |>
+  filter(year == 2017 | year == 2022) |>
   left_join(refugees::countries, by = c("coo_iso" = "iso_code")) |>
-  select(coa_iso, origin = unhcr_region, refugees) |>
-  left_join(refugees::countries, by = c("coa_iso" = "iso_code")) |>
-  select(origin, destination = unhcr_region, refugees) |>
-  mutate(
-    origin = case_when(
-      origin %in% c(
-        "East and Horn of Africa",
-        "Southern Africa",
-        "West and Central Africa"
-      ) ~ "Sub-Saharan Africa",
-      origin == "The Americas" ~ "Americas",
-      TRUE ~ origin
-    ),
-    destination = case_when(
-      destination %in% c(
-        "East and Horn of Africa",
-        "Southern Africa",
-        "West and Central Africa"
-      ) ~ "Sub-Saharan Africa",
-      destination == "The Americas" ~ "Americas",
-      TRUE ~ destination
-    )
-  ) |>
-  group_by(origin, destination) |>
+  filter(unhcr_region %in% c("East and Horn of Africa")) |>
+  group_by(coo_name, year) |>
   summarise(refugees = sum(refugees, na.rm = TRUE)) |>
   ungroup()
 ```
 
 **Plot:**
 
-```{r sankey-plot, out.width="100%"}
-# install.packages("ggalluvial")
-library(ggalluvial)
-
+```{r slope-plot, out.width="100%", fig.height=8}
 # Set title
-sankey_title <- "Refugees from their region of origin to their region of asylum  | 2022"
-
+slope_title <- "Evolution of refugee population in East and Horn of Africa region | 2017 vs 2022"
 
 # Plot
-ggplot(sankey_df, aes(
-  axis1 = origin,
-  axis2 = destination,
-  y = refugees
-)) +
-  geom_alluvium(aes(fill = origin)) +
-  geom_stratum() +
-  theme_unhcr(void = TRUE)
+ggplot(
+  slope_df,
+  aes(
+    x = year,
+    y = refugees,
+    group = coo_name
+  )
+) +
+  geom_line(
+    color = unhcr_pal(n = 1, "pal_blue")
+  ) +
+  geom_point(
+    color = unhcr_pal(n = 1, "pal_blue"),
+    size = 2
+  ) +
+  ggrepel::geom_text_repel(
+    aes(
+      label = paste(coo_name, scales::label_number(
+        scale_cut = scales::cut_short_scale(),
+        accuracy = if_else(refugees >= 1e6, .1, 1)
+      )(refugees))
+    ),
+    hjust = if_else(slope_df$year == 2017, 1, 0),
+    direction = "y",
+    nudge_x = if_else(slope_df$year == 2017, -.3, .3),
+  ) +
+  scale_x_continuous(
+    breaks = c(2017, 2022),
+    limits = c(2014, 2025)
+  ) +
+  labs(
+    title = slope_title,
+    caption = caption
+  ) +
+  theme_unhcr(
+    axis_title = FALSE, axis_text = "x",
+    grid = "X"
+  )
 ```
 
-### Slope
-
-Lorem ipsum
-
-**Preparing the data:**
-
-```{r}
-# Data manipulation
-```
-
-**Plot:**
-
-```{r, out.width="100%"}
-# Set title
-
-
-# Plot
-```
+We trust that this R package has equipped you with the tools needed to craft visually appealing and on-brand charts with ease. Should you desire further inspiration or in-depth guidance on aligning your data visualizations with UNHCR branding standards, we invite you to explore our [UNHCR data visualization platform](https://dataviz.unhcr.org). There, you will discover a multitude of [practical examples](https://dataviz.unhcr.org/tools/r/) showcasing the package's capabilities in action. Furthermore, you can delve into our comprehensive [data visualization guidelines](https://dataviz.unhcr.org/general_guidance/), which offer invaluable insights into UNHCR's brand recommendations for charts, ensuring that your visualizations harmonize perfectly with the organization's identity and mission.
