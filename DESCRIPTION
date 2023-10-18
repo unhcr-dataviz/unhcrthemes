@@ -31,7 +31,9 @@ Suggests:
     colorspace,
     ragg,
     refugees,
-    tidyverse
+    tidyverse,
+    treemapify,
+    ggstream
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
