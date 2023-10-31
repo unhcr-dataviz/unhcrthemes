@@ -164,12 +164,9 @@ Platform](https://dataviz.unhcr.org/tools/r/).
     A [Quarto](https://quarto.org/) extension to create [UNHCR
     branded](https://www.unhcr.org/brand) `HTML` document.
   - [Data Visualization Platform](https://dataviz.unhcr.org/): A
-    collection of recommendations on [chart
-    type](https://dataviz.unhcr.org/chart_gallery/) selection, [general
-    dataviz design](https://dataviz.unhcr.org/general_guidance/), [tools
-    and tutorials](https://dataviz.unhcr.org/tools/) and a showcase of
-    some of the [data visualization products made by
-    UNHCR](https://dataviz.unhcr.org/products/).
+    collection of recommendations on selecting the best type of chart,
+    general dataviz design, tools and tutorials and a selection of data
+    visualization products made by UNHCR.
 
 ## Acknowledgements
 

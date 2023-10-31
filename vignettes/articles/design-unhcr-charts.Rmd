@@ -137,7 +137,7 @@ ggplot(
 
 ### Grouped bar chart
 
-Let's compare the refugee population originated by UNHCR region in 2012 and 2022 with the help of grouped bar chart.
+Let’s compare the refugee population originating in each UNHCR region for both 2012 and 2022. We will use a grouped bar chart.
 
 **Preparing the data:**
 
@@ -235,7 +235,7 @@ ggplot(
 
 ### Stacked bar chart
 
-Let's make a stacked bar chart comparing the different population displaced across borders by the top 10 country of origin in 2022.
+Let’s make a stacked bar chart comparing the top 10 countries of origin for all people displaced across borders, by type, in 2022. 
 
 **Preparing the data:**
 
@@ -543,7 +543,7 @@ ggplot(
 
 ### Grouped column chart
 
-Let's compare the refugee population originated by UNHCR region of Africa in 2018-2022 with the help of grouped column chart.
+Let’s compare the 2018-2022 refugee population, originating in the three UNHCR regions in Africa. We will use a grouped column chart.
 
 **Preparing the data:**
 
@@ -807,7 +807,7 @@ ggplot(
 
 ### 100% stacked column chart
 
-Let's create a 100% stacked column chart of the last 10 years of total refugee population originated by Africa's region.
+Let’s create a 100% stacked column chart showing the total refugee population for the last 10 years, by the each of the three UNHCR regions in Africa.
 
 **Preparing the data:**
 
