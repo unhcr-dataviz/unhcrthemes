@@ -332,7 +332,7 @@ ggplot(
   ) +
   labs(
     title = "My title | 2020",
-    subtitle = "My really subtitle",
+    subtitle = "My subtitle",
     y = "values",
     caption = "Source: UNHCR, the UN Refugee Agency"
   ) +
@@ -350,4 +350,4 @@ ggplot(
 
 With `{unhcrthemes}`, creating UNHCR-compliant visualizations in `R` is straightforward, providing a consistent and branded look for your graphics.
 
-For more information on each parameter and usage, visit the [function documentation page](https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html) and the [UNHCR Datavisualization platform](https://dataviz.unhcr.org/tools/r/)
+For more information on each parameter and usage, visit the [function documentation page](https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html) and the [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tools/r/)
