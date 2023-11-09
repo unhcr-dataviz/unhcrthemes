@@ -33,7 +33,8 @@ Suggests:
     refugees,
     tidyverse,
     treemapify,
-    ggstream
+    ggstream,
+    dplyr
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
