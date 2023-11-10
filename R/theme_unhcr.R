@@ -50,11 +50,13 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(ggplot2)
 #'
 #' ggplot(mpg, aes(displ, hwy)) +
 #'   geom_point() +
 #'   theme_unhcr()
+#' }
 theme_unhcr <- function(
     font_family = "Lato",
     font_size = 12,

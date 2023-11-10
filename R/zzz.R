@@ -4,9 +4,6 @@
 
   sys_fonts <- systemfonts::system_fonts()
   if (!any(grepl("lato", sys_fonts$family, ignore.case = TRUE))) {
-    message("Lato font is missing, please install it!",
-      call. = FALSE
-    )
     systemfonts::register_font(
       name = "Lato",
       plain = file.path(font_dir, "Lato-Regular.ttf"),
@@ -19,4 +16,11 @@
     )
   }
   update_geom_font_defaults()
+}
+
+.onAttach <- function(libname, pkgname) {
+  sys_fonts <- systemfonts::system_fonts()
+  if (!any(grepl("lato", sys_fonts$family, ignore.case = TRUE))) {
+    packageStartupMessage("Lato font is missing, please install it!")
+  }
 }
