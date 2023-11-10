@@ -11,7 +11,7 @@ Authors@R:
 	     role = "aut"),
       person("UNHCR",
          role = "cph"))
-Description: `ggplot2` theme and color palettes following
+Description: A `ggplot2` theme and color palettes following
     the UNHCR Data Visualization Guidelines recommendations.
 License: MIT + file LICENSE
 Encoding: UTF-8
