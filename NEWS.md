@@ -1,5 +1,5 @@
 1
 
-# unhcrthemes (development version)
+# unhcrthemes 0.6.0
 
-- Initial CRAN submission.
+Initial CRAN submission.
