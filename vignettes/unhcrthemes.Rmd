@@ -99,9 +99,9 @@ The theme comes with some default settings, but you can customize most of it by 
 
 ## Grid
 
-The `grid` parameter control the display of both major and minor grid lines in your plot. By default, major grid lines are visible and minor hiddend.
+The `grid` parameter controls the display of both major and minor grid lines in your plot. By default, major grid lines are visible and minor ones are hidden.
 
-Using `grid = "XY"` adds both major X and Y grid lines, `grid = "X"` adds only major X grid lines, `grid = "Y"` adds only major Y grid lines, and `grid = FALSE` removes all grid lines. You can minor grid lines by using lowercase `"xy"`, `"x"` or `"y"`. For example, let's keep only the major Y grid lines:
+Using `grid = "XY"` adds both major X and Y grid lines, `grid = "X"` adds only major X grid lines, `grid = "Y"` adds only major Y grid lines, and `grid = FALSE` removes all grid lines. You can add minor grid lines by using lowercase `"xy"`, `"x"` or `"y"`. For example, let’s keep only the major Y grid lines:
 
 ```{r}
 ggplot(
@@ -126,7 +126,7 @@ ggplot(
 
 ## Axis
 
-The axis represents of course the axis lines but it also includes the different axis elements such as the axis title, axis text, and axis ticks.
+Unsurprisingly, the axis represents the axis lines. However, it also includes different axis elements such as the axis title, axis text, and axis ticks.
 
 ### Axis lines
 
@@ -158,7 +158,7 @@ Not quite the result we expected! This is because `{ggplot2}` comes, by default,
 
 **Modify the axis expansion:**
 
-In this example, we will set the `expand` argument to `expansion(c(0, 0.01))` for the y axis to remove the unwanted space, effectively "expanding" the axis by removing the space at the axis origins and adding a small padding at the other ends.
+In this example, we will set the `expand` argument to `expansion(c(0, 0.01))` for the y axis to remove the unwanted space, effectively “expanding” the axis by removing the space at the axis origin and adding a small padding at the other end.
 
 ```{r}
 ggplot(
@@ -220,7 +220,7 @@ Even if axis ticks aren't part of the [UNHCR data visualization guidelines](http
 
 ## Text
 
-Like all the chart elements, the different text elements, such as the plot title, subtitle, caption, and more, can be controlled using the `theme_unhcr` function. We encourage you, not to touch too much any of these parameters, as they are part of the UNHCR branding and should be used as is. However, you can still adjust the font size, font family, margin or justification of each of these elements using, for example, the `plot_title_size`, `plot_title_margin`, etc. parameters.
+Like all the chart elements, the different text elements, such as the plot title, subtitle, caption, and more, can be controlled using the `theme_unhcr` function. We encourage you, not to touch any of these parameters, as they are part of the UNHCR branding and should be used as is. However, you can still adjust the font size, font family, margin or justification of each of these elements using, for example, the `plot_title_size`, `plot_title_margin`, etc. parameters.
 
 On top of the `theme_unhcr` parameters, the `{unhcrthemes}` package natively incorporates the `{ggtext}` package for advanced text rendering in the title, subtitle and caption components. To showcase this, you can use the `{ggtext}` functionalities to include styled text directly in your plots.
 
@@ -237,7 +237,7 @@ ggplot(
     # Add some HTML style to the title
     title = "My title including <span style='color:#0072BC;'>highlight color</span> | 2010-2020",
     # Automatic wrapping of long text
-    subtitle = "My really subtitle that will cover more than one line and that will be automatically wrapped thanks to ggtext so I don't have to manually put a line break",
+    subtitle = "My really long subtitle that will cover more than one line and that will be automatically wrapped thanks to ggtext so I don't have to manually put a line break",
     y = "values",
     # Line break in the caption, use <br> instead of \n
     caption = "Note: As it's HTML text the line break symbol is not '\\n'<br>Source: UNHCR, the UN Refugee Agency"
@@ -254,7 +254,7 @@ ggplot(
 
 ### Add text labels
 
-Text labels added with `geom_text` will also come with the recommended font and style. 
+Text labels added with `geom_text` will also display using the recommended font and style.
 
 ```{r, fig.height=5.5}
 ggplot(
