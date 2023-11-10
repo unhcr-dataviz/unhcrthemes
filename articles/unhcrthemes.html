@@ -217,13 +217,13 @@ below.</p>
 <div class="section level2">
 <h2 id="grid">Grid<a class="anchor" aria-label="anchor" href="#grid"></a>
 </h2>
-<p>The <code>grid</code> parameter control the display of both major and
-minor grid lines in your plot. By default, major grid lines are visible
-and minor hiddend.</p>
+<p>The <code>grid</code> parameter controls the display of both major
+and minor grid lines in your plot. By default, major grid lines are
+visible and minor ones are hidden.</p>
 <p>Using <code>grid = "XY"</code> adds both major X and Y grid lines,
 <code>grid = "X"</code> adds only major X grid lines,
 <code>grid = "Y"</code> adds only major Y grid lines, and
-<code>grid = FALSE</code> removes all grid lines. You can minor grid
+<code>grid = FALSE</code> removes all grid lines. You can add minor grid
 lines by using lowercase <code>"xy"</code>, <code>"x"</code> or
 <code>"y"</code>. For example, let’s keep only the major Y grid
 lines:</p>
@@ -251,9 +251,9 @@ lines:</p>
 <div class="section level2">
 <h2 id="axis">Axis<a class="anchor" aria-label="anchor" href="#axis"></a>
 </h2>
-<p>The axis represents of course the axis lines but it also includes the
-different axis elements such as the axis title, axis text, and axis
-ticks.</p>
+<p>Unsurprisingly, the axis represents the axis lines. However, it also
+includes different axis elements such as the axis title, axis text, and
+axis ticks.</p>
 <div class="section level3">
 <h3 id="axis-lines">Axis lines<a class="anchor" aria-label="anchor" href="#axis-lines"></a>
 </h3>
@@ -295,7 +295,7 @@ axis to create some room. To remove this extra space, you can use the
 <p>In this example, we will set the <code>expand</code> argument to
 <code>expansion(c(0, 0.01))</code> for the y axis to remove the unwanted
 space, effectively “expanding” the axis by removing the space at the
-axis origins and adding a small padding at the other ends.</p>
+axis origin and adding a small padding at the other end.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">df</span>,</span>
@@ -381,12 +381,12 @@ ticks, <code>axis_ticks = "X"</code> adds only the X axis ticks,
 </h2>
 <p>Like all the chart elements, the different text elements, such as the
 plot title, subtitle, caption, and more, can be controlled using the
-<code>theme_unhcr</code> function. We encourage you, not to touch too
-much any of these parameters, as they are part of the UNHCR branding and
-should be used as is. However, you can still adjust the font size, font
-family, margin or justification of each of these elements using, for
-example, the <code>plot_title_size</code>,
-<code>plot_title_margin</code>, etc. parameters.</p>
+<code>theme_unhcr</code> function. We encourage you, not to touch any of
+these parameters, as they are part of the UNHCR branding and should be
+used as is. However, you can still adjust the font size, font family,
+margin or justification of each of these elements using, for example,
+the <code>plot_title_size</code>, <code>plot_title_margin</code>, etc.
+parameters.</p>
 <p>On top of the <code>theme_unhcr</code> parameters, the
 <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package natively incorporates the
 <a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a> package for advanced text rendering in the title,
@@ -406,7 +406,7 @@ your plots.</p>
 <span>    <span class="co"># Add some HTML style to the title</span></span>
 <span>    title <span class="op">=</span> <span class="st">"My title including &lt;span style='color:#0072BC;'&gt;highlight color&lt;/span&gt; | 2010-2020"</span>,</span>
 <span>    <span class="co"># Automatic wrapping of long text</span></span>
-<span>    subtitle <span class="op">=</span> <span class="st">"My really subtitle that will cover more than one line and that will be automatically wrapped thanks to ggtext so I don't have to manually put a line break"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"My really long subtitle that will cover more than one line and that will be automatically wrapped thanks to ggtext so I don't have to manually put a line break"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"values"</span>,</span>
 <span>    <span class="co"># Line break in the caption, use &lt;br&gt; instead of \n</span></span>
 <span>    caption <span class="op">=</span> <span class="st">"Note: As it's HTML text the line break symbol is not '\\n'&lt;br&gt;Source: UNHCR, the UN Refugee Agency"</span></span>
@@ -423,8 +423,8 @@ your plots.</p>
 <div class="section level3">
 <h3 id="add-text-labels">Add text labels<a class="anchor" aria-label="anchor" href="#add-text-labels"></a>
 </h3>
-<p>Text labels added with <code>geom_text</code> will also come with the
-recommended font and style.</p>
+<p>Text labels added with <code>geom_text</code> will also display using
+the recommended font and style.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">df</span>,</span>
