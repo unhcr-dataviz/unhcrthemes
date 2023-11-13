@@ -45,18 +45,20 @@
 #' @param void Logical `TRUE`/`FALSE`. If `TRUE`, all grid lines, ticks
 #' and axes are removed. Default to `FALSE`.
 #'
-#' @return The theme style
+#' @return A ggplot2 theme object, the theme style.
 #' @import ggplot2
-#' @export
 #'
 #' @examples
-#' \dontrun{
+#'
 #' library(ggplot2)
+#'
+#' data(mpg, package = "ggplot2")
 #'
 #' ggplot(mpg, aes(displ, hwy)) +
 #'   geom_point() +
-#'   theme_unhcr()
-#' }
+#'   theme_unhcr("Lato")
+#'
+#' @export
 theme_unhcr <- function(
     font_family = "Lato",
     font_size = 12,
@@ -323,10 +325,14 @@ theme_unhcr <- function(
       ))
 
       if (inherits(grid, "character")) {
-        if (regexpr("X", grid)[1] < 0) ret <- ret + theme(panel.grid.major.x = element_blank())
-        if (regexpr("Y", grid)[1] < 0) ret <- ret + theme(panel.grid.major.y = element_blank())
-        if (regexpr("x", grid)[1] < 0) ret <- ret + theme(panel.grid.minor.x = element_blank())
-        if (regexpr("y", grid)[1] < 0) ret <- ret + theme(panel.grid.minor.y = element_blank())
+        if (regexpr("X", grid)[1] < 0)
+          ret <- ret + theme(panel.grid.major.x = element_blank())
+        if (regexpr("Y", grid)[1] < 0)
+          ret <- ret + theme(panel.grid.major.y = element_blank())
+        if (regexpr("x", grid)[1] < 0)
+          ret <- ret + theme(panel.grid.minor.x = element_blank())
+        if (regexpr("y", grid)[1] < 0)
+          ret <- ret + theme(panel.grid.minor.y = element_blank())
       }
     } else {
       ret <- ret + theme(panel.grid = element_blank())

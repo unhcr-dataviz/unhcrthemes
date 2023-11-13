@@ -130,6 +130,8 @@ UNHCR ggplot2 color scales
 \examples{
 library(ggplot2)
 
+data(msleep, package = "ggplot2")
+
 ggplot(msleep, aes(vore, sleep_total, fill = vore)) +
   geom_boxplot() +
   scale_fill_unhcr_d(palette = 1, direction = -1)

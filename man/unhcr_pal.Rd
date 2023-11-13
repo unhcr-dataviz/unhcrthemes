@@ -7,14 +7,15 @@
 unhcr_pal(n = NULL, name, ...)
 }
 \arguments{
-\item{n}{Number of different colors in the palette, minimum depending on palette (2), maximum depending on palette (5, 7 or 10)}
+\item{n}{Number of different colors in the palette, minimum depending on palette (2),
+maximum depending on palette (5, 7 or 10)}
 
 \item{name}{A palette name}
 
 \item{...}{Additional arguments for \link[grDevices:colorRamp]{grDevices::colorRampPalette}}
 }
 \value{
-A character vector
+A character vector, the palette hex color codes.
 }
 \description{
 Creates a color palette from UNHCR branding

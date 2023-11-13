@@ -2,11 +2,12 @@
 #'
 #' Creates a color palette from UNHCR branding
 #'
-#' @param n Number of different colors in the palette, minimum depending on palette (2), maximum depending on palette (5, 7 or 10)
+#' @param n Number of different colors in the palette, minimum depending on palette (2),
+#' maximum depending on palette (5, 7 or 10)
 #' @param name A palette name
 #' @param ... Additional arguments for [grDevices::colorRampPalette]
 #'
-#' @return A character vector
+#' @return A character vector, the palette hex color codes.
 #'
 #' @examples
 #' unhcr_pal(3, "pal_unhcr")

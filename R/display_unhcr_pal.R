@@ -12,8 +12,8 @@
 #' display_unhcr_all()
 #' display_unhcr_all(type = "diverging")
 #' display_unhcr_all(type = c("diverging", "qualitative", "sequential"))
-#' display_unhcr_all(3, type = "sequential")
-#' display_unhcr_all(5, type = "sequential")
+#' display_unhcr_all(n = 3, type = "sequential")
+#' display_unhcr_all(n = 5, type = "sequential")
 #'
 #' @export
 display_unhcr_all <- function(n = NULL, type = "all") {

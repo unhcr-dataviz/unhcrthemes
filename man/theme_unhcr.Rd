@@ -96,18 +96,20 @@ Put "transparent" for no background color. Default to "white".}
 and axes are removed. Default to \code{FALSE}.}
 }
 \value{
-The theme style
+A ggplot2 theme object, the theme style.
 }
 \description{
 \code{theme_unhcr} provides a basic \bold{UNHCR} theme
 to use in \bold{ggplot2} commands.
 }
 \examples{
-\dontrun{
+
 library(ggplot2)
+
+data(mpg, package = "ggplot2")
 
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
-  theme_unhcr()
-}
+  theme_unhcr("Lato")
+
 }

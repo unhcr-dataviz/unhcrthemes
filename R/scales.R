@@ -22,13 +22,14 @@
 #' @examples
 #' library(ggplot2)
 #'
+#' data(msleep, package = "ggplot2")
+#'
 #' ggplot(msleep, aes(vore, sleep_total, fill = vore)) +
 #'   geom_boxplot() +
 #'   scale_fill_unhcr_d(palette = 1, direction = -1)
 #'
 #' @rdname unhcr_scale
 #' @export
-#'
 scale_color_unhcr_c <- function(..., type = "sequential",
                                 palette = 1,
                                 direction = 1,
@@ -200,10 +201,10 @@ unhcr_pal_scale <- function(type = "qualitative",
     }
 
     if (n > nmax) {
-      warning("Insufficient values in scale_{color|fill}_unhcr_d. ", n, " needed but only ",
-        nmax, " provided.",
-        call. = FALSE
-      )
+      warning("Insufficient values in scale_{color|fill}_unhcr_d. ",
+              n, " needed but only ",
+              nmax, " provided.",
+              call. = FALSE)
     }
 
     # If <3 colors are requested, brewer.pal will return a 3-color palette and

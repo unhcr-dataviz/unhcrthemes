@@ -139,7 +139,7 @@ Explore more examples of `{unhcrthemes}` in action on the [package vignette](htt
 
 ## Acknowledgements
 
-We extend our gratitude to the creators of the [`{hrbrthemes}`](https://github.com/hrbrmstr/hrbrthemes) and [`{cowplot}`](https://github.com/wilkelab/cowplot/) packages that influenced the development of `{unhcrthemes}`.
+We extend our gratitude to the creators of the [`{hrbrthemes}`](https://github.com/hrbrmstr/hrbrthemes), [`{rcartocolor}`](https://github.com/Nowosad/rcartocolor) and [`{cowplot}`](https://github.com/wilkelab/cowplot/) packages that influenced the development of `{unhcrthemes}`.
 
 ## Contribution and Code of Conduct
 
