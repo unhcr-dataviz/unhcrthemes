@@ -108,6 +108,8 @@ library(ggplot2)
 
 data(mpg, package = "ggplot2")
 
+import_lato()
+
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   theme_unhcr("Lato")

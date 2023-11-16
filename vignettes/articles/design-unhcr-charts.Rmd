@@ -37,6 +37,7 @@ pak::pkg_install("unhcr-dataviz/unhcrthemes")
 library(unhcrthemes)
 library(refugees)
 library(tidyverse)
+import_lato()
 ```
 
 Some packages installed above will be loaded using the `::` notation to make the code and intentions clearer.
@@ -235,7 +236,7 @@ ggplot(
 
 ### Stacked bar chart
 
-Let’s make a stacked bar chart comparing the top 10 countries of origin for all people displaced across borders, by type, in 2022. 
+Let’s make a stacked bar chart comparing the top 10 countries of origin for all people displaced across borders, by type, in 2022.
 
 **Preparing the data:**
 

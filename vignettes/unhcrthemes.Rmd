@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The `{unhcrthemes}` package provides tools to create `{ggplot2}` visualizations that adhere to the [United Nations High Commissioner for Refugees (UNHCR) data visualization guidelines](https://dataviz.unhcr.org/general_guidance/). 
+The `{unhcrthemes}` package provides tools to create `{ggplot2}` visualizations that adhere to the [United Nations High Commissioner for Refugees (UNHCR) data visualization guidelines](https://dataviz.unhcr.org/general_guidance/).
 
 One of the main functions, `theme_unhcr`, allows for the easy application of UNHCR theme to your `{ggplot2}` graphics.
 
@@ -63,6 +63,9 @@ After loading the `{unhcrthemes}` package, you can apply the theme to any `{ggpl
 # Load packages
 library(ggplot2)
 library(unhcrthemes)
+
+# Load Lato
+import_lato()
 
 # Create some data
 df <- data.frame(
