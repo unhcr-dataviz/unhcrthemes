@@ -7,7 +7,7 @@
 #' @returns TRUE if Lato is installed in the system
 #' @export
 lato_installed <- function() {
-  sys_fonts <- system_fonts()
+  sys_fonts <- systemfonts::system_fonts()
   any(grepl("lato", sys_fonts$family, ignore.case = TRUE))
 }
 
@@ -21,7 +21,7 @@ lato_installed <- function() {
 #' @returns TRUE if Lato is registered
 #' @export
 lato_registered <- function() {
-  any(grepl("lato", fonts(), ignore.case = TRUE))
+  any(grepl("lato", extrafont::fonts(), ignore.case = TRUE))
 }
 
 #' Import Lato font
@@ -31,23 +31,29 @@ lato_registered <- function() {
 #' @importFrom systemfonts register_font
 #' @importFrom extrafont font_import
 #'
+#' @return No return value, called for side effects
 #' @export
 import_lato <- function() {
-  if (!lato_installed())  {
+  if (!lato_installed()) {
     font_dir <- system.file("fonts", "Lato",
-                            package = "unhcrthemes")
+      package = "unhcrthemes"
+    )
     register_font(
       name = "Lato",
       plain = file.path(font_dir, "Lato-Regular.ttf"),
       italic = file.path(font_dir, "Lato-Italic.ttf"),
       bold = file.path(font_dir, "Lato-Bold.ttf"),
-      bolditalic = file.path(font_dir,
-                             "Lato-BoldItalic.ttf"))
-      pattern <- "(?i)lato-(regular|bold|italic|bolditalic)"
-      suppressMessages(extrafont::font_import(font_dir,
-                                              pattern = pattern,
-                                              prompt = FALSE))
-      suppressMessages(extrafont::loadfonts())
+      bolditalic = file.path(
+        font_dir,
+        "Lato-BoldItalic.ttf"
+      )
+    )
+    pattern <- "(?i)lato-(regular|bold|italic|bolditalic)"
+    suppressMessages(extrafont::font_import(font_dir,
+      pattern = pattern,
+      prompt = FALSE
+    ))
+    suppressMessages(extrafont::loadfonts())
   } else {
     font_dir <- systemfonts::system_fonts()
     b <- grepl("lato", font_dir$family, ignore.case = TRUE)
@@ -55,8 +61,9 @@ import_lato <- function() {
     font_dir <- unique(dirname(font_dir$path))
     pattern <- "(?i)lato-(regular|bold|italic|bolditalic)"
     suppressMessages(extrafont::font_import(font_dir,
-                                            pattern = pattern,
-                                            prompt = FALSE))
+      pattern = pattern,
+      prompt = FALSE
+    ))
     suppressMessages(extrafont::loadfonts())
   }
   update_geom_font_defaults()

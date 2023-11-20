@@ -6,6 +6,9 @@
 \usage{
 import_lato()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Import Lato font for use in R graphic devices
 }

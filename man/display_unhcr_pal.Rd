@@ -11,6 +11,9 @@ display_unhcr_pal(n = NULL, name)
 
 \item{name}{A palette name}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Displays a color palette from UNHCR brand color
 }

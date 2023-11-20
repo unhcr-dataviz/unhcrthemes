@@ -1,6 +1,6 @@
 Package: unhcrthemes
 Type: Package
-Title: UNHCR `ggplot2` Theme and Colour Palettes
+Title: UNHCR 'ggplot2' Theme and Colour Palettes
 Version: 0.6.0
 Authors@R:
     c(person("Cédric", "Vidonne",
@@ -11,8 +11,8 @@ Authors@R:
 	     role = "aut"),
       person("UNHCR",
          role = "cph"))
-Description: A `ggplot2` theme and color palettes following
-    the UNHCR Data Visualization Guidelines recommendations.
+Description: A 'ggplot2' theme and color palettes following
+    the United Nations High Commissioner for Refugees (UNHCR) Data Visualization Guidelines recommendations.
 License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/unhcr-dataviz/unhcrthemes, https://unhcr-dataviz.github.io/unhcrthemes/

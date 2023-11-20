@@ -124,6 +124,9 @@ from the data.}
 
 \item{order}{Numeric vector listing the order in which the colors should be used. Default is \code{1:nmax}.}
 }
+\value{
+A discrete, continuous or binned \code{Scale} object
+}
 \description{
 UNHCR ggplot2 color scales
 }

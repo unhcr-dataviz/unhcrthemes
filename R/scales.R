@@ -19,6 +19,8 @@
 #'
 #' @importFrom scales gradient_n_pal
 #'
+#' @return A discrete, continuous or binned `Scale` object
+#'
 #' @examples
 #' library(ggplot2)
 #'
@@ -202,9 +204,10 @@ unhcr_pal_scale <- function(type = "qualitative",
 
     if (n > nmax) {
       warning("Insufficient values in scale_{color|fill}_unhcr_d. ",
-              n, " needed but only ",
-              nmax, " provided.",
-              call. = FALSE)
+        n, " needed but only ",
+        nmax, " provided.",
+        call. = FALSE
+      )
     }
 
     # If <3 colors are requested, brewer.pal will return a 3-color palette and

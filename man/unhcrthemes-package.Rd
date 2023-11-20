@@ -6,7 +6,7 @@
 \alias{unhcrthemes-package}
 \title{unhcrthemes: UNHCR `ggplot2` Theme and Colour Palettes}
 \description{
-A `ggplot2` theme and color palettes following the UNHCR Data Visualization Guidelines recommendations.
+A 'ggplot2' theme and color palettes following the United Nations High Commissioner for Refugees (UNHCR) Data Visualization Guidelines recommendations.
 }
 \seealso{
 Useful links:
