@@ -9,7 +9,8 @@
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes) -->
+[![CRAN
+status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
 Simplify the creation of your data visualizations with the
@@ -22,18 +23,25 @@ palettes.
 
 ## Features
 
-- A consistent and appealing `{ggplot2}` theme that matches [UNHCR Data
-  Visualization
-  Guidelines](https://dataviz.unhcr.org/general_guidance/).
-- A collection of color palettes ensuring your plots are consistent with
-  [UNHCR’s color scheme](https://dataviz.unhcr.org/general_guidance/).
-- Easy-to-use functions to apply the theme and color palettes to your
-  `{ggplot2}` plots.
+  - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
+    Data Visualization
+    Guidelines](https://dataviz.unhcr.org/general_guidance/).
+  - A collection of color palettes ensuring your plots are consistent
+    with [UNHCR’s color
+    scheme](https://dataviz.unhcr.org/general_guidance/).
+  - Easy-to-use functions to apply the theme and color palettes to your
+    `{ggplot2}` plots.
 
 ## Installation
 
-Get started by installing the `{unhcrthemes}` package from GitHub using
-the `{pak}` library:
+Get started by installing the `{unhcrthemes}` package from CRAN with:
+
+``` r
+install.packages("unhcrthemes")
+```
+
+Or retrieve the development version from Github using the `{pak}`
+package:
 
 ``` r
 # If pak is not yet installed, uncomment the following line:
@@ -149,22 +157,22 @@ Platform](https://dataviz.unhcr.org/tools/r/).
 
 ## Additional UNHCR Tools
 
-- [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
-  comprehensive package for accessing [UNHCR Refugee Population
-  Statistics
-  Database](https://www.unhcr.org/refugee-statistics/download/).
-- [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
-  branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
-- [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
-  A [Quarto](https://quarto.org/) extension to create [UNHCR
-  branded](https://www.unhcr.org/brand) `reveal.js` presentations.
-- [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
-  A [Quarto](https://quarto.org/) extension to create [UNHCR
-  branded](https://www.unhcr.org/brand) `HTML` document.
-- [Data Visualization Platform](https://dataviz.unhcr.org/): A
-  collection of recommendations on selecting the best type of chart,
-  general dataviz design, tools and tutorials and a selection of data
-  visualization products made by UNHCR.
+  - [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
+    comprehensive package for accessing [UNHCR Refugee Population
+    Statistics
+    Database](https://www.unhcr.org/refugee-statistics/download/).
+  - [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
+    branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
+  - [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `reveal.js` presentations.
+  - [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+    A [Quarto](https://quarto.org/) extension to create [UNHCR
+    branded](https://www.unhcr.org/brand) `HTML` document.
+  - [Data Visualization Platform](https://dataviz.unhcr.org/): A
+    collection of recommendations on selecting the best type of chart,
+    general dataviz design, tools and tutorials and a selection of data
+    visualization products made by UNHCR.
 
 ## Acknowledgements
 

@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes) -->
+[![CRAN status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
 Simplify the creation of your data visualizations with the `{unhcrthemes}` R package. It is designed to align your plots with [UNHCR's data visualization](https://dataviz.unhcr.org/general_guidance/) recommendations. This package offers a comprehensive `{ggplot2}` theme, including built-in customizations and thoughtfully crafted color palettes.
@@ -33,9 +33,15 @@ Simplify the creation of your data visualizations with the `{unhcrthemes}` R pac
 
 ## Installation
 
-Get started by installing the `{unhcrthemes}` package from GitHub using the `{pak}` library:
+Get started by installing the `{unhcrthemes}` package from CRAN with:
 
 ```{r install, eval=FALSE}
+install.packages("unhcrthemes")
+```
+
+Or retrieve the development version from Github using the `{pak}` package:
+
+```{r pak, eval=FALSE}
 # If pak is not yet installed, uncomment the following line:
 # install.packages("pak")
 
