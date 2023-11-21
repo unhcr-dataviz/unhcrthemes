@@ -100,8 +100,11 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Get started by installing the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package from GitHub using the <a href="https://pak.r-lib.org/" class="external-link">pak</a> library:</p>
+<p>Get started by installing the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
+<p>Or retrieve the development version from Github using the <a href="https://pak.r-lib.org/" class="external-link">pak</a> package:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># If pak is not yet installed, uncomment the following line:</span></span>
 <span><span class="co"># install.packages("pak")</span></span>
 <span></span>
@@ -110,14 +113,14 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="base-ggplot2-theme">Base <code>{ggplot2}</code> theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Apply the theme_unhcr() to your plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
 <span>  <span class="va">mtcars</span>,</span>
@@ -143,11 +146,11 @@
 <h3 id="color-palettes">Color palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a>
 </h3>
 <p>Choose from a variety of carefully curated color palettes that harmonize with UNHCR’s visual identity.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display all unhcr color palette</span></span>
 <span><span class="fu"><a href="reference/display_unhcr_all.html">display_unhcr_all</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-palette-all-1.png" width="90%" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Or select a specific one and limit the number of colors</span></span>
 <span><span class="fu"><a href="reference/display_unhcr_pal.html">display_unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_blue"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-palette-blue-1.png" width="90%" style="display: block; margin: auto;"></p>
@@ -155,7 +158,7 @@
 <div class="section level3">
 <h3 id="scales-colorfill">Scales (color/fill)<a class="anchor" aria-label="anchor" href="#scales-colorfill"></a>
 </h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add color scale to your plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
 <span>  <span class="va">mtcars</span>,</span>
@@ -177,7 +180,7 @@
 <div class="section level3">
 <h3 id="geoms-textlabel">Geoms (text/label)<a class="anchor" aria-label="anchor" href="#geoms-textlabel"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Default Lato font also apply for geom_text and label</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">class</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -273,6 +276,7 @@
 <ul class="list-unstyled">
 <li><a href="https://www.repostatus.org/#wip" class="external-link"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public."></a></li>
 <li><a href="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://CRAN.R-project.org/package=unhcrthemes" class="external-link"><img src="https://www.r-pkg.org/badges/version/unhcrthemes" alt="CRAN status"></a></li>
 </ul>
 </div>
 
