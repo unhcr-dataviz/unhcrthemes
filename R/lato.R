@@ -11,17 +11,17 @@ lato_installed <- function() {
   any(grepl("lato", sys_fonts$family, ignore.case = TRUE))
 }
 
-#' Check if Lato font is registered through \code{extrafont}
+#' Check if Lato font is registered and installed through \code{extrafont}
 #'
 #' Verify if Lato is registered through \code{extrafont}
 #'
 #' @importFrom systemfonts system_fonts
 #' @importFrom extrafont fonts
 #'
-#' @returns TRUE if Lato is registered
+#' @returns TRUE if Lato is registered and installed
 #' @export
 lato_registered <- function() {
-  any(grepl("lato", extrafont::fonts(), ignore.case = TRUE))
+  lato_installed() & any(grepl("lato", extrafont::fonts(), ignore.case = TRUE))
 }
 
 #' Import Lato font
