@@ -2,12 +2,12 @@
 % Please edit documentation in R/lato.R
 \name{lato_registered}
 \alias{lato_registered}
-\title{Check if Lato font is registered and installed through \code{extrafont}}
+\title{Check if Lato font is registered through \code{extrafont}}
 \usage{
 lato_registered()
 }
 \value{
-TRUE if Lato is registered and installed
+TRUE if Lato is registered
 }
 \description{
 Verify if Lato is registered through \code{extrafont}

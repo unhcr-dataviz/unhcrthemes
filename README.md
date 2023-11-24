@@ -87,6 +87,11 @@ is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal
 functionality of the `{unhcrthemes}` package, please make sure that the
 `Lato` font is installed on your device prior to usage.
 
+For R PDF and PostScript devices, there is a function `import_lato` that
+can be used to import the `Lato` font into the device. We recommend the
+use of `cairo_pdf` or `cairo_ps` devices, which are available on all
+platforms and better support custom fonts.
+
 ### Color palettes
 
 Choose from a variety of carefully curated color palettes that harmonize

@@ -64,9 +64,6 @@ After loading the `{unhcrthemes}` package, you can apply the theme to any `{ggpl
 library(ggplot2)
 library(unhcrthemes)
 
-# Load Lato
-import_lato()
-
 # Create some data
 df <- data.frame(
   date = factor(rep(2010:2020, 2)),

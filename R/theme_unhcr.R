@@ -48,27 +48,20 @@
 #' @return A ggplot2 theme object, the theme style.
 #' @import ggplot2
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #'
 #' data(mpg, package = "ggplot2")
 #'
-#' import_lato()
-#'
 #' ggplot(mpg, aes(displ, hwy)) +
 #'   geom_point() +
 #'   theme_unhcr()
+#' }
 #'
 #' @export
 theme_unhcr <- function(
-    font_family = if (lato_registered()) {
-      "Lato"
-    } else if (lato_installed()) {
-      "Lato"
-    } else {
-      "sans"
-    },
+    font_family = if (lato_installed()) "Lato" else "sans",
     font_size = 12,
     plot_title_size = rel(1.35),
     plot_title_margin = font_size,
@@ -405,13 +398,7 @@ theme_unhcr <- function(
 #'
 #' @noRd
 update_geom_font_defaults <- function(
-    family = if (lato_registered()) {
-      "Lato"
-    } else if (lato_installed()) {
-      "Lato"
-    } else {
-      "sans"
-    },
+    family = if (lato_installed()) "Lato" else "sans",
     face = "plain",
     size = 3.5,
     color = "#1a1a1a") {
