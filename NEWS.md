@@ -1,5 +1,9 @@
 # unhcrthemes (development version)
 
+## Minor changes
+
+- Add 'sans' as a fallback font when Lato can't be installed.
+
 # unhcrthemes 0.6.1
 
 CRAN resubmission.
