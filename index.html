@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="deps/Lato-0.4.7/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Lato-0.4.7/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.7/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -138,9 +138,10 @@
 <p><img src="reference/figures/README-base-plot-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
-<h3 id="font">Font<a class="anchor" aria-label="anchor" href="#font"></a>
+<h3 id="fonts">Fonts<a class="anchor" aria-label="anchor" href="#fonts"></a>
 </h3>
 <p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
+<p>For <code>R</code> PDF (<code>pdf</code>) and PostScript (<code>postcript</code>) devices, there is a function <code>import_lato</code> that can be used to import the <code>Lato</code> font into these two devices. We recommend the use of <code>cairo_pdf</code> or <code>cairo_ps</code> devices, which work when you have <code>Lato</code> installed. They are available on all platforms and have better support custom fonts.</p>
 </div>
 <div class="section level3">
 <h3 id="color-palettes">Color palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a>
