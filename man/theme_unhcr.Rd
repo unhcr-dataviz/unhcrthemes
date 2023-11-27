@@ -5,7 +5,7 @@
 \title{UNHCR \link{ggplot2} theme}
 \usage{
 theme_unhcr(
-  font_family = "Lato",
+  font_family = if (lato_installed()) "Lato" else "sans",
   font_size = 12,
   plot_title_size = rel(1.35),
   plot_title_margin = font_size,
@@ -103,15 +103,15 @@ A ggplot2 theme object, the theme style.
 to use in \bold{ggplot2} commands.
 }
 \examples{
+\dontrun{
 
 library(ggplot2)
 
 data(mpg, package = "ggplot2")
 
-import_lato()
-
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
-  theme_unhcr("Lato")
+  theme_unhcr()
+}
 
 }

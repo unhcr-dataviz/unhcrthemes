@@ -37,7 +37,6 @@ pak::pkg_install("unhcr-dataviz/unhcrthemes")
 library(unhcrthemes)
 library(refugees)
 library(tidyverse)
-import_lato()
 ```
 
 Some packages installed above will be loaded using the `::` notation to make the code and intentions clearer.

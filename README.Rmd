@@ -75,9 +75,11 @@ ggplot(
   theme_unhcr()
 ```
 
-### Font
+### Fonts
 
 One of the two officially recommended fonts outlined in the [UNHCR Data Visualization Guidelines](https://dataviz.unhcr.org/general_guidance/) is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal functionality of the `{unhcrthemes}` package, please make sure that the `Lato` font is installed on your device prior to usage.
+ 
+For `R` PDF (`pdf`) and PostScript (`postcript`) devices, there is a function `import_lato` that can be used to import the `Lato` font into these two devices. We recommend the use of `cairo_pdf` or `cairo_ps` devices, which work when you have `Lato` installed. They are available on all platforms and have better support custom fonts.
 
 ### Color palettes
 

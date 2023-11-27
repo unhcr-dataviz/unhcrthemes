@@ -48,21 +48,20 @@
 #' @return A ggplot2 theme object, the theme style.
 #' @import ggplot2
 #'
-#' @examples
+#' @examples \dontrun{
 #'
 #' library(ggplot2)
 #'
 #' data(mpg, package = "ggplot2")
 #'
-#' import_lato()
-#'
 #' ggplot(mpg, aes(displ, hwy)) +
 #'   geom_point() +
-#'   theme_unhcr("Lato")
+#'   theme_unhcr()
+#' }
 #'
 #' @export
 theme_unhcr <- function(
-    font_family = "Lato",
+    font_family = if (lato_installed()) "Lato" else "sans",
     font_size = 12,
     plot_title_size = rel(1.35),
     plot_title_margin = font_size,
@@ -327,14 +326,18 @@ theme_unhcr <- function(
       ))
 
       if (inherits(grid, "character")) {
-        if (regexpr("X", grid)[1] < 0)
+        if (regexpr("X", grid)[1] < 0) {
           ret <- ret + theme(panel.grid.major.x = element_blank())
-        if (regexpr("Y", grid)[1] < 0)
+        }
+        if (regexpr("Y", grid)[1] < 0) {
           ret <- ret + theme(panel.grid.major.y = element_blank())
-        if (regexpr("x", grid)[1] < 0)
+        }
+        if (regexpr("x", grid)[1] < 0) {
           ret <- ret + theme(panel.grid.minor.x = element_blank())
-        if (regexpr("y", grid)[1] < 0)
+        }
+        if (regexpr("y", grid)[1] < 0) {
           ret <- ret + theme(panel.grid.minor.y = element_blank())
+        }
       }
     } else {
       ret <- ret + theme(panel.grid = element_blank())
@@ -395,7 +398,7 @@ theme_unhcr <- function(
 #'
 #' @noRd
 update_geom_font_defaults <- function(
-    family = "Lato",
+    family = if (lato_installed()) "Lato" else "sans",
     face = "plain",
     size = 3.5,
     color = "#1a1a1a") {
