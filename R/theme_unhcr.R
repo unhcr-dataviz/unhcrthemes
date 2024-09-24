@@ -352,8 +352,10 @@ theme_unhcr <- function(
       size = legend_text_size,
       color = dark_text
     ))
+    ret <- ret + theme(legend.margin = margin(0, 0, 0, 0))
     ret <- ret + theme(legend.position = "top")
-    ret <- ret + theme(legend.justification = 0)
+    ret <- ret + theme(legend.justification.top = 0)
+    ret <- ret + theme(legend.location = "plot")
     if (!legend_title) {
       ret <- ret + theme(legend.title = element_blank())
     } else {
