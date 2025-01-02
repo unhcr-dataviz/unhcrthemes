@@ -42,9 +42,9 @@ scale_color_unhcr_c <- function(..., type = "sequential",
     direction = direction
   )(256)
 
-  continuous_scale("colour",
-    "unhcr_continuous",
-    gradient_n_pal(pal),
+  continuous_scale(
+    aesthetics = "colour",
+    palette = gradient_n_pal(pal),
     na.value = na.value,
     guide = guide,
     ...
@@ -67,9 +67,9 @@ scale_color_unhcr_d <- function(..., type = "qualitative",
     direction = direction
   )
 
-  discrete_scale("colour",
-    "unhcr_discrete",
-    pal,
+  discrete_scale(
+    aesthetics = "colour",
+    palette = pal,
     na.value = na.value,
     ...
   )
@@ -92,9 +92,9 @@ scale_color_unhcr_b <- function(..., type = "qualitative",
     direction = direction
   ))
 
-  binned_scale("colour",
-    "unhcr_binned",
-    pal,
+  binned_scale(
+    aesthetics = "colour",
+    palette = pal,
     na.value = na.value,
     guide = guide,
     ...
@@ -129,9 +129,9 @@ scale_fill_unhcr_c <- function(..., type = "sequential",
     direction = direction
   )(256)
 
-  continuous_scale("fill",
-    "unhcr_continuous",
-    gradient_n_pal(pal),
+  continuous_scale(
+    aesthetics = "fill",
+    palette = gradient_n_pal(pal),
     na.value = na.value,
     guide = guide,
     ...
@@ -154,9 +154,9 @@ scale_fill_unhcr_d <- function(..., type = "qualitative",
     direction = direction
   )
 
-  discrete_scale("fill",
-    "unhcr_discrete",
-    pal,
+  discrete_scale(
+    aesthetics = "fill",
+    palette = pal,
     na.value = na.value,
     ...
   )
@@ -179,9 +179,9 @@ scale_fill_unhcr_b <- function(..., type = "qualitative",
     direction = direction
   ))
 
-  binned_scale("fill",
-    "unhcr_binned",
-    pal,
+  binned_scale(
+    aesthetics = "fill",
+    palette = pal,
     na.value = na.value,
     guide = guide,
     ...
