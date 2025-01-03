@@ -1,13 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# unhcrthemes <img src='man/figures/logo.svg' align="right" alt="unhcrthemes package hex sticker" width="140" />
+# unhcrthemes <img src='man/figures/logo.svg' align="right" alt="unhcrthemes package hex sticker" width="140" alt="unhcrthemes package hex sticker" />
 
 <!-- badges: start -->
 
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
@@ -15,22 +14,19 @@ status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-projec
 
 Simplify the creation of your data visualizations with the
 `{unhcrthemes}` R package. It is designed to align your plots with
-[UNHCR’s data
-visualization](https://dataviz.unhcr.org/general_guidance/)
+[UNHCR’s data visualization](https://dataviz.unhcr.org/guidance/)
 recommendations. This package offers a comprehensive `{ggplot2}` theme,
 including built-in customizations and thoughtfully crafted color
 palettes.
 
 ## Features
 
-  - A consistent and appealing `{ggplot2}` theme that matches [UNHCR
-    Data Visualization
-    Guidelines](https://dataviz.unhcr.org/general_guidance/).
-  - A collection of color palettes ensuring your plots are consistent
-    with [UNHCR’s color
-    scheme](https://dataviz.unhcr.org/general_guidance/).
-  - Easy-to-use functions to apply the theme and color palettes to your
-    `{ggplot2}` plots.
+- A consistent and appealing `{ggplot2}` theme that matches [UNHCR Data
+  Visualization Guidelines](https://dataviz.unhcr.org/guidance/).
+- A collection of color palettes ensuring your plots are consistent with
+  [UNHCR’s color scheme](https://dataviz.unhcr.org/guidance/).
+- Easy-to-use functions to apply the theme and color palettes to your
+  `{ggplot2}` plots.
 
 ## Installation
 
@@ -82,8 +78,8 @@ ggplot(
 ### Fonts
 
 One of the two officially recommended fonts outlined in the [UNHCR Data
-Visualization Guidelines](https://dataviz.unhcr.org/general_guidance/)
-is [`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal
+Visualization Guidelines](https://dataviz.unhcr.org/guidance/) is
+[`Lato`](https://fonts.google.com/specimen/Lato). To ensure optimal
 functionality of the `{unhcrthemes}` package, please make sure that the
 `Lato` font is installed on your device prior to usage.
 
@@ -157,28 +153,25 @@ dplyr::count(mpg, class) |>
 <img src="man/figures/README-geom-plot-1.png" width="90%" style="display: block; margin: auto;" />
 
 Explore more examples of `{unhcrthemes}` in action on the [package
-vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html)
+vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/unhcrthemes.html)
 or [UNHCR Data Visualization
-Platform](https://dataviz.unhcr.org/tools/r/).
+Platform](https://dataviz.unhcr.org/tutorials/r/).
 
 ## Additional UNHCR Tools
 
-  - [`{refugees}`](https://github.com/PopulationStatistics/refugees): A
-    comprehensive package for accessing [UNHCR Refugee Population
-    Statistics
-    Database](https://www.unhcr.org/refugee-statistics/download/).
-  - [`{unhcrdown}`](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
-    branded templates for [R Markdown](https://rmarkdown.rstudio.com/).
-  - [`quarto-revealjs-unhcr`](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
-    A [Quarto](https://quarto.org/) extension to create [UNHCR
-    branded](https://www.unhcr.org/brand) `reveal.js` presentations.
-  - [`quarto-html-unhcr`](https://github.com/unhcr-dataviz/quarto-html-unhcr):
-    A [Quarto](https://quarto.org/) extension to create [UNHCR
-    branded](https://www.unhcr.org/brand) `HTML` document.
-  - [Data Visualization Platform](https://dataviz.unhcr.org/): A
-    collection of recommendations on selecting the best type of chart,
-    general dataviz design, tools and tutorials and a selection of data
-    visualization products made by UNHCR.
+<!-- * [**unhcrthemes**](https://github.com/unhcr-dataviz/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
+
+- [**unhcrdown**](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
+  templates for R Markdown
+- [**refugees**](https://github.com/PopulationStatistics/refugees):
+  Access to [UNHCR Refugee Data
+  Finder](https://www.unhcr.org/refugee-statistics) API
+- [**quarto-html-unhcr**](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+  Quarto extension for UNHCR branded HTML documents
+- [**quarto-revealjs-unhcr**](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+  Quarto extension for UNHCR branded presentations
+- [**Data Visualization Platform**](https://dataviz.unhcr.org/): UNHCR’s
+  data visualization guidelines and tools
 
 ## Acknowledgements
 

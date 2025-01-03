@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The `{unhcrthemes}` package provides tools to create `{ggplot2}` visualizations that adhere to the [United Nations High Commissioner for Refugees (UNHCR) data visualization guidelines](https://dataviz.unhcr.org/general_guidance/).
+The `{unhcrthemes}` package provides tools to create `{ggplot2}` visualizations that adhere to the [United Nations High Commissioner for Refugees (UNHCR) data visualization guidelines](https://dataviz.unhcr.org/guidance/).
 
 One of the main functions, `theme_unhcr`, allows for the easy application of UNHCR theme to your `{ggplot2}` graphics.
 
@@ -216,7 +216,7 @@ ggplot(
 
 ### Axis ticks
 
-Even if axis ticks aren't part of the [UNHCR data visualization guidelines](https://dataviz.unhcr.org/general_guidance/), they can sometimes be useful. To control the visibility of axis ticks, you can use the `axis_ticks` parameter in the `theme_unhcr` function. By default, this parameter is set to `FALSE`, which turns off all the axis ticks. Using `axis_ticks = TRUE` adds both X and Y axis ticks, `axis_ticks = "X"` adds only the X axis ticks, `axis_ticks = "Y"` adds only the Y axis ticks, and `axis_ticks = FALSE` removes all axis ticks.
+Even if axis ticks aren't part of the [UNHCR data visualization guidelines](https://dataviz.unhcr.org/guidance/), they can sometimes be useful. To control the visibility of axis ticks, you can use the `axis_ticks` parameter in the `theme_unhcr` function. By default, this parameter is set to `FALSE`, which turns off all the axis ticks. Using `axis_ticks = TRUE` adds both X and Y axis ticks, `axis_ticks = "X"` adds only the X axis ticks, `axis_ticks = "Y"` adds only the Y axis ticks, and `axis_ticks = FALSE` removes all axis ticks.
 
 ## Text
 
@@ -350,4 +350,4 @@ ggplot(
 
 With `{unhcrthemes}`, creating UNHCR-compliant visualizations in `R` is straightforward, providing a consistent and branded look for your graphics.
 
-For more information on each parameter and usage, visit the [function documentation page](https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html) and the [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tools/r/)
+For more information on each parameter and usage, visit the [function documentation page](https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html) and the [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tutorials/r/)

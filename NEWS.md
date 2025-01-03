@@ -1,5 +1,11 @@
 # unhcrthemes (development version)
 
+## Minor improvements and fixes
+
+- In `theme_unhcr()`, set `legend.location = "plot"` and `legend.justification.top = 0`.
+
+- In `continuous_scale()`, `discrete_scale()` and `binned_scale()`, removed deprecated `scale_name` argument. 
+
 # unhcrthemes 0.6.2
 
 ## Minor changes
