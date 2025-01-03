@@ -20,7 +20,7 @@ BugReports: https://github.com/unhcr-dataviz/unhcrthemes/issues
 Depends:
     R (>= 3.5)
 Imports:
-    ggplot2,
+    ggplot2 (>= 3.5.0),
     scales,
     ggtext,
     ggrepel,
@@ -36,7 +36,7 @@ Suggests:
     treemapify,
     ggstream,
     dplyr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Config/Needs/website: unhcr-dataviz/unhcrtemplate

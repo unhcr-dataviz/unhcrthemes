@@ -120,7 +120,7 @@ ggplot(
   geom_text(
     aes(
       label = scales::label_number(
-        scale_cut = scales::cut_short_scale(),
+        scale_cut = scales::cut_si(unit = ""),
         accuracy = .1
       )(refugees)
     ),
@@ -214,7 +214,7 @@ ggplot(
   geom_text(
     aes(
       label = scales::label_number(
-        scale_cut = scales::cut_short_scale(),
+        scale_cut = scales::cut_si(unit = ""),
         accuracy = .1
       )(refugees)
     ),
@@ -334,11 +334,11 @@ ggplot(
     aes(
       label = case_when(
         pop_num >= 1e6 ~ scales::label_number(
-          scale_cut = scales::cut_short_scale(),
+          scale_cut = scales::cut_si(unit = ""),
           accuracy = .1
         )(pop_num),
         TRUE ~ scales::label_number(
-          scale_cut = scales::cut_short_scale(),
+          scale_cut = scales::cut_si(unit = ""),
           accuracy = 1
         )(pop_num)
       ),
@@ -471,7 +471,7 @@ A column chart is quite similar to a bar chart, but the bars are vertical. Let's
 ```{r column-data}
 # Keep only 2013-2022 records, Sum refugees, Make year factor
 column_df <- refugees::population |>
-  filter(year >= 2013) |>
+  filter(year >= 2013 & year <= 2022) |>
   summarise(
     refugees = sum(refugees, na.rm = TRUE),
     .by = year
@@ -1383,7 +1383,7 @@ ggplot(
   treemapify::geom_treemap_text(
     aes(label = paste0(
       unhcr_region, "\n",
-      scales::label_number(scale_cut = scales::cut_short_scale())(refugees)
+      scales::label_number(scale_cut = scales::cut_si(unit = ""))(refugees)
     )),
     color = "#FFFFFF",
     size = 9,
@@ -1535,7 +1535,7 @@ ggplot(
   ggrepel::geom_text_repel(
     aes(
       label = paste(coo_name, scales::label_number(
-        scale_cut = scales::cut_short_scale(),
+        scale_cut = scales::cut_si(unit = ""),
         accuracy = if_else(refugees >= 1e6, .1, 1)
       )(refugees))
     ),
