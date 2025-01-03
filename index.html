@@ -69,13 +69,13 @@
 </div>
 <!-- badges: start -->
 
-<p>Simplify the creation of your data visualizations with the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> R package. It is designed to align your plots with <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR’s data visualization</a> recommendations. This package offers a comprehensive <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme, including built-in customizations and thoughtfully crafted color palettes.</p>
+<p>Simplify the creation of your data visualizations with the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> R package. It is designed to align your plots with <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR’s data visualization</a> recommendations. This package offers a comprehensive <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme, including built-in customizations and thoughtfully crafted color palettes.</p>
 <div class="section level2">
 <h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
 </h2>
 <ul>
-<li>A consistent and appealing <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme that matches <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR Data Visualization Guidelines</a>.</li>
-<li>A collection of color palettes ensuring your plots are consistent with <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR’s color scheme</a>.</li>
+<li>A consistent and appealing <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme that matches <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR Data Visualization Guidelines</a>.</li>
+<li>A collection of color palettes ensuring your plots are consistent with <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR’s color scheme</a>.</li>
 <li>Easy-to-use functions to apply the theme and color palettes to your <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> plots.</li>
 </ul>
 </div>
@@ -122,7 +122,7 @@
 <div class="section level3">
 <h3 id="fonts">Fonts<a class="anchor" aria-label="anchor" href="#fonts"></a>
 </h3>
-<p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/general_guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
+<p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
 <p>For <code>R</code> PDF (<code>pdf</code>) and PostScript (<code>postcript</code>) devices, there is a function <code>import_lato</code> that can be used to import the <code>Lato</code> font into these two devices. We recommend the use of <code>cairo_pdf</code> or <code>cairo_ps</code> devices, which work when you have <code>Lato</code> installed. They are available on all platforms and have better support custom fonts.</p>
 </div>
 <div class="section level3">
@@ -179,23 +179,24 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-geom-plot-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>Explore more examples of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> in action on the <a href="https://unhcr-dataviz.github.io/unhcrthemes/articles/intro-unhcrthemes.html">package vignette</a> or <a href="https://dataviz.unhcr.org/tools/r/" class="external-link">UNHCR Data Visualization Platform</a>.</p>
+<p>Explore more examples of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> in action on the <a href="https://unhcr-dataviz.github.io/unhcrthemes/articles/unhcrthemes.html">package vignette</a> or <a href="https://dataviz.unhcr.org/tutorials/r/" class="external-link">UNHCR Data Visualization Platform</a>.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="additional-unhcr-tools">Additional UNHCR Tools<a class="anchor" aria-label="anchor" href="#additional-unhcr-tools"></a>
 </h2>
+<!-- * [**unhcrthemes**](https://github.com/unhcr-dataviz/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
 <ul>
 <li>
-<a href="https://github.com/PopulationStatistics/refugees" class="external-link"><code>{refugees}</code></a>: A comprehensive package for accessing <a href="https://www.unhcr.org/refugee-statistics/download/" class="external-link">UNHCR Refugee Population Statistics Database</a>.</li>
+<a href="https://github.com/unhcr-dataviz/unhcrdown" class="external-link"><strong>unhcrdown</strong></a>: UNHCR templates for R Markdown</li>
 <li>
-<a href="https://github.com/unhcr-dataviz/unhcrdown" class="external-link"><code>{unhcrdown}</code></a>: UNHCR branded templates for <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a>.</li>
+<a href="https://github.com/PopulationStatistics/refugees" class="external-link"><strong>refugees</strong></a>: Access to <a href="https://www.unhcr.org/refugee-statistics" class="external-link">UNHCR Refugee Data Finder</a> API</li>
 <li>
-<a href="https://github.com/unhcr-dataviz/quarto-revealjs-unhcr" class="external-link"><code>quarto-revealjs-unhcr</code></a>: A <a href="https://quarto.org/" class="external-link">Quarto</a> extension to create <a href="https://www.unhcr.org/brand" class="external-link">UNHCR branded</a> <code>reveal.js</code> presentations.</li>
+<a href="https://github.com/unhcr-dataviz/quarto-html-unhcr" class="external-link"><strong>quarto-html-unhcr</strong></a>: Quarto extension for UNHCR branded HTML documents</li>
 <li>
-<a href="https://github.com/unhcr-dataviz/quarto-html-unhcr" class="external-link"><code>quarto-html-unhcr</code></a>: A <a href="https://quarto.org/" class="external-link">Quarto</a> extension to create <a href="https://www.unhcr.org/brand" class="external-link">UNHCR branded</a> <code>HTML</code> document.</li>
+<a href="https://github.com/unhcr-dataviz/quarto-revealjs-unhcr" class="external-link"><strong>quarto-revealjs-unhcr</strong></a>: Quarto extension for UNHCR branded presentations</li>
 <li>
-<a href="https://dataviz.unhcr.org/" class="external-link">Data Visualization Platform</a>: A collection of recommendations on selecting the best type of chart, general dataviz design, tools and tutorials and a selection of data visualization products made by UNHCR.</li>
+<a href="https://dataviz.unhcr.org/" class="external-link"><strong>Data Visualization Platform</strong></a>: UNHCR’s data visualization guidelines and tools</li>
 </ul>
 </div>
 <div class="section level2">
@@ -257,7 +258,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.repostatus.org/#active" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed."></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://CRAN.R-project.org/package=unhcrthemes" class="external-link"><img src="https://www.r-pkg.org/badges/version/unhcrthemes" alt="CRAN status"></a></li>
 </ul>
