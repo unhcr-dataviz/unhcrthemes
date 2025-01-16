@@ -1,8 +1,11 @@
-## Resubmission
+## Resubmission notes
 
-This is a resubmission. In this version I have:
+Minor improvements:
 
-- Add 'sans' as a fallback font when Lato can't be installed.
+- Updated theme_unhcr():
+  - Set `legend.location = "plot"`.
+  - Set `legend.justification.top = 0`.
+- Removed the deprecated scale_name argument in `continuous_scale()`, `discrete_scale()`, and `binned_scale()` functions.
 
 ## R CMD check results
 

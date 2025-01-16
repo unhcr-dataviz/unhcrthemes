@@ -1,7 +1,7 @@
 Package: unhcrthemes
 Type: Package
 Title: UNHCR 'ggplot2' Theme and Colour Palettes
-Version: 0.6.2.9000
+Version: 0.6.3
 Authors@R:
     c(person("Cédric", "Vidonne",
              email = "cedric@vidonne.me",
