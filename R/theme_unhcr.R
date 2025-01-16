@@ -1,7 +1,7 @@
-#' UNHCR [ggplot2] theme
+#' UNHCR ggplot2 theme
 #'
 #' \code{theme_unhcr} provides a basic \bold{UNHCR} theme
-#' to use in \bold{ggplot2} commands.
+#' to use in \code{\link[ggplot2]{ggplot2}} commands.
 #'
 #' @rdname theme_unhcr
 #'
@@ -11,7 +11,8 @@
 #' @param plot_title_size Plot title font size. Default to `font_size` * 1.35.
 #' @param plot_title_margin Plot title bottom margin. Default to `font_size`.
 #' @param subtitle_size Plot subtitle font size. Default to `font_size`.
-#' @param subtitle_margin Plot subtitle bottom margin. Default to `font_size` * 1.5.
+#' @param subtitle_margin Plot subtitle bottom margin.
+#' Default to `font_size` * 1.5.
 #' @param strip_text_size Facet label font size. Default to `font_size` * 0.9.
 #' @param strip_text_face Facet label font face. Default to "bold".
 #' @param strip_text_just Facet label justification. Default to 0.
@@ -24,29 +25,37 @@
 #' Use `x` or `y` to have only the correspondent active. Default to `TRUE`.
 #' @param axis_title_size Axis title font size. Default to `font_size` * 0.9.
 #' @param axis Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis.
-#' Use `x` or `y` to have only the correspondent axis active. Don't forget to review
-#' the `expand` argument of the `scale_x_*`/`scale_y_*` to avoid spacing between
-#' the axis and the baseline of the plot. Default to `FALSE`.
+#' Use `x` or `y` to have only the correspondent axis active.
+#' Don't forget to review the `expand` argument of the `scale_x_*`/`scale_y_*`
+#' to avoid spacing between the axis and the baseline of the plot.
+#' Default to `FALSE`.
 #' @param axis_ticks Logical `TRUE`/`FALSE` or `xy`. Turn on and off axis ticks.
-#' Use `x` or `y` to have only the correspondent axis ticks active. Default to `FALSE`.
-#' @param grid Logical `TRUE`/`FALSE` or a combination of `X` or `x` and `Y` or y`.
-#' Turn on and off panel grids. Use `X` or `Y` for major grids,
+#' Use `x` or `y` to have only the correspondent axis ticks active.
+#' Default to `FALSE`.
+#' @param grid Logical `TRUE`/`FALSE` or a combination of `X` or `x`
+#' and `Y` or y`. Turn on and off panel grids. Use `X` or `Y` for major grids,
 #' and `x` or `y` for minor grid.  Default to `XY`.
 #' @param legend Logical `TRUE`/`FALSE`. Turn on and off the legend.
 #' Default to `TRUE`.
 #' @param legend_text_size Legend key font size. Default to `font_size` * 0.9.
 #' @param legend_title Logical `TRUE`/`FALSE`. Turn on and off the legend title.
 #' Default to `FALSE`.
-#' @param legend_title_size Legend title font size. Default to `font_size` * 0.9.
-#' @param plot_margin Plot margin (specify with `ggplot2::margin()`).
+#' @param legend_title_size Legend title font size.
+#' Default to `font_size` * 0.9.
+#' @param plot_margin Plot margin (see \code{\link[ggplot2:margin]{margin}}).
 #' Default to `ggplot2::margin(font_size, font_size, font_size, font_size)`.
 #' @param plot_background Plot background.
 #' Put "transparent" for no background color. Default to "white".
 #' @param void Logical `TRUE`/`FALSE`. If `TRUE`, all grid lines, ticks
 #' and axes are removed. Default to `FALSE`.
 #'
-#' @return A ggplot2 theme object, the theme style.
+#' @seealso \code{\link[ggplot2:theme]{theme_minimal}},
+#' \code{\link[ggplot2:element_text]{element_text}},
+#' \code{\link[ggtext:element_textbox_simple]{ggtext::element_textbox_simple}}
+#'
 #' @import ggplot2
+#'
+#' @return A ggplot2 theme object, the theme style.
 #'
 #' @examples \dontrun{
 #'
@@ -390,7 +399,15 @@ theme_unhcr <- function(
 
 #' Update matching font defaults for text geoms
 #'
-#' Updates [ggplot2::geom_label] and [ggplot2::geom_text] font defaults
+#' Updates the default font settings for text-related geoms in ggplot2,
+#' including \code{\link[ggplot2:geom_text]{geom_text}},
+#' \code{\link[ggplot2:geom_label]{geom_label}},
+#' \code{\link[ggrepel:geom_text_repel]{geom_text_repel}}, and
+#' \code{\link[ggrepel:geom_label_repel]{geom_label_repel}}.
+#'
+#' @seealso \code{\link[ggplot2:update_geom_defaults]{ggplot2::update_geom_defaults}}
+#'
+#' @importFrom ggplot2 update_geom_defaults
 #' @importFrom ggrepel GeomTextRepel GeomLabelRepel
 #'
 #' @param family Font family, default "Lato".

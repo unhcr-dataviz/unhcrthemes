@@ -10,14 +10,20 @@
 #' @param palette If a string, will use that named palette. If a number, will
 #'   index into the list of palettes of appropriate `type`
 #' @param direction Sets the order of colors in the scale. If 1, the default,
-#'   colors are as output by [unhcr_pal()]. If -1, the order of colors is reversed
-#' @param nmax Maximum number of different colors the palette should contain. If not provided, is calculated automatically
-#'  from the data.
-#' @param order Numeric vector listing the order in which the colors should be used. Default is \code{1:nmax}.
-#' @param ... Other arguments passed on to [discrete_scale()] or
-#' [continuous_scale()] to control name, limits, breaks, labels and so forth
+#' colors are as output by [unhcr_pal()]. If -1, the order of colors is reversed
+#' @param nmax Maximum number of different colors the palette should contain.
+#' If not provided, is calculated automatically from the data.
+#' @param order Numeric vector listing the order in which the colors
+#' should be used. Default is \code{1:nmax}.
+#' @param ... Other arguments passed on to
+#' \code{\link[ggplot2:discrete_scale]{discrete_scale}} or
+#' \code{\link[ggplot2:continuous_scale]{continuous_scale}}
+#' to control name, limits, breaks, labels and so forth
+#'
+#' @seealso \code{\link[scales:gradient_n_pal]{gradient_n_pal}}
 #'
 #' @importFrom scales gradient_n_pal
+#' @importFrom ggplot2 discrete_scale continuous_scale
 #'
 #' @return A discrete, continuous or binned `Scale` object
 #'

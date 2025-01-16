@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_unhcr.R
 \name{theme_unhcr}
 \alias{theme_unhcr}
-\title{UNHCR \link{ggplot2} theme}
+\title{UNHCR ggplot2 theme}
 \usage{
 theme_unhcr(
   font_family = if (lato_installed()) "Lato" else "sans",
@@ -44,7 +44,8 @@ You need to have "Lato" font installed on your device in order to use it.}
 
 \item{subtitle_size}{Plot subtitle font size. Default to \code{font_size}.}
 
-\item{subtitle_margin}{Plot subtitle bottom margin. Default to \code{font_size} * 1.5.}
+\item{subtitle_margin}{Plot subtitle bottom margin.
+Default to \code{font_size} * 1.5.}
 
 \item{strip_text_size}{Facet label font size. Default to \code{font_size} * 0.9.}
 
@@ -67,14 +68,17 @@ Use \code{x} or \code{y} to have only the correspondent active. Default to \code
 \item{axis_title_size}{Axis title font size. Default to \code{font_size} * 0.9.}
 
 \item{axis}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis.
-Use \code{x} or \code{y} to have only the correspondent axis active. Don't forget to review
-the \code{expand} argument of the \verb{scale_x_*}/\verb{scale_y_*} to avoid spacing between
-the axis and the baseline of the plot. Default to \code{FALSE}.}
+Use \code{x} or \code{y} to have only the correspondent axis active.
+Don't forget to review the \code{expand} argument of the \verb{scale_x_*}/\verb{scale_y_*}
+to avoid spacing between the axis and the baseline of the plot.
+Default to \code{FALSE}.}
 
 \item{axis_ticks}{Logical \code{TRUE}/\code{FALSE} or \code{xy}. Turn on and off axis ticks.
-Use \code{x} or \code{y} to have only the correspondent axis ticks active. Default to \code{FALSE}.}
+Use \code{x} or \code{y} to have only the correspondent axis ticks active.
+Default to \code{FALSE}.}
 
-\item{grid}{Logical \code{TRUE}/\code{FALSE} or a combination of \code{X} or \code{x} and \code{Y} or y\verb{. Turn on and off panel grids. Use }X\code{or}Y\verb{for major grids, and}x\code{or}y\verb{for minor grid.  Default to}XY`.}
+\item{grid}{Logical \code{TRUE}/\code{FALSE} or a combination of \code{X} or \code{x}
+and \code{Y} or y\verb{. Turn on and off panel grids. Use }X\code{or}Y\verb{for major grids, and}x\code{or}y\verb{for minor grid.  Default to}XY`.}
 
 \item{legend}{Logical \code{TRUE}/\code{FALSE}. Turn on and off the legend.
 Default to \code{TRUE}.}
@@ -84,9 +88,10 @@ Default to \code{TRUE}.}
 \item{legend_title}{Logical \code{TRUE}/\code{FALSE}. Turn on and off the legend title.
 Default to \code{FALSE}.}
 
-\item{legend_title_size}{Legend title font size. Default to \code{font_size} * 0.9.}
+\item{legend_title_size}{Legend title font size.
+Default to \code{font_size} * 0.9.}
 
-\item{plot_margin}{Plot margin (specify with \code{ggplot2::margin()}).
+\item{plot_margin}{Plot margin (see \code{\link[ggplot2:margin]{margin}}).
 Default to \code{ggplot2::margin(font_size, font_size, font_size, font_size)}.}
 
 \item{plot_background}{Plot background.
@@ -100,7 +105,7 @@ A ggplot2 theme object, the theme style.
 }
 \description{
 \code{theme_unhcr} provides a basic \bold{UNHCR} theme
-to use in \bold{ggplot2} commands.
+to use in \code{\link[ggplot2]{ggplot2}} commands.
 }
 \examples{
 \dontrun{
@@ -114,4 +119,9 @@ ggplot(mpg, aes(displ, hwy)) +
   theme_unhcr()
 }
 
+}
+\seealso{
+\code{\link[ggplot2:theme]{theme_minimal}},
+\code{\link[ggplot2:element_text]{element_text}},
+\code{\link[ggtext:element_textbox_simple]{ggtext::element_textbox_simple}}
 }

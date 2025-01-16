@@ -103,8 +103,10 @@ scale_fill_unhcr_b(
 )
 }
 \arguments{
-\item{...}{Other arguments passed on to \code{\link[=discrete_scale]{discrete_scale()}} or
-\code{\link[=continuous_scale]{continuous_scale()}} to control name, limits, breaks, labels and so forth}
+\item{...}{Other arguments passed on to
+\code{\link[ggplot2:discrete_scale]{discrete_scale}} or
+\code{\link[ggplot2:continuous_scale]{continuous_scale}}
+to control name, limits, breaks, labels and so forth}
 
 \item{type}{One of \"sequential\", \"diverging\" or \"qualitative\"}
 
@@ -119,10 +121,11 @@ colors are as output by \code{\link[=unhcr_pal]{unhcr_pal()}}. If -1, the order 
 \item{guide}{A function used to create a guide or its name. See
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 
-\item{nmax}{Maximum number of different colors the palette should contain. If not provided, is calculated automatically
-from the data.}
+\item{nmax}{Maximum number of different colors the palette should contain.
+If not provided, is calculated automatically from the data.}
 
-\item{order}{Numeric vector listing the order in which the colors should be used. Default is \code{1:nmax}.}
+\item{order}{Numeric vector listing the order in which the colors
+should be used. Default is \code{1:nmax}.}
 }
 \value{
 A discrete, continuous or binned \code{Scale} object
@@ -139,4 +142,7 @@ ggplot(msleep, aes(vore, sleep_total, fill = vore)) +
   geom_boxplot() +
   scale_fill_unhcr_d(palette = 1, direction = -1)
 
+}
+\seealso{
+\code{\link[scales:gradient_n_pal]{gradient_n_pal}}
 }
