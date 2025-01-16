@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   articles/design-unhcr-charts: design-unhcr-charts.html
   unhcrthemes: unhcrthemes.html
-last_built: 2025-01-03T13:20Z
+last_built: 2025-01-16T10:47Z
 urls:
   reference: https://unhcr-dataviz.github.io/unhcrthemes/reference
   article: https://unhcr-dataviz.github.io/unhcrthemes/articles

@@ -34,14 +34,14 @@ to use in ggplot2 commands."><meta property="og:image" content="https://unhcr-da
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.svg" class="logo" alt=""><h1>UNHCR <a href="https://ggplot2.tidyverse.org/reference/ggplot2-package.html" class="external-link">ggplot2</a> theme</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>UNHCR ggplot2 theme</h1>
       <small class="dont-index">Source: <a href="https://github.com/unhcr-dataviz/unhcrthemes/blob/master/R/theme_unhcr.R" class="external-link"><code>R/theme_unhcr.R</code></a></small>
       <div class="d-none name"><code>theme_unhcr.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
     <p><code>theme_unhcr</code> provides a basic <b>UNHCR</b> theme
-to use in <b>ggplot2</b> commands.</p>
+to use in <code><a href="https://ggplot2.tidyverse.org/reference/ggplot2-package.html" class="external-link">ggplot2</a></code> commands.</p>
     </div>
 
     <div class="section level2">
@@ -101,7 +101,8 @@ You need to have "Lato" font installed on your device in order to use it.</p></d
 
 
 <dt id="arg-subtitle-margin">subtitle_margin<a class="anchor" aria-label="anchor" href="#arg-subtitle-margin"></a></dt>
-<dd><p>Plot subtitle bottom margin. Default to <code>font_size</code> * 1.5.</p></dd>
+<dd><p>Plot subtitle bottom margin.
+Default to <code>font_size</code> * 1.5.</p></dd>
 
 
 <dt id="arg-strip-text-size">strip_text_size<a class="anchor" aria-label="anchor" href="#arg-strip-text-size"></a></dt>
@@ -144,18 +145,21 @@ Use <code>x</code> or <code>y</code> to have only the correspondent active. Defa
 
 <dt id="arg-axis">axis<a class="anchor" aria-label="anchor" href="#arg-axis"></a></dt>
 <dd><p>Logical <code>TRUE</code>/<code>FALSE</code> or <code>xy</code>. Turn on and off axis.
-Use <code>x</code> or <code>y</code> to have only the correspondent axis active. Don't forget to review
-the <code>expand</code> argument of the <code>scale_x_*</code>/<code>scale_y_*</code> to avoid spacing between
-the axis and the baseline of the plot. Default to <code>FALSE</code>.</p></dd>
+Use <code>x</code> or <code>y</code> to have only the correspondent axis active.
+Don't forget to review the <code>expand</code> argument of the <code>scale_x_*</code>/<code>scale_y_*</code>
+to avoid spacing between the axis and the baseline of the plot.
+Default to <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg-axis-ticks">axis_ticks<a class="anchor" aria-label="anchor" href="#arg-axis-ticks"></a></dt>
 <dd><p>Logical <code>TRUE</code>/<code>FALSE</code> or <code>xy</code>. Turn on and off axis ticks.
-Use <code>x</code> or <code>y</code> to have only the correspondent axis ticks active. Default to <code>FALSE</code>.</p></dd>
+Use <code>x</code> or <code>y</code> to have only the correspondent axis ticks active.
+Default to <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg-grid">grid<a class="anchor" aria-label="anchor" href="#arg-grid"></a></dt>
-<dd><p>Logical <code>TRUE</code>/<code>FALSE</code> or a combination of <code>X</code> or <code>x</code> and <code>Y</code> or y<code>. Turn on and off panel grids. Use </code>X<code>or</code>Y<code>for major grids, and</code>x<code>or</code>y<code>for minor grid.  Default to</code>XY`.</p></dd>
+<dd><p>Logical <code>TRUE</code>/<code>FALSE</code> or a combination of <code>X</code> or <code>x</code>
+and <code>Y</code> or y<code>. Turn on and off panel grids. Use </code>X<code>or</code>Y<code>for major grids, and</code>x<code>or</code>y<code>for minor grid.  Default to</code>XY`.</p></dd>
 
 
 <dt id="arg-legend">legend<a class="anchor" aria-label="anchor" href="#arg-legend"></a></dt>
@@ -173,11 +177,12 @@ Default to <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg-legend-title-size">legend_title_size<a class="anchor" aria-label="anchor" href="#arg-legend-title-size"></a></dt>
-<dd><p>Legend title font size. Default to <code>font_size</code> * 0.9.</p></dd>
+<dd><p>Legend title font size.
+Default to <code>font_size</code> * 0.9.</p></dd>
 
 
 <dt id="arg-plot-margin">plot_margin<a class="anchor" aria-label="anchor" href="#arg-plot-margin"></a></dt>
-<dd><p>Plot margin (specify with <code><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">ggplot2::margin()</a></code>).
+<dd><p>Plot margin (see <code><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></code>).
 Default to <code>ggplot2::margin(font_size, font_size, font_size, font_size)</code>.</p></dd>
 
 
@@ -194,6 +199,12 @@ and axes are removed. Default to <code>FALSE</code>.</p></dd>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A ggplot2 theme object, the theme style.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme_minimal</a></code>,
+<code><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></code>,
+<code><a href="https://wilkelab.org/ggtext/reference/element_textbox.html" class="external-link">ggtext::element_textbox_simple</a></code></p></div>
     </div>
 
     <div class="section level2">
