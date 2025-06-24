@@ -1,5 +1,7 @@
 # unhcrthemes (development version)
 
+- In `theme_unhcr()`, modify text and gridline colours to align with the 2025 UNHCR Data Visualization Guidelines.
+
 # unhcrthemes 0.6.3
 
 ## Minor improvements and fixes
