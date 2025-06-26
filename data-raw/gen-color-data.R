@@ -418,7 +418,6 @@ unhcrcolors <- tibble::tibble(
   ),
   n8 = list(
     pal_main[1:8],
-    c(pal_poc[1:6], pal_poc[8:9]),
     NULL,
     NULL,
     NULL,
@@ -426,6 +425,33 @@ unhcrcolors <- tibble::tibble(
     NULL,
     NULL,
     NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    c(
+      pal_blue_unhcr[4:1],
+      pal_yellow_unhcr[1:4]
+    ),
+    c(
+      pal_blue_unhcr[6],
+      pal_blue_unhcr[4:3],
+      pal_blue_unhcr[1],
+      pal_brown_unhcr[1],
+      pal_brown_unhcr[3:4],
+      pal_brown_unhcr[6]
+    ),
+    c(
+      pal_green_unhcr[6:5],
+      pal_green_unhcr[3],
+      pal_green_unhcr[1],
+      pal_purple_unhcr[1],
+      pal_purple_unhcr[3],
+      pal_purple_unhcr[5:6]
+    ),
     c(pal_blue_unhcr[5:2], pal_red_unhcr[2:5]),
     c(pal_navy_unhcr[5:2], pal_red_unhcr[2:5])
   ),
