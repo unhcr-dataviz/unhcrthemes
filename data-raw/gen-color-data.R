@@ -103,8 +103,8 @@ pal_poc <- c(
   "STA" = pal_yellow_unhcr["yellow02"],
   "RET" = pal_purple_unhcr["purple03"],
   #"RETIDP" = pal_purple_unhcr["purple03"],
-  "OOC" = pal_grey_unhcr["grey02"],
-  "OIP" = pal_red_unhcr["red04"]
+  "OIP" = pal_red_unhcr["red04"],
+  "OOC" = pal_grey_unhcr["grey02"]
 )
 
 pal_bluegreen_unhcr <- c(
@@ -164,13 +164,22 @@ unhcrcolors <- tibble::tibble(
   n1 = list(
     pal_main[1],
     pal_poc[1],
+    pal_main[1],
     pal_blue_unhcr[4],
-    pal_blue_unhcr[4],
-    pal_navy_unhcr[5],
-    pal_green_unhcr[4],
+    pal_yellow_unhcr[2],
+    pal_green_unhcr[3],
+    pal_cyan_unhcr[2],
     pal_red_unhcr[4],
-    pal_yellow_unhcr[3],
-    pal_grey_unhcr[4],
+    pal_purple_unhcr[3],
+    pal_brown_unhcr[5],
+    pal_grey_unhcr[2],
+    pal_bluegreen_unhcr[4],
+    pal_purpleblue_unhcr[4],
+    pal_redyellow_unhcr[4],
+    pal_navy_unhcr[5],
+    NULL,
+    NULL,
+    NULL,
     NULL,
     NULL
   ),
