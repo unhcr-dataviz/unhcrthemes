@@ -23,6 +23,6 @@ Creates a color palette from UNHCR branding
 \examples{
 unhcr_pal(3, "pal_unhcr")
 unhcr_pal(3, "pal_blue")
-unhcr_pal(5, "pal_navy")
+unhcr_pal(5, "pal_yellow")
 unhcr_pal(12, "pal_red")
 }

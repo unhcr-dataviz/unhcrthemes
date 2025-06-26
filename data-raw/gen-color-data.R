@@ -160,7 +160,7 @@ unhcrcolors <- tibble::tibble(
   ),
   type = c(rep("qualitative", 3), rep("sequential", 12), rep("diverging", 5)),
   min_n = 1,
-  max_n = c(c(8, 7), rep(6, 12), 1, rep(9, 5)),
+  max_n = c(c(8, 7), rep(6, 12), 5, rep(9, 5)),
   n1 = list(
     pal_main[1],
     pal_poc[1],
