@@ -269,26 +269,53 @@ unhcrcolors <- tibble::tibble(
     c(pal_navy_unhcr[5], pal_navy_unhcr[3], pal_red_unhcr[2], pal_red_unhcr[4])
   ),
   n5 = list(
-    c(pal_main[3], pal_main[1:2], pal_main[5], pal_main[7]),
-    c(pal_poc[1], pal_poc[3:6]),
-    c(pal_blue_unhcr[4:2], pal_navy_unhcr[5], pal_green_unhcr[4]),
+    pal_main[1:5],
+    pal_poc[1:5],
+    c(pal_main[1], pal_main[4], pal_main[6], pal_main[3], pal_main[2]),
     pal_blue_unhcr[1:5],
-    pal_navy_unhcr[1:5],
-    pal_green_unhcr[1:5],
-    pal_red_unhcr[1:5],
     pal_yellow_unhcr[1:5],
+    pal_green_unhcr[1:5],
+    pal_cyan_unhcr[1:5],
+    pal_red_unhcr[1:5],
+    pal_purple_unhcr[1:5],
+    pal_brown_unhcr[1:5],
     pal_grey_unhcr[1:5],
+    pal_bluegreen_unhcr[1:5],
+    pal_purpleblue_unhcr[1:5],
+    pal_redyellow_unhcr[1:5],
+    pal_navy_unhcr[1:5],
     c(
       pal_blue_unhcr[4],
       pal_blue_unhcr[2],
-      pal_grey_unhcr[1],
+      "#f5f5f5",
+      pal_yellow_unhcr[2],
+      pal_yellow_unhcr[4]
+    ),
+    c(
+      pal_blue_unhcr[4],
+      pal_blue_unhcr[1],
+      "#f5f5f5",
+      pal_brown_unhcr[1],
+      pal_brown_unhcr[4]
+    ),
+    c(
+      pal_green_unhcr[6],
+      pal_green_unhcr[3],
+      "#f5f5f5",
+      pal_purple_unhcr[3],
+      pal_purple_unhcr[6]
+    ),
+    c(
+      pal_blue_unhcr[4],
+      pal_blue_unhcr[2],
+      "#E6E6E6",
       pal_red_unhcr[2],
       pal_red_unhcr[4]
     ),
     c(
       pal_navy_unhcr[5],
       pal_navy_unhcr[3],
-      pal_grey_unhcr[1],
+      "#E6E6E6",
       pal_red_unhcr[2],
       pal_red_unhcr[4]
     )
