@@ -47,9 +47,16 @@ display_unhcr_all <- function(n = NULL, type = "all") {
   )
   on.exit(par(oldpar))
   max_my_n <- max(my_n)
-  plot(1, 1,
-    xlim = c(-1.5, max_my_n), ylim = ylim,
-    type = "n", axes = FALSE, bty = "n", xlab = "", ylab = ""
+  plot(
+    1,
+    1,
+    xlim = c(-1.5, max_my_n),
+    ylim = ylim,
+    type = "n",
+    axes = FALSE,
+    bty = "n",
+    xlab = "",
+    ylab = ""
   )
 
   for (i in seq_len(n_colors)) {
@@ -63,13 +70,9 @@ display_unhcr_all <- function(n = NULL, type = "all") {
       xright = 1:my_n[i],
       ytop = i - 0.2,
       col = one_color,
-      border = "light grey"
+      border = "white"
     )
-    text(-0.1, i - 0.6,
-      labels = selected_metadata$name[i],
-      xpd = TRUE,
-      adj = 1
-    )
+    text(-0.1, i - 0.6, labels = selected_metadata$name[i], xpd = TRUE, adj = 1)
   }
 }
 
@@ -91,9 +94,16 @@ display_unhcr_all <- function(n = NULL, type = "all") {
 display_unhcr_pal <- function(n = NULL, name) {
   selected_colors <- unhcr_pal(n, name)
   selected_type <- unhcrcolors[unhcrcolors$name == name, ][["type"]][[1]]
-  image(1:n, 1, as.matrix(1:n),
+  image(
+    1:n,
+    1,
+    as.matrix(1:n),
     col = selected_colors,
     main = paste0(name, ": ", selected_type, " (", n, ")"),
-    xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", bty = "n"
+    xlab = " ",
+    ylab = " ",
+    xaxt = "n",
+    yaxt = "n",
+    bty = "n"
   )
 }

@@ -1,5 +1,15 @@
 # unhcrthemes (development version)
 
+## Updates aligned with 2025 UNHCR Data Visualization Guidelines
+
+- Updated `theme_unhcr()` to reflect revised text and gridline colors based on the latest UNHCR standards.
+- Revised existing color palettes for improved clarity, contrast, and alignment with new data visualization guidance.
+- Added new categorical, sequential and diverging color palettes recommended in the 2025 guidelines.
+
+*Note: Existing palettes remain available but may have slight adjustments. Deprecated colors will be phased out in a future release.*
+
+For reference, see the [UNHCR Data Visualization Guidelines (2025)](https://dataviz.unhcr.org/guidance/) for more details.
+
 # unhcrthemes 0.6.3
 
 ## Minor improvements and fixes

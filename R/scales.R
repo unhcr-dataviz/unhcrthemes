@@ -38,10 +38,14 @@
 #'
 #' @rdname unhcr_scale
 #' @export
-scale_color_unhcr_c <- function(..., type = "sequential",
-                                palette = 1,
-                                direction = 1,
-                                na.value = "#E9E9E9", guide = "colourbar") {
+scale_color_unhcr_c <- function(
+  ...,
+  type = "sequential",
+  palette = 1,
+  direction = 1,
+  na.value = "#E5E5E5",
+  guide = "colourbar"
+) {
   pal <- unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -59,12 +63,15 @@ scale_color_unhcr_c <- function(..., type = "sequential",
 
 #' @rdname unhcr_scale
 #' @export
-scale_color_unhcr_d <- function(..., type = "qualitative",
-                                palette = 1,
-                                direction = 1,
-                                nmax = NULL,
-                                order = NULL,
-                                na.value = "#E9E9E9") {
+scale_color_unhcr_d <- function(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E5E5E5"
+) {
   pal <- unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -83,13 +90,16 @@ scale_color_unhcr_d <- function(..., type = "qualitative",
 
 #' @rdname unhcr_scale
 #' @export
-scale_color_unhcr_b <- function(..., type = "qualitative",
-                                palette = 1,
-                                direction = 1,
-                                nmax = NULL,
-                                order = NULL,
-                                na.value = "#E9E9E9",
-                                guide = "coloursteps") {
+scale_color_unhcr_b <- function(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E5E5E5",
+  guide = "coloursteps"
+) {
   pal <- binned_pal(unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -124,11 +134,14 @@ scale_colour_unhcr_b <- scale_color_unhcr_b
 
 #' @rdname unhcr_scale
 #' @export
-scale_fill_unhcr_c <- function(..., type = "sequential",
-                               palette = 1,
-                               direction = 1,
-                               na.value = "#E9E9E9",
-                               guide = "colourbar") {
+scale_fill_unhcr_c <- function(
+  ...,
+  type = "sequential",
+  palette = 1,
+  direction = 1,
+  na.value = "#E5E5E5",
+  guide = "colourbar"
+) {
   pal <- unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -146,12 +159,15 @@ scale_fill_unhcr_c <- function(..., type = "sequential",
 
 #' @rdname unhcr_scale
 #' @export
-scale_fill_unhcr_d <- function(..., type = "qualitative",
-                               palette = 1,
-                               direction = 1,
-                               nmax = NULL,
-                               order = NULL,
-                               na.value = "#E9E9E9") {
+scale_fill_unhcr_d <- function(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E5E5E5"
+) {
   pal <- unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -170,13 +186,16 @@ scale_fill_unhcr_d <- function(..., type = "qualitative",
 
 #' @rdname unhcr_scale
 #' @export
-scale_fill_unhcr_b <- function(..., type = "qualitative",
-                               palette = 1,
-                               direction = 1,
-                               nmax = NULL,
-                               order = NULL,
-                               na.value = "#E9E9E9",
-                               guide = "coloursteps") {
+scale_fill_unhcr_b <- function(
+  ...,
+  type = "qualitative",
+  palette = 1,
+  direction = 1,
+  nmax = NULL,
+  order = NULL,
+  na.value = "#E5E5E5",
+  guide = "coloursteps"
+) {
   pal <- binned_pal(unhcr_pal_scale(
     type = type,
     palette = palette,
@@ -195,9 +214,13 @@ scale_fill_unhcr_b <- function(..., type = "qualitative",
 }
 
 #' @noRd
-unhcr_pal_scale <- function(type = "qualitative",
-                            nmax = NULL, order = NULL,
-                            palette = 1, direction = 1) {
+unhcr_pal_scale <- function(
+  type = "qualitative",
+  nmax = NULL,
+  order = NULL,
+  palette = 1,
+  direction = 1
+) {
   pal <- unhcr_pal_name(palette, type)
 
   function(n) {
@@ -209,9 +232,12 @@ unhcr_pal_scale <- function(type = "qualitative",
     }
 
     if (n > nmax) {
-      warning("Insufficient values in scale_{color|fill}_unhcr_d. ",
-        n, " needed but only ",
-        nmax, " provided.",
+      warning(
+        "Insufficient values in scale_{color|fill}_unhcr_d. ",
+        n,
+        " needed but only ",
+        nmax,
+        " provided.",
         call. = FALSE
       )
     }

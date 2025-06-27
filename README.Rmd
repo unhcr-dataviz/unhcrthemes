@@ -85,7 +85,7 @@ For `R` PDF (`pdf`) and PostScript (`postcript`) devices, there is a function `i
 
 Choose from a variety of carefully curated color palettes that harmonize with UNHCR's visual identity.
 
-```{r palette-all, message = FALSE, warning = FALSE, out.width="90%", fig.align="center", fig.height=3.2}
+```{r palette-all, message = FALSE, warning = FALSE, out.width="90%", fig.align="center", fig.height=6}
 # Display all unhcr color palette
 display_unhcr_all()
 ```

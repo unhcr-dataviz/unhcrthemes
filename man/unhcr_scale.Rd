@@ -17,7 +17,7 @@ scale_color_unhcr_c(
   type = "sequential",
   palette = 1,
   direction = 1,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "colourbar"
 )
 
@@ -28,7 +28,7 @@ scale_color_unhcr_d(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9"
+  na.value = "#E5E5E5"
 )
 
 scale_color_unhcr_b(
@@ -38,7 +38,7 @@ scale_color_unhcr_b(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "coloursteps"
 )
 
@@ -47,7 +47,7 @@ scale_colour_unhcr_c(
   type = "sequential",
   palette = 1,
   direction = 1,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "colourbar"
 )
 
@@ -58,7 +58,7 @@ scale_colour_unhcr_d(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9"
+  na.value = "#E5E5E5"
 )
 
 scale_colour_unhcr_b(
@@ -68,7 +68,7 @@ scale_colour_unhcr_b(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "coloursteps"
 )
 
@@ -77,7 +77,7 @@ scale_fill_unhcr_c(
   type = "sequential",
   palette = 1,
   direction = 1,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "colourbar"
 )
 
@@ -88,7 +88,7 @@ scale_fill_unhcr_d(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9"
+  na.value = "#E5E5E5"
 )
 
 scale_fill_unhcr_b(
@@ -98,7 +98,7 @@ scale_fill_unhcr_b(
   direction = 1,
   nmax = NULL,
   order = NULL,
-  na.value = "#E9E9E9",
+  na.value = "#E5E5E5",
   guide = "coloursteps"
 )
 }

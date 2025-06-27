@@ -12,13 +12,12 @@
 #' @examples
 #' unhcr_pal(3, "pal_unhcr")
 #' unhcr_pal(3, "pal_blue")
-#' unhcr_pal(5, "pal_navy")
+#' unhcr_pal(5, "pal_yellow")
 #' unhcr_pal(12, "pal_red")
 #' @export
-unhcr_pal <- function(n = NULL, name, ...){
-  if (!(name %in% unhcrcolors$name)){
-    stop(paste(name, "is not a valid palette name\n"),
-         call. = FALSE)
+unhcr_pal <- function(n = NULL, name, ...) {
+  if (!(name %in% unhcrcolors$name)) {
+    stop(paste(name, "is not a valid palette name\n"), call. = FALSE)
   }
   selected_metadata <- unhcrcolors[unhcrcolors$name == name, ]
   min_n <- selected_metadata$min_n
@@ -32,14 +31,32 @@ unhcr_pal <- function(n = NULL, name, ...){
     proper_n <- max_n
   }
   if (!(n %in% min_n:max_n) && type == "qualitative") {
-    warning(paste("Number of colors (n) in the", name,
-                  "palette should be between", min_n, "and", max_n,
-                  "\n"), call. = FALSE)
+    warning(
+      paste(
+        "Number of colors (n) in the",
+        name,
+        "palette should be between",
+        min_n,
+        "and",
+        max_n,
+        "\n"
+      ),
+      call. = FALSE
+    )
   }
   if (n < min_n) {
-    warning(paste("Number of colors (n) in the", name,
-                  "palette should be between", min_n, "and",
-                  max_n, "\n"), call. = FALSE)
+    warning(
+      paste(
+        "Number of colors (n) in the",
+        name,
+        "palette should be between",
+        min_n,
+        "and",
+        max_n,
+        "\n"
+      ),
+      call. = FALSE
+    )
     proper_n <- min_n
     n <- min_n
   }
