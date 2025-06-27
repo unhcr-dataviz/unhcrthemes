@@ -215,9 +215,9 @@ for both 2012 and 2022. We will use a grouped bar chart.</p>
 <code class="sourceCode R"><span><span class="co"># Set title and subtitle</span></span>
 <span><span class="va">title_group_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Comparison of the total refugee population in &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_cyan"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;2012&lt;/span&gt; and &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">2</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;2022&lt;/span&gt; by region of origin"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -238,7 +238,7 @@ for both 2012 and 2022. We will use a grouped bar chart.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span>nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_group_bar</span>,</span>
 <span>    caption <span class="op">=</span> <span class="va">caption</span>,</span>
@@ -275,7 +275,7 @@ for both 2012 and 2022. We will use a grouped bar chart.</p>
 <span>    hjust <span class="op">=</span> <span class="op">-</span><span class="fl">.2</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span>nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_group_bar</span>,</span>
 <span>    caption <span class="op">=</span> <span class="va">caption</span>,</span>
@@ -340,8 +340,8 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Other people in need of international protection"</span>, <span class="st">"Asylum-seekers"</span>, <span class="st">"Refugees"</span><span class="op">)</span>,</span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Other people in need of international protection"</span>, <span class="st">"Asylum-seekers"</span>, <span class="st">"Refugees"</span><span class="op">)</span>,</span>
 <span>    guide <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
@@ -359,11 +359,11 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <code class="sourceCode R"><span><span class="co"># Add subtitle instead of legend</span></span>
 <span><span class="va">subtitle_stack_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
 <span>  <span class="st">"People displaced across borders asr composed of &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Refugees&lt;/span&gt;, &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Asylum-seekers&lt;/span&gt; and &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">9</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Other people in need of international protection&lt;/span&gt;."</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -408,8 +408,8 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html" class="external-link">scale_color_identity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
@@ -467,11 +467,11 @@ and/or assisted by UNHCR in 2022.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">ages</span><span class="op">)</span></span>
 <span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="op">-</span><span class="va">male_p</span><span class="op">)</span>,</span>
-<span>    fill <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_navy"</span><span class="op">)</span>,</span>
+<span>    fill <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,</span>
 <span>    width <span class="op">=</span> <span class="fl">.7</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">female_p</span><span class="op">)</span>,</span>
-<span>    fill <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,</span>
+<span>    fill <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_cyan"</span><span class="op">)</span>,</span>
 <span>    width <span class="op">=</span> <span class="fl">.7</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
@@ -480,7 +480,7 @@ and/or assisted by UNHCR in 2022.</p>
 <span>      label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/percent_format.html" class="external-link">percent</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">male_p</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    hjust <span class="op">=</span> <span class="fl">1.25</span>,</span>
-<span>    color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_navy"</span><span class="op">)</span>,</span>
+<span>    color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,</span>
 <span>    fontface <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
@@ -489,7 +489,7 @@ and/or assisted by UNHCR in 2022.</p>
 <span>      label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/percent_format.html" class="external-link">percent</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">female_p</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    hjust <span class="op">=</span> <span class="op">-</span><span class="fl">.25</span>,</span>
-<span>    color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span>,</span>
+<span>    color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, <span class="st">"pal_cyan"</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>,</span>
 <span>    fontface <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -498,8 +498,8 @@ and/or assisted by UNHCR in 2022.</p>
 <span>    title <span class="op">=</span> <span class="st">"Demographics of populations protected and/or assisted by UNHCR at the end of 2022"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Note: Age and sex disaggregated data is not available for all countries of asylum. Figures do not add up to 100 per cent due to rounding.&lt;br&gt;Source: UNHCR Refugee Data Finder - © UNHCR, The UN Refugee Agency"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="op">-</span><span class="fl">.01</span>, y <span class="op">=</span> <span class="fl">5.65</span>, label <span class="op">=</span> <span class="st">"Male"</span>, size <span class="op">=</span> <span class="fl">12</span> <span class="op">/</span> <span class="va">.pt</span>, family <span class="op">=</span> <span class="st">"Lato"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_navy"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">.01</span>, y <span class="op">=</span> <span class="fl">5.65</span>, label <span class="op">=</span> <span class="st">"Female"</span>, size <span class="op">=</span> <span class="fl">12</span> <span class="op">/</span> <span class="va">.pt</span>, family <span class="op">=</span> <span class="st">"Lato"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="op">-</span><span class="fl">.01</span>, y <span class="op">=</span> <span class="fl">5.65</span>, label <span class="op">=</span> <span class="st">"Male"</span>, size <span class="op">=</span> <span class="fl">12</span> <span class="op">/</span> <span class="va">.pt</span>, family <span class="op">=</span> <span class="st">"Lato"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, <span class="st">"pal_blue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html" class="external-link">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">.01</span>, y <span class="op">=</span> <span class="fl">5.65</span>, label <span class="op">=</span> <span class="st">"Female"</span>, size <span class="op">=</span> <span class="fl">12</span> <span class="op">/</span> <span class="va">.pt</span>, family <span class="op">=</span> <span class="st">"Lato"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, hjust <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, <span class="st">"pal_cyan"</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span></span>
 <span>    axis_text <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, grid <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    plot_title_margin <span class="op">=</span> <span class="fl">24</span></span>
@@ -617,11 +617,11 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span></span>
 <span><span class="va">subtitle_group_col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Number of refugees in &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"&lt;/span&gt;, &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"&lt;/span&gt; and &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"&lt;/span&gt; at the end of 2018-2022"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -643,7 +643,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_region"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_group_col</span>,</span>
@@ -686,7 +686,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_region"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_group_col</span>,</span>
@@ -769,8 +769,8 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    breaks <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">9</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>      <span class="st">"IDPs"</span>,</span>
 <span>      <span class="st">"Refugees under\nUNHCR's mandate"</span>,</span>
@@ -794,15 +794,15 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <code class="sourceCode R"><span><span class="co"># Set subtitle</span></span>
 <span><span class="va">stack_col_subtitle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
 <span>  <span class="st">"By: &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;IDPs&lt;/span&gt;, &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Refugees under UNHCR's mandate&lt;/span&gt;, &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Refugees under UNWRA's mandate&lt;/span&gt;,&lt;br&gt;&lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">9</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">6</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Other people in need of international protection&lt;/span&gt; and &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">9</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, <span class="st">"pal_unhcr_poc"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
 <span>  <span class="st">"'&gt;Asylum-seekers&lt;/span&gt;."</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -826,8 +826,8 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    breaks <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">9</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">stack_col_title</span>,</span>
@@ -876,11 +876,11 @@ in Africa.</p>
 <span></span>
 <span><span class="va">subtitle_percent_stack</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Percentage of refugees in &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"&lt;/span&gt;, &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"&lt;/span&gt; and &lt;span style='color:"</span>,</span>
-<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr_region"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
+<span>  <span class="fu"><a href="../reference/unhcr_pal.html">unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_unhcr"</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"'&gt;"</span>,</span>
 <span>  <span class="va">region_name</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="st">"&lt;/span&gt; that originated from these regions at the end of 2013-2022"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -901,7 +901,7 @@ in Africa.</p>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html" class="external-link">label_percent</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_region"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_percent_stack</span>,</span>
@@ -936,7 +936,7 @@ in Africa.</p>
 <span>    hjust <span class="op">=</span> <span class="fl">.5</span>,</span>
 <span>    position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_stack.html" class="external-link">position_stack</a></span><span class="op">(</span>vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,</span>
 <span>    color <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span></span>
-<span>      <span class="va">percent_stack_df</span><span class="op">$</span><span class="va">unhcr_region</span> <span class="op">==</span> <span class="st">"West and Central Africa"</span>,</span>
+<span>      <span class="va">percent_stack_df</span><span class="op">$</span><span class="va">unhcr_region</span> <span class="op">==</span> <span class="st">"Southern Africa"</span>,</span>
 <span>      <span class="st">"#1a1a1a"</span>,</span>
 <span>      <span class="st">"#ffffff"</span></span>
 <span>    <span class="op">)</span></span>
@@ -946,7 +946,7 @@ in Africa.</p>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html" class="external-link">label_percent</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_region"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">3</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_percent_stack</span>,</span>
@@ -1068,8 +1068,8 @@ in Africa.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.05</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_color_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">4</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_multi_line</span>,</span>
@@ -1110,8 +1110,8 @@ in Africa.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.05</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_color_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">4</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_multi_line</span>,</span>
@@ -1236,8 +1236,8 @@ in Africa.</p>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.05</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr"</span>, nmax <span class="op">=</span> <span class="fl">4</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>, nmax <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">title_stack_area</span>,</span>
@@ -1298,7 +1298,7 @@ concern by the end of 2022.</p>
 <span>    fontface <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    nmax <span class="op">=</span> <span class="fl">3</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>    nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
 <span>    theta <span class="op">=</span> <span class="st">"y"</span>,</span>
@@ -1332,10 +1332,10 @@ concern by the end of 2022.</p>
 <span>    fontface <span class="op">=</span> <span class="st">"bold"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    nmax <span class="op">=</span> <span class="fl">3</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>    nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_color_unhcr_d</a></span><span class="op">(</span></span>
-<span>    nmax <span class="op">=</span> <span class="fl">3</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>    nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
@@ -1488,8 +1488,8 @@ package.</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>,</span>
-<span>    nmax <span class="op">=</span> <span class="fl">9</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">8</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span></span>
+<span>    nmax <span class="op">=</span> <span class="fl">7</span>,</span>
+<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">6</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
