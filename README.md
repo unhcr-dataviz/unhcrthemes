@@ -164,8 +164,7 @@ Platform](https://dataviz.unhcr.org/tutorials/r/).
 - [**unhcrdown**](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
   templates for R Markdown
 - [**refugees**](https://github.com/PopulationStatistics/refugees):
-  Access to [UNHCR Refugee Data
-  Finder](https://www.unhcr.org/refugee-statistics) API
+  Access to UNHCR Refugee Data Finder API
 - [**quarto-html-unhcr**](https://github.com/unhcr-dataviz/quarto-html-unhcr):
   Quarto extension for UNHCR branded HTML documents
 - [**quarto-revealjs-unhcr**](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):

@@ -160,9 +160,9 @@ group_bar_df <- refugees::population |>
 # Set title and subtitle
 title_group_bar <- paste0(
   "Comparison of the total refugee population in <span style='color:",
-  unhcr_pal(n = 2, "pal_blue")[1],
+  unhcr_pal(n = 1, "pal_cyan")[1],
   "'>2012</span> and <span style='color:",
-  unhcr_pal(n = 2, "pal_blue")[2],
+  unhcr_pal(n = 1, "pal_blue")[1],
   "'>2022</span> by region of origin"
 )
 
@@ -183,7 +183,7 @@ ggplot(
     expand = expansion(mult = c(0, .1)),
     labels = scales::label_number(scale_cut = scales::cut_short_scale())
   ) +
-  scale_fill_unhcr_d(direction = -1) +
+  scale_fill_unhcr_d(nmax = 4, order = c(4, 1)) +
   labs(
     title = title_group_bar,
     caption = caption,
@@ -222,7 +222,7 @@ ggplot(
     hjust = -.2
   ) +
   scale_x_continuous(expand = expansion(mult = c(0, .1))) +
-  scale_fill_unhcr_d(direction = -1) +
+  scale_fill_unhcr_d(nmax = 4, order = c(4, 1)) +
   labs(
     title = title_group_bar,
     caption = caption,
@@ -290,8 +290,8 @@ ggplot(
     labels = scales::label_number(scale_cut = scales::cut_short_scale())
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_poc", nmax = 9,
-    order = c(9, 3, 1), labels = c("Other people in need of international protection", "Asylum-seekers", "Refugees"),
+    palette = "pal_unhcr_poc", nmax = 6,
+    order = c(6, 2, 1), labels = c("Other people in need of international protection", "Asylum-seekers", "Refugees"),
     guide = guide_legend(reverse = TRUE)
   ) +
   labs(
@@ -311,11 +311,11 @@ ggplot(
 # Add subtitle instead of legend
 subtitle_stack_bar <- paste0(
   "People displaced across borders asr composed of <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[1],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[1],
   "'>Refugees</span>, <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[3],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[2],
   "'>Asylum-seekers</span> and <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[9],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[6],
   "'>Other people in need of international protection</span>."
 )
 
@@ -360,8 +360,8 @@ ggplot(
     expand = expansion(mult = c(0, .1))
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_poc", nmax = 9,
-    order = c(9, 3, 1)
+    palette = "pal_unhcr_poc", nmax = 6,
+    order = c(6, 2, 1)
   ) +
   scale_color_identity() +
   labs(
@@ -421,11 +421,11 @@ ggplot(
   aes(y = ages)
 ) +
   geom_col(aes(x = -male_p),
-    fill = unhcr_pal(n = 1, "pal_navy"),
+    fill = unhcr_pal(n = 1, "pal_blue"),
     width = .7
   ) +
   geom_col(aes(x = female_p),
-    fill = unhcr_pal(n = 1, "pal_blue"),
+    fill = unhcr_pal(n = 1, "pal_cyan"),
     width = .7
   ) +
   geom_text(
@@ -434,7 +434,7 @@ ggplot(
       label = scales::percent(abs(male_p))
     ),
     hjust = 1.25,
-    color = unhcr_pal(n = 1, "pal_navy"),
+    color = unhcr_pal(n = 1, "pal_blue"),
     fontface = "bold"
   ) +
   geom_text(
@@ -443,7 +443,7 @@ ggplot(
       label = scales::percent(abs(female_p))
     ),
     hjust = -.25,
-    color = unhcr_pal(n = 1, "pal_blue"),
+    color = unhcr_pal(n = 4, "pal_cyan")[4],
     fontface = "bold"
   ) +
   scale_x_continuous(expand = expansion(c(0.2, 0.2))) +
@@ -452,8 +452,8 @@ ggplot(
     title = "Demographics of populations protected and/or assisted by UNHCR at the end of 2022",
     caption = "Note: Age and sex disaggregated data is not available for all countries of asylum. Figures do not add up to 100 per cent due to rounding.<br>Source: UNHCR Refugee Data Finder - © UNHCR, The UN Refugee Agency"
   ) +
-  annotate("text", x = -.01, y = 5.65, label = "Male", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 1, color = unhcr_pal(n = 1, "pal_navy")) +
-  annotate("text", x = .01, y = 5.65, label = "Female", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 0, color = unhcr_pal(n = 1, "pal_blue")) +
+  annotate("text", x = -.01, y = 5.65, label = "Male", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 1, color = unhcr_pal(n = 1, "pal_blue")) +
+  annotate("text", x = .01, y = 5.65, label = "Female", size = 12 / .pt, family = "Lato", fontface = "bold", hjust = 0, color = unhcr_pal(n = 4, "pal_cyan")[4]) +
   theme_unhcr(
     axis_text = "Y", axis_title = FALSE, grid = FALSE,
     plot_title_margin = 24
@@ -576,11 +576,11 @@ title_group_col <- "Refugees from the different regions of Africa"
 
 subtitle_group_col <- paste0(
   "Number of refugees in <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[1], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[1], "'>",
   region_name[1], "</span>, <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[2], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[2], "'>",
   region_name[2], "</span> and <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[3], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[3], "'>",
   region_name[3], "</span> at the end of 2018-2022"
 )
 
@@ -602,7 +602,7 @@ ggplot(
     labels = scales::label_number(scale_cut = scales::cut_short_scale())
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_region", nmax = 3
+    palette = "pal_unhcr", nmax = 3
   ) +
   labs(
     title = title_group_col,
@@ -647,7 +647,7 @@ ggplot(
     expand = expansion(mult = c(0, .1))
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_region", nmax = 3
+    palette = "pal_unhcr", nmax = 3
   ) +
   labs(
     title = title_group_col,
@@ -733,8 +733,8 @@ ggplot(
     breaks = scales::pretty_breaks(n = 5)
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_poc", nmax = 9,
-    order = c(4, 1, 2, 9, 3),
+    palette = "pal_unhcr_poc", nmax = 6,
+    order = c(3, 1, 5, 6, 2),
     labels = c(
       "IDPs",
       "Refugees under\nUNHCR's mandate",
@@ -760,15 +760,15 @@ ggplot(
 # Set subtitle
 stack_col_subtitle <- paste0(
   "By: <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[4],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[3],
   "'>IDPs</span>, <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[1],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[1],
   "'>Refugees under UNHCR's mandate</span>, <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[2],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[5],
   "'>Refugees under UNWRA's mandate</span>,<br><span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[9],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[6],
   "'>Other people in need of international protection</span> and <span style='color:",
-  unhcr_pal(n = 9, "pal_unhcr_poc")[3],
+  unhcr_pal(n = 6, "pal_unhcr_poc")[2],
   "'>Asylum-seekers</span>."
 )
 
@@ -792,8 +792,8 @@ ggplot(
     breaks = scales::pretty_breaks(n = 5)
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_poc", nmax = 9,
-    order = c(4, 1, 2, 9, 3)
+    palette = "pal_unhcr_poc", nmax = 6,
+    order = c(3, 1, 5, 6, 2)
   ) +
   labs(
     title = stack_col_title,
@@ -844,11 +844,11 @@ title_percent_stack <- "Refugees from the different regions of Africa"
 
 subtitle_percent_stack <- paste0(
   "Percentage of refugees in <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[1], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[1], "'>",
   region_name[1], "</span>, <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[2], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[2], "'>",
   region_name[2], "</span> and <span style='color:",
-  unhcr_pal(n = 3, "pal_unhcr_region")[3], "'>",
+  unhcr_pal(n = 3, "pal_unhcr")[3], "'>",
   region_name[3], "</span> that originated from these regions at the end of 2013-2022"
 )
 
@@ -869,7 +869,7 @@ ggplot(
     labels = scales::label_percent()
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_region", nmax = 3
+    palette = "pal_unhcr", nmax = 3
   ) +
   labs(
     title = title_percent_stack,
@@ -906,7 +906,7 @@ ggplot(
     hjust = .5,
     position = position_stack(vjust = .5),
     color = if_else(
-      percent_stack_df$unhcr_region == "West and Central Africa",
+      percent_stack_df$unhcr_region == "Southern Africa",
       "#1a1a1a",
       "#ffffff"
     )
@@ -916,7 +916,7 @@ ggplot(
     labels = scales::label_percent()
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr_region", nmax = 3
+    palette = "pal_unhcr", nmax = 3
   ) +
   labs(
     title = title_percent_stack,
@@ -1042,8 +1042,8 @@ ggplot(
     expand = expansion(mult = c(0, .05))
   ) +
   scale_color_unhcr_d(
-    palette = "pal_unhcr", nmax = 4,
-    order = c(4, 2)
+    palette = "pal_unhcr_poc", nmax = 3,
+    order = c(3, 1)
   ) +
   labs(
     title = title_multi_line,
@@ -1086,8 +1086,8 @@ ggplot(
     expand = expansion(mult = c(0, .05))
   ) +
   scale_color_unhcr_d(
-    palette = "pal_unhcr", nmax = 4,
-    order = c(4, 2)
+    palette = "pal_unhcr_poc", nmax = 3,
+    order = c(3, 1)
   ) +
   labs(
     title = title_multi_line,
@@ -1216,8 +1216,8 @@ ggplot(
     expand = expansion(mult = c(0, .05))
   ) +
   scale_fill_unhcr_d(
-    palette = "pal_unhcr", nmax = 4,
-    order = c(4, 2)
+    palette = "pal_unhcr_poc", nmax = 3,
+    order = c(3, 1)
   ) +
   labs(
     title = title_stack_area,
@@ -1281,7 +1281,7 @@ ggplot(
     fontface = "bold"
   ) +
   scale_fill_unhcr_d(
-    nmax = 3, order = c(2, 1)
+    nmax = 4, order = c(4, 1)
   ) +
   coord_polar(
     theta = "y",
@@ -1317,10 +1317,10 @@ ggplot(
     fontface = "bold"
   ) +
   scale_fill_unhcr_d(
-    nmax = 3, order = c(2, 1)
+    nmax = 4, order = c(4, 1)
   ) +
   scale_color_unhcr_d(
-    nmax = 3, order = c(2, 1)
+    nmax = 4, order = c(4, 1)
   ) +
   scale_x_continuous(
     expand = expansion(mult = c(0.8, 0.2))
@@ -1474,8 +1474,8 @@ ggplot(
   ) +
   scale_fill_unhcr_d(
     palette = "pal_unhcr_poc",
-    nmax = 9,
-    order = c(1, 3:5, 8:9)
+    nmax = 7,
+    order = c(1:4, 7, 6)
   ) +
   scale_y_continuous(
     labels = scales::label_number(scale_cut = scales::cut_short_scale()),

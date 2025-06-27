@@ -1,11 +1,10 @@
 ## Resubmission notes
 
-Minor improvements:
+Minor alignment:
 
-- Updated theme_unhcr():
-  - Set `legend.location = "plot"`.
-  - Set `legend.justification.top = 0`.
-- Removed the deprecated scale_name argument in `continuous_scale()`, `discrete_scale()`, and `binned_scale()` functions.
+- Updated `theme_unhcr()` to reflect revised text and gridline colors based on the latest UNHCR standards.
+- Revised existing color palettes.
+- Added new categorical, sequential and diverging color palettes.
 
 ## R CMD check results
 
