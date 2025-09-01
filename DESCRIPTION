@@ -24,8 +24,7 @@ Imports:
     scales,
     ggtext,
     ggrepel,
-    systemfonts,
-    extrafont
+    systemfonts
 Suggests:
     rmarkdown,
     knitr,
