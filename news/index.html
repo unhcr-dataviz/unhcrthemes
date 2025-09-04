@@ -38,9 +38,20 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="unhcrthemes-development-version">unhcrthemes (development version)<a class="anchor" aria-label="anchor" href="#unhcrthemes-development-version"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>Removed the dependency on <a href="https://github.com/wch/extrafont" class="external-link">extrafont</a>, as its dependency <a href="https://github.com/wch/Rttf2pt1" class="external-link">Rttf2pt1</a> is scheduled for removal from CRAN.<br></li>
+<li>The function <code>lato_registered()</code>, which verified if Lato was registered through <a href="https://github.com/wch/extrafont" class="external-link">extrafont</a>, has been <strong>removed</strong>.<br></li>
+<li>The function <code><a href="../reference/import_lato.html">import_lato()</a></code> now only imports Lato via <a href="https://github.com/r-lib/systemfonts" class="external-link">systemfonts</a>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="notes-development-version">Notes<a class="anchor" aria-label="anchor" href="#notes-development-version"></a></h3>
+<ul><li>This change does <strong>not</strong> affect the use of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> in general workflows.<br></li>
+<li>However, it limits the possibility to create PDFs with the official Lato font <strong>embedded</strong>. Users can still rely on system-installed fonts for consistent rendering.</li>
+</ul></div>
 </div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.7.0" id="unhcrthemes-070">unhcrthemes 0.7.0<a class="anchor" aria-label="anchor" href="#unhcrthemes-070"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.7.0" id="unhcrthemes-070">unhcrthemes 0.7.0<a class="anchor" aria-label="anchor" href="#unhcrthemes-070"></a></h2><p class="text-muted">CRAN release: 2025-06-27</p>
 <div class="section level3">
 <h3 id="updates-aligned-with-unhcr-data-visualization-guidelines-0-7-0">Updates aligned with 2025 UNHCR Data Visualization Guidelines<a class="anchor" aria-label="anchor" href="#updates-aligned-with-unhcr-data-visualization-guidelines-0-7-0"></a></h3>
 <ul><li>Updated <code><a href="../reference/theme_unhcr.html">theme_unhcr()</a></code> to reflect revised text and gridline colors based on the latest UNHCR standards.</li>
