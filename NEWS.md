@@ -1,5 +1,16 @@
 # unhcrthemes (development version)
 
+## Breaking changes
+
+- Removed the dependency on `{extrafont}`, as its dependency `{Rttf2pt1}` is scheduled for removal from CRAN.  
+- The function `lato_registered()`, which verified if Lato was registered through `{extrafont}`, has been **removed**.  
+- The function `import_lato()` now only imports Lato via `{systemfonts}`.  
+
+## Notes
+
+- This change does **not** affect the use of `{unhcrthemes}` in general workflows.  
+- However, it limits the possibility to create PDFs with the official Lato font **embedded**. Users can still rely on system-installed fonts for consistent rendering. 
+
 # unhcrthemes 0.7.0
 
 ## Updates aligned with 2025 UNHCR Data Visualization Guidelines
