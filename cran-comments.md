@@ -1,10 +1,8 @@
 ## Resubmission notes
 
-Minor alignment:
-
-- Updated `theme_unhcr()` to reflect revised text and gridline colors based on the latest UNHCR standards.
-- Revised existing color palettes.
-- Added new categorical, sequential and diverging color palettes.
+- Removed the dependency on `{extrafont}`, as its dependency `{Rttf2pt1}` is scheduled for removal from CRAN. 
+- Removed the function `lato_registered()`, which relied on `{extrafont}`.
+- Updated the function `import_lato()` to use only `{systemfonts}`.
 
 ## R CMD check results
 
