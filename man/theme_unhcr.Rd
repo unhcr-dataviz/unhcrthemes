@@ -78,7 +78,8 @@ Use \code{x} or \code{y} to have only the correspondent axis ticks active.
 Default to \code{FALSE}.}
 
 \item{grid}{Logical \code{TRUE}/\code{FALSE} or a combination of \code{X} or \code{x}
-and \code{Y} or y\verb{. Turn on and off panel grids. Use }X\code{or}Y\verb{for major grids, and}x\code{or}y\verb{for minor grid.  Default to}XY`.}
+and \code{Y} or \code{y}. Turn on and off panel grids. Use \code{X} or \code{Y} for major grids,
+and \code{x} or \code{y} for minor grid.  Default to \code{XY}.}
 
 \item{legend}{Logical \code{TRUE}/\code{FALSE}. Turn on and off the legend.
 Default to \code{TRUE}.}
@@ -121,7 +122,6 @@ ggplot(mpg, aes(displ, hwy)) +
 
 }
 \seealso{
-\code{\link[ggplot2:theme]{theme_minimal}},
-\code{\link[ggplot2:element_text]{element_text}},
-\code{\link[ggtext:element_textbox_simple]{ggtext::element_textbox_simple}}
+\code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}, \code{\link[ggplot2:element_text]{ggplot2::element_text()}},
+\code{\link[marquee:element_marquee]{marquee::element_marquee()}}
 }

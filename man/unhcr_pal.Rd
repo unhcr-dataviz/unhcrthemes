@@ -12,7 +12,7 @@ maximum depending on palette (5, 7 or 10)}
 
 \item{name}{A palette name}
 
-\item{...}{Additional arguments for \link[grDevices:colorRamp]{grDevices::colorRampPalette}}
+\item{...}{Additional arguments for \link[grDevices:colorRampPalette]{grDevices::colorRampPalette}}
 }
 \value{
 A character vector, the palette hex color codes.

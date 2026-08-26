@@ -6,6 +6,8 @@
 \alias{unhcrthemes-package}
 \title{unhcrthemes: UNHCR 'ggplot2' Theme and Colour Palettes}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 A 'ggplot2' theme and color palettes following the United Nations High Commissioner for Refugees (UNHCR) Data Visualization Guidelines recommendations.
 }
 \seealso{
@@ -22,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Cédric Vidonne \email{cedric@vidonne.me}
   \item Ahmadou Dicko \email{mail@ahmadoudicko.com}
 }
 

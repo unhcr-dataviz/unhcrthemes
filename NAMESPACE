@@ -16,16 +16,24 @@ export(scale_fill_unhcr_d)
 export(theme_unhcr)
 export(unhcr_pal)
 import(ggplot2)
-importFrom(ggplot2,continuous_scale)
-importFrom(ggplot2,discrete_scale)
-importFrom(ggplot2,update_geom_defaults)
-importFrom(ggrepel,GeomLabelRepel)
-importFrom(ggrepel,GeomTextRepel)
-importFrom(graphics,image)
-importFrom(graphics,par)
-importFrom(graphics,plot)
-importFrom(graphics,rect)
-importFrom(graphics,text)
+importFrom(ggplot2,
+  continuous_scale,
+  discrete_scale,
+  update_geom_defaults
+)
+importFrom(ggrepel,
+  GeomLabelRepel,
+  GeomTextRepel
+)
+importFrom(graphics,
+  image,
+  par,
+  plot,
+  rect,
+  text
+)
 importFrom(scales,gradient_n_pal)
-importFrom(systemfonts,register_font)
-importFrom(systemfonts,system_fonts)
+importFrom(systemfonts,
+  register_font,
+  system_fonts
+)

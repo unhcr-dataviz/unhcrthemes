@@ -33,7 +33,7 @@
 #' Use `x` or `y` to have only the correspondent axis ticks active.
 #' Default to `FALSE`.
 #' @param grid Logical `TRUE`/`FALSE` or a combination of `X` or `x`
-#' and `Y` or y`. Turn on and off panel grids. Use `X` or `Y` for major grids,
+#' and `Y` or `y`. Turn on and off panel grids. Use `X` or `Y` for major grids,
 #' and `x` or `y` for minor grid.  Default to `XY`.
 #' @param legend Logical `TRUE`/`FALSE`. Turn on and off the legend.
 #' Default to `TRUE`.
@@ -49,9 +49,8 @@
 #' @param void Logical `TRUE`/`FALSE`. If `TRUE`, all grid lines, ticks
 #' and axes are removed. Default to `FALSE`.
 #'
-#' @seealso \code{\link[ggplot2:theme]{theme_minimal}},
-#' \code{\link[ggplot2:element_text]{element_text}},
-#' \code{\link[ggtext:element_textbox_simple]{ggtext::element_textbox_simple}}
+#' @seealso [ggplot2::theme_minimal()], [ggplot2::element_text()],
+#'  [marquee::element_marquee()]
 #'
 #' @import ggplot2
 #'
@@ -115,14 +114,21 @@ theme_unhcr <- function(
   # title
   ret <- ret +
     theme(
-      plot.title = ggtext::element_textbox_simple(
+      plot.title = marquee::element_marquee(
         family = font_family,
         size = plot_title_size,
-        face = "bold",
-        color = "#000000",
+        style = marquee::classic_style(weight = "bold"),
+        width = grid::unit(1, "npc"),
+        colour = "#000000",
         hjust = 0,
         lineheight = 1.2,
-        margin = margin(0, 0, plot_title_margin, 0, "pt")
+        margin = margin(
+          t = 0,
+          r = 0,
+          b = plot_title_margin,
+          l = 0,
+          unit = "pt"
+        )
       )
     )
   ret <- ret + theme(plot.title.position = "plot")
@@ -130,10 +136,10 @@ theme_unhcr <- function(
   # subtitle
   ret <- ret +
     theme(
-      plot.subtitle = ggtext::element_textbox_simple(
+      plot.subtitle = marquee::element_marquee(
         family = font_family,
         size = subtitle_size,
-        face = "plain",
+        width = grid::unit(1, "npc"),
         color = dark_text,
         hjust = 0,
         lineheight = 1.2,
@@ -156,14 +162,14 @@ theme_unhcr <- function(
   # caption
   ret <- ret +
     theme(
-      plot.caption = ggtext::element_textbox_simple(
+      plot.caption = marquee::element_marquee(
         family = font_family,
         size = caption_size,
-        face = "plain",
+        width = grid::unit(1, "npc"),
         color = light_text,
         hjust = 0,
         lineheight = 1.1,
-        margin = margin(caption_margin, 0, 0, 0, "pt"),
+        margin = margin(caption_margin, 0, 0, 0, "pt")
       )
     )
   ret <- ret + theme(plot.caption.position = "plot")
