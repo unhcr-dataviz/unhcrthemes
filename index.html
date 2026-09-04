@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Lato-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Lato-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/unhcr-dataviz/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/vidonne/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -68,7 +68,7 @@
 </div>
 <!-- badges: start -->
 
-<p>Simplify the creation of your data visualizations with the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> R package. It is designed to align your plots with <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR’s data visualization</a> recommendations. This package offers a comprehensive <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme, including built-in customizations and thoughtfully crafted color palettes.</p>
+<p>Simplify the creation of your data visualizations with the <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> R package. It is designed to align your plots with <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR’s data visualization</a> recommendations. This package offers a comprehensive <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> theme, including built-in customizations and thoughtfully crafted color palettes.</p>
 <div class="section level2">
 <h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
 </h2>
@@ -81,7 +81,7 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Get started by installing the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package from CRAN with:</p>
+<p>Get started by installing the <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
 <p>Or retrieve the development version from Github using the <a href="https://pak.r-lib.org/" class="external-link">pak</a> package:</p>
@@ -89,7 +89,7 @@
 <code class="sourceCode R"><span><span class="co"># If pak is not yet installed, uncomment the following line:</span></span>
 <span><span class="co"># install.packages("pak")</span></span>
 <span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"unhcr-dataviz/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"vidonne/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -97,7 +97,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="base-ggplot2-theme">Base <code>{ggplot2}</code> theme<a class="anchor" aria-label="anchor" href="#base-ggplot2-theme"></a>
 </h3>
@@ -116,12 +116,12 @@
 <span>    caption <span class="op">=</span> <span class="st">"Source: mtcars"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-base-plot-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-base-plot-1.png" alt="" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="fonts">Fonts<a class="anchor" aria-label="anchor" href="#fonts"></a>
 </h3>
-<p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
+<p>One of the two officially recommended fonts outlined in the <a href="https://dataviz.unhcr.org/guidance/" class="external-link">UNHCR Data Visualization Guidelines</a> is <a href="https://fonts.google.com/specimen/Lato" class="external-link"><code>Lato</code></a>. To ensure optimal functionality of the <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package, please make sure that the <code>Lato</code> font is installed on your device prior to usage.</p>
 <p>For <code>R</code> PDF (<code>pdf</code>) and PostScript (<code>postcript</code>) devices, there is a function <code>import_lato</code> that can be used to import the <code>Lato</code> font into these two devices. We recommend the use of <code>cairo_pdf</code> or <code>cairo_ps</code> devices, which work when you have <code>Lato</code> installed. They are available on all platforms and have better support custom fonts.</p>
 </div>
 <div class="section level3">
@@ -131,11 +131,11 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display all unhcr color palette</span></span>
 <span><span class="fu"><a href="reference/display_unhcr_all.html">display_unhcr_all</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-palette-all-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-palette-all-1.png" alt="" width="90%" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Or select a specific one and limit the number of colors</span></span>
 <span><span class="fu"><a href="reference/display_unhcr_pal.html">display_unhcr_pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, <span class="st">"pal_blue"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-palette-blue-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-palette-blue-1.png" alt="" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="scales-colorfill">Scales (color/fill)<a class="anchor" aria-label="anchor" href="#scales-colorfill"></a>
@@ -157,7 +157,7 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/unhcr_scale.html">scale_color_unhcr_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>legend_title <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-scale-plot-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-scale-plot-1.png" alt="" width="90%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="geoms-textlabel">Geoms (text/label)<a class="anchor" aria-label="anchor" href="#geoms-textlabel"></a>
@@ -177,23 +177,23 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-geom-plot-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>Explore more examples of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> in action on the <a href="https://unhcr-dataviz.github.io/unhcrthemes/articles/unhcrthemes.html">package vignette</a> or <a href="https://dataviz.unhcr.org/tutorials/r/" class="external-link">UNHCR Data Visualization Platform</a>.</p>
+<p><img src="reference/figures/README-geom-plot-1.png" alt="" width="90%" style="display: block; margin: auto;"></p>
+<p>Explore more examples of <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> in action on the <a href="https://vidonne.github.io/unhcrthemes/articles/unhcrthemes.html" class="external-link">package vignette</a> or <a href="https://dataviz.unhcr.org/tutorials/r/" class="external-link">UNHCR Data Visualization Platform</a>.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="additional-unhcr-tools">Additional UNHCR Tools<a class="anchor" aria-label="anchor" href="#additional-unhcr-tools"></a>
 </h2>
-<!-- * [**unhcrthemes**](https://github.com/unhcr-dataviz/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
+<!-- * [**unhcrthemes**](https://github.com/vidonne/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
 <ul>
 <li>
-<a href="https://github.com/unhcr-dataviz/unhcrdown" class="external-link"><strong>unhcrdown</strong></a>: UNHCR templates for R Markdown</li>
+<a href="https://github.com/vidonne/unhcrdown" class="external-link"><strong>unhcrdown</strong></a>: UNHCR templates for R Markdown</li>
 <li>
 <a href="https://github.com/PopulationStatistics/refugees" class="external-link"><strong>refugees</strong></a>: Access to UNHCR Refugee Data Finder API</li>
 <li>
-<a href="https://github.com/unhcr-dataviz/quarto-html-unhcr" class="external-link"><strong>quarto-html-unhcr</strong></a>: Quarto extension for UNHCR branded HTML documents</li>
+<a href="https://github.com/vidonne/quarto-html-unhcr" class="external-link"><strong>quarto-html-unhcr</strong></a>: Quarto extension for UNHCR branded HTML documents</li>
 <li>
-<a href="https://github.com/unhcr-dataviz/quarto-revealjs-unhcr" class="external-link"><strong>quarto-revealjs-unhcr</strong></a>: Quarto extension for UNHCR branded presentations</li>
+<a href="https://github.com/vidonne/quarto-revealjs-unhcr" class="external-link"><strong>quarto-revealjs-unhcr</strong></a>: Quarto extension for UNHCR branded presentations</li>
 <li>
 <a href="https://dataviz.unhcr.org/" class="external-link"><strong>Data Visualization Platform</strong></a>: UNHCR’s data visualization guidelines and tools</li>
 </ul>
@@ -201,25 +201,25 @@
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>We extend our gratitude to the creators of the <a href="https://github.com/hrbrmstr/hrbrthemes" class="external-link"><code>{hrbrthemes}</code></a>, <a href="https://github.com/Nowosad/rcartocolor" class="external-link"><code>{rcartocolor}</code></a> and <a href="https://github.com/wilkelab/cowplot/" class="external-link"><code>{cowplot}</code></a> packages that influenced the development of <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a>.</p>
+<p>We extend our gratitude to the creators of the <a href="https://github.com/hrbrmstr/hrbrthemes" class="external-link"><code>{hrbrthemes}</code></a>, <a href="https://github.com/Nowosad/rcartocolor" class="external-link"><code>{rcartocolor}</code></a> and <a href="https://github.com/wilkelab/cowplot/" class="external-link"><code>{cowplot}</code></a> packages that influenced the development of <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="contribution-and-code-of-conduct">Contribution and Code of Conduct<a class="anchor" aria-label="anchor" href="#contribution-and-code-of-conduct"></a>
 </h2>
-<p>Contributions to <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> are highly valued. To ensure a welcoming and inclusive community, we follow our <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. If you have suggestions, uncover bugs, or envision new features, kindly submit an <a href="https://github.com/unhcr-dataviz/unhcrthemes/issues" class="external-link">issue on GitHub</a>. To contribute code, don’t hesitate to fork the repository and create a pull request.</p>
+<p>Contributions to <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> are highly valued. To ensure a welcoming and inclusive community, we follow our <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. If you have suggestions, uncover bugs, or envision new features, kindly submit an <a href="https://github.com/vidonne/unhcrthemes/issues" class="external-link">issue on GitHub</a>. To contribute code, don’t hesitate to fork the repository and create a pull request.</p>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>This package is distributed under the <a href="https://github.com/unhcr-dataviz/unhcrthemes/blob/master/LICENSE.md" class="external-link">MIT License</a>.</p>
+<p>This package is distributed under the <a href="https://github.com/vidonne/unhcrthemes/blob/master/LICENSE.md" class="external-link">MIT License</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=unhcrthemes" class="external-link">View on CRAN</a></li>
-<li><a href="https://github.com/unhcr-dataviz/unhcrthemes/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/unhcr-dataviz/unhcrthemes/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/vidonne/unhcrthemes/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/vidonne/unhcrthemes/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -258,7 +258,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://CRAN.R-project.org/package=unhcrthemes" class="external-link"><img src="https://www.r-pkg.org/badges/version/unhcrthemes" alt="CRAN status"></a></li>
 </ul>
 </div>
@@ -272,7 +272,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/unhcr-dataviz/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
+  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/vidonne/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
 </div>
 
     </footer>

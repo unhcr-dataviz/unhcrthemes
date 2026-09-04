@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Lato-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Lato-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/unhcr-dataviz/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/vidonne/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -66,13 +66,13 @@
       <img src="../logo.svg" class="logo" alt=""><h1>unhcrthemes</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/unhcr-dataviz/unhcrthemes/blob/master/vignettes/unhcrthemes.Rmd" class="external-link"><code>vignettes/unhcrthemes.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/vidonne/unhcrthemes/blob/master/vignettes/unhcrthemes.Rmd" class="external-link"><code>vignettes/unhcrthemes.Rmd</code></a></small>
       <div class="d-none name"><code>unhcrthemes.Rmd</code></div>
     </div>
 
     
     
-<p>The <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package provides tools to create
+<p>The <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package provides tools to create
 <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> visualizations that adhere to the <a href="https://dataviz.unhcr.org/guidance/" class="external-link">United Nations High
 Commissioner for Refugees (UNHCR) data visualization guidelines</a>.</p>
 <p>One of the main functions, <code>theme_unhcr</code>, allows for the
@@ -152,13 +152,13 @@ ticks, and axes.</li>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>After loading the <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, you can apply
+<p>After loading the <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package, you can apply
 the theme to any <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> chart, by simply adding
 <code>theme_unhcr</code> at your call. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create some data</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -189,7 +189,7 @@ the theme to any <a href="https://ggplot2.tidyverse.org" class="external-link">g
 <span>    caption <span class="op">=</span> <span class="st">"Source: UNHCR, the UN Refugee Agency"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/setup-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/setup-1.png" class="r-plt" alt="" width="100%"></p>
 <p>The theme comes with some default settings, but you can customize
 most of it by adding parameters to the function call, as we will explore
 below.</p>
@@ -226,7 +226,7 @@ lines:</p>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span></span>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span> <span class="co"># Only major Y grid lines</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-2-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="axis">Axis<a class="anchor" aria-label="anchor" href="#axis"></a>
@@ -265,7 +265,7 @@ elements. For example, let’s add only the X axis:</p>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>,</span>
 <span>    axis <span class="op">=</span> <span class="st">"X"</span> <span class="co"># Only X axis</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-3-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="100%"></p>
 <p>Not quite the result we expected! This is because
 <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> comes, by default, with some expansion around the
 axis to create some room. To remove this extra space, you can use the
@@ -299,7 +299,7 @@ axis origin and adding a small padding at the other end.</p>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>,</span>
 <span>    axis <span class="op">=</span> <span class="st">"X"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="axis-title-and-text">Axis title and text<a class="anchor" aria-label="anchor" href="#axis-title-and-text"></a>
@@ -340,7 +340,7 @@ keep only the Y axis title:</p>
 <span>    axis <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    axis_title <span class="op">=</span> <span class="st">"Y"</span> <span class="co"># Only Y axis title</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-5-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="axis-ticks">Axis ticks<a class="anchor" aria-label="anchor" href="#axis-ticks"></a>
@@ -368,7 +368,7 @@ margin or justification of each of these elements using, for example,
 the <code>plot_title_size</code>, <code>plot_title_margin</code>, etc.
 parameters.</p>
 <p>On top of the <code>theme_unhcr</code> parameters, the
-<a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package natively incorporates the
+<a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package natively incorporates the
 <a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a> package for advanced text rendering in the title,
 subtitle and caption components. To showcase this, you can use the
 <a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a> functionalities to include styled text directly in
@@ -399,7 +399,7 @@ your plots.</p>
 <span>    axis <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    axis_title <span class="op">=</span> <span class="st">"Y"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-6-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="100%"></p>
 <div class="section level3">
 <h3 id="add-text-labels">Add text labels<a class="anchor" aria-label="anchor" href="#add-text-labels"></a>
 </h3>
@@ -433,13 +433,13 @@ the recommended font and style.</p>
 <span>    axis <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    axis_title <span class="op">=</span> <span class="st">"Y"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-7-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="color-palettes">Color palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a>
 </h2>
-<p>The <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package also comes with the UNHCR
+<p>The <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package also comes with the UNHCR
 color palettes, which can be used in your plots. Use the
 <code><a href="../reference/display_unhcr_all.html">display_unhcr_all()</a></code> function to show all the available
 palettes. These palettes can be used directly in your plots using the
@@ -469,7 +469,7 @@ in the <code><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d()</a></c
 <span>    axis <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    axis_title <span class="op">=</span> <span class="st">"Y"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-8-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="void">Void<a class="anchor" aria-label="anchor" href="#void"></a>
@@ -494,22 +494,22 @@ grid lines, ticks, and axes. For example, let’s create a pie chart:</p>
 <span>    caption <span class="op">=</span> <span class="st">"Source: UNHCR, the UN Refugee Agency"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_radial.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
 <span>    theta <span class="op">=</span> <span class="st">"y"</span>,</span>
 <span>    direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span></span>
 <span>    void <span class="op">=</span> <span class="cn">TRUE</span> <span class="co"># Remove all grid lines, ticks, and axes</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-9-1.png" width="100%"></p>
+<p><img src="unhcrthemes_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
 </h2>
-<p>With <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a>, creating UNHCR-compliant
+<p>With <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a>, creating UNHCR-compliant
 visualizations in <code>R</code> is straightforward, providing a
 consistent and branded look for your graphics.</p>
-<p>For more information on each parameter and usage, visit the <a href="https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html">function
+<p>For more information on each parameter and usage, visit the <a href="https://vidonne.github.io/unhcrthemes/reference/index.html" class="external-link">function
 documentation page</a> and the <a href="https://dataviz.unhcr.org/tutorials/r/" class="external-link">UNHCR Data Visualization
 Platform</a></p>
 </div>
@@ -524,7 +524,7 @@ Platform</a></p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/unhcr-dataviz/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
+  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/vidonne/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
 </div>
 
     </footer>

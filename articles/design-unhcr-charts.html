@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Lato-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Lato-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/unhcr-dataviz/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/vidonne/unhcrthemes/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -66,7 +66,7 @@
       <img src="../logo.svg" class="logo" alt=""><h1>Designing UNHCR Branded Charts using unhcrthemes</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/unhcr-dataviz/unhcrthemes/blob/master/vignettes/articles/design-unhcr-charts.Rmd" class="external-link"><code>vignettes/articles/design-unhcr-charts.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/vidonne/unhcrthemes/blob/master/vignettes/articles/design-unhcr-charts.Rmd" class="external-link"><code>vignettes/articles/design-unhcr-charts.Rmd</code></a></small>
       <div class="d-none name"><code>design-unhcr-charts.Rmd</code></div>
     </div>
 
@@ -76,7 +76,7 @@
 insights from complex datasets. The <a href="https://www.unhcr.org/" class="external-link">United Nations High Commissioner for
 Refugees</a> (UNHCR) provides crucial <a href="https://www.unhcr.org/refugee-statistics/download/" class="external-link">refugee
 statistics</a> that can be presented in an informative and visually
-appealing manner. The <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> package, in combination
+appealing manner. The <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> package, in combination
 with the <a href="https://populationstatistics.github.io/refugees/" class="external-link">refugees</a> package and the versatile
 <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> library, offers an excellent solution to create
 UNHCR-branded charts with ease.</p>
@@ -91,11 +91,11 @@ UNHCR-branded charts with ease.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">packages</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Install unhcrthemes with pak</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"unhcr-dataviz/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"vidonne/unhcrthemes"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Load the packages</strong> into your R environment:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://populationstatistics.github.io/refugees/" class="external-link">refugees</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <p>Some packages installed above will be loaded using the
@@ -160,7 +160,7 @@ of origin in 2022.</p>
 <span>    x <span class="op">=</span> <span class="st">"Number of people"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"X"</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"X"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/bar-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/bar-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -191,7 +191,7 @@ of origin in 2022.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_text <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/bar-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/bar-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="grouped-bar-chart">Grouped bar chart<a class="anchor" aria-label="anchor" href="#grouped-bar-chart"></a>
@@ -248,7 +248,7 @@ for both 2012 and 2022. We will use a grouped bar chart.</p>
 <span>    grid <span class="op">=</span> <span class="st">"X"</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/group-bar-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/group-bar-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -284,7 +284,7 @@ for both 2012 and 2022. We will use a grouped bar chart.</p>
 <span>    grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    axis_text <span class="op">=</span> <span class="st">"Y"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/group-bar-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/group-bar-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="stacked-bar-chart">Stacked bar chart<a class="anchor" aria-label="anchor" href="#stacked-bar-chart"></a>
@@ -353,7 +353,7 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>    grid <span class="op">=</span> <span class="st">"X"</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    legend_text_size <span class="op">=</span> <span class="fl">9</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stack-bar-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/stack-bar-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add subtitle instead of legend</span></span>
@@ -380,7 +380,7 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
-<span>      label <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
+<span>      label <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
 <span>        <span class="va">pop_num</span> <span class="op">&gt;=</span> <span class="fl">1e6</span> <span class="op">~</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span></span>
 <span>          scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_si</a></span><span class="op">(</span>unit <span class="op">=</span> <span class="st">""</span><span class="op">)</span>,</span>
 <span>          accuracy <span class="op">=</span> <span class="fl">.1</span></span>
@@ -390,13 +390,13 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>          accuracy <span class="op">=</span> <span class="fl">1</span></span>
 <span>        <span class="op">)</span><span class="op">(</span><span class="va">pop_num</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      hjust <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
+<span>      hjust <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
 <span>        <span class="va">pop_num</span> <span class="op">&lt;</span> <span class="fl">2e5</span> <span class="op">&amp;</span> <span class="va">pop_type</span> <span class="op">==</span> <span class="st">"asy"</span> <span class="op">~</span> <span class="op">-</span><span class="fl">0.25</span>,</span>
 <span>        <span class="va">pop_num</span> <span class="op">&lt;</span> <span class="fl">5e5</span> <span class="op">&amp;</span> <span class="va">pop_type</span> <span class="op">==</span> <span class="st">"asy"</span> <span class="op">~</span> <span class="op">-</span><span class="fl">0.55</span>,</span>
 <span>        <span class="va">pop_num</span> <span class="op">&lt;</span> <span class="fl">5e5</span> <span class="op">&amp;</span> <span class="va">pop_type</span> <span class="op">==</span> <span class="st">"ref"</span> <span class="op">~</span> <span class="fl">0.15</span>,</span>
 <span>        <span class="cn">TRUE</span> <span class="op">~</span> <span class="fl">.5</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      color <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
+<span>      color <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
 <span>        <span class="va">pop_num</span> <span class="op">&lt;</span> <span class="fl">5e5</span> <span class="op">&amp;</span> <span class="va">pop_type</span> <span class="op">==</span> <span class="st">"asy"</span> <span class="op">~</span> <span class="st">"#1a1a1a"</span>,</span>
 <span>        <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"#ffffff"</span></span>
 <span>      <span class="op">)</span></span>
@@ -421,7 +421,7 @@ origin for all people displaced across borders, by type, in 2022.</p>
 <span>    grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    axis_text <span class="op">=</span> <span class="st">"y"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stack-bar-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/stack-bar-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="population-pyramid">Population pyramid<a class="anchor" aria-label="anchor" href="#population-pyramid"></a>
@@ -504,7 +504,7 @@ and/or assisted by UNHCR in 2022.</p>
 <span>    axis_text <span class="op">=</span> <span class="st">"Y"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, grid <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    plot_title_margin <span class="op">=</span> <span class="fl">24</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/pyramid-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/pyramid-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -551,7 +551,7 @@ refugee population.</p>
 <span>    Y <span class="op">=</span> <span class="st">"Number of people"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/column-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/column-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -583,7 +583,7 @@ refugee population.</p>
 <span>    Y <span class="op">=</span> <span class="st">"Number of people"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"X"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/column-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/column-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="grouped-column-chart">Grouped column chart<a class="anchor" aria-label="anchor" href="#grouped-column-chart"></a>
@@ -655,7 +655,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/group-col-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/group-col-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -698,7 +698,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    grid <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"x"</span>, axis <span class="op">=</span> <span class="st">"X"</span>,</span>
 <span>    axis_title <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/group-col-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/group-col-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="stacked-column-chart">Stacked column chart<a class="anchor" aria-label="anchor" href="#stacked-column-chart"></a>
@@ -788,7 +788,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>    legend_text_size <span class="op">=</span> <span class="fl">9</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stack-col-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/stack-col-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with category in subtitle:</strong></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set subtitle</span></span>
@@ -837,7 +837,7 @@ three UNHCR regions in Africa. We will use a grouped column chart.</p>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span></span>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stack-col-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/stack-col-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="stacked-column-chart-1">100% stacked column chart<a class="anchor" aria-label="anchor" href="#stacked-column-chart-1"></a>
@@ -912,7 +912,7 @@ in Africa.</p>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/percent-stack-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/percent-stack-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -957,7 +957,7 @@ in Africa.</p>
 <span>    grid <span class="op">=</span> <span class="cn">FALSE</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    axis_text <span class="op">=</span> <span class="st">"x"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/percent-stack-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/percent-stack-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -1008,7 +1008,7 @@ in Africa.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/single-line-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/single-line-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="multiple-line-chart">Multiple line chart<a class="anchor" aria-label="anchor" href="#multiple-line-chart"></a>
@@ -1076,7 +1076,7 @@ in Africa.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/multi-line-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/multi-line-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Plot with labels:</strong></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot with labels</span></span>
@@ -1122,7 +1122,7 @@ in Africa.</p>
 <span>    grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>    plot_margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">40</span>, <span class="fl">12</span>, <span class="fl">12</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/multi-line-label-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/multi-line-label-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -1178,7 +1178,7 @@ in Africa.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/area-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/area-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="stacked-area-chart">Stacked area chart<a class="anchor" aria-label="anchor" href="#stacked-area-chart"></a>
@@ -1245,7 +1245,7 @@ in Africa.</p>
 <span>    y <span class="op">=</span> <span class="st">"Number of people"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>grid <span class="op">=</span> <span class="st">"Y"</span>, axis <span class="op">=</span> <span class="st">"X"</span>, axis_title <span class="op">=</span> <span class="st">"y"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stack-area-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/stack-area-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -1300,7 +1300,7 @@ concern by the end of 2022.</p>
 <span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
 <span>    nmax <span class="op">=</span> <span class="fl">4</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_radial.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
 <span>    theta <span class="op">=</span> <span class="st">"y"</span>,</span>
 <span>    direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
@@ -1309,7 +1309,7 @@ concern by the end of 2022.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/pie-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/pie-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Donut Plot:</strong></p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot</span></span>
@@ -1340,7 +1340,7 @@ concern by the end of 2022.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span>
 <span>    expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_polar.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_radial.html" class="external-link">coord_polar</a></span><span class="op">(</span></span>
 <span>    theta <span class="op">=</span> <span class="st">"y"</span>,</span>
 <span>    direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>    clip <span class="op">=</span> <span class="st">"off"</span></span>
@@ -1350,13 +1350,13 @@ concern by the end of 2022.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/donut-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/donut-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="less-common-charts">Less common charts<a class="anchor" aria-label="anchor" href="#less-common-charts"></a>
 </h2>
 <p>These less common type of charts can be created with the help of the
-<a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> and <a href="https://github.com/unhcr-dataviz/unhcrthemes" class="external-link">unhcrthemes</a> packages but will
+<a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> and <a href="https://github.com/vidonne/unhcrthemes" class="external-link">unhcrthemes</a> packages but will
 require extra packages. When needed, the code to install the extra
 packages will be provided.</p>
 <div class="section level3">
@@ -1413,97 +1413,7 @@ package.</p>
 <span>    caption <span class="op">=</span> <span class="va">caption</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/teeemap-plot-1.png" width="100%"></p>
-</div>
-<div class="section level3">
-<h3 id="streamgraph">Streamgraph<a class="anchor" aria-label="anchor" href="#streamgraph"></a>
-</h3>
-<p>Let’s make a streamgraph showing the evolution of the populations
-assisted by UNHCR from 1993 to 2022. For this we will use the <a href="https://github.com/davidsjoberg/ggstream" class="external-link"><code>{ggstream}</code></a>
-package.</p>
-<p><strong>Preparing the data:</strong></p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Keep 1993-2022 records, rename population columns,</span></span>
-<span><span class="co"># Pivot longer, grou by year and pop_type</span></span>
-<span><span class="co"># year as factor, pop_type as factor with levels, drop 0s</span></span>
-<span><span class="va">stream_df</span> <span class="op">&lt;-</span> <span class="fu">refugees</span><span class="fu">::</span><span class="va"><a href="https://github.com/PopulationStatistics/refugees/reference/population.html" class="external-link">population</a></span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;=</span> <span class="fl">1993</span> <span class="op">&amp;</span> <span class="va">year</span> <span class="op">&lt;=</span> <span class="fl">2022</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span>,</span>
-<span>    <span class="st">"Refugees"</span> <span class="op">=</span> <span class="va">refugees</span>,</span>
-<span>    <span class="st">"IDPs"</span> <span class="op">=</span> <span class="va">idps</span>,</span>
-<span>    <span class="st">"Asylum-seekers"</span> <span class="op">=</span> <span class="va">asylum_seekers</span>,</span>
-<span>    <span class="st">"Stateless person"</span> <span class="op">=</span> <span class="va">stateless</span>,</span>
-<span>    <span class="st">"Other of concern"</span> <span class="op">=</span> <span class="va">ooc</span>,</span>
-<span>    <span class="st">"Other people in need of international protection"</span> <span class="op">=</span> <span class="va">oip</span></span>
-<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span></span>
-<span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      <span class="st">"Refugees"</span>,</span>
-<span>      <span class="st">"IDPs"</span>,</span>
-<span>      <span class="st">"Asylum-seekers"</span>,</span>
-<span>      <span class="st">"Stateless person"</span>,</span>
-<span>      <span class="st">"Other of concern"</span>,</span>
-<span>      <span class="st">"Other people in need of international protection"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    names_to <span class="op">=</span> <span class="st">"pop_type"</span>,</span>
-<span>    values_to <span class="op">=</span> <span class="st">"pop_num"</span></span>
-<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">pop_type</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>pop_num <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">pop_num</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    year <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html" class="external-link">as_factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>,</span>
-<span>    pop_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">pop_type</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>      <span class="st">"Refugees"</span>,</span>
-<span>      <span class="st">"Asylum-seekers"</span>,</span>
-<span>      <span class="st">"IDPs"</span>,</span>
-<span>      <span class="st">"Stateless person"</span>,</span>
-<span>      <span class="st">"Other of concern"</span>,</span>
-<span>      <span class="st">"Other people in need of international protection"</span></span>
-<span>    <span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">pop_num</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
-<p><strong>Plot:</strong></p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install if needed and load package</span></span>
-<span><span class="co"># install.packages("ggstream")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ggstream</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Set title</span></span>
-<span><span class="va">stream_title</span> <span class="op">&lt;-</span> <span class="st">"Populations protected and/or assisted by UNHCR | 1993-2022"</span></span>
-<span></span>
-<span><span class="co"># Plot</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
-<span>  <span class="va">stream_df</span>,</span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="va">year</span>,</span>
-<span>    y <span class="op">=</span> <span class="va">pop_num</span>,</span>
-<span>    fill <span class="op">=</span> <span class="va">pop_type</span>,</span>
-<span>    group <span class="op">=</span> <span class="va">pop_type</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggstream</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggstream/man/geom_stream.html" class="external-link">geom_stream</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_x_discrete</a></span><span class="op">(</span></span>
-<span>    breaks <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/pretty_breaks.html" class="external-link">pretty_breaks</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/unhcr_scale.html">scale_fill_unhcr_d</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"pal_unhcr_poc"</span>,</span>
-<span>    nmax <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>    order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">6</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
-<span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="va">stream_title</span>,</span>
-<span>    caption <span class="op">=</span> <span class="va">caption</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Number of people"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_unhcr.html">theme_unhcr</a></span><span class="op">(</span></span>
-<span>    axis_title <span class="op">=</span> <span class="st">"y"</span>,</span>
-<span>    legend_text_size <span class="op">=</span> <span class="fl">9</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/stream-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/teeemap-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="slope">Slope<a class="anchor" aria-label="anchor" href="#slope"></a>
@@ -1512,7 +1422,7 @@ package.</p>
 population between 2017 and 2022 in the countries from the East and Horn
 of Africa region.</p>
 <p><strong>Preparing the data:</strong></p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Keep only 2017 and 2022 records, Load and join region names,</span></span>
 <span><span class="co"># Keep only countries in East and Horn of Africa region,</span></span>
 <span><span class="co"># Group by country and year and sum refugees</span></span>
@@ -1524,7 +1434,7 @@ of Africa region.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>refugees <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">refugees</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Plot:</strong></p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Set title</span></span>
 <span><span class="va">slope_title</span> <span class="op">&lt;-</span> <span class="st">"Evolution of refugee population in East and Horn of Africa region | 2017 vs 2022"</span></span>
 <span></span>
@@ -1567,7 +1477,7 @@ of Africa region.</p>
 <span>    axis_title <span class="op">=</span> <span class="cn">FALSE</span>, axis_text <span class="op">=</span> <span class="st">"x"</span>,</span>
 <span>    grid <span class="op">=</span> <span class="st">"X"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="design-unhcr-charts_files/figure-html/slope-plot-1.png" width="100%"></p>
+<p><img src="design-unhcr-charts_files/figure-html/slope-plot-1.png" class="r-plt" alt="" width="100%"></p>
 <p>We trust that this R package has equipped you with the tools needed
 to craft visually appealing and on-brand charts with ease. Should you
 desire further inspiration or in-depth guidance on aligning your data
@@ -1592,7 +1502,7 @@ perfectly with the organization’s identity and mission.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/unhcr-dataviz/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
+  <p><a href="https://www.unhcr.org/" target="_blank" rel="noopener noreferrer" class="external-link"><img src="https://raw.githubusercontent.com/vidonne/unhcrtemplate/master/man/figures/logo.svg" alt="UNHCR logo" style="max-height:2.5rem"></a></p>
 </div>
 
     </footer>
