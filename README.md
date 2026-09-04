@@ -7,7 +7,7 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
@@ -43,7 +43,7 @@ package:
 # If pak is not yet installed, uncomment the following line:
 # install.packages("pak")
 
-pak::pkg_install("unhcr-dataviz/unhcrthemes")
+pak::pkg_install("vidonne/unhcrthemes")
 ```
 
 ## Usage
@@ -73,7 +73,7 @@ ggplot(
   theme_unhcr()
 ```
 
-<img src="man/figures/README-base-plot-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="man/figures/README-base-plot-1.png" alt="" width="90%" style="display: block; margin: auto;" />
 
 ### Fonts
 
@@ -99,14 +99,14 @@ with UNHCR’s visual identity.
 display_unhcr_all()
 ```
 
-<img src="man/figures/README-palette-all-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="man/figures/README-palette-all-1.png" alt="" width="90%" style="display: block; margin: auto;" />
 
 ``` r
 # Or select a specific one and limit the number of colors
 display_unhcr_pal(n = 3, "pal_blue")
 ```
 
-<img src="man/figures/README-palette-blue-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="man/figures/README-palette-blue-1.png" alt="" width="90%" style="display: block; margin: auto;" />
 
 ### Scales (color/fill)
 
@@ -129,7 +129,7 @@ ggplot(
   theme_unhcr(legend_title = TRUE)
 ```
 
-<img src="man/figures/README-scale-plot-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="man/figures/README-scale-plot-1.png" alt="" width="90%" style="display: block; margin: auto;" />
 
 ### Geoms (text/label)
 
@@ -150,24 +150,24 @@ dplyr::count(mpg, class) |>
   theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
 ```
 
-<img src="man/figures/README-geom-plot-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="man/figures/README-geom-plot-1.png" alt="" width="90%" style="display: block; margin: auto;" />
 
 Explore more examples of `{unhcrthemes}` in action on the [package
-vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/unhcrthemes.html)
+vignette](https://vidonne.github.io/unhcrthemes/articles/unhcrthemes.html)
 or [UNHCR Data Visualization
 Platform](https://dataviz.unhcr.org/tutorials/r/).
 
 ## Additional UNHCR Tools
 
-<!-- * [**unhcrthemes**](https://github.com/unhcr-dataviz/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
+<!-- * [**unhcrthemes**](https://github.com/vidonne/unhcrthemes): UNHCR branded ggplot2 theme and color palettes -->
 
-- [**unhcrdown**](https://github.com/unhcr-dataviz/unhcrdown): UNHCR
-  templates for R Markdown
+- [**unhcrdown**](https://github.com/vidonne/unhcrdown): UNHCR templates
+  for R Markdown
 - [**refugees**](https://github.com/PopulationStatistics/refugees):
   Access to UNHCR Refugee Data Finder API
-- [**quarto-html-unhcr**](https://github.com/unhcr-dataviz/quarto-html-unhcr):
+- [**quarto-html-unhcr**](https://github.com/vidonne/quarto-html-unhcr):
   Quarto extension for UNHCR branded HTML documents
-- [**quarto-revealjs-unhcr**](https://github.com/unhcr-dataviz/quarto-revealjs-unhcr):
+- [**quarto-revealjs-unhcr**](https://github.com/vidonne/quarto-revealjs-unhcr):
   Quarto extension for UNHCR branded presentations
 - [**Data Visualization Platform**](https://dataviz.unhcr.org/): UNHCR’s
   data visualization guidelines and tools
@@ -187,11 +187,10 @@ welcoming and inclusive community, we follow our [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 If you have suggestions, uncover bugs, or envision new features, kindly
 submit an [issue on
-GitHub](https://github.com/unhcr-dataviz/unhcrthemes/issues). To
-contribute code, don’t hesitate to fork the repository and create a pull
-request.
+GitHub](https://github.com/vidonne/unhcrthemes/issues). To contribute
+code, don’t hesitate to fork the repository and create a pull request.
 
 ## License
 
 This package is distributed under the [MIT
-License](https://github.com/unhcr-dataviz/unhcrthemes/blob/master/LICENSE.md).
+License](https://github.com/vidonne/unhcrthemes/blob/master/LICENSE.md).

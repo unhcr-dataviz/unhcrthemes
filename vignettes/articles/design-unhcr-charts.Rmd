@@ -27,7 +27,7 @@ packages <- c("refugees", "tidyverse", "scales", "ragg", "pak")
 install.packages(setdiff(packages, rownames(installed.packages())))
 
 # Install unhcrthemes with pak
-pak::pkg_install("unhcr-dataviz/unhcrthemes")
+pak::pkg_install("vidonne/unhcrthemes")
 ```
 
 **Load the packages** into your R environment:

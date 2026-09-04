@@ -6,14 +6,16 @@
 \alias{unhcrthemes-package}
 \title{unhcrthemes: UNHCR 'ggplot2' Theme and Colour Palettes}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 A 'ggplot2' theme and color palettes following the United Nations High Commissioner for Refugees (UNHCR) Data Visualization Guidelines recommendations.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/unhcr-dataviz/unhcrthemes}
-  \item \url{https://unhcr-dataviz.github.io/unhcrthemes/}
-  \item Report bugs at \url{https://github.com/unhcr-dataviz/unhcrthemes/issues}
+  \item \url{https://github.com/vidonne/unhcrthemes}
+  \item \url{https://vidonne.github.io/unhcrthemes/}
+  \item Report bugs at \url{https://github.com/vidonne/unhcrthemes/issues}
 }
 
 }
@@ -22,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Cédric Vidonne \email{cedric@vidonne.me}
   \item Ahmadou Dicko \email{mail@ahmadoudicko.com}
 }
 

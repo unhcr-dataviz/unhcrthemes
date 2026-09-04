@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/unhcr-dataviz/unhcrthemes/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vidonne/unhcrthemes/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/unhcrthemes)](https://CRAN.R-project.org/package=unhcrthemes)
 <!-- badges: end -->
 
@@ -45,7 +45,7 @@ Or retrieve the development version from Github using the `{pak}` package:
 # If pak is not yet installed, uncomment the following line:
 # install.packages("pak")
 
-pak::pkg_install("unhcr-dataviz/unhcrthemes")
+pak::pkg_install("vidonne/unhcrthemes")
 ```
 
 ## Usage
@@ -135,7 +135,7 @@ dplyr::count(mpg, class) |>
   theme_unhcr(grid = FALSE, axis = "y", axis_title = FALSE, axis_text = "y")
 ```
 
-Explore more examples of `{unhcrthemes}` in action on the [package vignette](https://unhcr-dataviz.github.io/unhcrthemes/articles/unhcrthemes.html) or [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tutorials/r/).
+Explore more examples of `{unhcrthemes}` in action on the [package vignette](https://vidonne.github.io/unhcrthemes/articles/unhcrthemes.html) or [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tutorials/r/).
 
 ```{r child="man/rmdfragments/unhcr_tools.Rmd"}
 ```
@@ -146,8 +146,8 @@ We extend our gratitude to the creators of the [`{hrbrthemes}`](https://github.c
 
 ## Contribution and Code of Conduct
 
-Contributions to `{unhcrthemes}` are highly valued. To ensure a welcoming and inclusive community, we follow our [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). If you have suggestions, uncover bugs, or envision new features, kindly submit an [issue on GitHub](https://github.com/unhcr-dataviz/unhcrthemes/issues). To contribute code, don't hesitate to fork the repository and create a pull request.
+Contributions to `{unhcrthemes}` are highly valued. To ensure a welcoming and inclusive community, we follow our [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). If you have suggestions, uncover bugs, or envision new features, kindly submit an [issue on GitHub](https://github.com/vidonne/unhcrthemes/issues). To contribute code, don't hesitate to fork the repository and create a pull request.
 
 ## License
 
-This package is distributed under the [MIT License](https://github.com/unhcr-dataviz/unhcrthemes/blob/master/LICENSE.md).
+This package is distributed under the [MIT License](https://github.com/vidonne/unhcrthemes/blob/master/LICENSE.md).

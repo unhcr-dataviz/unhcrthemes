@@ -350,4 +350,4 @@ ggplot(
 
 With `{unhcrthemes}`, creating UNHCR-compliant visualizations in `R` is straightforward, providing a consistent and branded look for your graphics.
 
-For more information on each parameter and usage, visit the [function documentation page](https://unhcr-dataviz.github.io/unhcrthemes/reference/index.html) and the [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tutorials/r/)
+For more information on each parameter and usage, visit the [function documentation page](https://vidonne.github.io/unhcrthemes/reference/index.html) and the [UNHCR Data Visualization Platform](https://dataviz.unhcr.org/tutorials/r/)
