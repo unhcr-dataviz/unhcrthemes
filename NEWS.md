@@ -1,5 +1,15 @@
 # unhcrthemes (development version)
 
+## Breaking changes
+
+- Replaced `{ggtext}` with `{marquee}` for rendering plot titles, subtitles and captions in `theme_unhcr()`.
+- Automatic text wrapping and inline styling remain supported, but styling now follows `{marquee}` Markdown syntax.
+- Plain text and standard Markdown continue to work. HTML and CSS markup previously interpreted by `{ggtext}` must be updated. For example, use `{#0072BC highlighted text}` instead of `<span style="color:#0072BC;">highlighted text</span>`.
+
+## Other changes
+
+- The minimum required R version is now R 4.1 because this is required by `{marquee}`.
+
 # unhcrthemes 0.7.1
 
 ## Breaking changes
